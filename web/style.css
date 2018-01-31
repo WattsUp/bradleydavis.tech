@@ -1,0 +1,69 @@
+/* CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	line-height: 1;
+}
+
+.page {
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 20000px;
+	background-color: #000000;
+}
+
+.container {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	max-width: 1920px;
+	max-height: 1080px;
+}
+
+.brad-container {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-color: #FF0000;
+	left: 50%;
+	bottom: 200px;
+}
+
+.scene {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.ground-laboratory {
+	position: absolute;
+	width: 8000px;
+	height: 200px;
+	bottom: 0px;
+}
+
+.ground-flooring {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+}
+
+.ground-foundation {
+	position: absolute;
+	width: 100%;
+	top: 40px;
+	height: 160px;
+	
+}
+
+.wall-laboratory {
+	position: absolute;
+	height: 600px;
+	width: 30px;
+	bottom: 200px;
+}
