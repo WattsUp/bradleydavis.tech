@@ -1,28 +1,28 @@
 @font-face {
-    font-family: 'tektrron';
-    src: url('../fonts/tektrron.eot');
-    src: url('../fonts/tektrron.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/tektrron.woff') format('woff'),
-         url('../fonts/tektrron.svg#tektrronregular') format('svg'),
-         url('../fonts/tektrron.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+	font-family: 'tektrron';
+	src: url('../fonts/tektrron.eot');
+	src: url('../fonts/tektrron.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/tektrron.woff') format('woff'),
+		url('../fonts/tektrron.svg#tektrronregular') format('svg'),
+		url('../fonts/tektrron.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'code-new-roman';
-    src: url('../fonts/code-new-roman.eot');
-    src: url('../fonts/code-new-roman.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/code-new-roman.woff') format('woff'),
-         url('../fonts/code-new-roman.svg#code_new_romanregular') format('svg'),
-         url('../fonts/code-new-roman.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-
+	font-family: 'code-new-roman';
+	src: url('../fonts/code-new-roman.eot');
+	src: url('../fonts/code-new-roman.eot?#iefix')
+		format('embedded-opentype'), url('../fonts/code-new-roman.woff')
+		format('woff'),
+		url('../fonts/code-new-roman.svg#code_new_romanregular') format('svg'),
+		url('../fonts/code-new-roman.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }
 
 /* CSS Reset */
-* {
+#element {
 	margin: 0;
 	padding: 0;
 	font-size: 100%;
@@ -52,8 +52,7 @@
 	position: absolute;
 	width: 200px;
 	height: 200px;
-	background-color: #FF0000;
-	left: 50%;
+	left: 860px;
 	bottom: 200px;
 }
 
@@ -101,24 +100,53 @@
 
 .teleporter-console {
 	position: absolute;
-	height: 300px;
-	width: 280px;
+	height: 275px;
+	width: 240px;
 	bottom: 200px;
-	left: 280px;
-	background-color: #E4E9EC;
+	left: 320px;
+	background-image: url(../images/teleporter-console.png);
 }
 
-.teleporter-console > h1 {
+.teleporter-console>h1 {
 	color: #52ade1;
 	width: 100%;
 	text-align: center;
 	font-family: tektrron;
 	font-size: 30px;
+	margin: 6px 0px;
 }
 
-.teleporter-console > form {
+.teleporter-screen {
+	position: absolute;
+	left: 35px;
+	bottom: 20px;
+	background-color: #282828;
+	width: 170px;
+	height: 200px;
+	margin: 0px auto;
+}
+
+.teleporter-screen>button {
 	font-family: code-new-roman;
 	font-size: 24px;
+	color: #33FF33;
+	background-color: transparent;
+	width: 100%;
+	border: 2px solid transparent;
+	height: 16.6667%;
+	outline: none;
+	-webkit-transition: border 0.3s, background 0.3s, color 0.3s;
+	transition: border 0.3s, background 0.3s, color 0.3s;
+}
+
+.teleporter-screen>button:hover {
+	border: 2px solid #33FF33;
+}
+
+.teleporter-screen>button:active {
+	border: 2px solid #33FF33;
+	background-color: #33FF33;
+	color: #282828;
 }
 
 .background-laboratory {
@@ -137,4 +165,55 @@
 	bottom: 575px;
 	left: 0px;
 	background-image: url(../images/ceiling-lab.png);
+}
+
+.pdf-button {
+	position: absolute;
+	left: 800px;
+	bottom: 36px;
+	height: 88px;
+	width: 360px;
+	background-color: #282828;
+}
+
+.pdf-button>a {
+	display: block;
+	font-family: code-new-roman;
+	font-size: 28px;
+	color: #33FF33;
+	background-color: transparent;
+	border: 2px solid transparent;
+	width: 100%;
+	height: 40px;
+	outline: none;
+	-webkit-transition: border 0.3s, background 0.3s, color 0.3s;
+	transition: border 0.3s, background 0.3s, color 0.3s;
+	text-align: center;
+	text-decoration: none;
+}
+
+.pdf-button>a:hover {
+	border: 2px solid #33FF33;
+}
+
+.pdf-button>a:active {
+	border: 2px solid #33FF33;
+	background-color: #33FF33;
+	color: #282828;
+}
+
+.pdf-button>a>span {
+	vertical-align: middle;
+}
+
+.rover {
+	position: absolute;
+	width: 225px;
+	height: 155px;
+	bottom: 200px;
+	left: 1300px;
+}
+
+.rover>img {
+	position: absolute;
 }
