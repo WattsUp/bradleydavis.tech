@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'tektrron';
+    src: url('../fonts/tektrron.eot');
+    src: url('../fonts/tektrron.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/tektrron.woff') format('woff'),
+         url('../fonts/tektrron.svg#tektrronregular') format('svg'),
+         url('../fonts/tektrron.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'code-new-roman';
+    src: url('../fonts/code-new-roman.eot');
+    src: url('../fonts/code-new-roman.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/code-new-roman.woff') format('woff'),
+         url('../fonts/code-new-roman.svg#code_new_romanregular') format('svg'),
+         url('../fonts/code-new-roman.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* CSS Reset */
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	line-height: 1;
+}
+
+.page {
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 20000px;
+	background-color: #000000;
+}
+
+.container {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	max-width: 1920px;
+	max-height: 1080px;
+}
+
+.brad-container {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background-color: #FF0000;
+	left: 50%;
+	bottom: 200px;
+}
+
+.scene {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.ground-laboratory {
+	position: absolute;
+	width: 8000px;
+	height: 200px;
+	bottom: 0px;
+}
+
+.ground-flooring-lab {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	background-image: url(../images/ground-flooring-concrete.png);
+}
+
+.ground-foundation-lab {
+	position: absolute;
+	width: 100%;
+	top: 40px;
+	height: 160px;
+	background-image: url(../images/ground-pipes.png);
+}
+
+.wall-laboratory {
+	position: absolute;
+	height: 400px;
+	width: 30px;
+	bottom: 200px;
+}
+
+.teleporter {
+	position: absolute;
+	height: 400px;
+	width: 261px;
+	bottom: 200px;
+}
+
+.teleporter-console {
+	position: absolute;
+	height: 300px;
+	width: 280px;
+	bottom: 200px;
+	left: 280px;
+	background-color: #E4E9EC;
+}
+
+.teleporter-console > h1 {
+	color: #52ade1;
+	width: 100%;
+	text-align: center;
+	font-family: tektrron;
+	font-size: 30px;
+}
+
+.teleporter-console > form {
+	font-family: code-new-roman;
+	font-size: 24px;
+}
+
+.background-laboratory {
+	position: absolute;
+	width: 1800px;
+	height: 400px;
+	bottom: 200px;
+	left: 0px;
+	background-image: url(../images/background-lab.png);
+}
+
+.ceiling-laboratory {
+	position: absolute;
+	width: 1800px;
+	height: 75px;
+	bottom: 575px;
+	left: 0px;
+	background-image: url(../images/ceiling-lab.png);
+}
