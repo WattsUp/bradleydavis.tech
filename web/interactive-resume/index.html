@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="style.css">
-<meta charset="ISO-8859-1">
-<title>Bradley L. Davis</title>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="ISO-8859-1">
+	<title>Bradley L. Davis</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="loading-screen.js"></script>
 </head>
 <body>
+	<div id="loading-screen" class="loading-screen">
+		<canvas id="loading-canvas" class="loading-canvas"></canvas>
+		<div class="loading-screen-text">
+			<span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
+		</div>
+	</div>
 	<div id="page" class="page"></div>
 	<div id="container" class="container">
 		<div id="scene-about" class="scene">
@@ -24,17 +32,17 @@
 			<div id="teleporter-console" class="teleporter-console">
 				<h1>Teleporter</h1>
 				<div id="teleporter-screen" class="teleporter-screen">
-					<button type="button">About Me</button>
-					<button type="button">Skills</button>
-					<button type="button">Experience</button>
-					<button type="button">Portfolio</button>
-					<button type="button">Awards</button>
-					<button type="button">Contact Me</button>
+					<button type="button" onClick="teleporterChange('about');">About Me</button>
+					<button type="button" onClick="teleporterChange('skills');">Skills</button>
+					<button type="button" onClick="teleporterChange('experience');">Experience</button>
+					<button type="button" onClick="teleporterChange('portfolio');">Portfolio</button>
+					<button type="button" onClick="teleporterChange('awards');">Awards</button>
+					<button type="button" onClick="teleporterChange('contact');">Contact Me</button>
 				</div>
 			</div>
 			<img src="../images/teleporter.png" class="teleporter" style="left: 50px">
 			<img src="../images/teleporter-science.png"
-				class="teleporter" style="left: 50px">
+				id="teleporter-science" class="teleporter" style="left: 50px">
 			<div id="ceiling-laboratory" class="ceiling-laboratory"></div>
 			<img src="../images/wall-lab.png" class="wall-laboratory"
 				style="left: 585px"> <img src="../images/wall-lab.png"
@@ -59,5 +67,6 @@
 			<img src="../images/rover-wheel.png" style="left: 165px; bottom: 0px">
 		</div>
 	</div>
+	<script src="main.js"></script>
 </body>
 </html>
