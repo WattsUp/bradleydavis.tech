@@ -1,0 +1,433 @@
+@font-face {
+	font-family: 'tektrron';
+	src: url('../fonts/tektrron.eot');
+	src: url('../fonts/tektrron.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/tektrron.woff') format('woff'),
+		url('../fonts/tektrron.svg#tektrronregular') format('svg'),
+		url('../fonts/tektrron.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'code-new-roman';
+	src: url('../fonts/code-new-roman.eot');
+	src: url('../fonts/code-new-roman.eot?#iefix')
+		format('embedded-opentype'), url('../fonts/code-new-roman.woff')
+		format('woff'),
+		url('../fonts/code-new-roman.svg#code_new_romanregular') format('svg'),
+		url('../fonts/code-new-roman.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* CSS Reset */
+#element {
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	line-height: 1;
+}
+
+.page {
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 30000px;
+	background-color: #000000;
+}
+
+.marker-about {
+	position: absolute;
+	top: 0px;
+}
+
+.marker-skills {
+	position: absolute;
+	top: 1000px;
+}
+
+.marker-experience {
+	position: absolute;
+	top: 2000px;
+}
+
+.marker-portfolio {
+	position: absolute;
+	top: 3000px;
+}
+
+.marker-awards {
+	position: absolute;
+	top: 4000px;
+}
+
+.marker-contact {
+	position: absolute;
+	top: 5000px;
+}
+.loading-screen {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: #000000;
+	color: #33FF33;
+	left: 0px;
+	top: 0px;
+	font-family: tektrron;
+	font-size: 50px;
+	-webkit-transition: transform 1.0s;
+	transition: transform 1.0s;
+	z-index: 1000;
+	overflow: hidden;
+}
+
+.loading-screen-text {
+	position: absolute;
+	width: 620px;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	text-align: center;
+}
+
+.loading-screen-text>span {
+	vertical-align: middle;
+}
+
+.loading-canvas {
+	background-color: #000000;
+	position: absolute;
+	width: 800px;
+	height: 800px;
+	top: 50%;
+	left: 50%;
+	transform: translateY(-50%) translateX(-50%);
+}
+
+.container {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	max-width: 1920px;
+	max-height: 1080px;
+}
+
+.brad-container {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	left: 50%;
+}
+
+.brad-jump-container {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+}
+
+.jump-up-small {
+	-webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1);
+	-webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+	-moz-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+	-o-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+	transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+}
+
+.jump-down-small {
+	-webkit-transition: bottom 0.4s cubic-bezier(0.600, 0, 0.735, 0.045);
+	-webkit-transition: bottom 0.4s
+		cubic-bezier(0.600, -0.280, 0.735, 0.045);
+	-moz-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+	-o-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+	transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+}
+
+.ease-left {
+	-webkit-transition: left 1.0s ease;
+	-webkit-transition: left 1.0s ease;
+	-moz-transition: left 1.0s ease;
+	-o-transition: left 1.0s ease;
+	transition: left 1.0s ease;
+}
+
+.ease-transform {
+	-webkit-transition: transform 1.0s ease;
+	-webkit-transition: transform 1.0s ease;
+	-moz-transition: transform 1.0s ease;
+	-o-transition: transform 1.0s ease;
+	transition: transform 1.0s ease;
+}
+
+.brad {
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	background-image: url(images/brad-sprite.png);
+}
+
+.brad-container {
+}
+
+.brad-container>img {
+	position: absolute;
+}
+
+.scene {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.scene-background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+}
+
+.scene-far-background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+.tree-1 {
+	position: absolute;
+	width: 150px;
+	height: 300px;
+	background-image: url(images/tree-1.png);
+}
+
+.tree-2 {
+	position: absolute;
+	width: 200px;
+	height: 400px;
+	background-image: url(images/tree-2.png);
+}
+
+.tree-3 {
+	position: absolute;
+	width: 300px;
+	height: 600px;
+	background-image: url(images/tree-3.png);
+}
+
+.tree-4 {
+	position: absolute;
+	width: 400px;
+	height: 800px;
+	background-image: url(images/tree-4.png);
+}
+
+.cloud-1 {
+	position: absolute;
+	width: 400px;
+	height: 150px;
+	background-image: url(images/cloud-1.png);
+}
+
+.cloud-2 {
+	position: absolute;
+	width: 300px;
+	height: 100px;
+	background-image: url(images/cloud-2.png);
+}
+
+.on-the-ground {
+	bottom: 100px;
+}
+
+.ground {
+	position: absolute;
+	max-height: 200px;
+	height: 20%;
+	bottom: 0px;
+}
+
+.ground-flooring-lab {
+	position: absolute;
+	width: 100%;
+	height: 40px;
+	background-image: url(images/ground-flooring-concrete.png);
+}
+
+.ground-foundation-lab {
+	position: absolute;
+	width: 100%;
+	top: 40px;
+	height: 160px;
+	background-image: url(images/ground-pipes.png);
+}
+
+.wall-laboratory {
+	position: absolute;
+	height: 400px;
+	width: 30px;
+}
+
+.teleporter {
+	position: absolute;
+	height: 400px;
+	width: 261px;
+}
+
+.teleporter-console {
+	position: absolute;
+	height: 275px;
+	width: 240px;
+	left: 320px;
+	background-image: url(images/teleporter-console.png);
+}
+
+.teleporter-console>h1 {
+	color: #52ade1;
+	width: 100%;
+	text-align: center;
+	font-family: tektrron;
+	font-size: 30px;
+	margin: 6px 0px;
+}
+
+.teleporter-screen {
+	position: absolute;
+	left: 35px;
+	bottom: 20px;
+	background-color: #282828;
+	width: 170px;
+	height: 200px;
+	margin: 0px auto;
+}
+
+.teleporter-screen>button {
+	font-family: code-new-roman;
+	font-size: 24px;
+	color: #33FF33;
+	background-color: transparent;
+	width: 100%;
+	border: 2px solid transparent;
+	height: 16.6667%;
+	outline: none;
+	-webkit-transition: border 0.3s, background 0.3s, color 0.3s;
+	-moz-transition: border 0.3s, background 0.3s, color 0.3s;
+	-o-transition: border 0.3s, background 0.3s, color 0.3s;
+	transition: border 0.3s, background 0.3s, color 0.3s;
+}
+
+.teleporter-screen>button:hover {
+	border: 2px solid #33FF33;
+}
+
+.teleporter-screen>button:active {
+	border: 2px solid #33FF33;
+	background-color: #33FF33;
+	color: #282828;
+}
+
+.background-laboratory {
+	position: absolute;
+	width: 1800px;
+	height: 400px;
+	left: 0px;
+	background-image: url(images/background-lab.png);
+}
+
+.ceiling-laboratory {
+	position: absolute;
+	width: 1800px;
+	height: 75px;
+	bottom: 375px;
+	left: 0px;
+	background-image: url(images/ceiling-lab.png);
+}
+
+.title-sign {
+	color: #33FF33;
+	width: 450px;
+	height: 240px;
+	position: absolute;
+	text-align: center;
+	left: 675px;
+	transform: translateY(-160px);
+	background-image: url(images/title-sign.png);
+}
+
+.title-sign-screen {
+	width: 410px;
+	height: 160px;
+	position: absolute;
+	overflow: hidden;
+	bottom: 20px;
+	left: 20px;
+}
+
+.title-sign-wrapper {
+	width: 100%;
+	height: 200%;
+	position: absolute;
+	-webkit-animation-name: cycle-board; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 10s; /* Chrome, Safari, Opera */
+	animation-name: cycle-board;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+}
+
+.title-sign-wrapper>h1 {
+	font-size: 64px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	top: 25%;
+	transform: translateY(-50%);
+	margin: 0px;
+}
+
+.title-sign-wrapper>h2 {
+	font-size: 32px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	top: calc(50% + 10px);
+}
+
+.title-sign-wrapper>h3 {
+	font-size: 24px;
+	font-family: code-new-roman;
+	position: absolute;
+	width: 80%;
+	margin: 0px;
+	top: calc(50% + 60px);
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.rover {
+	position: absolute;
+	width: 225px;
+	height: 155px;
+	left: 1300px;
+}
+
+.rover>img {
+	position: absolute;
+}
+
+@keyframes cycle-board {
+    30%  {transform: translateY(0%); }
+    40%  {transform: translateY(-50%); }
+    90%  {transform: translateY(-50%); }
+    100% {transform: translateY(0%); }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes cycle-board {
+    30%  {transform: translateY(0%); }
+    40%  {transform: translateY(-50%); }
+    90%  {transform: translateY(-50%); }
+    100% {transform: translateY(0%); }
+}
