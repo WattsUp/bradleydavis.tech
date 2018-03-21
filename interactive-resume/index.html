@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<meta charset="ISO-8859-1">
+	<title>Bradley L. Davis</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="loading-screen.js"></script>
+</head>
+<body>
+	<div id="loading-screen" class="loading-screen">
+		<canvas id="loading-canvas" class="loading-canvas"></canvas>
+		<div class="loading-screen-text">
+			<span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
+		</div>
+	</div>
+	<div id="page" class="page">
+		<div id="about" class="marker-about"></div>
+		<div id="skills" class="marker-skills"></div>
+		<div id="experience" class="marker-experience"></div>
+		<div id="portfolio" class="marker-portfolio"></div>
+		<div id="awards" class="marker-awards"></div>
+		<div id="contact" class="marker-contact"></div>
+	</div>
+	<div id="container" class="container">
+		<div id="scene-about" class="scene" style="width: 4000px">
+			<div id="scene-about-far-background" class="scene-far-background"
+				style="background-color: #87CEEB">
+				<div class="cloud-1" style="left: 200px; bottom: 800px"></div>
+				<div class="cloud-2" style="left: 1000px; bottom: 700px"></div>
+				<div class="cloud-2" style="left: 1700px; bottom: 800px"></div>
+				<div class="cloud-1" style="left: 2500px; bottom: 750px"></div>
+			</div>
+			<div id="scene-about-background" class="scene-background">
+				<div class="tree-4 on-the-ground" style="left: 150px"></div>
+				<div class="tree-3 on-the-ground" style="left: 50px"></div>
+				<div class="tree-3 on-the-ground" style="left: 1700px"></div>
+				<div class="tree-2 on-the-ground" style="left: 1650px"></div>
+				<div class="tree-1 on-the-ground" style="left: 1800px"></div>
+			</div>
+			<div id="ground-laboratory" class="ground" style="width: 8000px;">
+				<div class="ground-flooring-lab"></div>
+				<div class="ground-foundation-lab"></div>
+			</div>
+			<div id="background-laboratory" class="background-laboratory on-the-ground">
+				<div id="ceiling-laboratory" class="ceiling-laboratory"></div>
+			</div>
+			<div id="teleporter-console" class="teleporter-console on-the-ground">
+				<h1>Teleporter</h1>
+				<div id="teleporter-screen" class="teleporter-screen">
+					<button type="button" onClick="teleporterChange('about');">About Me</button>
+					<button type="button" onClick="teleporterChange('skills');">Skills</button>
+					<button type="button" onClick="teleporterChange('experience');">Experience</button>
+					<button type="button" onClick="teleporterChange('portfolio');">Portfolio</button>
+					<button type="button" onClick="teleporterChange('awards');">Awards</button>
+					<button type="button" onClick="teleporterChange('contact');">Contact Me</button>
+				</div>
+			</div>
+			<img src="images/teleporter.png" class="teleporter on-the-ground" style="left: 50px">
+			<img src="images/teleporter-science.png"
+				id="teleporter-science" class="teleporter on-the-ground" style="left: 50px">
+			<img src="images/wall-lab.png" class="wall-laboratory on-the-ground"
+				style="left: 585px">
+			<img src="images/wall-lab.png" class="wall-laboratory on-the-ground"
+				style="left: 1770px">
+			<div id="rover" class="rover on-the-ground">
+				<img src="images/rover-chassis.png" style="bottom: 15px">
+				<img src="images/rover-mast.png" style="left: 185px; bottom: 55px">
+				<img src="images/rover-wheel.png" class="rover-wheel" style="bottom: 0px">
+				<img src="images/rover-wheel.png" class="rover-wheel" style="left: 165px; bottom: 0px">
+			</div>
+			<div id="title-sign" class="title-sign on-the-ground">
+				<div class="title-sign-screen">
+					<div id="title-sign-wrapper" class="title-sign-wrapper">
+						<h1>Bradley<br>L. Davis</h1>
+						<h2>Interactive Resume</h2>
+						<h3>Scroll down OR press down arrow OR teleport to a section</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="brad-container" class="brad-container on-the-ground">
+			<div id="brad-jump-container" class="brad-jump-container">
+				<div id="brad" class="brad"></div>
+				<img id="brad-eyes-right" src="images/brad-eyes-closed-right.png" style="left: 96px; bottom: 159px; position:absolute">
+				<img id="brad-eyes-left" src="images/brad-eyes-closed-left.png" style="left: 76px; bottom: 159px; position:absolute">
+			</div>
+		</div>
+	</div>
+	<script src="main.js"></script>
+</body>
+</html>
