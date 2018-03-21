@@ -37,6 +37,35 @@
 	background-color: #000000;
 }
 
+.marker-about {
+	position: absolute;
+	top: 0px;
+}
+
+.marker-skills {
+	position: absolute;
+	top: 1000px;
+}
+
+.marker-experience {
+	position: absolute;
+	top: 2000px;
+}
+
+.marker-portfolio {
+	position: absolute;
+	top: 3000px;
+}
+
+.marker-awards {
+	position: absolute;
+	top: 4000px;
+}
+
+.marker-contact {
+	position: absolute;
+	top: 5000px;
+}
 .loading-screen {
 	position: fixed;
 	width: 100%;
@@ -138,7 +167,7 @@
 	position: absolute;
 	width: 600px;
 	height: 400px;
-	background-image: url(../images/brad-sprite.png);
+	background-image: url(images/brad-sprite.png);
 }
 
 .brad-container {
@@ -171,42 +200,42 @@
 	position: absolute;
 	width: 150px;
 	height: 300px;
-	background-image: url(../images/tree-1.png);
+	background-image: url(images/tree-1.png);
 }
 
 .tree-2 {
 	position: absolute;
 	width: 200px;
 	height: 400px;
-	background-image: url(../images/tree-2.png);
+	background-image: url(images/tree-2.png);
 }
 
 .tree-3 {
 	position: absolute;
 	width: 300px;
 	height: 600px;
-	background-image: url(../images/tree-3.png);
+	background-image: url(images/tree-3.png);
 }
 
 .tree-4 {
 	position: absolute;
 	width: 400px;
 	height: 800px;
-	background-image: url(../images/tree-4.png);
+	background-image: url(images/tree-4.png);
 }
 
 .cloud-1 {
 	position: absolute;
 	width: 400px;
 	height: 150px;
-	background-image: url(../images/cloud-1.png);
+	background-image: url(images/cloud-1.png);
 }
 
 .cloud-2 {
 	position: absolute;
 	width: 300px;
 	height: 100px;
-	background-image: url(../images/cloud-2.png);
+	background-image: url(images/cloud-2.png);
 }
 
 .on-the-ground {
@@ -224,7 +253,7 @@
 	position: absolute;
 	width: 100%;
 	height: 40px;
-	background-image: url(../images/ground-flooring-concrete.png);
+	background-image: url(images/ground-flooring-concrete.png);
 }
 
 .ground-foundation-lab {
@@ -232,7 +261,7 @@
 	width: 100%;
 	top: 40px;
 	height: 160px;
-	background-image: url(../images/ground-pipes.png);
+	background-image: url(images/ground-pipes.png);
 }
 
 .wall-laboratory {
@@ -252,7 +281,7 @@
 	height: 275px;
 	width: 240px;
 	left: 320px;
-	background-image: url(../images/teleporter-console.png);
+	background-image: url(images/teleporter-console.png);
 }
 
 .teleporter-console>h1 {
@@ -304,7 +333,7 @@
 	width: 1800px;
 	height: 400px;
 	left: 0px;
-	background-image: url(../images/background-lab.png);
+	background-image: url(images/background-lab.png);
 }
 
 .ceiling-laboratory {
@@ -313,7 +342,7 @@
 	height: 75px;
 	bottom: 375px;
 	left: 0px;
-	background-image: url(../images/ceiling-lab.png);
+	background-image: url(images/ceiling-lab.png);
 }
 
 .title-sign {
@@ -324,7 +353,7 @@
 	text-align: center;
 	left: 675px;
 	transform: translateY(-160px);
-	background-image: url(../images/title-sign.png);
+	background-image: url(images/title-sign.png);
 }
 
 .title-sign-screen {
@@ -341,9 +370,9 @@
 	height: 200%;
 	position: absolute;
 	-webkit-animation-name: cycle-board; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 8s; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 10s; /* Chrome, Safari, Opera */
 	animation-name: cycle-board;
-	animation-duration: 8s;
+	animation-duration: 10s;
 	animation-iteration-count: infinite;
 }
 
@@ -390,15 +419,15 @@
 
 @keyframes cycle-board {
     30%  {transform: translateY(0%); }
-    50%  {transform: translateY(-50%); }
-    80%  {transform: translateY(-50%); }
+    40%  {transform: translateY(-50%); }
+    90%  {transform: translateY(-50%); }
     100% {transform: translateY(0%); }
 }
 
 /* Chrome, Safari, Opera */
 @-webkit-keyframes cycle-board {
     30%  {transform: translateY(0%); }
-    50%  {transform: translateY(-50%); }
-    80%  {transform: translateY(-50%); }
+    40%  {transform: translateY(-50%); }
+    90%  {transform: translateY(-50%); }
     100% {transform: translateY(0%); }
 }
