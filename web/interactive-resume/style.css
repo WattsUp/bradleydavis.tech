@@ -92,16 +92,21 @@
 	width: 200px;
 	height: 200px;
 	left: 50%;
-	bottom: 200px;
+}
+
+.brad-jump-container {
+	position: absolute;
+	width: 200px;
+	height: 200px;
 	overflow: hidden;
 }
 
 .jump-up-small {
-	-webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1), left 0.4s;
-	-webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650), left 0.4s;
-	-moz-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650), left 0.4s;
-	-o-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650), left 0.4s;
-	transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650), left 0.4s;
+	-webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1);
+	-webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+	-moz-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+	-o-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+	transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
 }
 
 .jump-down-small {
@@ -113,11 +118,30 @@
 	transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
 }
 
+.ease-left {
+	-webkit-transition: left 1.0s ease;
+	-webkit-transition: left 1.0s ease;
+	-moz-transition: left 1.0s ease;
+	-o-transition: left 1.0s ease;
+	transition: left 1.0s ease;
+}
+
+.ease-transform {
+	-webkit-transition: transform 1.0s ease;
+	-webkit-transition: transform 1.0s ease;
+	-moz-transition: transform 1.0s ease;
+	-o-transition: transform 1.0s ease;
+	transition: transform 1.0s ease;
+}
+
 .brad {
 	position: absolute;
 	width: 600px;
 	height: 400px;
 	background-image: url(../images/brad-sprite.png);
+}
+
+.brad-container {
 }
 
 .brad-container>img {
@@ -134,36 +158,65 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	background-color: transparent;
+}
+
+.scene-far-background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
 
 .tree-1 {
 	position: absolute;
 	width: 150px;
 	height: 300px;
-	bottom: 200px;
-	background-color: green;
+	background-image: url(../images/tree-1.png);
 }
 
 .tree-2 {
 	position: absolute;
 	width: 200px;
-	height: 600px;
-	bottom: 200px;
-	background-color: green;
+	height: 400px;
+	background-image: url(../images/tree-2.png);
 }
 
 .tree-3 {
 	position: absolute;
 	width: 300px;
-	height: 800px;
-	bottom: 200px;
-	background-color: green;
+	height: 600px;
+	background-image: url(../images/tree-3.png);
 }
 
-.ground-laboratory {
+.tree-4 {
 	position: absolute;
-	width: 8000px;
-	height: 200px;
+	width: 400px;
+	height: 800px;
+	background-image: url(../images/tree-4.png);
+}
+
+.cloud-1 {
+	position: absolute;
+	width: 400px;
+	height: 150px;
+	background-image: url(../images/cloud-1.png);
+}
+
+.cloud-2 {
+	position: absolute;
+	width: 300px;
+	height: 100px;
+	background-image: url(../images/cloud-2.png);
+}
+
+.on-the-ground {
+	bottom: 100px;
+}
+
+.ground {
+	position: absolute;
+	max-height: 200px;
+	height: 20%;
 	bottom: 0px;
 }
 
@@ -186,21 +239,18 @@
 	position: absolute;
 	height: 400px;
 	width: 30px;
-	bottom: 200px;
 }
 
 .teleporter {
 	position: absolute;
 	height: 400px;
 	width: 261px;
-	bottom: 200px;
 }
 
 .teleporter-console {
 	position: absolute;
 	height: 275px;
 	width: 240px;
-	bottom: 200px;
 	left: 320px;
 	background-image: url(../images/teleporter-console.png);
 }
@@ -253,7 +303,6 @@
 	position: absolute;
 	width: 1800px;
 	height: 400px;
-	bottom: 200px;
 	left: 0px;
 	background-image: url(../images/background-lab.png);
 }
@@ -262,77 +311,94 @@
 	position: absolute;
 	width: 1800px;
 	height: 75px;
-	bottom: 575px;
+	bottom: 375px;
 	left: 0px;
 	background-image: url(../images/ceiling-lab.png);
 }
 
-.instructions {
-	position: absolute;
-	font-family: tektrron;
-	font-size: 30px;
+.title-sign {
 	color: #33FF33;
-	background-color: #282828;
-	height: 120px;
-	width: 440px;
+	width: 450px;
+	height: 240px;
+	position: absolute;
 	text-align: center;
-	left: 680px;
-	bottom: 430px;
+	left: 675px;
+	transform: translateY(-160px);
+	background-image: url(../images/title-sign.png);
 }
 
-.instructions>span {
-	vertical-align: middle;
-}
-
-.pdf-button {
+.title-sign-screen {
+	width: 410px;
+	height: 160px;
 	position: absolute;
-	left: 720px;
-	bottom: 36px;
-	height: 88px;
-	width: 360px;
-	background-color: #282828;
+	overflow: hidden;
+	bottom: 20px;
+	left: 20px;
 }
 
-.pdf-button>a {
-	display: block;
-	font-family: code-new-roman;
-	font-size: 28px;
-	color: #33FF33;
-	background-color: transparent;
-	border: 2px solid transparent;
+.title-sign-wrapper {
 	width: 100%;
-	height: 40px;
-	outline: none;
-	-webkit-transition: border 0.3s, background 0.3s, color 0.3s;
-	-moz-transition: border 0.3s, background 0.3s, color 0.3s;
-	-o-transition: border 0.3s, background 0.3s, color 0.3s;
-	transition: border 0.3s, background 0.3s, color 0.3s;
-	text-align: center;
-	text-decoration: none;
+	height: 200%;
+	position: absolute;
+	-webkit-animation-name: cycle-board; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 8s; /* Chrome, Safari, Opera */
+	animation-name: cycle-board;
+	animation-duration: 8s;
+	animation-iteration-count: infinite;
 }
 
-.pdf-button>a:hover {
-	border: 2px solid #33FF33;
+.title-sign-wrapper>h1 {
+	font-size: 64px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	top: 25%;
+	transform: translateY(-50%);
+	margin: 0px;
 }
 
-.pdf-button>a:active {
-	border: 2px solid #33FF33;
-	background-color: #33FF33;
-	color: #282828;
+.title-sign-wrapper>h2 {
+	font-size: 32px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	top: calc(50% + 10px);
 }
 
-.pdf-button>a>span {
-	vertical-align: middle;
+.title-sign-wrapper>h3 {
+	font-size: 24px;
+	font-family: code-new-roman;
+	position: absolute;
+	width: 80%;
+	margin: 0px;
+	top: calc(50% + 60px);
+	left: 50%;
+	transform: translateX(-50%);
 }
 
 .rover {
 	position: absolute;
 	width: 225px;
 	height: 155px;
-	bottom: 200px;
 	left: 1300px;
 }
 
 .rover>img {
 	position: absolute;
+}
+
+@keyframes cycle-board {
+    30%  {transform: translateY(0%); }
+    50%  {transform: translateY(-50%); }
+    80%  {transform: translateY(-50%); }
+    100% {transform: translateY(0%); }
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes cycle-board {
+    30%  {transform: translateY(0%); }
+    50%  {transform: translateY(-50%); }
+    80%  {transform: translateY(-50%); }
+    100% {transform: translateY(0%); }
 }
