@@ -5,7 +5,7 @@ $(window).bind("load", function() {
 		$("#loading-screen").hide();
 	}, 1000);
 	setTimeout(function() {
-	    $(document).scrollTop(0);
+//	    $(document).scrollTop(0);
 	}, 10);
 });
 

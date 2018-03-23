@@ -15,12 +15,12 @@
 		</div>
 	</div>
 	<div id="page" class="page">
-		<div id="about" class="marker-about"></div>
-		<div id="skills" class="marker-skills"></div>
-		<div id="experience" class="marker-experience"></div>
-		<div id="portfolio" class="marker-portfolio"></div>
-		<div id="awards" class="marker-awards"></div>
-		<div id="contact" class="marker-contact"></div>
+		<div id="about" class="absolute" style="top:1000px"></div>
+		<div id="skills" class="absolute" style="top:3000px"></div>
+		<div id="experience" class="absolute" style="top:5000px"></div>
+		<div id="portfolio" class="absolute" style="top:7000px"></div>
+		<div id="awards" class="absolute" style="top:9000px"></div>
+		<div id="contact" class="absolute" style="top:1100px"></div>
 	</div>
 	<div id="container" class="container">
 		<div id="scene-about" class="scene" style="width: 4000px">
@@ -35,8 +35,6 @@
 				<div class="tree-4 on-the-ground" style="left: 150px"></div>
 				<div class="tree-3 on-the-ground" style="left: 50px"></div>
 				<div class="tree-3 on-the-ground" style="left: 1700px"></div>
-				<div class="tree-2 on-the-ground" style="left: 1650px"></div>
-				<div class="tree-1 on-the-ground" style="left: 1800px"></div>
 			</div>
 			<div id="ground-laboratory" class="ground" style="width: 8000px;">
 				<div class="ground-flooring-lab"></div>
@@ -63,20 +61,72 @@
 				style="left: 585px">
 			<img src="images/wall-lab.png" class="wall-laboratory on-the-ground"
 				style="left: 1770px">
-			<div id="rover" class="rover on-the-ground">
-				<img src="images/rover-chassis.png" style="bottom: 15px">
-				<img src="images/rover-mast.png" style="left: 185px; bottom: 55px">
-				<img src="images/rover-wheel.png" class="rover-wheel" style="bottom: 0px">
-				<img src="images/rover-wheel.png" class="rover-wheel" style="left: 165px; bottom: 0px">
-			</div>
-			<div id="title-sign" class="title-sign on-the-ground">
+			<div class="title-sign on-the-ground">
 				<div class="title-sign-screen">
-					<div id="title-sign-wrapper" class="title-sign-wrapper">
+					<div class="title-sign-wrapper">
 						<h1>Bradley<br>L. Davis</h1>
 						<h2>Interactive Resume</h2>
 						<h3>Scroll down OR press down arrow OR teleport to a section</h3>
 					</div>
 				</div>
+			</div>
+			<div class="hanging-sign on-the-ground" style="left: 1850px">
+				<h1>About Me</h1>
+			</div>
+			<div class="discipline-label on-the-ground" style="left: 2175px">
+				<h1 style="top: 60px">Excellent</h1>
+				<h1 style="top: 140px">Skilled</h1>
+				<h1 style="top: 220px">Familiar</h1>
+				<div class="horizontal-line caution-tape" style="top: 100px; height: 6px"></div>
+				<div class="horizontal-line caution-tape" style="top: 180px; height: 6px"></div>
+				<div class="horizontal-line caution-tape" style="top: 260px; height: 6px"></div>
+				<div id="fluid-electronics" class="discipline-tank-fluid discipline-tank-fluid-hidden" style="top: 60px; left: 188px">
+					<div class="fluid-bubble fluid-bubble1" style="left:20px"></div>
+					<div class="fluid-bubble fluid-bubble2" style="left:40px"></div>
+					<div class="fluid-bubble fluid-bubble3" style="left:50px"></div>
+					<div class="fluid-bubble fluid-bubble4" style="left:70px"></div>
+					<div class="fluid-bubble fluid-bubble5" style="left:80px"></div>
+					<div class="fluid-bubble fluid-bubble6" style="left:100px"></div>
+					<div class="fluid-bubble fluid-bubble1" style="left:110px"></div>
+					<div class="fluid-bubble fluid-bubble2" style="left:130px"></div>
+				</div>
+				<div id="fluid-software" class="discipline-tank-fluid discipline-tank-fluid-hidden" style="top: 60px; left: 408px">
+					<div class="fluid-bubble fluid-bubble4" style="left:20px"></div>
+					<div class="fluid-bubble fluid-bubble3" style="left:40px"></div>
+					<div class="fluid-bubble fluid-bubble6" style="left:50px"></div>
+					<div class="fluid-bubble fluid-bubble1" style="left:70px"></div>
+					<div class="fluid-bubble fluid-bubble2" style="left:80px"></div>
+					<div class="fluid-bubble fluid-bubble4" style="left:100px"></div>
+					<div class="fluid-bubble fluid-bubble1" style="left:110px"></div>
+					<div class="fluid-bubble fluid-bubble5" style="left:130px"></div></div>
+				<div id="fluid-hardware" class="discipline-tank-fluid discipline-tank-fluid-hidden" style="top: 60px; left: 628px">
+					<div class="fluid-bubble fluid-bubble3" style="left:20px"></div>
+					<div class="fluid-bubble fluid-bubble2" style="left:40px"></div>
+					<div class="fluid-bubble fluid-bubble5" style="left:50px"></div>
+					<div class="fluid-bubble fluid-bubble6" style="left:70px"></div>
+					<div class="fluid-bubble fluid-bubble1" style="left:80px"></div>
+					<div class="fluid-bubble fluid-bubble6" style="left:100px"></div>
+					<div class="fluid-bubble fluid-bubble3" style="left:110px"></div>
+					<div class="fluid-bubble fluid-bubble4" style="left:130px"></div></div>
+				<div id="fluid-art" class="discipline-tank-fluid discipline-tank-fluid-hidden" style="top: 60px; left: 848px">
+					<div class="fluid-bubble fluid-bubble2" style="left:20px"></div>
+					<div class="fluid-bubble fluid-bubble3" style="left:40px"></div>
+					<div class="fluid-bubble fluid-bubble1" style="left:50px"></div>
+					<div class="fluid-bubble fluid-bubble5" style="left:70px"></div>
+					<div class="fluid-bubble fluid-bubble6" style="left:80px"></div>
+					<div class="fluid-bubble fluid-bubble4" style="left:100px"></div>
+					<div class="fluid-bubble fluid-bubble2" style="left:110px"></div>
+					<div class="fluid-bubble fluid-bubble3" style="left:130px"></div></div>
+				<div id="tank-electronics" class="discipline-tank" style="left: 160px"><h1>Electronics</h1></div>
+				<div id="tank-software" class="discipline-tank" style="left: 380px"><h1>Software</h1></div>
+				<div id="tank-hardware" class="discipline-tank" style="left: 600px"><h1>Hardware</h1></div>
+				<div id="tank-art" class="discipline-tank" style="left: 820px"><h1>Art</h1></div>
+			</div>
+			<div id="rover" class="rover on-the-ground">
+				<img src="images/rover-chassis.png" style="bottom: 15px">
+				<img src="images/rover-mast.png" style="left: 185px; bottom: 55px">
+				<img src="images/rover-wheel.png" class="rover-wheel" style="bottom: 0px">
+				<img src="images/rover-wheel.png" class="rover-wheel" style="left: 165px; bottom: 0px">
 			</div>
 		</div>
 		<div id="brad-container" class="brad-container on-the-ground">

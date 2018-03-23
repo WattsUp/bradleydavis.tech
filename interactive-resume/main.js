@@ -35,7 +35,6 @@ var stopWalkingTimeoutID = null;
 var lastSceneX = getSceneX();
 var disableWalking = false;
 
-
 function teleporterChange(locationHash) {
 	if (!teleporting) {
 		teleporting = true;
@@ -83,7 +82,6 @@ function teleporterChange(locationHash) {
 	}
 }
 
-
 function blink() {
 	if (movingRight) {
 		$("#brad-eyes-right").show();
@@ -97,7 +95,6 @@ function blink() {
 		$("#brad-eyes-left").hide();
 	}, timingBlink);
 }
-
 
 function updateWalkingSprite() {
 	bradSprite.css("bottom", (movingRight * -200) + "px");
@@ -117,7 +114,6 @@ function updateWalkingSprite() {
 		break;
 	}
 }
-
 
 function updateScene() {
 	var sceneX = getSceneX();
@@ -139,6 +135,29 @@ function updateStory(sceneX) {
 		bradJumpContainer.removeClass("jump-up-small");
 		bradJumpContainer.css("bottom", "0px");
 		disableWalking = false;
+	}
+	if (sceneX > 1150) {
+		$("#fluid-electronics").removeClass("discipline-tank-fluid-hidden");
+		setTimeout(function(){
+			$("#fluid-software").removeClass("discipline-tank-fluid-hidden");
+		}, 250);
+		setTimeout(function(){
+			$("#fluid-hardware").removeClass("discipline-tank-fluid-hidden");
+		}, 500);
+		setTimeout(function(){
+			$("#fluid-art").removeClass("discipline-tank-fluid-hidden");
+		}, 750);
+	} else if (sceneX < 1100){
+		$("#fluid-electronics").addClass("discipline-tank-fluid-hidden");
+		setTimeout(function(){
+			$("#fluid-software").addClass("discipline-tank-fluid-hidden");
+		}, 250);
+		setTimeout(function(){
+			$("#fluid-hardware").addClass("discipline-tank-fluid-hidden");
+		}, 500);
+		setTimeout(function(){
+			$("#fluid-art").addClass("discipline-tank-fluid-hidden");
+		}, 750);
 	}
 	var roverPosition = Math.max(-500 + sceneX * speedScene, 0);
 	var roverRotate = roverPosition / (Math.PI * 60) * 360;
