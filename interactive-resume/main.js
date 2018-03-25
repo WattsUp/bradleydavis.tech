@@ -1,4 +1,4 @@
-$(function() {
+	$(function() {
 	setInterval(blink, 4000);
 	$(document).scroll(updateScene);
 	updateScene();
@@ -159,6 +159,11 @@ function updateStory(sceneX) {
 			$("#fluid-art").addClass("discipline-tank-fluid-hidden");
 		}, 750);
 	}
+	if (sceneX > 2500) {
+		
+	}else if (sceneX < 2450) {
+		
+	}
 	var roverPosition = Math.max(-500 + sceneX * speedScene, 0);
 	var roverRotate = roverPosition / (Math.PI * 60) * 360;
 	$("#rover").css("transform", "translateX(" + roverPosition + "px)");
@@ -181,15 +186,15 @@ function updateMovement(sceneX) {
 	bradContainer.css("transform", "translateX(" + Math.min(positionBrad, 0)
 			+ "px)");
 	if (sceneX < lastSceneX) {
-		movingRight = false;
 		if (!moving && !disableWalking) {
+			movingRight = false;
 			moving = true;
 			setTimeout(updateWalkingSprite, timingWalking);
 			setTimeout(updateWalkingSprite, timingWalking * 2);
 		}
 	} else {
-		movingRight = true;
 		if (!moving && !disableWalking) {
+			movingRight = true;
 			moving = true;
 			setTimeout(updateWalkingSprite, timingWalking);
 			setTimeout(updateWalkingSprite, timingWalking * 2);
