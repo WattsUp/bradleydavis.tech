@@ -398,7 +398,18 @@
 	position: absolute;
 	width: 100%;
 	margin: 0px;
-	top: 50%;
+	top: 100px;
+	transform: translateY(-50%);
+}
+
+.hanging-sign>h2 {
+	font-size: 28px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	top: 100px;
+	transform: translateY(-50%);
 }
 
 .discipline-label {
@@ -510,6 +521,78 @@
 	animation-duration: 2200ms;
 }
 
+.particle-viewer {
+	width: 500px;
+	height: 350px;
+	position: absolute;
+	left: 3800px;
+	background-color: #282828;
+}
+
+.particle-viewer-frame {
+	width: 500px;
+	height: 350px;
+	position: absolute;
+	background-image: url(images/particle-viewer.png);
+}
+
+.particle-viewer-image {
+	position: absolute;
+	left: 25px;
+	bottom: 50px;
+	width: 450px;
+	height: 275px;
+	overflow: hidden;
+}
+
+.particle-viewer-image>img {
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	-webkit-animation-name: particle-viewer-image; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 10000ms; /* Chrome, Safari, Opera */
+	animation-name: particle-viewer-image;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 10000ms; /* Chrome, Safari, Opera */
+}
+
+.particle-viewer-image>div {
+	position: absolute;
+	width: 110%;
+	bottom: 0px;
+	left: 0px;
+	height: 100%;
+	background-image: url('images/particle.png');
+	-webkit-animation: particle-viewer-image infinite linear 10s, particle-viewer-particle infintie linear 1s;
+	animation: particle-viewer-image infinite linear 10s, particle-viewer-particle infinite linear 1s;
+}
+
+.particle-viewer-image1>img {
+	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
+	animation-delay: 0s;
+}
+
+.particle-viewer-image2>img {
+	-webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
+	animation-delay: 5s;
+	height: 0%;
+}
+
+.particle-viewer-image1>div {
+	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
+	animation-delay: 0s;
+}
+
+.particle-viewer-image2>div {
+	-webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
+	animation-delay: 5s;
+	height: 0%;
+}
+
 .horizontal-line {
 	width: 100%;
 	height: 1px;
@@ -565,4 +648,30 @@
 	0%   {bottom: 0px;}
 	70%  {bottom: 70%; opacity: 0.4;}
 	100% {bottom: 100%; opacity: 0;}
+}
+
+@keyframes particle-viewer-image {
+	0%	 {height: 100%}
+	35%	 {height: 100%}
+	40%	 {height: 0%}
+	95%	 {height: 0%}
+	100% {height: 100%}
+}
+
+@-webkit-keyframes particle-viewer-image {
+	0%	 {height: 100%}
+	35%	 {height: 100%}
+	40%	 {height: 0%}
+	95%	 {height: 0%}
+	100% {height: 100%}
+}
+
+@keyframes particle-viewer-particle {
+	0%	 {left: 0px}
+	100% {left: -10px}
+}
+
+@-webkit-keyframes particle-viewer-particle {
+	0%	 {left: 0px}
+	100% {left: -10px}
 }
