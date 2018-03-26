@@ -553,11 +553,11 @@
 	-webkit-animation-name: particle-viewer-image; /* Chrome, Safari, Opera */
 	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 10000ms; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 15s; /* Chrome, Safari, Opera */
 	animation-name: particle-viewer-image;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
-	animation-duration: 10000ms; /* Chrome, Safari, Opera */
+	animation-duration: 15s; /* Chrome, Safari, Opera */
 }
 
 .particle-viewer-image>div {
@@ -567,8 +567,8 @@
 	left: 0px;
 	height: 100%;
 	background-image: url('images/particle.png');
-	-webkit-animation: particle-viewer-image infinite linear 10s, particle-viewer-particle infintie linear 1s;
-	animation: particle-viewer-image infinite linear 10s, particle-viewer-particle infinite linear 1s;
+	-webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
+	animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
 }
 
 .particle-viewer-image1>img {
@@ -582,6 +582,12 @@
 	height: 0%;
 }
 
+.particle-viewer-image3>img {
+	-webkit-animation-delay: 10s; /* Chrome, Safari, Opera */
+	animation-delay: 10s;
+	height: 0%;
+}
+
 .particle-viewer-image1>div {
 	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
 	animation-delay: 0s;
@@ -591,6 +597,29 @@
 	-webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
 	animation-delay: 5s;
 	height: 0%;
+}
+
+.particle-viewer-image3>div {
+	-webkit-animation-delay: 10s; /* Chrome, Safari, Opera */
+	animation-delay: 10s;
+	height: 0%;
+}
+
+.particle-viewer-lightning {
+	position: absolute;
+	left: 25px;
+	bottom: 50px;
+	width: 450px;
+	height: 275px;
+	background-image: url('images/particle-viewer-lightning.png');
+	-webkit-animation-name: particle-viewer-lightning; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
+	animation-name: particle-viewer-lightning;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 5s; /* Chrome, Safari, Opera */
 }
 
 .horizontal-line {
@@ -651,19 +680,41 @@
 }
 
 @keyframes particle-viewer-image {
-	0%	 {height: 100%}
-	35%	 {height: 100%}
-	40%	 {height: 0%}
-	95%	 {height: 0%}
-	100% {height: 100%}
+	0%	  {height: 100%}
+	23.3% {height: 100%}
+	26.7% {height: 0%}
+	96.7% {height: 0%}
+	100%  {height: 100%}
 }
 
 @-webkit-keyframes particle-viewer-image {
-	0%	 {height: 100%}
-	35%	 {height: 100%}
-	40%	 {height: 0%}
-	95%	 {height: 0%}
-	100% {height: 100%}
+	0%	  {height: 100%}
+	23.3% {height: 100%}
+	26.7% {height: 0%}
+	96.7% {height: 0%}
+	100%  {height: 100%}
+}
+
+@keyframes particle-viewer-lightning {
+	0%	 {opacity: 0}
+	69%	 {opacity: 0}
+	70%	 {opacity: 1}
+	80%	 {opacity: 1}
+	81%	 {opacity: 0}
+	89%	 {opacity: 0}
+	90%	 {opacity: 1}
+	100% {opacity: 1}
+}
+
+@-webkit-keyframes particle-viewer-lightning {
+	0%	 {opacity: 0}
+	69%	 {opacity: 0}
+	70%	 {opacity: 1}
+	80%	 {opacity: 1}
+	81%	 {opacity: 0}
+	89%	 {opacity: 0}
+	90%	 {opacity: 1}
+	100% {opacity: 1}
 }
 
 @keyframes particle-viewer-particle {
