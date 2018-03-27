@@ -305,7 +305,7 @@
 
 .background-laboratory {
 	position: absolute;
-	width: 4800px;
+	width: 5400px;
 	height: 400px;
 	left: 0px;
 	background-image: url(images/background-lab.png);
@@ -313,7 +313,7 @@
 
 .ceiling-laboratory {
 	position: absolute;
-	width: 4800px;
+	width: 5400px;
 	height: 75px;
 	bottom: 375px;
 	left: 0px;
@@ -403,7 +403,17 @@
 }
 
 .hanging-sign>h2 {
-	font-size: 28px;
+	font-size: 26px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	top: 100px;
+	transform: translateY(-50%);
+}
+
+.hanging-sign>h3 {
+	font-size: 24px;
 	font-family: tektrron;
 	position: absolute;
 	width: 100%;
@@ -522,7 +532,7 @@
 }
 
 .particle-viewer {
-	width: 500px;
+	width: 498px;
 	height: 350px;
 	position: absolute;
 	left: 3800px;
@@ -534,11 +544,13 @@
 	height: 350px;
 	position: absolute;
 	background-image: url(images/particle-viewer.png);
+	top: 0px;
+	left: -1px;
 }
 
 .particle-viewer-image {
 	position: absolute;
-	left: 25px;
+	left: 24px;
 	bottom: 50px;
 	width: 450px;
 	height: 275px;
@@ -572,36 +584,42 @@
 }
 
 .particle-viewer-image1>img {
+	height: 0%;
 	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
 	animation-delay: 0s;
 }
 
 .particle-viewer-image2>img {
-	-webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
-	animation-delay: 5s;
+	height: 0%;
+	-webkit-animation-delay: -5s; /* Chrome, Safari, Opera */
+	animation-delay: -5s;
 	height: 0%;
 }
 
 .particle-viewer-image3>img {
-	-webkit-animation-delay: 10s; /* Chrome, Safari, Opera */
-	animation-delay: 10s;
+	height: 0%;
+	-webkit-animation-delay: -10s; /* Chrome, Safari, Opera */
+	animation-delay: -10s;
 	height: 0%;
 }
 
 .particle-viewer-image1>div {
+	height: 0%;
 	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
 	animation-delay: 0s;
 }
 
 .particle-viewer-image2>div {
-	-webkit-animation-delay: 5s; /* Chrome, Safari, Opera */
-	animation-delay: 5s;
+	height: 0%;
+	-webkit-animation-delay: -5s; /* Chrome, Safari, Opera */
+	animation-delay: -5s;
 	height: 0%;
 }
 
 .particle-viewer-image3>div {
-	-webkit-animation-delay: 10s; /* Chrome, Safari, Opera */
-	animation-delay: 10s;
+	height: 0%;
+	-webkit-animation-delay: -10s; /* Chrome, Safari, Opera */
+	animation-delay: -10s;
 	height: 0%;
 }
 
@@ -619,7 +637,37 @@
 	animation-name: particle-viewer-lightning;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
-	animation-duration: 5s; /* Chrome, Safari, Opera */
+	animation-duration: 5s;
+}
+
+.lcd-wsu {
+	width: 350px;
+	height: 350px;
+	position: absolute;
+	left: 4975px;
+	background-image: url('images/lcd-wsu.png');
+}
+
+.lcd-wsu-on {
+	width: 350px;
+	height: 350px;
+	position: absolute;
+	background-image: url('images/lcd-wsu-on.png');
+	-webkit-animation-name: flash-75; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+	animation-name: flash-75;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 1s;
+}
+
+.battery {
+	width: 59px;
+	height: 59px;
+	position: absolute;
+	background-image: url('images/battery.png');
 }
 
 .horizontal-line {
@@ -649,6 +697,15 @@
 
 .rover>img {
 	position: absolute;
+}
+
+.rover-tractor-beam {
+	width: 200px;
+	height 75px;
+	position: absolute;
+	top: -30px;
+	left: 215px;
+	transform-origin: 0% 50%;
 }
 
 @keyframes cycle-board {
@@ -725,4 +782,32 @@
 @-webkit-keyframes particle-viewer-particle {
 	0%	 {left: 0px}
 	100% {left: -10px}
+}
+
+@keyframes flash-50 {
+	0%	 {opacity: 1}
+	49%	 {opacity: 1}
+	50%	 {opacity: 0}
+	100% {opacity: 0}
+}
+
+@-webkit-keyframes flash-50 {
+	0%	 {opacity: 1}
+	49%	 {opacity: 1}
+	50%	 {opacity: 0}
+	100% {opacity: 0}
+}
+
+@keyframes flash-75 {
+	0%	 {opacity: 1}
+	74%	 {opacity: 1}
+	75%	 {opacity: 0}
+	100% {opacity: 0}
+}
+
+@-webkit-keyframes flash-75 {
+	0%	 {opacity: 1}
+	74%	 {opacity: 1}
+	75%	 {opacity: 0}
+	100% {opacity: 0}
 }
