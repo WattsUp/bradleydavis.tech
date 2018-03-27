@@ -169,32 +169,42 @@ function updateStory(sceneX) {
 	} else {
 		$(".lcd-wsu-on").css("display", "none");
 	}
-	var roverPosition = Math.max(-500 + sceneX * speedScene, 0);
+	if (sceneX > 5500) {
+		$(".thruster-small-on").css("display", "block");
+	} else {
+		$(".thruster-small-on").css("display", "none");
+	}
+	var sceneY = Math.max(0, Math.min(1000, sceneX - 5500));
+	var roverPosition = Math.min(5000, Math.max(-500 + sceneX * speedScene, 0));
 	var roverRotate = roverPosition / (Math.PI * 60) * 360;
 	var batteryLCDWSULeft = 2000 + Math.max(0, Math.min(3148, sceneX - 850));
 	var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
 	var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
-	$("#rover").css("transform", "translateX(" + roverPosition + "px)");
+	$("#rover").css("transform", "translate(" + roverPosition + "px"
+			+ ", " + (-sceneY) + "px)");
 	$(".rover-wheel").css("transform", "rotate(" + roverRotate + "deg)");
 	$(".rover-tractor-beam").css("transform", "rotate(" + roverTractorAngle + "rad)");
 	$("#battery-lcd-wsu").css("left", batteryLCDWSULeft + "px");
 	$("#battery-lcd-wsu").css("transform", "translateY(" + batteryLCDWSUBottom + "px)");
+	$("#elevator-cargo").css("transform", "translateY(" + (-sceneY + 20) + "px)");
 }
 
 function updateMovement(sceneX) {
+	var sceneY = Math.max(0, Math.min(1000, sceneX - 5500));
+	//Ride elevator @ 5500 for 1000
+	sceneX = sceneX - Math.max(0, Math.min(1000, sceneX - 5500));
 	
 	var adjustedSceneX = sceneX - ($(document).width() / 2 - 900);
 	var positionScene = -adjustedSceneX * speedScene;
 	var positionBrad = -bradContainer.width() / 2 - Math.max(positionScene, 0);
-	// Backgrounds are moved forward by scene, move them backwards
-	var positionBackground = adjustedSceneX * (speedScene - speedBackground);
-	var positionFarBackground = adjustedSceneX
-			* (speedScene - speedFarBackground);
-	scenes.css("transform", "translateX(" + Math.min(positionScene, 0) + "px)");
-	backgrounds.css("transform", "translateX("
-			+ Math.max(positionBackground, 0) + "px)");
-	farBackgrounds.css("transform", "translateX("
-			+ Math.max(positionFarBackground, 0) + "px)");
+	var positionBackground = -adjustedSceneX * speedBackground;
+	var positionFarBackground = -adjustedSceneX * speedFarBackground;
+	scenes.css("transform", "translate(" + Math.min(positionScene, 0) + "px"
+			+ ", " + sceneY + "px)");
+	backgrounds.css("transform", "translate(" + Math.min(positionBackground, 0)
+			+ "px, " + sceneY + "px)");
+	farBackgrounds.css("transform", "translate(" + Math.min(positionFarBackground, 0)
+			+ "px, " + sceneY * speedFarBackground + "px)");
 	bradContainer.css("transform", "translateX(" + Math.min(positionBrad, 0)
 			+ "px)");
 	if (sceneX < lastSceneX) {
