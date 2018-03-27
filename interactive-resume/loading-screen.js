@@ -6,6 +6,7 @@ $(window).bind("load", function() {
 	}, 1000);
 	setTimeout(function() {
 	    $(document).scrollTop(0);
+	    location.hash = "";
 	}, 10);
 });
 
