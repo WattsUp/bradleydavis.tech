@@ -1,4 +1,4 @@
-$(function() {
+	$(function() {
 	setInterval(blink, 4000);
 	$(document).scroll(updateScene);
 	updateScene();
@@ -34,7 +34,6 @@ var walkingIntervalID = null;
 var stopWalkingTimeoutID = null;
 var lastSceneX = getSceneX();
 var disableWalking = false;
-
 
 function teleporterChange(locationHash) {
 	if (!teleporting) {
@@ -83,7 +82,6 @@ function teleporterChange(locationHash) {
 	}
 }
 
-
 function blink() {
 	if (movingRight) {
 		$("#brad-eyes-right").show();
@@ -97,7 +95,6 @@ function blink() {
 		$("#brad-eyes-left").hide();
 	}, timingBlink);
 }
-
 
 function updateWalkingSprite() {
 	bradSprite.css("bottom", (movingRight * -200) + "px");
@@ -117,7 +114,6 @@ function updateWalkingSprite() {
 		break;
 	}
 }
-
 
 function updateScene() {
 	var sceneX = getSceneX();
@@ -140,13 +136,53 @@ function updateStory(sceneX) {
 		bradJumpContainer.css("bottom", "0px");
 		disableWalking = false;
 	}
+	if (sceneX > 850 && sceneX < 3998) {
+		$(".rover-tractor-beam").css("display", "block");
+	} else {
+		$(".rover-tractor-beam").css("display", "none");
+	}
+	if (sceneX > 1150) {
+		$("#fluid-electronics").removeClass("discipline-tank-fluid-hidden");
+		setTimeout(function(){
+			$("#fluid-software").removeClass("discipline-tank-fluid-hidden");
+		}, 250);
+		setTimeout(function(){
+			$("#fluid-hardware").removeClass("discipline-tank-fluid-hidden");
+		}, 500);
+		setTimeout(function(){
+			$("#fluid-art").removeClass("discipline-tank-fluid-hidden");
+		}, 750);
+	} else if (sceneX < 1100){
+		$("#fluid-electronics").addClass("discipline-tank-fluid-hidden");
+		setTimeout(function(){
+			$("#fluid-software").addClass("discipline-tank-fluid-hidden");
+		}, 250);
+		setTimeout(function(){
+			$("#fluid-hardware").addClass("discipline-tank-fluid-hidden");
+		}, 500);
+		setTimeout(function(){
+			$("#fluid-art").addClass("discipline-tank-fluid-hidden");
+		}, 750);
+	}
+	if (sceneX > 3998) {
+		$(".lcd-wsu-on").css("display", "block");
+	} else {
+		$(".lcd-wsu-on").css("display", "none");
+	}
 	var roverPosition = Math.max(-500 + sceneX * speedScene, 0);
 	var roverRotate = roverPosition / (Math.PI * 60) * 360;
+	var batteryLCDWSULeft = 2000 + Math.max(0, Math.min(3148, sceneX - 850));
+	var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
+	var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
 	$("#rover").css("transform", "translateX(" + roverPosition + "px)");
 	$(".rover-wheel").css("transform", "rotate(" + roverRotate + "deg)");
+	$(".rover-tractor-beam").css("transform", "rotate(" + roverTractorAngle + "rad)");
+	$("#battery-lcd-wsu").css("left", batteryLCDWSULeft + "px");
+	$("#battery-lcd-wsu").css("transform", "translateY(" + batteryLCDWSUBottom + "px)");
 }
 
 function updateMovement(sceneX) {
+	
 	var adjustedSceneX = sceneX - ($(document).width() / 2 - 900);
 	var positionScene = -adjustedSceneX * speedScene;
 	var positionBrad = -bradContainer.width() / 2 - Math.max(positionScene, 0);
@@ -162,15 +198,15 @@ function updateMovement(sceneX) {
 	bradContainer.css("transform", "translateX(" + Math.min(positionBrad, 0)
 			+ "px)");
 	if (sceneX < lastSceneX) {
-		movingRight = false;
 		if (!moving && !disableWalking) {
+			movingRight = false;
 			moving = true;
 			setTimeout(updateWalkingSprite, timingWalking);
 			setTimeout(updateWalkingSprite, timingWalking * 2);
 		}
 	} else {
-		movingRight = true;
 		if (!moving && !disableWalking) {
+			movingRight = true;
 			moving = true;
 			setTimeout(updateWalkingSprite, timingWalking);
 			setTimeout(updateWalkingSprite, timingWalking * 2);
