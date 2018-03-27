@@ -86,9 +86,13 @@
 	top: 0px;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
-	max-width: 1920px;
-	max-height: 1080px;
+}
+
+.brad {
+	position: absolute;
+	width: 600px;
+	height: 400px;
+	background-image: url(images/brad-sprite.png);
 }
 
 .brad-container {
@@ -96,6 +100,10 @@
 	width: 200px;
 	height: 200px;
 	left: 50%;
+}
+
+.brad-container>img {
+	position: absolute;
 }
 
 .brad-jump-container {
@@ -138,20 +146,6 @@
 	transition: transform 1.0s ease;
 }
 
-.brad {
-	position: absolute;
-	width: 600px;
-	height: 400px;
-	background-image: url(images/brad-sprite.png);
-}
-
-.brad-container {
-}
-
-.brad-container>img {
-	position: absolute;
-}
-
 .scene {
 	position: absolute;
 	width: 100%;
@@ -162,13 +156,18 @@
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	width: 8000px;
+	height: 6000px;
+	bottom: 0px;
 	background-color: transparent;
 }
 
 .scene-far-background {
 	position: absolute;
-	width: 100%;
-	height: 100%;
+	width: 8000px;
+	height: 6000px;
+	bottom: 0px;
+	background: linear-gradient(#0000C0, #87CEEB);
 }
 
 .tree-1 {
@@ -668,6 +667,28 @@
 	height: 59px;
 	position: absolute;
 	background-image: url('images/battery.png');
+}
+
+.elevator-cargo {
+	width: 300px;
+	height: 20px;
+	position: absolute;
+	left: 6263px;
+	transform: translateY(20px);
+}
+
+.thruster-small {
+	width: 31px;
+	height: 19px;
+	position: absolute;
+	background-image: url('images/thruster-small.png');
+}
+
+.thruster-small-on {
+	width: 31px;
+	height: 19px;
+	position: absolute;
+	background-image: url('images/thruster-small-on.png');
 }
 
 .horizontal-line {
