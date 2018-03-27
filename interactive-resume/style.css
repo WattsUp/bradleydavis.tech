@@ -37,35 +37,10 @@
 	background-color: #000000;
 }
 
-.marker-about {
+.absolute {
 	position: absolute;
-	top: 0px;
 }
 
-.marker-skills {
-	position: absolute;
-	top: 1000px;
-}
-
-.marker-experience {
-	position: absolute;
-	top: 2000px;
-}
-
-.marker-portfolio {
-	position: absolute;
-	top: 3000px;
-}
-
-.marker-awards {
-	position: absolute;
-	top: 4000px;
-}
-
-.marker-contact {
-	position: absolute;
-	top: 5000px;
-}
 .loading-screen {
 	position: fixed;
 	width: 100%;
@@ -330,7 +305,7 @@
 
 .background-laboratory {
 	position: absolute;
-	width: 1800px;
+	width: 5400px;
 	height: 400px;
 	left: 0px;
 	background-image: url(images/background-lab.png);
@@ -338,7 +313,7 @@
 
 .ceiling-laboratory {
 	position: absolute;
-	width: 1800px;
+	width: 5400px;
 	height: 75px;
 	bottom: 375px;
 	left: 0px;
@@ -371,6 +346,7 @@
 	position: absolute;
 	-webkit-animation-name: cycle-board; /* Chrome, Safari, Opera */
 	-webkit-animation-duration: 10s; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
 	animation-name: cycle-board;
 	animation-duration: 10s;
 	animation-iteration-count: infinite;
@@ -406,6 +382,312 @@
 	transform: translateX(-50%);
 }
 
+.hanging-sign {
+	color: #33FF33;
+	width: 240px;
+	height: 160px;
+	position: absolute;
+	text-align: center;
+	transform: translateY(-240px);
+	background-image: url(images/hanging-sign.png);
+}
+
+.hanging-sign>h1 {
+	font-size: 32px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	top: 100px;
+	transform: translateY(-50%);
+}
+
+.hanging-sign>h2 {
+	font-size: 26px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	top: 100px;
+	transform: translateY(-50%);
+}
+
+.hanging-sign>h3 {
+	font-size: 24px;
+	font-family: tektrron;
+	position: absolute;
+	width: 100%;
+	margin: 0px;
+	top: 100px;
+	transform: translateY(-50%);
+}
+
+.discipline-label {
+	width: 1036px;
+	height: 380px;
+	position: absolute;
+	overflow: hidden;
+}
+
+.discipline-label>div {
+	position: absolute;
+}
+
+.discipline-label>h1 {
+	position: absolute;
+	margin: 0px;
+}
+
+.discipline-tank {
+	width: 218px;
+	height: 380px;
+	position: absolute;
+	background-image: url(images/discipline-tank.png);
+	horizontal-align: center;
+}
+
+.discipline-tank>h1 {
+	width: 200px;
+	top: 340px;
+	height: 40px;
+	position: absolute;
+	margin: 0px;
+	text-align: center;
+	font-size: 24px;
+	font-family: code-new-roman;
+}
+
+.discipline-tank-fluid {
+	width: 146px;
+	height: 350px;
+	position: absolute;
+	background-color: #FF08C2;
+	opacity: 0.7;
+	-webkit-transition: transform 1.0s;
+	-moz-transition: transform 1.0s;
+	-o-transition: transform 1.0s;
+	transition: transform 1.0s;
+}
+
+.discipline-tank-fluid-hidden {
+	transform: translateY(100%);
+}
+
+.fluid-bubble {
+	-webkit-animation-name: bubble-float; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	animation-name: bubble-float;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	bottom: 0px;
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+	background-color: #FFFFFF;
+	opacity: 0.4;
+	position: absolute;
+}
+
+.fluid-bubble1 {
+	-webkit-animation-delay: 50ms; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 1500ms; /* Chrome, Safari, Opera */
+	animation-delay: 50ms;
+	animation-duration: 1500ms;
+}
+
+.fluid-bubble2 {
+	-webkit-animation-delay: 600ms; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 2000ms; /* Chrome, Safari, Opera */
+	animation-delay: 600ms;
+	animation-duration: 2000ms;
+}
+
+.fluid-bubble3 {
+	-webkit-animation-delay: 200ms; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 1900ms; /* Chrome, Safari, Opera */
+	animation-delay: 200ms;
+	animation-duration: 1900ms;
+}
+
+.fluid-bubble4 {
+	-webkit-animation-delay: 500ms; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 1300ms; /* Chrome, Safari, Opera */
+	animation-delay: 500ms;
+	animation-duration: 1300ms;
+}
+
+.fluid-bubble5 {
+	-webkit-animation-delay: 100ms; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 1800ms; /* Chrome, Safari, Opera */
+	animation-delay: 100ms;
+	animation-duration: 1800ms;
+}
+
+.fluid-bubble6 {
+	-webkit-animation-delay: 650ms; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 2200ms; /* Chrome, Safari, Opera */
+	animation-delay: 650ms;
+	animation-duration: 2200ms;
+}
+
+.particle-viewer {
+	width: 498px;
+	height: 350px;
+	position: absolute;
+	left: 3800px;
+	background-color: #282828;
+}
+
+.particle-viewer-frame {
+	width: 500px;
+	height: 350px;
+	position: absolute;
+	background-image: url(images/particle-viewer.png);
+	top: 0px;
+	left: -1px;
+}
+
+.particle-viewer-image {
+	position: absolute;
+	left: 24px;
+	bottom: 50px;
+	width: 450px;
+	height: 275px;
+	overflow: hidden;
+}
+
+.particle-viewer-image>img {
+	position: absolute;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
+	-webkit-animation-name: particle-viewer-image; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 15s; /* Chrome, Safari, Opera */
+	animation-name: particle-viewer-image;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 15s; /* Chrome, Safari, Opera */
+}
+
+.particle-viewer-image>div {
+	position: absolute;
+	width: 110%;
+	bottom: 0px;
+	left: 0px;
+	height: 100%;
+	background-image: url('images/particle.png');
+	-webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
+	animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
+}
+
+.particle-viewer-image1>img {
+	height: 0%;
+	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
+	animation-delay: 0s;
+}
+
+.particle-viewer-image2>img {
+	height: 0%;
+	-webkit-animation-delay: -5s; /* Chrome, Safari, Opera */
+	animation-delay: -5s;
+	height: 0%;
+}
+
+.particle-viewer-image3>img {
+	height: 0%;
+	-webkit-animation-delay: -10s; /* Chrome, Safari, Opera */
+	animation-delay: -10s;
+	height: 0%;
+}
+
+.particle-viewer-image1>div {
+	height: 0%;
+	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
+	animation-delay: 0s;
+}
+
+.particle-viewer-image2>div {
+	height: 0%;
+	-webkit-animation-delay: -5s; /* Chrome, Safari, Opera */
+	animation-delay: -5s;
+	height: 0%;
+}
+
+.particle-viewer-image3>div {
+	height: 0%;
+	-webkit-animation-delay: -10s; /* Chrome, Safari, Opera */
+	animation-delay: -10s;
+	height: 0%;
+}
+
+.particle-viewer-lightning {
+	position: absolute;
+	left: 25px;
+	bottom: 50px;
+	width: 450px;
+	height: 275px;
+	background-image: url('images/particle-viewer-lightning.png');
+	-webkit-animation-name: particle-viewer-lightning; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
+	animation-name: particle-viewer-lightning;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 5s;
+}
+
+.lcd-wsu {
+	width: 350px;
+	height: 350px;
+	position: absolute;
+	left: 4975px;
+	background-image: url('images/lcd-wsu.png');
+}
+
+.lcd-wsu-on {
+	width: 350px;
+	height: 350px;
+	position: absolute;
+	background-image: url('images/lcd-wsu-on.png');
+	-webkit-animation-name: flash-75; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
+	animation-name: flash-75;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 1s;
+}
+
+.battery {
+	width: 59px;
+	height: 59px;
+	position: absolute;
+	background-image: url('images/battery.png');
+}
+
+.horizontal-line {
+	width: 100%;
+	height: 1px;
+	position: absolute;
+}
+
+.white {
+	background-color: #FFFFFF;
+}
+
+.green {
+	background-color: #33FF33;
+}
+
+.caution-tape {
+	background-image: url(images/caution-tape.png);
+}
+
 .rover {
 	position: absolute;
 	width: 225px;
@@ -415,6 +697,15 @@
 
 .rover>img {
 	position: absolute;
+}
+
+.rover-tractor-beam {
+	width: 200px;
+	height 75px;
+	position: absolute;
+	top: -30px;
+	left: 215px;
+	transform-origin: 0% 50%;
 }
 
 @keyframes cycle-board {
@@ -430,4 +721,93 @@
     40%  {transform: translateY(-50%); }
     90%  {transform: translateY(-50%); }
     100% {transform: translateY(0%); }
+}
+
+@keyframes bubble-float {
+	0%   {bottom: 0px;}
+	70%  {bottom: 70%; opacity: 0.4;}
+	100% {bottom: 100%; opacity: 0;}
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes bubble-float {
+	0%   {bottom: 0px;}
+	70%  {bottom: 70%; opacity: 0.4;}
+	100% {bottom: 100%; opacity: 0;}
+}
+
+@keyframes particle-viewer-image {
+	0%	  {height: 100%}
+	23.3% {height: 100%}
+	26.7% {height: 0%}
+	96.7% {height: 0%}
+	100%  {height: 100%}
+}
+
+@-webkit-keyframes particle-viewer-image {
+	0%	  {height: 100%}
+	23.3% {height: 100%}
+	26.7% {height: 0%}
+	96.7% {height: 0%}
+	100%  {height: 100%}
+}
+
+@keyframes particle-viewer-lightning {
+	0%	 {opacity: 0}
+	69%	 {opacity: 0}
+	70%	 {opacity: 1}
+	80%	 {opacity: 1}
+	81%	 {opacity: 0}
+	89%	 {opacity: 0}
+	90%	 {opacity: 1}
+	100% {opacity: 1}
+}
+
+@-webkit-keyframes particle-viewer-lightning {
+	0%	 {opacity: 0}
+	69%	 {opacity: 0}
+	70%	 {opacity: 1}
+	80%	 {opacity: 1}
+	81%	 {opacity: 0}
+	89%	 {opacity: 0}
+	90%	 {opacity: 1}
+	100% {opacity: 1}
+}
+
+@keyframes particle-viewer-particle {
+	0%	 {left: 0px}
+	100% {left: -10px}
+}
+
+@-webkit-keyframes particle-viewer-particle {
+	0%	 {left: 0px}
+	100% {left: -10px}
+}
+
+@keyframes flash-50 {
+	0%	 {opacity: 1}
+	49%	 {opacity: 1}
+	50%	 {opacity: 0}
+	100% {opacity: 0}
+}
+
+@-webkit-keyframes flash-50 {
+	0%	 {opacity: 1}
+	49%	 {opacity: 1}
+	50%	 {opacity: 0}
+	100% {opacity: 0}
+}
+
+@keyframes flash-75 {
+	0%	 {opacity: 1}
+	74%	 {opacity: 1}
+	75%	 {opacity: 0}
+	100% {opacity: 0}
+}
+
+@-webkit-keyframes flash-75 {
+	0%	 {opacity: 1}
+	74%	 {opacity: 1}
+	75%	 {opacity: 0}
+	100% {opacity: 0}
 }
