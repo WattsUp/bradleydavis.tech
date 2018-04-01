@@ -125,7 +125,7 @@ function updateScene() {
 }
 
 function updateStory(sceneX) {
-	if (sceneX > 480) {
+	if (sceneX > 480 && sceneX < 6550) {
 		bradJumpContainer.addClass("jump-up-small");
 		bradJumpContainer.removeClass("jump-down-small");
 		bradJumpContainer.css("bottom", "55px");
