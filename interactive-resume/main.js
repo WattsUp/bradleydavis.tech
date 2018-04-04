@@ -98,7 +98,6 @@ function blink() {
 
 function updateWalkingSprite() {
 	bradSprite.css("bottom", (movingRight * -200) + "px");
-	console.log(currentWalkingFrame);
 	currentWalkingFrame = (currentWalkingFrame + 1) % 4;
 	switch (currentWalkingFrame) {
 	case 0:
@@ -125,7 +124,7 @@ function updateScene() {
 }
 
 function updateStory(sceneX) {
-	if (sceneX > 480 && sceneX < 6550) {
+	if (sceneX > 480 && sceneX < 6500) {
 		bradJumpContainer.addClass("jump-up-small");
 		bradJumpContainer.removeClass("jump-down-small");
 		bradJumpContainer.css("bottom", "55px");
@@ -174,25 +173,34 @@ function updateStory(sceneX) {
 	} else {
 		$(".thruster-small-on").css("display", "none");
 	}
-	var sceneY = Math.max(0, Math.min(1000, sceneX - 5500));
+	if (sceneX > 7000) {
+		$(".rocket-hatch").addClass("rocket-hatch-close");
+		$(".rocket-hatch").removeClass("rocket-hatch-open");
+	} else {
+		$(".rocket-hatch").removeClass("rocket-hatch-close");
+		$(".rocket-hatch").addClass("rocket-hatch-open");
+	}
+	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
 	var roverPosition = Math.min(5000, Math.max(-500 + sceneX * speedScene, 0));
+	var roverY = -sceneY + Math.max(0, Math.min(950, (sceneX - 6800) / 2));
+	var elevatorCargoY = -sceneY + Math.max(0, Math.min(950, (sceneX - 6800) / 2)) + 20;
 	var roverRotate = roverPosition / (Math.PI * 60) * 360;
 	var batteryLCDWSULeft = 2000 + Math.max(0, Math.min(3148, sceneX - 850));
 	var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
 	var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
 	$("#rover").css("transform", "translate(" + roverPosition + "px"
-			+ ", " + (-sceneY) + "px)");
+			+ ", " + roverY + "px)");
 	$(".rover-wheel").css("transform", "rotate(" + roverRotate + "deg)");
 	$(".rover-tractor-beam").css("transform", "rotate(" + roverTractorAngle + "rad)");
 	$("#battery-lcd-wsu").css("left", batteryLCDWSULeft + "px");
 	$("#battery-lcd-wsu").css("transform", "translateY(" + batteryLCDWSUBottom + "px)");
-	$("#elevator-cargo").css("transform", "translateY(" + (-sceneY + 20) + "px)");
+	$("#elevator-cargo").css("transform", "translateY(" + elevatorCargoY + "px)");
 }
 
 function updateMovement(sceneX) {
-	var sceneY = Math.max(0, Math.min(1000, sceneX - 5500));
+	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
 	//Ride elevator @ 5500 for 1000
-	sceneX = sceneX - Math.max(0, Math.min(1000, sceneX - 5500));
+	sceneX = sceneX - Math.max(0, Math.min(950, sceneX - 5500));
 	
 	var adjustedSceneX = sceneX - ($(document).width() / 2 - 900);
 	var positionScene = -adjustedSceneX * speedScene;

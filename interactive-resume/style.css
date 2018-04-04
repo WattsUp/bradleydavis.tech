@@ -219,7 +219,7 @@
 .ground {
 	position: absolute;
 	max-height: 200px;
-	height: 20%;
+	height: 15%;
 	bottom: 0px;
 }
 
@@ -228,6 +228,13 @@
 	width: 100%;
 	height: 40px;
 	background-image: url(images/ground-flooring-concrete.png);
+}
+
+.ground-flooring-rocket {
+	position: absolute;
+	width: 100%;
+	height: 30px;
+	background-image: url(images/ground-flooring-tile.png);
 }
 
 .ground-foundation-lab {
@@ -242,6 +249,14 @@
 	position: absolute;
 	height: 400px;
 	width: 30px;
+}
+
+.wall-rocket {
+	position: absolute;
+	width: 30px;
+	background-image: url(images/wall-rocket.png);
+	height: 9000px;
+	bottom: 650px
 }
 
 .teleporter {
@@ -689,6 +704,62 @@
 	height: 19px;
 	position: absolute;
 	background-image: url('images/thruster-small-on.png');
+}
+
+.rocket {
+	width: 3000px;
+	height: 8000px;
+	position: absolute;
+	left: 6563px;
+}
+
+.rocket-engine {
+	width: 400px;
+	height: 600px;
+	position: absolute;
+	background-image: url('images/rocket-engine.png');
+	bottom: 50px;
+}
+
+.rocket-hatch {
+	width: 30px;
+	height: 300px;
+	position: absolute;
+	background-image: url('images/wall-rocket-door.png');
+}
+
+.rocket-hatch-close {
+	left: 0px;
+	transform: translateY(0px);
+	transition: left 1s ease 1s, transform 1s ease;
+}
+
+.rocket-hatch-open {
+	left: 30px;
+	transform: translateY(-330px);
+	transition: left 1s ease, transform 1s ease 1s;
+}
+
+.rocket-hatch-frame {
+	width: 30px;
+	height: 300px;
+	position: absolute;
+	background-color: #BFBFBF;
+}
+
+.background-engine-room {
+	width: 3000px;
+	height: 700px;
+	position: absolute;
+	left: 15px;
+	bottom: 950px;
+	background-color: #737373;
+}
+
+.background-engine-room>div {
+	width: 100%;
+	height: 100%;
+	background-image: url('images/background-engine-room.png');	
 }
 
 .horizontal-line {
