@@ -245,6 +245,18 @@
 	background-image: url(images/ground-pipes.png);
 }
 
+.ground-foundation-rocket {
+	position: absolute;
+	background-image: url(images/ground-rocket-pipes.png);
+}
+
+.display-large {
+	position: absolute;
+	width: 800px;
+	height: 380px;
+	background-image: url(images/display-large.png);
+}
+
 .wall-laboratory {
 	position: absolute;
 	height: 400px;
@@ -747,6 +759,15 @@
 	background-color: #BFBFBF;
 }
 
+.background-rocket {
+	position: absolute;
+	width: 100%;
+	height: calc(100% - 650px);
+	bottom: 650px;
+	left: 0px;
+	background-color: #f2f2f2;
+}
+
 .background-engine-room {
 	width: 3000px;
 	height: 700px;
@@ -760,6 +781,174 @@
 	width: 100%;
 	height: 100%;
 	background-image: url('images/background-engine-room.png');	
+}
+
+.background-engine-room-off {
+	-webkit-animation-name: engine-off; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
+	animation-name: engine-off;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 5s;	
+	transform: translateZ(0);
+}
+
+.background-engine-room-on {
+	-webkit-animation-name: engine-on; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
+	animation-name: engine-on;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 5s;	
+	transform: translateZ(0);
+}
+
+.skills-wrapper {
+	position: absolute;
+	width: 770px;
+	height: 350px;
+	bottom: 1125px;
+	left: 595px;
+}
+
+.skills-wrapper>h1 {
+	margin: 0px;
+	text-align: center;
+	font-size: 26px;
+	font-family: tektrron;
+	color: #33FF33;
+}
+
+.skills-wrapper>h2 {
+	margin: 0px 0px 0px 260px;
+	font-size: 22px;
+	font-family: code-new-roman;
+	color: #33FF33;
+}
+
+.skills-wrapper>h2>span {
+	width: 120px;
+	display: inline-block;
+}
+
+.skills-wrapper>h3 {
+	margin: 10px 0px 0px 10px;
+	font-size: 22px;
+	font-family: code-new-roman;
+	color: #33FF33;
+}
+
+.skills-wrapper-line {
+	position: absolute;
+	width: 2px;
+	height: 290px;
+	background-color: #33FF33;
+	bottom: 5px;
+}
+
+.skills-battery {
+	position: absolute;
+	height: 24px;
+	background-image: url(images/skills-battery.png);
+}
+
+.skills-code {
+	position: absolute;
+	height: 24px;
+	background-image: url(images/skills-code.png);
+}
+
+.skills-hardware {
+	position: absolute;
+	height: 24px;
+	background-image: url(images/skills-wrench.png);
+}
+
+.skills-fine-art {
+	position: absolute;
+	height: 24px;
+	background-image: url(images/skills-pencil.png);
+}
+
+.engine-room-console {
+	position: absolute;
+	width: 150px;
+	height: 210px;
+	left: 1400px;
+	bottom: 1180px;
+	background-image: url(images/engine-room-console.png);
+}
+
+.engine-room-console>h1 {
+	position: absolute;
+	width: 150px;
+	height: 60px;
+	text-align: center;
+	font-size: 26px;
+	font-family: tektrron;
+	color: #52ade1;
+	margin: 0px;
+}
+
+.engine-room-console>div {
+	position: absolute;
+	width: 130px;
+	height: 140px;
+	top: 60px;
+	left: 10px;
+}
+
+.engine-room-console>div>button {
+	width: 100%;
+	height: 25%;
+	font-size: 20px;
+	font-family: code-new-roman;
+	color: #33FF33;
+	border: 0px;
+	padding: 0px;
+	background-color: #282828;
+}
+
+.engine-room-console>div>button:hover {
+	border: 2px solid #33FF33;
+}
+
+.engine-room-console>div>button:active {
+	border: 2px solid #33FF33;
+	background-color: #33FF33;
+	color: #282828;
+}
+
+.engine-room-wire {
+	position: absolute;
+	width: 100px;
+	height: 20px;
+	left: 329px;
+	bottom: 1000px;
+	background-image: url(images/rocket-engine-power-cable.png);
+	background-position: right;
+}
+
+.engine-room-wire>div {
+	position: absolute;
+	width: 19px;
+	height: 28px;
+	right: 0px;
+	bottom: -4px;
+	background-image: url(images/rocket-engine-power-plug.png);
+}
+
+.engine-room-jack {
+	position: absolute;
+	width: 39px;
+	height: 76px;
+	left: 1700px;
+	bottom: 950px;
+	background-image: url(images/rocket-engine-power-jack.png);
 }
 
 .horizontal-line {
@@ -902,4 +1091,32 @@
 	74%	 {opacity: 1}
 	75%	 {opacity: 0}
 	100% {opacity: 0}
+}
+
+@keyframes engine-off {
+	0%	 {background-color: #737373}
+	20%	 {background-color: #FF1C1C}
+	40%	 {background-color: #FF1C1C}
+	60%	 {background-color: #737373}
+}
+
+@-webkit-keyframes engine-off {
+	0%	 {background-color: #737373}
+	15%	 {background-color: #FF1C1C}
+	35%	 {background-color: #FF1C1C}
+	50%	 {background-color: #737373}
+}
+
+@keyframes engine-on {
+	0%	 {background-color: #737373}
+	20%	 {background-color: #33DD33}
+	40%	 {background-color: #33DD33}
+	60%	 {background-color: #737373}
+}
+
+@-webkit-keyframes engine-on {
+	0%	 {background-color: #737373}
+	15%	 {background-color: #33DD33}
+	35%	 {background-color: #33DD33}
+	50%	 {background-color: #737373}
 }
