@@ -203,12 +203,16 @@ function updateStory(sceneX) {
 		$(".rocket-hatch").removeClass("rocket-hatch-close");
 		$(".rocket-hatch").addClass("rocket-hatch-open");
 	}
-	if (sceneX > 8260){
+
+	var engineWireLength = Math.max(20, Math.min(1380, sceneX - 6900 - (movingRight? 0 : 70)));
+	if (engineWireLength == 1380) {
 		$(".background-engine-room").removeClass("background-engine-room-off");
 		$(".background-engine-room").addClass("background-engine-room-on");
+		$("#rocket-power-status").css("color", "#33FF33");
 	} else {
 		$(".background-engine-room").addClass("background-engine-room-off");
 		$(".background-engine-room").removeClass("background-engine-room-on");
+		$("#rocket-power-status").css("color", "#FF1C1C");
 	}
 	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
 	var roverPosition = Math.min(5000, Math.max(-500 + sceneX * speedScene, 0));
@@ -218,7 +222,6 @@ function updateStory(sceneX) {
 	var batteryLCDWSULeft = 2000 + Math.max(0, Math.min(3148, sceneX - 850));
 	var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
 	var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
-	var engineWireLength = Math.max(20, Math.min(1380, sceneX - 6880));
 	$("#rover").css("transform", "translate(" + roverPosition + "px"
 			+ ", " + roverY + "px)");
 	$(".rover-wheel").css("transform", "rotate(" + roverRotate + "deg)");
