@@ -21,13 +21,6 @@
 	font-style: normal;
 }
 
-/* CSS Reset */
-#element {
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
-	line-height: 1;
-}
 
 .page {
 	left: 0px;
