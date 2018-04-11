@@ -1,9 +1,17 @@
-	$(function() {
+$(function() {
 	setInterval(blink, 4000);
+	setInterval(cycleBoard, 5000);
+	setInterval(cycleParticleDisplay, 5000);
+	setInterval(flashWSULCD, 1000);
+	setInterval(changeBacklightEngineRoom, 5000);
+	setInterval(skillsDisplayCycle, 5000);
 	$(document).scroll(updateScene);
 	updateScene();
 	$("#teleporter-science").hide();
 	blink();
+	cycleParticleDisplay();
+	changeBacklightEngineRoom();
+	skillsDisplayCycle();
 });
 
 $(window).resize(updateScene);
@@ -34,6 +42,43 @@ var walkingIntervalID = null;
 var stopWalkingTimeoutID = null;
 var lastSceneX = getSceneX();
 var disableWalking = false;
+var engineRoomOff = true;
+var skillsClicked = false;
+var skillsCurrent = 0;
+var particleDisplayCurrent = 0;
+var backlightEngineRoom = "#FF1C1C";
+
+function cycleBoard() {
+	$(".title-sign-wrapper").toggleClass("title-sign-wrapper-transformed");
+}
+
+function cycleParticleDisplay() {
+	particleDisplayCurrent = (particleDisplayCurrent + 1) % 3;
+	$(".particle-viewer-particles").css("height", "0%");
+	$(".particle-viewer-lightning").show();
+	setTimeout(function() {
+		$(".particle-viewer-image").hide();
+		$(".particle-viewer-image:eq(" + particleDisplayCurrent + ")").show();
+		$(".particle-viewer-particles").css("height", "100%");
+	}, 1000)
+	setTimeout(function() {
+		$(".particle-viewer-lightning").hide();
+	}, 2000);
+}
+
+function flashWSULCD() {
+	$(".lcd-wsu-on").css("opacity", "0.0");
+	setTimeout(function() {
+		$(".lcd-wsu-on").css("opacity", "1.0");
+	}, 250);
+}
+
+function changeBacklightEngineRoom() {
+	$(".background-engine-room").css("background-color", backlightEngineRoom);
+	setTimeout(function() {
+		$(".background-engine-room").css("background-color", "#737373");
+	}, 2000);
+}
 
 function teleporterChange(locationHash) {
 	if (!teleporting) {
@@ -82,6 +127,24 @@ function teleporterChange(locationHash) {
 	}
 }
 
+function skillsDisplay(currentDisplay) {
+	skillsClicked = true;
+	skillsCurrent = currentDisplay;
+	$(".skills-wrapper").hide();
+	$(".skills-wrapper:eq(" + skillsCurrent + ")").show();
+	setTimeout(function() {
+		skillsClicked = false;
+	}, 10000);
+}
+
+function skillsDisplayCycle() {
+	if (!skillsClicked) {
+		skillsCurrent = (skillsCurrent + 1) % 4;
+		$(".skills-wrapper").hide();
+		$(".skills-wrapper:eq(" + skillsCurrent + ")").show();
+	}
+}
+
 function blink() {
 	if (movingRight) {
 		$("#brad-eyes-right").show();
@@ -98,7 +161,6 @@ function blink() {
 
 function updateWalkingSprite() {
 	bradSprite.css("bottom", (movingRight * -200) + "px");
-	console.log(currentWalkingFrame);
 	currentWalkingFrame = (currentWalkingFrame + 1) % 4;
 	switch (currentWalkingFrame) {
 	case 0:
@@ -120,12 +182,29 @@ function updateScene() {
 	console.log("sceneX: " + sceneX);
 	updateMovement(sceneX);
 	updateStory(sceneX);
+	updateHidden(sceneX);
 	groundHeight = $(".ground").height();
 	onTheGrounds.css("bottom", groundHeight + "px");
 }
 
+function updateHidden(sceneX) {
+	if (sceneX < 6500) {
+		$(".discipline-label").show();
+		$(".particle-viewer").show();
+	} else {
+		$(".discipline-label").hide();
+		$(".particle-viewer").hide();
+	}
+	if (sceneX > 3700) {
+		$(".rocket").show();
+	} else {
+		$(".rocket").hide();
+	}
+
+}
+
 function updateStory(sceneX) {
-	if (sceneX > 480) {
+	if (sceneX > 480 && sceneX < 6500) {
 		bradJumpContainer.addClass("jump-up-small");
 		bradJumpContainer.removeClass("jump-down-small");
 		bradJumpContainer.css("bottom", "55px");
@@ -143,58 +222,95 @@ function updateStory(sceneX) {
 	}
 	if (sceneX > 1150) {
 		$("#fluid-electronics").removeClass("discipline-tank-fluid-hidden");
-		setTimeout(function(){
+		setTimeout(function() {
 			$("#fluid-software").removeClass("discipline-tank-fluid-hidden");
 		}, 250);
-		setTimeout(function(){
+		setTimeout(function() {
 			$("#fluid-hardware").removeClass("discipline-tank-fluid-hidden");
 		}, 500);
-		setTimeout(function(){
+		setTimeout(function() {
 			$("#fluid-art").removeClass("discipline-tank-fluid-hidden");
 		}, 750);
-	} else if (sceneX < 1100){
+	} else if (sceneX < 1100) {
 		$("#fluid-electronics").addClass("discipline-tank-fluid-hidden");
-		setTimeout(function(){
+		setTimeout(function() {
 			$("#fluid-software").addClass("discipline-tank-fluid-hidden");
 		}, 250);
-		setTimeout(function(){
+		setTimeout(function() {
 			$("#fluid-hardware").addClass("discipline-tank-fluid-hidden");
 		}, 500);
-		setTimeout(function(){
+		setTimeout(function() {
 			$("#fluid-art").addClass("discipline-tank-fluid-hidden");
 		}, 750);
 	}
 	if (sceneX > 3998) {
-		$(".lcd-wsu-on").css("display", "block");
+		$(".lcd-wsu-on").show();
 	} else {
-		$(".lcd-wsu-on").css("display", "none");
+		$(".lcd-wsu-on").hide();
 	}
-	var roverPosition = Math.max(-500 + sceneX * speedScene, 0);
+	if (sceneX > 5500) {
+		$(".thruster-small-on").css("display", "block");
+	} else {
+		$(".thruster-small-on").css("display", "none");
+	}
+	if (sceneX > 7000) {
+		$(".rocket-hatch").addClass("rocket-hatch-close");
+		$(".rocket-hatch").removeClass("rocket-hatch-open");
+	} else {
+		$(".rocket-hatch").removeClass("rocket-hatch-close");
+		$(".rocket-hatch").addClass("rocket-hatch-open");
+	}
+
+	var engineWireLength = Math.max(20, Math.min(1380, sceneX - 6900
+			- (movingRight ? 0 : 70)));
+	if (engineWireLength == 1380) {
+		backlightEngineRoom = "#33FF33";
+		changeBacklightEngineRoom();
+		$("#rocket-power-status").css("color", "#33FF33");
+	} else {
+		backlightEngineRoom = "#FF1C1C";
+		changeBacklightEngineRoom();
+		$("#rocket-power-status").css("color", "#FF1C1C");
+	}
+	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
+	var roverPosition = Math.min(5000, Math.max(-500 + sceneX * speedScene, 0));
+	var roverY = -sceneY + Math.max(0, Math.min(950, (sceneX - 6800) / 2));
+	var elevatorCargoY = -sceneY
+			+ Math.max(0, Math.min(950, (sceneX - 6800) / 2)) + 20;
 	var roverRotate = roverPosition / (Math.PI * 60) * 360;
 	var batteryLCDWSULeft = 2000 + Math.max(0, Math.min(3148, sceneX - 850));
 	var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
 	var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
-	$("#rover").css("transform", "translateX(" + roverPosition + "px)");
+	$("#rover").css("transform",
+			"translate(" + roverPosition + "px" + ", " + roverY + "px)");
 	$(".rover-wheel").css("transform", "rotate(" + roverRotate + "deg)");
-	$(".rover-tractor-beam").css("transform", "rotate(" + roverTractorAngle + "rad)");
+	$(".rover-tractor-beam").css("transform",
+			"rotate(" + roverTractorAngle + "rad)");
 	$("#battery-lcd-wsu").css("left", batteryLCDWSULeft + "px");
-	$("#battery-lcd-wsu").css("transform", "translateY(" + batteryLCDWSUBottom + "px)");
+	$("#battery-lcd-wsu").css("transform",
+			"translateY(" + batteryLCDWSUBottom + "px)");
+	$("#elevator-cargo").css("transform",
+			"translateY(" + elevatorCargoY + "px)");
+	$(".engine-room-wire").css("width", engineWireLength + "px");
 }
 
 function updateMovement(sceneX) {
-	
+	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
+	// Ride elevator @ 5500 for 1000
+	sceneX = sceneX - Math.max(0, Math.min(950, sceneX - 5500));
+
 	var adjustedSceneX = sceneX - ($(document).width() / 2 - 900);
 	var positionScene = -adjustedSceneX * speedScene;
 	var positionBrad = -bradContainer.width() / 2 - Math.max(positionScene, 0);
-	// Backgrounds are moved forward by scene, move them backwards
-	var positionBackground = adjustedSceneX * (speedScene - speedBackground);
-	var positionFarBackground = adjustedSceneX
-			* (speedScene - speedFarBackground);
-	scenes.css("transform", "translateX(" + Math.min(positionScene, 0) + "px)");
-	backgrounds.css("transform", "translateX("
-			+ Math.max(positionBackground, 0) + "px)");
-	farBackgrounds.css("transform", "translateX("
-			+ Math.max(positionFarBackground, 0) + "px)");
+	var positionBackground = -adjustedSceneX * speedBackground;
+	var positionFarBackground = -adjustedSceneX * speedFarBackground;
+	scenes.css("transform", "translate(" + Math.min(positionScene, 0) + "px"
+			+ ", " + sceneY + "px)");
+	backgrounds.css("transform", "translate(" + Math.min(positionBackground, 0)
+			+ "px, " + sceneY + "px)");
+	farBackgrounds.css("transform", "translate("
+			+ Math.min(positionFarBackground, 0) + "px, " + sceneY
+			* speedFarBackground + "px)");
 	bradContainer.css("transform", "translateX(" + Math.min(positionBrad, 0)
 			+ "px)");
 	if (sceneX < lastSceneX) {
