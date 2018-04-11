@@ -869,98 +869,24 @@
 	background-image: url(images/rover-tractor-beam.png);
 }
 
-@
-keyframes bubble-float { 0% {
-	transform: translateY(0px);
+@keyframes bubble-float {
+	0%	 {transform: translateY(0px); }
+	70%	 {transform: translateY(-245px); opacity: 0.4;}
+	100% {transform: translateY(-350px); opacity: 0;}
 }
 
-70%
-{
-transform
-:
- 
-translateY
-(-245px);
- 
-opacity
-:
- 
-0
-.4
-;
-}
-100%
-{
-transform
-:
- 
-translateY
-(-350px);
- 
-opacity
-:
- 
-0;
-}
-}
-@
--webkit-keyframes bubble-float { 0% {
-	transform: translateY(0px);
+@-webkit-keyframes bubble-float {
+	0%	 {transform: translateY(0px); }
+	70%	 {transform: translateY(-245px); opacity: 0.4;}
+	100% {transform: translateY(-350px); opacity: 0;}
 }
 
-70%
-{
-transform
-:
- 
-translateY
-(-245px);
- 
-opacity
-:
- 
-0
-.4
-;
-}
-100%
-{
-transform
-:
- 
-translateY
-(-350px);
- 
-opacity
-:
- 
-0;
-}
-}
-@
-keyframes particle-viewer-particle { 0% {
-	left: 0px
+@keyframes particle-viewer-particle {
+	0%	 {left: 0px}
+	100% {left: -10px}
 }
 
-100%
-{
-left
-:
- 
--10
-px
-}
-}
-@
--webkit-keyframes particle-viewer-particle { 0% {
-	left: 0px
-}
-100%
-{
-left
-:
- 
--10
-px
-}
+@-webkit-keyframes particle-viewer-particle {
+	0%	 {left: 0px}
+	100% {left: -10px}
 }
