@@ -21,6 +21,9 @@
 	font-style: normal;
 }
 
+* {
+	margin: 0px;
+}
 
 .page {
 	left: 0px;
@@ -51,7 +54,6 @@
 }
 
 .loading-screen-text {
-	position: absolute;
 	width: 620px;
 	top: 50%;
 	left: 50%;
@@ -65,7 +67,6 @@
 
 .loading-canvas {
 	background-color: #000000;
-	position: absolute;
 	width: 800px;
 	height: 800px;
 	top: 50%;
@@ -82,28 +83,25 @@
 }
 
 .brad {
-	position: absolute;
 	width: 600px;
 	height: 400px;
 	background-image: url(images/brad-sprite.png);
 }
 
 .brad-container {
-	position: absolute;
 	width: 200px;
 	height: 200px;
 	left: 50%;
 }
 
-.brad-container>img {
-	position: absolute;
-}
-
 .brad-jump-container {
-	position: absolute;
 	width: 200px;
 	height: 200px;
 	overflow: hidden;
+}
+
+.brad-eyes {
+	bottom: 159px;
 }
 
 .jump-up-small {
@@ -140,13 +138,11 @@
 }
 
 .scene {
-	position: absolute;
 	width: 100%;
 	height: 100%;
 }
 
 .scene-background {
-	position: absolute;
 	width: 100%;
 	height: 100%;
 	width: 8000px;
@@ -156,7 +152,6 @@
 }
 
 .scene-far-background {
-	position: absolute;
 	width: 8000px;
 	height: 6000px;
 	bottom: 0px;
@@ -164,42 +159,36 @@
 }
 
 .tree-1 {
-	position: absolute;
 	width: 150px;
 	height: 300px;
 	background-image: url(images/tree-1.png);
 }
 
 .tree-2 {
-	position: absolute;
 	width: 200px;
 	height: 400px;
 	background-image: url(images/tree-2.png);
 }
 
 .tree-3 {
-	position: absolute;
 	width: 300px;
 	height: 600px;
 	background-image: url(images/tree-3.png);
 }
 
 .tree-4 {
-	position: absolute;
 	width: 400px;
 	height: 800px;
 	background-image: url(images/tree-4.png);
 }
 
 .cloud-1 {
-	position: absolute;
 	width: 400px;
 	height: 150px;
 	background-image: url(images/cloud-1.png);
 }
 
 .cloud-2 {
-	position: absolute;
 	width: 300px;
 	height: 100px;
 	background-image: url(images/cloud-2.png);
@@ -210,28 +199,24 @@
 }
 
 .ground {
-	position: absolute;
 	max-height: 200px;
 	height: 15%;
 	bottom: 0px;
 }
 
 .ground-flooring-lab {
-	position: absolute;
 	width: 100%;
 	height: 40px;
 	background-image: url(images/ground-flooring-concrete.png);
 }
 
 .ground-flooring-rocket {
-	position: absolute;
 	width: 100%;
 	height: 30px;
 	background-image: url(images/ground-flooring-tile.png);
 }
 
 .ground-foundation-lab {
-	position: absolute;
 	width: 100%;
 	top: 40px;
 	height: 160px;
@@ -239,25 +224,22 @@
 }
 
 .ground-foundation-rocket {
-	position: absolute;
 	background-image: url(images/ground-rocket-pipes.png);
 }
 
 .display-large {
-	position: absolute;
 	width: 800px;
 	height: 380px;
 	background-image: url(images/display-large.png);
 }
 
 .wall-laboratory {
-	position: absolute;
 	height: 400px;
 	width: 30px;
+	background-image: url(images/wall-lab.png);
 }
 
 .wall-rocket {
-	position: absolute;
 	width: 30px;
 	background-image: url(images/wall-rocket.png);
 	height: 9000px;
@@ -265,13 +247,11 @@
 }
 
 .teleporter {
-	position: absolute;
 	height: 400px;
 	width: 261px;
 }
 
 .teleporter-console {
-	position: absolute;
 	height: 275px;
 	width: 240px;
 	left: 320px;
@@ -288,7 +268,6 @@
 }
 
 .teleporter-screen {
-	position: absolute;
 	left: 35px;
 	bottom: 20px;
 	background-color: #282828;
@@ -323,7 +302,6 @@
 }
 
 .background-laboratory {
-	position: absolute;
 	width: 5400px;
 	height: 400px;
 	left: 0px;
@@ -331,7 +309,6 @@
 }
 
 .ceiling-laboratory {
-	position: absolute;
 	width: 5400px;
 	height: 75px;
 	bottom: 375px;
@@ -343,7 +320,6 @@
 	color: #33FF33;
 	width: 450px;
 	height: 240px;
-	position: absolute;
 	text-align: center;
 	left: 675px;
 	transform: translateY(-160px);
@@ -353,7 +329,6 @@
 .title-sign-screen {
 	width: 410px;
 	height: 160px;
-	position: absolute;
 	overflow: hidden;
 	bottom: 20px;
 	left: 20px;
@@ -362,19 +337,11 @@
 .title-sign-wrapper {
 	width: 100%;
 	height: 200%;
-	position: absolute;
-	-webkit-animation-name: cycle-board; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 10s; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-	animation-name: cycle-board;
-	animation-duration: 10s;
-	animation-iteration-count: infinite;
 }
 
 .title-sign-wrapper>h1 {
 	font-size: 64px;
 	font-family: tektrron;
-	position: absolute;
 	width: 100%;
 	top: 25%;
 	transform: translateY(-50%);
@@ -384,7 +351,6 @@
 .title-sign-wrapper>h2 {
 	font-size: 32px;
 	font-family: tektrron;
-	position: absolute;
 	width: 100%;
 	margin: 0px;
 	top: calc(50% + 10px);
@@ -393,7 +359,6 @@
 .title-sign-wrapper>h3 {
 	font-size: 24px;
 	font-family: code-new-roman;
-	position: absolute;
 	width: 80%;
 	margin: 0px;
 	top: calc(50% + 60px);
@@ -401,11 +366,14 @@
 	transform: translateX(-50%);
 }
 
+.title-sign-wrapper-transformed {
+	transform: translateY(-50%);
+}
+
 .hanging-sign {
 	color: #33FF33;
 	width: 240px;
 	height: 160px;
-	position: absolute;
 	text-align: center;
 	transform: translateY(-240px);
 	background-image: url(images/hanging-sign.png);
@@ -414,7 +382,6 @@
 .hanging-sign>h1 {
 	font-size: 32px;
 	font-family: tektrron;
-	position: absolute;
 	width: 100%;
 	margin: 0px;
 	top: 100px;
@@ -424,7 +391,6 @@
 .hanging-sign>h2 {
 	font-size: 26px;
 	font-family: tektrron;
-	position: absolute;
 	width: 100%;
 	margin: 0px;
 	top: 100px;
@@ -434,7 +400,6 @@
 .hanging-sign>h3 {
 	font-size: 24px;
 	font-family: tektrron;
-	position: absolute;
 	width: 100%;
 	margin: 0px;
 	top: 100px;
@@ -444,23 +409,12 @@
 .discipline-label {
 	width: 1036px;
 	height: 380px;
-	position: absolute;
 	overflow: hidden;
-}
-
-.discipline-label>div {
-	position: absolute;
-}
-
-.discipline-label>h1 {
-	position: absolute;
-	margin: 0px;
 }
 
 .discipline-tank {
 	width: 218px;
 	height: 380px;
-	position: absolute;
 	background-image: url(images/discipline-tank.png);
 	horizontal-align: center;
 }
@@ -469,7 +423,6 @@
 	width: 200px;
 	top: 340px;
 	height: 40px;
-	position: absolute;
 	margin: 0px;
 	text-align: center;
 	font-size: 24px;
@@ -479,7 +432,6 @@
 .discipline-tank-fluid {
 	width: 146px;
 	height: 350px;
-	position: absolute;
 	background-color: #FF08C2;
 	opacity: 0.7;
 	-webkit-transition: transform 1.0s;
@@ -494,7 +446,8 @@
 
 .fluid-bubble {
 	-webkit-animation-name: bubble-float; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite;
+	/* Chrome, Safari, Opera */
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	animation-name: bubble-float;
 	animation-iteration-count: infinite;
@@ -505,7 +458,6 @@
 	border-radius: 50%;
 	background-color: #FFFFFF;
 	opacity: 0.4;
-	position: absolute;
 }
 
 .fluid-bubble1 {
@@ -553,7 +505,6 @@
 .particle-viewer {
 	width: 498px;
 	height: 350px;
-	position: absolute;
 	left: 3800px;
 	background-color: #282828;
 }
@@ -561,14 +512,12 @@
 .particle-viewer-frame {
 	width: 500px;
 	height: 350px;
-	position: absolute;
 	background-image: url(images/particle-viewer.png);
 	top: 0px;
 	left: -1px;
 }
 
-.particle-viewer-image {
-	position: absolute;
+.particle-viewer-image-wrapper {
 	left: 24px;
 	bottom: 50px;
 	width: 450px;
@@ -576,81 +525,48 @@
 	overflow: hidden;
 }
 
-.particle-viewer-image>img {
-	position: absolute;
+.particle-viewer-image {
 	width: 100%;
+	height: 100%;
 	bottom: 0px;
-	left: 0px;
-	-webkit-animation-name: particle-viewer-image; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 15s; /* Chrome, Safari, Opera */
-	animation-name: particle-viewer-image;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	animation-duration: 15s; /* Chrome, Safari, Opera */
 }
 
 .particle-viewer-image>div {
-	position: absolute;
+	width: 100%;
+	height: 100%;
+	bottom: 100%;
+	backgroud-color: #282828;
+}
+
+.particle-viewer-particles {
 	width: 110%;
 	bottom: 0px;
 	left: 0px;
 	height: 100%;
 	background-image: url('images/particle.png');
-	-webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
-	animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
-}
-
-.particle-viewer-image1>img {
-	height: 0%;
-	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
-	animation-delay: 0s;
-}
-
-.particle-viewer-image2>img {
-	height: 0%;
-	-webkit-animation-delay: -5s; /* Chrome, Safari, Opera */
-	animation-delay: -5s;
-	height: 0%;
-}
-
-.particle-viewer-image3>img {
-	height: 0%;
-	-webkit-animation-delay: -10s; /* Chrome, Safari, Opera */
-	animation-delay: -10s;
-	height: 0%;
-}
-
-.particle-viewer-image1>div {
-	height: 0%;
-	-webkit-animation-delay: 0s; /* Chrome, Safari, Opera */
-	animation-delay: 0s;
-}
-
-.particle-viewer-image2>div {
-	height: 0%;
-	-webkit-animation-delay: -5s; /* Chrome, Safari, Opera */
-	animation-delay: -5s;
-	height: 0%;
-}
-
-.particle-viewer-image3>div {
-	height: 0%;
-	-webkit-animation-delay: -10s; /* Chrome, Safari, Opera */
-	animation-delay: -10s;
-	height: 0%;
+	background-position: bottom; -webkit-animation : particle-viewer-image
+	infinite linear 15s, particle-viewer-particle infintie linear 1s;
+	animation: particle-viewer-image infinite linear 15s,
+		particle-viewer-particle infinite linear 1s;
+	-webkit-transition: height 1.0s ease;
+	-webkit-transition: height 1.0s ease;
+	-moz-transition: height 1.0s ease;
+	-o-transition: height 1.0s ease;
+	transition: height 1.0s ease;
+	-webkit-animation: particle-viewer-image infinite linear 15s,
+		particle-viewer-particle infintie linear 1s;
 }
 
 .particle-viewer-lightning {
-	position: absolute;
 	left: 25px;
 	bottom: 50px;
 	width: 450px;
 	height: 275px;
 	background-image: url('images/particle-viewer-lightning.png');
-	-webkit-animation-name: particle-viewer-lightning; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
+	-webkit-animation-name: particle-viewer-lightning;
+	/* Chrome, Safari, Opera */
+	-webkit-animation-iteration-count: infinite;
+	/* Chrome, Safari, Opera */
 	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
 	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
 	animation-name: particle-viewer-lightning;
@@ -662,7 +578,6 @@
 .lcd-wsu {
 	width: 350px;
 	height: 350px;
-	position: absolute;
 	left: 4975px;
 	background-image: url('images/lcd-wsu.png');
 }
@@ -670,29 +585,18 @@
 .lcd-wsu-on {
 	width: 350px;
 	height: 350px;
-	position: absolute;
 	background-image: url('images/lcd-wsu-on.png');
-	-webkit-animation-name: flash-75; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 1s; /* Chrome, Safari, Opera */
-	animation-name: flash-75;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	animation-duration: 1s;
 }
 
 .battery {
 	width: 59px;
 	height: 59px;
-	position: absolute;
 	background-image: url('images/battery.png');
 }
 
 .elevator-cargo {
 	width: 300px;
 	height: 20px;
-	position: absolute;
 	left: 6263px;
 	transform: translateY(20px);
 }
@@ -700,28 +604,24 @@
 .thruster-small {
 	width: 31px;
 	height: 19px;
-	position: absolute;
 	background-image: url('images/thruster-small.png');
 }
 
 .thruster-small-on {
 	width: 31px;
 	height: 19px;
-	position: absolute;
 	background-image: url('images/thruster-small-on.png');
 }
 
 .rocket {
 	width: 3000px;
 	height: 8000px;
-	position: absolute;
 	left: 6563px;
 }
 
 .rocket-engine {
 	width: 400px;
 	height: 600px;
-	position: absolute;
 	background-image: url('images/rocket-engine.png');
 	bottom: 50px;
 }
@@ -729,7 +629,6 @@
 .rocket-hatch {
 	width: 30px;
 	height: 300px;
-	position: absolute;
 	background-image: url('images/wall-rocket-door.png');
 }
 
@@ -748,12 +647,10 @@
 .rocket-hatch-frame {
 	width: 30px;
 	height: 300px;
-	position: absolute;
 	background-color: #BFBFBF;
 }
 
 .background-rocket {
-	position: absolute;
 	width: 100%;
 	height: calc(100% - 650px);
 	bottom: 650px;
@@ -764,44 +661,22 @@
 .background-engine-room {
 	width: 3000px;
 	height: 700px;
-	position: absolute;
 	left: 15px;
 	bottom: 950px;
 	background-color: #737373;
+	-webkit-transition: background-color 1.0s;
+	-moz-transition: background-color 1.0s;
+	-o-transition: background-color 1.0s;
+	transition: background-color 1.0s;
 }
 
 .background-engine-room>div {
 	width: 100%;
 	height: 100%;
-	background-image: url('images/background-engine-room.png');	
-}
-
-.background-engine-room-off {
-	-webkit-animation-name: engine-off; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
-	animation-name: engine-off;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	animation-duration: 5s;	
-	transform: translateZ(0);
-}
-
-.background-engine-room-on {
-	-webkit-animation-name: engine-on; /* Chrome, Safari, Opera */
-	-webkit-animation-iteration-count: infinite; /* Chrome, Safari, Opera */
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
-	animation-name: engine-on;
-	animation-iteration-count: infinite;
-	animation-timing-function: linear;
-	animation-duration: 5s;	
-	transform: translateZ(0);
+	background-image: url('images/background-engine-room.png');
 }
 
 .skills-wrapper {
-	position: absolute;
 	width: 770px;
 	height: 350px;
 	bottom: 1125px;
@@ -836,7 +711,6 @@
 }
 
 .skills-wrapper-line {
-	position: absolute;
 	width: 2px;
 	height: 290px;
 	background-color: #33FF33;
@@ -844,31 +718,26 @@
 }
 
 .skills-battery {
-	position: absolute;
 	height: 24px;
 	background-image: url(images/skills-battery.png);
 }
 
 .skills-code {
-	position: absolute;
 	height: 24px;
 	background-image: url(images/skills-code.png);
 }
 
 .skills-hardware {
-	position: absolute;
 	height: 24px;
 	background-image: url(images/skills-wrench.png);
 }
 
 .skills-fine-art {
-	position: absolute;
 	height: 24px;
 	background-image: url(images/skills-pencil.png);
 }
 
 .engine-room-console {
-	position: absolute;
 	width: 150px;
 	height: 210px;
 	left: 1400px;
@@ -877,7 +746,6 @@
 }
 
 .engine-room-console>h1 {
-	position: absolute;
 	width: 150px;
 	height: 60px;
 	text-align: center;
@@ -888,7 +756,6 @@
 }
 
 .engine-room-console>div {
-	position: absolute;
 	width: 130px;
 	height: 140px;
 	top: 60px;
@@ -917,7 +784,6 @@
 }
 
 .engine-room-wire {
-	position: absolute;
 	width: 100px;
 	height: 20px;
 	left: 329px;
@@ -927,7 +793,6 @@
 }
 
 .engine-room-wire>div {
-	position: absolute;
 	width: 19px;
 	height: 28px;
 	right: 0px;
@@ -936,7 +801,6 @@
 }
 
 .engine-room-jack {
-	position: absolute;
 	width: 39px;
 	height: 76px;
 	left: 1700px;
@@ -944,10 +808,16 @@
 	background-image: url(images/rocket-engine-power-jack.png);
 }
 
+.engine-room-cables {
+	width: 517px;
+	height: 250px;
+	bottom: 1400px;
+	background-image: url(images/rocket-engine-room-cables.png);
+}
+
 .horizontal-line {
 	width: 100%;
 	height: 1px;
-	position: absolute;
 }
 
 .white {
@@ -963,153 +833,134 @@
 }
 
 .rover {
-	position: absolute;
 	width: 225px;
 	height: 155px;
 	left: 1300px;
 }
 
-.rover>img {
-	position: absolute;
+.rover-chassis {
+	width: 225px;
+	height: 40px;
+	bottom: 15px;
+	background-image: url(images/rover-chassis.png);
+}
+
+.rover-mast {
+	width: 34px;
+	height: 100px;
+	left: 185px;
+	bottom: 55px;
+	background-image: url(images/rover-mast.png);
+}
+
+.rover-wheel {
+	width: 60px;
+	height: 60px;
+	bottom: 0px;
+	background-image: url(images/rover-wheel.png);
 }
 
 .rover-tractor-beam {
 	width: 200px;
-	height 75px;
-	position: absolute;
+	height: 75px;
 	top: -30px;
 	left: 215px;
 	transform-origin: 0% 50%;
+	background-image: url(images/rover-tractor-beam.png);
 }
 
-@keyframes cycle-board {
-    30%  {transform: translateY(0%); }
-    40%  {transform: translateY(-50%); }
-    90%  {transform: translateY(-50%); }
-    100% {transform: translateY(0%); }
+@
+keyframes bubble-float { 0% {
+	transform: translateY(0px);
 }
 
-/* Chrome, Safari, Opera */
-@-webkit-keyframes cycle-board {
-    30%  {transform: translateY(0%); }
-    40%  {transform: translateY(-50%); }
-    90%  {transform: translateY(-50%); }
-    100% {transform: translateY(0%); }
+70%
+{
+transform
+:
+ 
+translateY
+(-245px);
+ 
+opacity
+:
+ 
+0
+.4
+;
+}
+100%
+{
+transform
+:
+ 
+translateY
+(-350px);
+ 
+opacity
+:
+ 
+0;
+}
+}
+@
+-webkit-keyframes bubble-float { 0% {
+	transform: translateY(0px);
 }
 
-@keyframes bubble-float {
-	0%   {bottom: 0px;}
-	70%  {bottom: 70%; opacity: 0.4;}
-	100% {bottom: 100%; opacity: 0;}
+70%
+{
+transform
+:
+ 
+translateY
+(-245px);
+ 
+opacity
+:
+ 
+0
+.4
+;
+}
+100%
+{
+transform
+:
+ 
+translateY
+(-350px);
+ 
+opacity
+:
+ 
+0;
+}
+}
+@
+keyframes particle-viewer-particle { 0% {
+	left: 0px
 }
 
-/* Chrome, Safari, Opera */
-@-webkit-keyframes bubble-float {
-	0%   {bottom: 0px;}
-	70%  {bottom: 70%; opacity: 0.4;}
-	100% {bottom: 100%; opacity: 0;}
+100%
+{
+left
+:
+ 
+-10
+px
 }
-
-@keyframes particle-viewer-image {
-	0%	  {height: 100%}
-	23.3% {height: 100%}
-	26.7% {height: 0%}
-	96.7% {height: 0%}
-	100%  {height: 100%}
 }
-
-@-webkit-keyframes particle-viewer-image {
-	0%	  {height: 100%}
-	23.3% {height: 100%}
-	26.7% {height: 0%}
-	96.7% {height: 0%}
-	100%  {height: 100%}
+@
+-webkit-keyframes particle-viewer-particle { 0% {
+	left: 0px
 }
-
-@keyframes particle-viewer-lightning {
-	0%	 {opacity: 0}
-	69%	 {opacity: 0}
-	70%	 {opacity: 1}
-	80%	 {opacity: 1}
-	81%	 {opacity: 0}
-	89%	 {opacity: 0}
-	90%	 {opacity: 1}
-	100% {opacity: 1}
+100%
+{
+left
+:
+ 
+-10
+px
 }
-
-@-webkit-keyframes particle-viewer-lightning {
-	0%	 {opacity: 0}
-	69%	 {opacity: 0}
-	70%	 {opacity: 1}
-	80%	 {opacity: 1}
-	81%	 {opacity: 0}
-	89%	 {opacity: 0}
-	90%	 {opacity: 1}
-	100% {opacity: 1}
-}
-
-@keyframes particle-viewer-particle {
-	0%	 {left: 0px}
-	100% {left: -10px}
-}
-
-@-webkit-keyframes particle-viewer-particle {
-	0%	 {left: 0px}
-	100% {left: -10px}
-}
-
-@keyframes flash-50 {
-	0%	 {opacity: 1}
-	49%	 {opacity: 1}
-	50%	 {opacity: 0}
-	100% {opacity: 0}
-}
-
-@-webkit-keyframes flash-50 {
-	0%	 {opacity: 1}
-	49%	 {opacity: 1}
-	50%	 {opacity: 0}
-	100% {opacity: 0}
-}
-
-@keyframes flash-75 {
-	0%	 {opacity: 1}
-	74%	 {opacity: 1}
-	75%	 {opacity: 0}
-	100% {opacity: 0}
-}
-
-@-webkit-keyframes flash-75 {
-	0%	 {opacity: 1}
-	74%	 {opacity: 1}
-	75%	 {opacity: 0}
-	100% {opacity: 0}
-}
-
-@keyframes engine-off {
-	0%	 {background-color: #737373}
-	20%	 {background-color: #FF1C1C}
-	40%	 {background-color: #FF1C1C}
-	60%	 {background-color: #737373}
-}
-
-@-webkit-keyframes engine-off {
-	0%	 {background-color: #737373}
-	15%	 {background-color: #FF1C1C}
-	35%	 {background-color: #FF1C1C}
-	50%	 {background-color: #737373}
-}
-
-@keyframes engine-on {
-	0%	 {background-color: #737373}
-	20%	 {background-color: #33DD33}
-	40%	 {background-color: #33DD33}
-	60%	 {background-color: #737373}
-}
-
-@-webkit-keyframes engine-on {
-	0%	 {background-color: #737373}
-	15%	 {background-color: #33DD33}
-	35%	 {background-color: #33DD33}
-	50%	 {background-color: #737373}
 }
