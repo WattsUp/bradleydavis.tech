@@ -938,6 +938,18 @@
 	margin: 0px;
 }
 
+.experience-panel>h4 {
+	font-size: 18px;
+	font-family: code-new-roman;
+	margin: 0px;
+	right: 5px;
+	bottom: 5px;
+}
+
+.experience-panel>div {
+	transform: translate(-50%, -50%);
+}
+
 .experience-panel>div>h1 {
 	font-size: 18px;
 	font-family: code-new-roman;
@@ -955,7 +967,7 @@
 	border-radius: 50%;
 }
 
-.experience-camp {
+.experience-pie {
   	background-color: #33FF33;
 }
 
@@ -963,8 +975,8 @@
 	font-size: 16px;
 	font-family: code-new-roman;
 	width: 280px;
-	height: 250px;
-	bottom: 0px;
+	height: 230px;
+	bottom: 25px;
 	right: 10px; 
 	text-align: left;
 }
