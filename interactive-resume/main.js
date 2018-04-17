@@ -12,6 +12,7 @@ $(function() {
 	cycleParticleDisplay();
 	changeBacklightEngineRoom();
 	skillsDisplayCycle();
+	drawPieCharts();
 });
 
 $(window).resize(updateScene);
@@ -125,6 +126,31 @@ function teleporterChange(locationHash) {
 			updateScene();
 		}, 2500);
 	}
+}
+
+function drawPieCharts() {
+	var radius = 120;
+	var contextCamp = $(".experience-camp")[0].getContext("2d");
+	$(".experience-camp")[0].width = radius * 2;
+	$(".experience-camp")[0].height = radius * 2;
+	contextCamp.strokeStyle = "#282828";
+	contextCamp.lineWidth = 2;
+	contextCamp.beginPath();
+	contextCamp.moveTo(radius, radius);
+	contextCamp.lineTo(radius * 2, radius);
+	contextCamp.moveTo(radius, radius);
+	contextCamp.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 10),
+			radius - radius * Math.sin(2 * Math.PI / 100 * 10));
+	contextCamp.moveTo(radius, radius);
+	contextCamp.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 25),
+			radius - radius * Math.sin(2 * Math.PI / 100 * 25));
+	contextCamp.moveTo(radius, radius);
+	contextCamp.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 55),
+			radius - radius * Math.sin(2 * Math.PI / 100 * 55));
+	contextCamp.moveTo(radius, radius);
+	contextCamp.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90),
+			radius - radius * Math.sin(2 * Math.PI / 100 * 90));
+	contextCamp.stroke();
 }
 
 function skillsDisplay(currentDisplay) {

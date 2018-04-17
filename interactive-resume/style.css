@@ -235,6 +235,18 @@
 	background-image: url(images/display-large.png);
 }
 
+.display-rocket-800 {
+	width: 800px;
+	height: 380px;
+	background-image: url(images/display-rocket-800.png);
+}
+
+.display-rocket-600 {
+	width: 600px;
+	height: 380px;
+	background-image: url(images/display-rocket-600.png);
+}
+
 .wall-laboratory {
 	height: 400px;
 	width: 30px;
@@ -406,6 +418,10 @@
 	margin: 0px;
 	top: 100px;
 	transform: translateY(-50%);
+}
+
+.hanging-sign-rocket {
+	background-image: url(images/hanging-sign-rocket.png);
 }
 
 .discipline-label {
@@ -594,6 +610,43 @@
 	width: 59px;
 	height: 59px;
 	background-image: url('images/battery.png');
+}
+
+.rover {
+	width: 225px;
+	height: 155px;
+	left: 1300px;
+}
+
+.rover-chassis {
+	width: 225px;
+	height: 40px;
+	bottom: 15px;
+	background-image: url(images/rover-chassis.png);
+}
+
+.rover-mast {
+	width: 34px;
+	height: 100px;
+	left: 185px;
+	bottom: 55px;
+	background-image: url(images/rover-mast.png);
+}
+
+.rover-wheel {
+	width: 60px;
+	height: 60px;
+	bottom: 0px;
+	background-image: url(images/rover-wheel.png);
+}
+
+.rover-tractor-beam {
+	width: 200px;
+	height: 75px;
+	top: -30px;
+	left: 215px;
+	transform-origin: 0% 50%;
+	background-image: url(images/rover-tractor-beam.png);
 }
 
 .elevator-cargo {
@@ -853,6 +906,69 @@
 	background-image: url(images/pneumatic-elevator-station.png);	
 }
 
+.experience-panel {
+	left: 15px;
+	top: 15px;
+	height: 350px;
+	width: 570px;
+	color: #33FF33;
+	text-align: center;
+}
+
+.experience-panel>h1 {
+	font-size: 32px;
+	font-family: tektrron;
+	width: 100%;
+	margin: 3px 0px 3px 0px;
+	background-color: #33FF33;
+	color: #282828;
+}
+
+.experience-panel>h2 {
+	font-size: 22px;
+	font-family: code-new-roman;
+	width: 100%;
+	margin: 0px;
+}
+
+.experience-panel>h3 {
+	font-size: 18px;
+	font-family: code-new-roman;
+	width: 100%;
+	margin: 0px;
+}
+
+.experience-panel>div>h1 {
+	font-size: 18px;
+	font-family: code-new-roman;
+	color: #282828;
+	margin: 0px;
+}
+
+.experience-panel>canvas {
+	font-size: 18px;
+	font-family: tektrron;
+	width: 240px;
+	height: 240px;
+	bottom: 10px;
+	left: 10px;
+	border-radius: 50%;
+}
+
+.experience-camp {
+  	background-color: #33FF33;
+}
+
+.experience-panel>span {
+	font-size: 16px;
+	font-family: code-new-roman;
+	width: 280px;
+	height: 250px;
+	bottom: 0px;
+	right: 10px; 
+	text-align: left;
+}
+
 .horizontal-line {
 	width: 100%;
 	height: 1px;
@@ -868,43 +984,6 @@
 
 .caution-tape {
 	background-image: url(images/caution-tape.png);
-}
-
-.rover {
-	width: 225px;
-	height: 155px;
-	left: 1300px;
-}
-
-.rover-chassis {
-	width: 225px;
-	height: 40px;
-	bottom: 15px;
-	background-image: url(images/rover-chassis.png);
-}
-
-.rover-mast {
-	width: 34px;
-	height: 100px;
-	left: 185px;
-	bottom: 55px;
-	background-image: url(images/rover-mast.png);
-}
-
-.rover-wheel {
-	width: 60px;
-	height: 60px;
-	bottom: 0px;
-	background-image: url(images/rover-wheel.png);
-}
-
-.rover-tractor-beam {
-	width: 200px;
-	height: 75px;
-	top: -30px;
-	left: 215px;
-	transform-origin: 0% 50%;
-	background-image: url(images/rover-tractor-beam.png);
 }
 
 @keyframes bubble-float {
