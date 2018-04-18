@@ -23,6 +23,7 @@
 
 * {
 	margin: 0px;
+	image-rendering: pixelated;
 }
 
 .page {
@@ -101,6 +102,8 @@
 }
 
 .brad-eyes {
+	width: 28px;
+	height: 11px;
 	bottom: 159px;
 }
 
@@ -138,7 +141,6 @@
 }
 
 .scene {
-	width: 100%;
 	height: 100%;
 }
 
@@ -231,6 +233,18 @@
 	width: 800px;
 	height: 380px;
 	background-image: url(images/display-large.png);
+}
+
+.display-rocket-800 {
+	width: 800px;
+	height: 380px;
+	background-image: url(images/display-rocket-800.png);
+}
+
+.display-rocket-600 {
+	width: 600px;
+	height: 380px;
+	background-image: url(images/display-rocket-600.png);
 }
 
 .wall-laboratory {
@@ -404,6 +418,10 @@
 	margin: 0px;
 	top: 100px;
 	transform: translateY(-50%);
+}
+
+.hanging-sign-rocket {
+	background-image: url(images/hanging-sign-rocket.png);
 }
 
 .discipline-label {
@@ -594,6 +612,43 @@
 	background-image: url('images/battery.png');
 }
 
+.rover {
+	width: 225px;
+	height: 155px;
+	left: 1300px;
+}
+
+.rover-chassis {
+	width: 225px;
+	height: 40px;
+	bottom: 15px;
+	background-image: url(images/rover-chassis.png);
+}
+
+.rover-mast {
+	width: 34px;
+	height: 100px;
+	left: 185px;
+	bottom: 55px;
+	background-image: url(images/rover-mast.png);
+}
+
+.rover-wheel {
+	width: 60px;
+	height: 60px;
+	bottom: 0px;
+	background-image: url(images/rover-wheel.png);
+}
+
+.rover-tractor-beam {
+	width: 200px;
+	height: 75px;
+	top: -30px;
+	left: 215px;
+	transform-origin: 0% 50%;
+	background-image: url(images/rover-tractor-beam.png);
+}
+
 .elevator-cargo {
 	width: 300px;
 	height: 20px;
@@ -614,7 +669,7 @@
 }
 
 .rocket {
-	width: 3000px;
+	width: 2420px;
 	height: 8000px;
 	left: 6563px;
 }
@@ -659,10 +714,9 @@
 }
 
 .background-engine-room {
-	width: 3000px;
+	width: 2380px;
 	height: 700px;
 	left: 15px;
-	bottom: 950px;
 	background-color: #737373;
 	-webkit-transition: background-color 1.0s;
 	-moz-transition: background-color 1.0s;
@@ -815,6 +869,182 @@
 	background-image: url(images/rocket-engine-room-cables.png);
 }
 
+.engine-room-cables-long {
+	width: 669px;
+	height: 250px;
+	bottom: 1400px;
+	background-image: url(images/rocket-engine-room-cables-long.png);
+}
+
+.pneumatic-tube {
+	width: 150px;
+	height: 3160px;
+	bottom: 1200px;
+	left: 8763px;
+	background-image: url(images/pneumatic-elevator-tube.png);
+}
+
+.pneumatic-tube-station {
+	width: 150px;
+	height: 250px;
+	left: 8763px;
+	background-image: url(images/pneumatic-elevator-station.png);
+}
+
+.pneumatic-tube-station-rear {
+	width: 150px;
+	height: 250px;
+	left: 2200px;
+	background-image: url(images/pneumatic-elevator-station-rear.png);
+}
+
+.pneumatic-tube-station-rear>div {
+	width: 150px;
+	height: 250px;
+	background-image: url(images/pneumatic-elevator-station.png);	
+}
+
+.experience-panel {
+	left: 15px;
+	top: 15px;
+	height: 350px;
+	width: 570px;
+	color: #33FF33;
+	text-align: center;
+}
+
+.experience-panel>h1 {
+	font-size: 32px;
+	font-family: tektrron;
+	width: 100%;
+	margin: 3px 0px 3px 0px;
+	background-color: #33FF33;
+	color: #282828;
+}
+
+.experience-panel>h2 {
+	font-size: 22px;
+	font-family: code-new-roman;
+	width: 100%;
+	margin: 0px;
+}
+
+.experience-panel>h3 {
+	font-size: 18px;
+	font-family: code-new-roman;
+	width: 100%;
+	margin: 0px;
+}
+
+.experience-panel>h4 {
+	font-size: 18px;
+	font-family: code-new-roman;
+	margin: 0px;
+	right: 5px;
+	bottom: 5px;
+}
+
+.experience-panel>div {
+	transform: translate(-50%, -50%);
+}
+
+.experience-panel>div>h1 {
+	font-size: 18px;
+	font-family: code-new-roman;
+	color: #282828;
+	margin: 0px;
+}
+
+.experience-panel>canvas {
+	font-size: 18px;
+	font-family: tektrron;
+	width: 240px;
+	height: 240px;
+	bottom: 10px;
+	left: 10px;
+	border-radius: 50%;
+}
+
+.experience-pie {
+  	background-color: #33FF33;
+}
+
+.experience-panel>span {
+	font-size: 16px;
+	font-family: code-new-roman;
+	width: 280px;
+	height: 230px;
+	bottom: 25px;
+	right: 10px; 
+	text-align: left;
+}
+
+.box>h1{
+	font-size: 20px;
+	font-family: tektrron;
+	margin: 0px;
+	text-align: center;
+	color: #52ade1;
+}
+
+.box.square-100 {
+	width: 100px;
+	height: 100px;
+	background-image: url(images/box-square-100.png);
+}
+
+.box.square-100>h1 {
+	width: 100%;
+	bottom: 15px;
+}
+
+.box.square-70 {
+	width: 70px;
+	height: 70px;
+	background-image: url(images/box-square-70.png);
+}
+
+.box.square-70>h1 {
+	width: 100%;
+	bottom: 12px;
+	font-size: 14px;
+}
+
+.box.end-100 {
+	width: 100px;
+	height: 100px;
+	background-image: url(images/box-end-square-100.png);
+}
+
+.box.end-100>h1 {
+	width: 100%;
+	bottom: 15px;
+}
+
+.box.rect-100 {
+	width: 200px;
+	height: 100px;
+	background-image: url(images/box-rect-100.png);
+}
+
+.box.rect-100>h1 {
+	left: 25px;
+	bottom: 20px;
+}
+
+
+.box.rect-70 {
+	width: 180px;
+	height: 70px;
+	background-image: url(images/box-rect-70.png);
+}
+
+.box.rect-70>h1 {
+	right: 15px;
+	bottom: 12px;
+	font-size: 14px;
+}
+
 .horizontal-line {
 	width: 100%;
 	height: 1px;
@@ -830,43 +1060,6 @@
 
 .caution-tape {
 	background-image: url(images/caution-tape.png);
-}
-
-.rover {
-	width: 225px;
-	height: 155px;
-	left: 1300px;
-}
-
-.rover-chassis {
-	width: 225px;
-	height: 40px;
-	bottom: 15px;
-	background-image: url(images/rover-chassis.png);
-}
-
-.rover-mast {
-	width: 34px;
-	height: 100px;
-	left: 185px;
-	bottom: 55px;
-	background-image: url(images/rover-mast.png);
-}
-
-.rover-wheel {
-	width: 60px;
-	height: 60px;
-	bottom: 0px;
-	background-image: url(images/rover-wheel.png);
-}
-
-.rover-tractor-beam {
-	width: 200px;
-	height: 75px;
-	top: -30px;
-	left: 215px;
-	transform-origin: 0% 50%;
-	background-image: url(images/rover-tractor-beam.png);
 }
 
 @keyframes bubble-float {
