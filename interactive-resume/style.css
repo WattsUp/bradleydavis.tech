@@ -878,7 +878,7 @@
 
 .pneumatic-tube {
 	width: 150px;
-	height: 2000px;
+	height: 3160px;
 	bottom: 1200px;
 	left: 8763px;
 	background-image: url(images/pneumatic-elevator-tube.png);
@@ -887,7 +887,6 @@
 .pneumatic-tube-station {
 	width: 150px;
 	height: 250px;
-	bottom: 950px;
 	left: 8763px;
 	background-image: url(images/pneumatic-elevator-station.png);
 }
@@ -895,7 +894,6 @@
 .pneumatic-tube-station-rear {
 	width: 150px;
 	height: 250px;
-	bottom: 950px;
 	left: 2200px;
 	background-image: url(images/pneumatic-elevator-station-rear.png);
 }

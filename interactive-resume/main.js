@@ -42,6 +42,7 @@ var stopWalkingTimeout = 250;
 var walkingIntervalID = null;
 var stopWalkingTimeoutID = null;
 var lastSceneX = getSceneX();
+var lastPositionBrad = 0;
 var disableWalking = false;
 var engineRoomOff = true;
 var skillsClicked = false;
@@ -139,17 +140,17 @@ function drawPieCharts() {
 	context0.moveTo(radius, radius);
 	context0.lineTo(radius * 2, radius);
 	context0.moveTo(radius, radius);
-	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 10),
-			radius - radius * Math.sin(2 * Math.PI / 100 * 10));
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 10), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 10));
 	context0.moveTo(radius, radius);
-	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 25),
-			radius - radius * Math.sin(2 * Math.PI / 100 * 25));
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 25), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 25));
 	context0.moveTo(radius, radius);
-	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 55),
-			radius - radius * Math.sin(2 * Math.PI / 100 * 55));
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 55), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 55));
 	context0.moveTo(radius, radius);
-	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90),
-			radius - radius * Math.sin(2 * Math.PI / 100 * 90));
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 90));
 	context0.stroke();
 }
 
@@ -230,7 +231,7 @@ function updateHidden(sceneX) {
 }
 
 function updateStory(sceneX) {
-	if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 11000)) {
+	if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300)) {
 		disableWalking = true;
 	} else {
 		disableWalking = false;
@@ -331,18 +332,22 @@ function updateStory(sceneX) {
 
 function updateMovement(sceneX) {
 	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
-	sceneY = sceneY + Math.max(0, Math.min(2500, sceneX - 8890));
+	sceneY = sceneY + Math.max(0, Math.min(3410, sceneX - 8890));
 	// Ride elevator @ 5500 for 950
-	// Ride turbolift @ 8880 for 2500
+	// Ride turbolift @ 8880 for 4000
 	var adjustedSceneX = sceneX
 			- Math.max(0, Math.min(950, sceneX - 5500))
-			- Math.max(0, Math.min(2500, sceneX - 8890 + $(document).width()
-					/ 8)) - ($(document).width() / 2 - 900);
+			- Math.max(0, Math.min(3410 + $(document).width() / 4, sceneX
+					- 8890 + $(document).width() / 8))
+			- ($(document).width() / 2 - 900)
+			- Math.max(0, Math.min(950, sceneX - 12300 - $(document).width()
+					/ 8)) * 2;
 	var positionScene = -adjustedSceneX * speedScene;
 	var positionBrad = (-bradContainer.width() / 2)
 			- Math.max(positionScene, 0)
 			+ Math.max(0, Math.min(sceneX - 8890 + $(document).width() / 8, $(
-					document).width() / 8));
+					document).width() / 8))
+			- Math.max(0, Math.min(sceneX - 12300, $(document).width() / 8));
 	var positionBackground = -adjustedSceneX * speedBackground;
 	var positionFarBackground = -adjustedSceneX * speedFarBackground;
 	scenes.css("transform", "translate(" + Math.min(positionScene, 0) + "px"
@@ -353,7 +358,7 @@ function updateMovement(sceneX) {
 			+ Math.min(positionFarBackground, 0) + "px, " + sceneY
 			* speedFarBackground + "px)");
 	bradContainer.css("transform", "translateX(" + positionBrad + "px)");
-	if (sceneX < lastSceneX) {
+	if (adjustedSceneX < lastSceneX || lastPositionBrad > positionBrad) {
 		if (!moving && !disableWalking) {
 			movingRight = false;
 			moving = true;
@@ -372,5 +377,6 @@ function updateMovement(sceneX) {
 	stopWalkingTimeoutID = setTimeout(function() {
 		moving = false;
 	}, stopWalkingTimeout);
-	lastSceneX = sceneX;
+	lastSceneX = adjustedSceneX;
+	lastPositionBrad = positionBrad;
 }
