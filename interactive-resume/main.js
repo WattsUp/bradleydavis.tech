@@ -12,6 +12,7 @@ $(function() {
 	cycleParticleDisplay();
 	changeBacklightEngineRoom();
 	skillsDisplayCycle();
+	drawPieCharts();
 });
 
 $(window).resize(updateScene);
@@ -41,6 +42,7 @@ var stopWalkingTimeout = 250;
 var walkingIntervalID = null;
 var stopWalkingTimeoutID = null;
 var lastSceneX = getSceneX();
+var lastPositionBrad = 0;
 var disableWalking = false;
 var engineRoomOff = true;
 var skillsClicked = false;
@@ -74,9 +76,9 @@ function flashWSULCD() {
 }
 
 function changeBacklightEngineRoom() {
-	$(".background-engine-room").css("background-color", backlightEngineRoom);
+	$("#engine-room").css("background-color", backlightEngineRoom);
 	setTimeout(function() {
-		$(".background-engine-room").css("background-color", "#737373");
+		$("#engine-room").css("background-color", "#737373");
 	}, 2000);
 }
 
@@ -125,6 +127,31 @@ function teleporterChange(locationHash) {
 			updateScene();
 		}, 2500);
 	}
+}
+
+function drawPieCharts() {
+	var radius = 120;
+	var context0 = $(".experience-pie")[0].getContext("2d");
+	$(".experience-pie")[0].width = radius * 2;
+	$(".experience-pie")[0].height = radius * 2;
+	context0.strokeStyle = "#282828";
+	context0.lineWidth = 2;
+	context0.beginPath();
+	context0.moveTo(radius, radius);
+	context0.lineTo(radius * 2, radius);
+	context0.moveTo(radius, radius);
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 10), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 10));
+	context0.moveTo(radius, radius);
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 25), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 25));
+	context0.moveTo(radius, radius);
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 55), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 55));
+	context0.moveTo(radius, radius);
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 90));
+	context0.stroke();
 }
 
 function skillsDisplay(currentDisplay) {
@@ -204,16 +231,19 @@ function updateHidden(sceneX) {
 }
 
 function updateStory(sceneX) {
+	if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300)) {
+		disableWalking = true;
+	} else {
+		disableWalking = false;
+	}
 	if (sceneX > 480 && sceneX < 6500) {
 		bradJumpContainer.addClass("jump-up-small");
 		bradJumpContainer.removeClass("jump-down-small");
 		bradJumpContainer.css("bottom", "55px");
-		disableWalking = true;
 	} else {
 		bradJumpContainer.addClass("jump-down-small");
 		bradJumpContainer.removeClass("jump-up-small");
 		bradJumpContainer.css("bottom", "0px");
-		disableWalking = false;
 	}
 	if (sceneX > 850 && sceneX < 3998) {
 		$(".rover-tractor-beam").css("display", "block");
@@ -260,7 +290,13 @@ function updateStory(sceneX) {
 		$(".rocket-hatch").removeClass("rocket-hatch-close");
 		$(".rocket-hatch").addClass("rocket-hatch-open");
 	}
-
+	if (sceneX > 8890) {
+		$("#tube-station-background").hide();
+		$("#tube-station-foreground").show();
+	} else {
+		$("#tube-station-background").show();
+		$("#tube-station-foreground").hide();
+	}
 	var engineWireLength = Math.max(20, Math.min(1380, sceneX - 6900
 			- (movingRight ? 0 : 70)));
 	if (engineWireLength == 1380) {
@@ -296,12 +332,22 @@ function updateStory(sceneX) {
 
 function updateMovement(sceneX) {
 	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
-	// Ride elevator @ 5500 for 1000
-	sceneX = sceneX - Math.max(0, Math.min(950, sceneX - 5500));
-
-	var adjustedSceneX = sceneX - ($(document).width() / 2 - 900);
+	sceneY = sceneY + Math.max(0, Math.min(3410, sceneX - 8890));
+	// Ride elevator @ 5500 for 950
+	// Ride turbolift @ 8880 for 4000
+	var adjustedSceneX = sceneX
+			- Math.max(0, Math.min(950, sceneX - 5500))
+			- Math.max(0, Math.min(3410 + $(document).width() / 4, sceneX
+					- 8890 + $(document).width() / 8))
+			- ($(document).width() / 2 - 900)
+			- Math.max(0, Math.min(950, sceneX - 12300 - $(document).width()
+					/ 8)) * 2;
 	var positionScene = -adjustedSceneX * speedScene;
-	var positionBrad = -bradContainer.width() / 2 - Math.max(positionScene, 0);
+	var positionBrad = (-bradContainer.width() / 2)
+			- Math.max(positionScene, 0)
+			+ Math.max(0, Math.min(sceneX - 8890 + $(document).width() / 8, $(
+					document).width() / 8))
+			- Math.max(0, Math.min(sceneX - 12300, $(document).width() / 8));
 	var positionBackground = -adjustedSceneX * speedBackground;
 	var positionFarBackground = -adjustedSceneX * speedFarBackground;
 	scenes.css("transform", "translate(" + Math.min(positionScene, 0) + "px"
@@ -311,9 +357,8 @@ function updateMovement(sceneX) {
 	farBackgrounds.css("transform", "translate("
 			+ Math.min(positionFarBackground, 0) + "px, " + sceneY
 			* speedFarBackground + "px)");
-	bradContainer.css("transform", "translateX(" + Math.min(positionBrad, 0)
-			+ "px)");
-	if (sceneX < lastSceneX) {
+	bradContainer.css("transform", "translateX(" + positionBrad + "px)");
+	if (adjustedSceneX < lastSceneX || lastPositionBrad > positionBrad) {
 		if (!moving && !disableWalking) {
 			movingRight = false;
 			moving = true;
@@ -332,5 +377,6 @@ function updateMovement(sceneX) {
 	stopWalkingTimeoutID = setTimeout(function() {
 		moving = false;
 	}, stopWalkingTimeout);
-	lastSceneX = sceneX;
+	lastSceneX = adjustedSceneX;
+	lastPositionBrad = positionBrad;
 }
