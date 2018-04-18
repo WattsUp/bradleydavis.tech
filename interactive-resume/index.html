@@ -1,33 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="style.css">
-	<meta charset="ISO-8859-1">
-	<title>Bradley L. Davis</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="loading-screen.js"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!-- 
+<script async
+	src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
+<script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag() {
+		dataLayer.push(arguments);
+	}
+	gtag('js', new Date());
+
+	gtag('config', 'UA-117703589-1');
+</script> -->
+<link rel="stylesheet" href="style.css">
+<meta charset="ISO-8859-1">
+<title>Bradley L. Davis</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="loading-screen.js"></script>
 </head>
 <body>
 	<div id="loading-screen" class="loading-screen">
 		<canvas id="loading-canvas" class="loading-canvas absolute"></canvas>
 		<div class="loading-screen-text absolute">
-			<span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
+			<span>Bradley L. Davis<br>Interactive Resume<br>Loading...
+			</span>
 		</div>
 	</div>
 	<div id="page" class="page">
-		<div id="about" class="absolute" style="top:1000px"></div>
-		<div id="skills" class="absolute" style="top:6800px"></div>
-		<div id="experience" class="absolute" style="top:7000px"></div>
-		<div id="portfolio" class="absolute" style="top:9000px"></div>
-		<div id="awards" class="absolute" style="top:11000px"></div>
-		<div id="contact" class="absolute" style="top:1300px"></div>
+		<div id="about" class="absolute" style="top: 1000px"></div>
+		<div id="skills" class="absolute" style="top: 6800px"></div>
+		<div id="experience" class="absolute" style="top: 8800px"></div>
+		<div id="portfolio" class="absolute" style="top: 9000px"></div>
+		<div id="awards" class="absolute" style="top: 11000px"></div>
+		<div id="contact" class="absolute" style="top: 1300px"></div>
 	</div>
 	<div id="container" class="container">
 		<div class="scene-far-background absolute">
-				<div class="cloud-1 absolute" style="left: 200px; bottom: 800px"></div>
-				<div class="cloud-2 absolute" style="left: 1000px; bottom: 700px"></div>
-				<div class="cloud-2 absolute" style="left: 1700px; bottom: 800px"></div>
-				<div class="cloud-1 absolute" style="left: 2500px; bottom: 750px"></div>
+			<div class="cloud-1 absolute" style="left: 200px; bottom: 800px"></div>
+			<div class="cloud-2 absolute" style="left: 1000px; bottom: 700px"></div>
+			<div class="cloud-2 absolute" style="left: 1700px; bottom: 800px"></div>
+			<div class="cloud-1 absolute" style="left: 2500px; bottom: 750px"></div>
+			<div class="cloud-1 absolute" style="left: 3800px; bottom: 750px"></div>
+			<div class="cloud-2 absolute" style="left: 3700px; bottom: 1300px"></div>
+			<div class="cloud-2 absolute" style="left: 4200px; bottom: 1900px"></div>
 		</div>
 		<div class="scene-background absolute">
 			<div class="tree-4 on-the-ground absolute" style="left: 150px"></div>
@@ -38,35 +56,49 @@
 			<div class="tree-1 on-the-ground absolute" style="left: 3200px"></div>
 		</div>
 		<div id="scenes" class="scene absolute" style="width: 4000px">
-			<div id="ground-laboratory" class="ground absolute" style="width: 8000px;">
+			<div id="ground-laboratory" class="ground absolute"
+				style="width: 8000px;">
 				<div class="ground-flooring-lab absolute"></div>
 				<div class="ground-foundation-lab absolute"></div>
 			</div>
-			<div id="background-laboratory" class="background-laboratory on-the-ground absolute">
+			<div id="background-laboratory"
+				class="background-laboratory on-the-ground absolute">
 				<div id="ceiling-laboratory" class="ceiling-laboratory absolute"></div>
 			</div>
-			<div id="teleporter-console" class="teleporter-console on-the-ground absolute">
+			<div id="teleporter-console"
+				class="teleporter-console on-the-ground absolute">
 				<h1>Teleporter</h1>
 				<div id="teleporter-screen" class="teleporter-screen absolute">
-					<button type="button" onClick="teleporterChange('about');">About Me</button>
+					<button type="button" onClick="teleporterChange('about');">About
+						Me</button>
 					<button type="button" onClick="teleporterChange('skills');">Skills</button>
 					<button type="button" onClick="teleporterChange('experience');">Experience</button>
 					<button type="button" onClick="teleporterChange('portfolio');">Portfolio</button>
 					<button type="button" onClick="teleporterChange('awards');">Awards</button>
-					<button type="button" onClick="teleporterChange('contact');">Contact Me</button>
+					<button type="button" onClick="teleporterChange('contact');">Contact
+						Me</button>
 				</div>
 			</div>
-			<div class="teleporter on-the-ground absolute" style="left: 50px; background-image: url(images/teleporter.png)"></div>
-			<div id="teleporter-science" class="teleporter on-the-ground absolute" style="left: 50px; background-image: url(images/teleporter-science.png)"></div>
-			<div class="wall-laboratory on-the-ground absolute" style="left: 585px"></div>
-			<div class="wall-laboratory on-the-ground absolute" style="left: 1770px"></div>
-			<div class="wall-laboratory on-the-ground absolute" style="left: 5370px"></div>
+			<div class="teleporter on-the-ground absolute"
+				style="left: 50px; background-image: url(images/teleporter.png)"></div>
+			<div id="teleporter-science"
+				class="teleporter on-the-ground absolute"
+				style="left: 50px; background-image: url(images/teleporter-science.png)"></div>
+			<div class="wall-laboratory on-the-ground absolute"
+				style="left: 585px"></div>
+			<div class="wall-laboratory on-the-ground absolute"
+				style="left: 1770px"></div>
+			<div class="wall-laboratory on-the-ground absolute"
+				style="left: 5370px"></div>
 			<div class="title-sign on-the-ground absolute">
 				<div class="title-sign-screen absolute">
 					<div class="title-sign-wrapper absolute ease-transform">
-						<h1 class="absolute">Bradley<br>L. Davis</h1>
+						<h1 class="absolute">
+							Bradley<br>L. Davis
+						</h1>
 						<h2 class="absolute">Interactive Resume</h2>
-						<h3 class="absolute">Scroll down OR press down arrow OR teleport to a section</h3>
+						<h3 class="absolute">Scroll down OR press down arrow OR
+							teleport to a section</h3>
 					</div>
 				</div>
 			</div>
@@ -76,59 +108,96 @@
 			<div class="hanging-sign on-the-ground absolute" style="left: 1850px">
 				<h1 class="absolute">About Me</h1>
 			</div>
-			<div class="discipline-label on-the-ground absolute" style="left: 2175px">
+			<div class="discipline-label on-the-ground absolute"
+				style="left: 2175px">
 				<h1 style="top: 50px" class="absolute">Excellent</h1>
 				<h1 style="top: 118px" class="absolute">Skilled</h1>
 				<h1 style="top: 178px" class="absolute">Familiar</h1>
 				<h1 style="top: 242px" class="absolute">Beginner</h1>
-				<div class="horizontal-line caution-tape absolute" style="top: 84px; height: 6px"></div>
-				<div class="horizontal-line caution-tape absolute" style="top: 148px; height: 6px"></div>
-				<div class="horizontal-line caution-tape absolute" style="top: 212px; height: 6px"></div>
-				<div class="horizontal-line caution-tape absolute" style="top: 276px; height: 6px"></div>
-				<div id="fluid-electronics" class="discipline-tank-fluid discipline-tank-fluid-hidden absolute" style="top: 60px; left: 188px">
-					<div class="fluid-bubble fluid-bubble1 absolute" style="left:20px"></div>
-					<div class="fluid-bubble fluid-bubble2 absolute" style="left:40px"></div>
-					<div class="fluid-bubble fluid-bubble3 absolute" style="left:50px"></div>
-					<div class="fluid-bubble fluid-bubble4 absolute" style="left:70px"></div>
-					<div class="fluid-bubble fluid-bubble5 absolute" style="left:80px"></div>
-					<div class="fluid-bubble fluid-bubble6 absolute" style="left:100px"></div>
-					<div class="fluid-bubble fluid-bubble1 absolute" style="left:110px"></div>
-					<div class="fluid-bubble fluid-bubble2 absolute" style="left:130px"></div>
+				<div class="horizontal-line caution-tape absolute"
+					style="top: 84px; height: 6px"></div>
+				<div class="horizontal-line caution-tape absolute"
+					style="top: 148px; height: 6px"></div>
+				<div class="horizontal-line caution-tape absolute"
+					style="top: 212px; height: 6px"></div>
+				<div class="horizontal-line caution-tape absolute"
+					style="top: 276px; height: 6px"></div>
+				<div id="fluid-electronics"
+					class="discipline-tank-fluid discipline-tank-fluid-hidden absolute"
+					style="top: 60px; left: 188px">
+					<div class="fluid-bubble fluid-bubble1 absolute" style="left: 20px"></div>
+					<div class="fluid-bubble fluid-bubble2 absolute" style="left: 40px"></div>
+					<div class="fluid-bubble fluid-bubble3 absolute" style="left: 50px"></div>
+					<div class="fluid-bubble fluid-bubble4 absolute" style="left: 70px"></div>
+					<div class="fluid-bubble fluid-bubble5 absolute" style="left: 80px"></div>
+					<div class="fluid-bubble fluid-bubble6 absolute"
+						style="left: 100px"></div>
+					<div class="fluid-bubble fluid-bubble1 absolute"
+						style="left: 110px"></div>
+					<div class="fluid-bubble fluid-bubble2 absolute"
+						style="left: 130px"></div>
 				</div>
-				<div id="fluid-software" class="discipline-tank-fluid discipline-tank-fluid-hidden absolute" style="top: 60px; left: 408px">
-					<div class="fluid-bubble fluid-bubble4 absolute" style="left:20px"></div>
-					<div class="fluid-bubble fluid-bubble3 absolute" style="left:40px"></div>
-					<div class="fluid-bubble fluid-bubble6 absolute" style="left:50px"></div>
-					<div class="fluid-bubble fluid-bubble1 absolute" style="left:70px"></div>
-					<div class="fluid-bubble fluid-bubble2 absolute" style="left:80px"></div>
-					<div class="fluid-bubble fluid-bubble4 absolute" style="left:100px"></div>
-					<div class="fluid-bubble fluid-bubble1 absolute" style="left:110px"></div>
-					<div class="fluid-bubble fluid-bubble5 absolute" style="left:130px"></div>
+				<div id="fluid-software"
+					class="discipline-tank-fluid discipline-tank-fluid-hidden absolute"
+					style="top: 60px; left: 408px">
+					<div class="fluid-bubble fluid-bubble4 absolute" style="left: 20px"></div>
+					<div class="fluid-bubble fluid-bubble3 absolute" style="left: 40px"></div>
+					<div class="fluid-bubble fluid-bubble6 absolute" style="left: 50px"></div>
+					<div class="fluid-bubble fluid-bubble1 absolute" style="left: 70px"></div>
+					<div class="fluid-bubble fluid-bubble2 absolute" style="left: 80px"></div>
+					<div class="fluid-bubble fluid-bubble4 absolute"
+						style="left: 100px"></div>
+					<div class="fluid-bubble fluid-bubble1 absolute"
+						style="left: 110px"></div>
+					<div class="fluid-bubble fluid-bubble5 absolute"
+						style="left: 130px"></div>
 				</div>
-				<div id="fluid-hardware" class="discipline-tank-fluid discipline-tank-fluid-hidden absolute" style="top: 60px; left: 628px">
-					<div class="fluid-bubble fluid-bubble3 absolute" style="left:20px"></div>
-					<div class="fluid-bubble fluid-bubble2 absolute" style="left:40px"></div>
-					<div class="fluid-bubble fluid-bubble5 absolute" style="left:50px"></div>
-					<div class="fluid-bubble fluid-bubble6 absolute" style="left:70px"></div>
-					<div class="fluid-bubble fluid-bubble1 absolute" style="left:80px"></div>
-					<div class="fluid-bubble fluid-bubble6 absolute" style="left:100px"></div>
-					<div class="fluid-bubble fluid-bubble3 absolute" style="left:110px"></div>
-					<div class="fluid-bubble fluid-bubble4 absolute" style="left:130px"></div>
+				<div id="fluid-hardware"
+					class="discipline-tank-fluid discipline-tank-fluid-hidden absolute"
+					style="top: 60px; left: 628px">
+					<div class="fluid-bubble fluid-bubble3 absolute" style="left: 20px"></div>
+					<div class="fluid-bubble fluid-bubble2 absolute" style="left: 40px"></div>
+					<div class="fluid-bubble fluid-bubble5 absolute" style="left: 50px"></div>
+					<div class="fluid-bubble fluid-bubble6 absolute" style="left: 70px"></div>
+					<div class="fluid-bubble fluid-bubble1 absolute" style="left: 80px"></div>
+					<div class="fluid-bubble fluid-bubble6 absolute"
+						style="left: 100px"></div>
+					<div class="fluid-bubble fluid-bubble3 absolute"
+						style="left: 110px"></div>
+					<div class="fluid-bubble fluid-bubble4 absolute"
+						style="left: 130px"></div>
 				</div>
-				<div id="fluid-art" class="discipline-tank-fluid discipline-tank-fluid-hidden absolute" style="top: 124px; left: 848px">
-					<div class="fluid-bubble fluid-bubble2 absolute" style="left:20px"></div>
-					<div class="fluid-bubble fluid-bubble3 absolute" style="left:40px"></div>
-					<div class="fluid-bubble fluid-bubble1 absolute" style="left:50px"></div>
-					<div class="fluid-bubble fluid-bubble5 absolute" style="left:70px"></div>
-					<div class="fluid-bubble fluid-bubble6 absolute" style="left:80px"></div>
-					<div class="fluid-bubble fluid-bubble4 absolute" style="left:100px"></div>
-					<div class="fluid-bubble fluid-bubble2 absolute" style="left:110px"></div>
-					<div class="fluid-bubble fluid-bubble3 absolute" style="left:130px"></div>
+				<div id="fluid-art"
+					class="discipline-tank-fluid discipline-tank-fluid-hidden absolute"
+					style="top: 124px; left: 848px">
+					<div class="fluid-bubble fluid-bubble2 absolute" style="left: 20px"></div>
+					<div class="fluid-bubble fluid-bubble3 absolute" style="left: 40px"></div>
+					<div class="fluid-bubble fluid-bubble1 absolute" style="left: 50px"></div>
+					<div class="fluid-bubble fluid-bubble5 absolute" style="left: 70px"></div>
+					<div class="fluid-bubble fluid-bubble6 absolute" style="left: 80px"></div>
+					<div class="fluid-bubble fluid-bubble4 absolute"
+						style="left: 100px"></div>
+					<div class="fluid-bubble fluid-bubble2 absolute"
+						style="left: 110px"></div>
+					<div class="fluid-bubble fluid-bubble3 absolute"
+						style="left: 130px"></div>
 				</div>
-				<div id="tank-electronics" class="discipline-tank absolute" style="left: 160px"><h1 class="absolute">Electronics</h1></div>
-				<div id="tank-software" class="discipline-tank absolute" style="left: 380px"><h1 class="absolute">Software</h1></div>
-				<div id="tank-hardware" class="discipline-tank absolute" style="left: 600px"><h1 class="absolute">Hardware</h1></div>
-				<div id="tank-art" class="discipline-tank absolute" style="left: 820px"><h1 class="absolute">Fine Art</h1></div>
+				<div id="tank-electronics" class="discipline-tank absolute"
+					style="left: 160px">
+					<h1 class="absolute">Electronics</h1>
+				</div>
+				<div id="tank-software" class="discipline-tank absolute"
+					style="left: 380px">
+					<h1 class="absolute">Software</h1>
+				</div>
+				<div id="tank-hardware" class="discipline-tank absolute"
+					style="left: 600px">
+					<h1 class="absolute">Hardware</h1>
+				</div>
+				<div id="tank-art" class="discipline-tank absolute"
+					style="left: 820px">
+					<h1 class="absolute">Fine Art</h1>
+				</div>
 			</div>
 			<div class="hanging-sign on-the-ground absolute" style="left: 3500px">
 				<h2 class="absolute">Raised in Washington</h2>
@@ -136,9 +205,12 @@
 			<div class="particle-viewer on-the-ground absolute">
 				<div class="particle-viewer-image-wrapper absolute">
 					<div class="particle-viewer-particles absolute"></div>
-					<div class="particle-viewer-image absolute" style="background-image: url(images/particle-mask-seattle.png)"></div>
-					<div class="particle-viewer-image absolute ease-transform" style="background-image: url(images/particle-mask-apple.png)"></div>
-					<div class="particle-viewer-image absolute ease-transform" style="background-image: url(images/particle-mask-cascades.png)"></div>
+					<div class="particle-viewer-image absolute"
+						style="background-image: url(images/particle-mask-seattle.png)"></div>
+					<div class="particle-viewer-image absolute ease-transform"
+						style="background-image: url(images/particle-mask-apple.png)"></div>
+					<div class="particle-viewer-image absolute ease-transform"
+						style="background-image: url(images/particle-mask-cascades.png)"></div>
 				</div>
 				<div class="particle-viewer-lightning absolute"></div>
 				<div class="particle-viewer-frame absolute"></div>
@@ -157,9 +229,12 @@
 				<div class="absolute rover-wheel" style="left: 165px"></div>
 				<div class="absolute rover-tractor-beam"></div>
 			</div>
-			<div id="elevator-cargo" class="elevator-cargo on-the-ground caution-tape absolute">
-				<div class="thruster-small-on absolute" style="left: 30px; top: 20px"></div>
-				<div class="thruster-small-on absolute" style="right: 30px; top: 20px"></div>
+			<div id="elevator-cargo"
+				class="elevator-cargo on-the-ground caution-tape absolute">
+				<div class="thruster-small-on absolute"
+					style="left: 30px; top: 20px"></div>
+				<div class="thruster-small-on absolute"
+					style="right: 30px; top: 20px"></div>
 				<div class="thruster-small absolute" style="left: 30px; top: 20px"></div>
 				<div class="thruster-small absolute" style="right: 30px; top: 20px"></div>
 			</div>
@@ -168,27 +243,60 @@
 				<div class="rocket-engine absolute" style="left: 500px"></div>
 				<div class="rocket-engine absolute" style="left: 950px"></div>
 				<div class="background-rocket absolute"></div>
-				<div class="background-engine-room absolute">
+				<div id="engine-room" class="background-engine-room absolute"
+					style="bottom: 950px">
 					<div></div>
 				</div>
-				<div class="ground-foundation-rocket absolute" style="width: 3000px; height: 240px; left: 30px; bottom: 680px"></div>
+				<div class="background-engine-room absolute" style="bottom: 1800px">
+					<div></div>
+				</div>
+				<div class="background-engine-room absolute" style="bottom: 2650px">
+					<div></div>
+				</div>
+				<div class="background-engine-room absolute" style="bottom: 3500px">
+					<div></div>
+				</div>
+				<div class="ground-foundation-rocket absolute"
+					style="width: 2360px; height: 240px; left: 30px; bottom: 680px"></div>
+				<div class="ground-foundation-rocket absolute"
+					style="width: 2360px; height: 100px; left: 30px; bottom: 1680px; background-position: center"></div>
+				<div class="ground-foundation-rocket absolute"
+					style="width: 2360px; height: 100px; left: 30px; bottom: 2530px"></div>
+				<div class="ground-foundation-rocket absolute"
+					style="width: 2360px; height: 100px; left: 30px; bottom: 3380px; background-position: center"></div>
+				<div class="ground-foundation-rocket absolute"
+					style="width: 2360px; height: 100px; left: 30px; bottom: 4230px"></div>
 				<div class="ground-flooring-rocket absolute" style="bottom: 650px"></div>
 				<div class="ground-flooring-rocket absolute" style="bottom: 920px"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 1650px"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 1780px;"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 2500px"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 2630px;"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 3350px"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 3480px;"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 4200px"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 4330px;"></div>
 				<div class="wall-rocket absolute" style="left: 0px;"></div>
-				<div class="rocket-hatch-frame" style="bottom: 950px"></div>
-				<div class="rocket-hatch" style="bottom: 950px"></div>
+				<div class="wall-rocket absolute" style="right: 0px;"></div>
+				<div class="rocket-hatch-frame absolute" style="bottom: 950px"></div>
+				<div class="rocket-hatch absolute" style="bottom: 950px"></div>
 				<div class="absolute engine-room-cables" style="left: 70px"></div>
-				<div class="absolute engine-room-cables" style="left: 1550px"></div>
-				<div class="hanging-sign absolute" style="left: 161px; bottom: 1000px">
+				<div class="absolute engine-room-cables-long" style="left: 1721px"></div>
+				<div class="hanging-sign hanging-sign-rocket absolute"
+					style="left: 162px; bottom: 1000px">
 					<h1 class="absolute">Skills</h1>
 				</div>
-				<div class="hanging-sign absolute" style="left: 1641px; bottom: 1000px">
+				<div class="hanging-sign hanging-sign-rocket absolute"
+					style="left: 1813px; bottom: 1000px">
 					<h1 id="rocket-power-status" class="absolute">Rocket Ready</h1>
 				</div>
-				<div class="display-large absolute" style="left: 580px; bottom: 1110px"></div>
+				<div class="display-rocket-800 absolute"
+					style="left: 580px; bottom: 1110px"></div>
 				<div class="skills-wrapper absolute">
 					<h1>Electronic Skills</h1>
-					<h2><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h2>
+					<h2>
+						<span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+					</h2>
 					<h3>Autodesk EAGLE</h3>
 					<h3>Digital Multimeter</h3>
 					<h3>Logic Analyzer</h3>
@@ -200,17 +308,26 @@
 					<div class="skills-wrapper-line absolute" style="left: 380px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 500px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 620px"></div>
-					<div class="skills-battery absolute" style="left: 261px; top: 65px; width: 480px"></div>
-					<div class="skills-battery absolute" style="left: 261px; top: 101px; width: 360px"></div>
-					<div class="skills-battery absolute" style="left: 261px; top: 137px; width: 360px"></div>
-					<div class="skills-battery absolute" style="left: 261px; top: 173px; width: 360px"></div>
-					<div class="skills-battery absolute" style="left: 261px; top: 209px; width: 360px"></div>
-					<div class="skills-battery absolute" style="left: 261px; top: 245px; width: 360px"></div>
-					<div class="skills-battery absolute" style="left: 261px; top: 281px; width: 240px"></div>
+					<div class="skills-battery absolute"
+						style="left: 261px; top: 65px; width: 480px"></div>
+					<div class="skills-battery absolute"
+						style="left: 261px; top: 101px; width: 360px"></div>
+					<div class="skills-battery absolute"
+						style="left: 261px; top: 137px; width: 360px"></div>
+					<div class="skills-battery absolute"
+						style="left: 261px; top: 173px; width: 360px"></div>
+					<div class="skills-battery absolute"
+						style="left: 261px; top: 209px; width: 360px"></div>
+					<div class="skills-battery absolute"
+						style="left: 261px; top: 245px; width: 360px"></div>
+					<div class="skills-battery absolute"
+						style="left: 261px; top: 281px; width: 240px"></div>
 				</div>
 				<div class="skills-wrapper absolute">
 					<h1>Software Skills</h1>
-					<h2><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h2>
+					<h2>
+						<span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+					</h2>
 					<h3>C/C++</h3>
 					<h3>Java</h3>
 					<h3>CSS</h3>
@@ -223,18 +340,28 @@
 					<div class="skills-wrapper-line absolute" style="left: 380px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 500px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 620px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 65px; width: 480px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 101px; width: 480px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 137px; width: 360px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 173px; width: 360px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 209px; width: 360px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 245px; width: 360px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 281px; width: 240px"></div>
-					<div class="skills-code absolute" style="left: 261px; top: 317px; width: 240px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 65px; width: 480px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 101px; width: 480px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 137px; width: 360px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 173px; width: 360px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 209px; width: 360px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 245px; width: 360px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 281px; width: 240px"></div>
+					<div class="skills-code absolute"
+						style="left: 261px; top: 317px; width: 240px"></div>
 				</div>
 				<div class="skills-wrapper absolute">
 					<h1>Hardware Skills</h1>
-					<h2><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h2>
+					<h2>
+						<span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+					</h2>
 					<h3>Autodesk Inventor</h3>
 					<h3>Laser Cutters</h3>
 					<h3>3D Printers</h3>
@@ -245,16 +372,24 @@
 					<div class="skills-wrapper-line absolute" style="left: 380px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 500px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 620px"></div>
-					<div class="skills-hardware absolute" style="left: 261px; top: 65px; width: 480px"></div>
-					<div class="skills-hardware absolute" style="left: 261px; top: 101px; width: 480px"></div>
-					<div class="skills-hardware absolute" style="left: 261px; top: 137px; width: 480px"></div>
-					<div class="skills-hardware absolute" style="left: 261px; top: 173px; width: 360px"></div>
-					<div class="skills-hardware absolute" style="left: 261px; top: 209px; width: 360px"></div>
-					<div class="skills-hardware absolute" style="left: 261px; top: 245px; width: 240px"></div>
+					<div class="skills-hardware absolute"
+						style="left: 261px; top: 65px; width: 480px"></div>
+					<div class="skills-hardware absolute"
+						style="left: 261px; top: 101px; width: 480px"></div>
+					<div class="skills-hardware absolute"
+						style="left: 261px; top: 137px; width: 480px"></div>
+					<div class="skills-hardware absolute"
+						style="left: 261px; top: 173px; width: 360px"></div>
+					<div class="skills-hardware absolute"
+						style="left: 261px; top: 209px; width: 360px"></div>
+					<div class="skills-hardware absolute"
+						style="left: 261px; top: 245px; width: 240px"></div>
 				</div>
 				<div class="skills-wrapper absolute">
 					<h1>Fine Art Skills</h1>
-					<h2><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h2>
+					<h2>
+						<span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+					</h2>
 					<h3>Autodesk 3DS Max</h3>
 					<h3>Gimp</h3>
 					<h3>Graphic Design</h3>
@@ -266,13 +401,20 @@
 					<div class="skills-wrapper-line absolute" style="left: 380px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 500px"></div>
 					<div class="skills-wrapper-line absolute" style="left: 620px"></div>
-					<div class="skills-fine-art absolute" style="left: 261px; top: 65px; width: 480px"></div>
-					<div class="skills-fine-art absolute" style="left: 261px; top: 101px; width: 480px"></div>
-					<div class="skills-fine-art absolute" style="left: 261px; top: 137px; width: 480px"></div>
-					<div class="skills-fine-art absolute" style="left: 261px; top: 173px; width: 360px"></div>
-					<div class="skills-fine-art absolute" style="left: 261px; top: 209px; width: 360px"></div>
-					<div class="skills-fine-art absolute" style="left: 261px; top: 245px; width: 240px"></div>
-					<div class="skills-fine-art absolute" style="left: 261px; top: 281px; width: 240px"></div>
+					<div class="skills-fine-art absolute"
+						style="left: 261px; top: 65px; width: 480px"></div>
+					<div class="skills-fine-art absolute"
+						style="left: 261px; top: 101px; width: 480px"></div>
+					<div class="skills-fine-art absolute"
+						style="left: 261px; top: 137px; width: 480px"></div>
+					<div class="skills-fine-art absolute"
+						style="left: 261px; top: 173px; width: 360px"></div>
+					<div class="skills-fine-art absolute"
+						style="left: 261px; top: 209px; width: 360px"></div>
+					<div class="skills-fine-art absolute"
+						style="left: 261px; top: 245px; width: 240px"></div>
+					<div class="skills-fine-art absolute"
+						style="left: 261px; top: 281px; width: 240px"></div>
 				</div>
 				<div class="engine-room-console absolute">
 					<h1 class="absolute">Display Control</h1>
@@ -287,14 +429,142 @@
 				<div class="engine-room-wire absolute">
 					<div class="absolute"></div>
 				</div>
+				<div class="pneumatic-tube-station-rear absolute"
+					style="bottom: 950px">
+					<div id="tube-station-background" class="absolute"></div>
+				</div>
+				<div class="pneumatic-tube-station-rear absolute"
+					style="bottom: 4360px">
+					<div id="tube-station-background" class="absolute"></div>
+				</div>
+				<div class="display-rocket-600 absolute"
+					style="left: 1500px; bottom: 1960px">
+					<div class="experience-panel absolute">
+						<h3>Work Experience</h3>
+						<h1>Tahoma Robotics Camp</h1>
+						<h2>Lead Technical Counselor</h2>
+						<h4 class="absolute">June 2015 - June 2017</h4>
+						<canvas class="experience-pie absolute"></canvas>
+						<span class="absolute">Aided campers with designing,
+							building, wiring, and programming of VEX robots<br> <br>Formulated
+							unique games for each year including programming a real-time
+							scoring software with integration into professional audio/visual
+							live streaming equipment
+						</span>
+						<div class="absolute" style="left: 120px; top: 295px">
+							<h1>Animation</h1>
+							<h1>35%</h1>
+						</div>
+						<div class="absolute" style="left: 70px; top: 170px">
+							<h1>Code</h1>
+							<h1>30%</h1>
+						</div>
+						<div class="absolute" style="left: 170px; top: 145px">
+							<h1>Design</h1>
+							<h1>15%</h1>
+						</div>
+						<div class="absolute" style="left: 220px; top: 190px">
+							<h1>CAD</h1>
+							<h1>10%</h1>
+						</div>
+						<div class="absolute" style="left: 205px; top: 242px">
+							<h1>Teaching</h1>
+							<h1>10%</h1>
+						</div>
+					</div>
+				</div>
+				<div class="display-rocket-600 absolute"
+					style="left: 1500px; bottom: 2810px">
+					<div class="experience-panel absolute">
+						<h3>Work Experience</h3>
+						<h1>Smith Gardens</h1>
+						<h2>Retail Mechandiser</h2>
+						<h4 class="absolute">May 2017 - August 2017</h4>
+						<canvas class="experience-pie absolute"></canvas>
+						<span class="absolute">Verified, sorted, and consolidated
+							daily deliveries with existing inventory to maximize aesthetic
+							appeal of merchandise to meet sales goals <br> <br>Served
+							as liaison between management on product requests, sales numbers,
+							and problem solving
+						</span>
+						<div class="absolute" style="left: 130px; top: 220px">
+							<h1>Customer Service</h1>
+							<h1>100%</h1>
+						</div>
+					</div>
+				</div>
+				<div class="box rect-100 absolute"
+					style="bottom: 3510px; left: 1550px">
+					<h1 class="absolute">A-03</h1>
+				</div>
+				<div class="box square-100 absolute"
+					style="bottom: 3510px; left: 1760px">
+					<h1 class="absolute">A-05</h1>
+				</div>
+				<div class="box square-70 absolute"
+					style="bottom: 3510px; left: 1710px">
+					<h1 class="absolute">A-06</h1>
+				</div>
+				<div class="box rect-70 absolute"
+					style="bottom: 3510px; left: 2000px">
+					<h1 class="absolute">A-17</h1>
+				</div>
+				<div class="box square-70 absolute"
+					style="bottom: 3580px; left: 2020px">
+					<h1 class="absolute">A-11</h1>
+				</div>
+				<div class="box square-70 absolute"
+					style="bottom: 3580px; left: 2090px">
+					<h1 class="absolute">A-09</h1>
+				</div>
+				<div class="box end-100 absolute"
+					style="bottom: 3610px; left: 1580px">
+					<h1 class="absolute">A-01</h1>
+				</div>
+				<div class="box rect-70 absolute"
+					style="bottom: 2660px; left: 1400px">
+					<h1 class="absolute">A-13</h1>
+				</div>
+				<div class="box square-100 absolute"
+					style="bottom: 2660px; left: 1290px">
+					<h1 class="absolute">A-12</h1>
+				</div>
+				<div class="box square-70 absolute"
+					style="bottom: 2730px; left: 1420px">
+					<h1 class="absolute">A-02</h1>
+				</div>
+				<div class="box end-100 absolute"
+					style="bottom: 1810px; left: 2290px">
+					<h1 class="absolute">A-04</h1>
+				</div>
+				<div class="box rect-70 absolute"
+					style="bottom: 1810px; left: 2100px">
+					<h1 class="absolute">A-21</h1>
+				</div>
+				<div class="box rect-100 absolute"
+					style="bottom: 1810px; left: 1300px">
+					<h1 class="absolute">A-23</h1>
+				</div>
+				<div class="box rect-70 absolute"
+					style="bottom: 1910px; left: 1310px">
+					<h1 class="absolute">A-22</h1>
+				</div>
 			</div>
 		</div>
-		
 		<div id="brad-container" class="brad-container on-the-ground absolute">
 			<div id="brad-jump-container" class="brad-jump-container absolute">
 				<div id="brad" class="brad absolute"></div>
-				<div id="brad-eyes-right" class="absolute brad-eyes" style="left: 96px; background-image: url(images/brad-eyes-closed-right.png)"></div>
-				<div id="brad-eyes-left" class="absolute brad-eyes" style="left: 76px; background-image: url(images/brad-eyes-closed-left.png)"></div>
+				<div id="brad-eyes-right" class="absolute brad-eyes"
+					style="left: 96px; background-image: url(images/brad-eyes-closed-right.png)"></div>
+				<div id="brad-eyes-left" class="absolute brad-eyes"
+					style="left: 76px; background-image: url(images/brad-eyes-closed-left.png)"></div>
+			</div>
+		</div>
+		<div class="scene absolute">
+			<div class="on-the-ground absolute">
+				<div id="tube-station-foreground"
+					class="pneumatic-tube-station absolute" style="bottom: 950px"></div>
+				<div class="pneumatic-tube absolute"></div>
 			</div>
 		</div>
 	</div>
