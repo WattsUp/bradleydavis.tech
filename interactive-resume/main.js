@@ -5,6 +5,7 @@ $(function() {
 	setInterval(flashWSULCD, 1000);
 	setInterval(changeBacklightEngineRoom, 5000);
 	setInterval(skillsDisplayCycle, 5000);
+	setInterval(changeLeds, 500);
 	$(document).scroll(updateScene);
 	updateScene();
 	$("#teleporter-science").hide();
@@ -13,6 +14,7 @@ $(function() {
 	changeBacklightEngineRoom();
 	skillsDisplayCycle();
 	drawPieCharts();
+	drawStarfield();
 });
 
 $(window).resize(updateScene);
@@ -49,6 +51,10 @@ var skillsClicked = false;
 var skillsCurrent = 0;
 var particleDisplayCurrent = 0;
 var backlightEngineRoom = "#FF1C1C";
+var ledIndicators = $(".led-indicator");
+var countdownTime = -5;
+var countdownStarted = false;
+var countdownTimer;
 
 function cycleBoard() {
 	$(".title-sign-wrapper").toggleClass("title-sign-wrapper-transformed");
@@ -80,6 +86,48 @@ function changeBacklightEngineRoom() {
 	setTimeout(function() {
 		$("#engine-room").css("background-color", "#737373");
 	}, 2000);
+}
+
+function changeLeds() {
+	ledIndicators.each(function(index) {
+		switch (Math.floor(Math.random() * 15)) {
+		case 0:
+			$(this).css("background-color", "#FF595E");
+			break;
+		case 1:
+		case 2:
+			$(this).css("background-color", "#F2C200");
+			break;
+		default:
+			$(this).css("background-color", "#33FF33");
+			break;
+		}
+	});
+}
+
+function updateCountdown() {
+	if (countdownTime <= -10) {
+		$(".background-rocket-bridge-window>h1").text("T" + countdownTime);
+	} else if (countdownTime <= -1) {
+		$(".background-rocket-bridge-window>h1").text("T-0" + (-countdownTime));
+	} else if (countdownTime <= 9) {
+		$(".background-rocket-bridge-window>h1").text("T+0" + countdownTime);
+	} else {
+		$(".background-rocket-bridge-window>h1").text("T+" + countdownTime);
+	}
+	if (countdownTime == 0) {
+		setTimeout(launchRocket, 1);
+	}
+	countdownTime++;
+}
+
+function launchRocket() {
+	$(".sky").css("transform", "translate(0px, 8000px");
+	$(".space").css("transform", "translate(0px, 8000px");
+	$(".container").addClass("shook");
+	setTimeout(function() {
+		$(".container").removeClass("shook");
+	}, 4000);
 }
 
 function teleporterChange(locationHash) {
@@ -152,6 +200,22 @@ function drawPieCharts() {
 	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90), radius
 			- radius * Math.sin(2 * Math.PI / 100 * 90));
 	context0.stroke();
+}
+
+function drawStarfield() {
+	var contextSpace = $(".space")[0].getContext("2d");
+	contextSpace.fillStyle = "#FFFFFF";
+	var x = 0;
+	var y = 0;
+	var radius = 1;
+	for (var i = 0; i < 10000; i++) {
+		x = Math.floor(Math.random() * 8000);
+		y = Math.floor(Math.random() * 8000);
+		radius = Math.floor(Math.random() * 3);
+		contextSpace.beginPath();
+		contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
+		contextSpace.fill();
+	}
 }
 
 function skillsDisplay(currentDisplay) {
@@ -297,6 +361,17 @@ function updateStory(sceneX) {
 		$("#tube-station-background").show();
 		$("#tube-station-foreground").hide();
 	}
+	if (sceneX > 12300 && countdownStarted == false) {
+		countdownTimer = setInterval(updateCountdown, 1000);
+		countdownStarted = true;
+	} else if (sceneX <= 12300 && countdownStarted == true) {
+		clearInterval(countdownTimer);
+		countdownStarted = false;
+		countdownTime = -6;
+		updateCountdown();
+		$(".sky").css("transform", "translate(0px, 0px");
+		$(".space").css("transform", "translate(0px, 0px");
+	}
 	var engineWireLength = Math.max(20, Math.min(1380, sceneX - 6900
 			- (movingRight ? 0 : 70)));
 	if (engineWireLength == 1380) {
@@ -335,12 +410,13 @@ function updateMovement(sceneX) {
 	sceneY = sceneY + Math.max(0, Math.min(3410, sceneX - 8890));
 	// Ride elevator @ 5500 for 950
 	// Ride turbolift @ 8880 for 4000
+	// Walk backwards though bridge @ 12300 for 2000
 	var adjustedSceneX = sceneX
 			- Math.max(0, Math.min(950, sceneX - 5500))
 			- Math.max(0, Math.min(3410 + $(document).width() / 4, sceneX
 					- 8890 + $(document).width() / 8))
 			- ($(document).width() / 2 - 900)
-			- Math.max(0, Math.min(950, sceneX - 12300 - $(document).width()
+			- Math.max(0, Math.min(2000, sceneX - 12300 - $(document).width()
 					/ 8)) * 2;
 	var positionScene = -adjustedSceneX * speedScene;
 	var positionBrad = (-bradContainer.width() / 2)
