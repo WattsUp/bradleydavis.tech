@@ -26,6 +26,7 @@ function getSceneX() {
 var scenes = $(".scene");
 var backgrounds = $(".scene-background");
 var farBackgrounds = $(".scene-far-background");
+var superFarBackgrounds = $(".scene-super-far-background");
 var onTheGrounds = $(".on-the-ground");
 var bradSprite = $("#brad");
 var bradContainer = $("#brad-container");
@@ -34,6 +35,7 @@ var groundHeight = $(".ground").height();
 var speedScene = 1 / 1;
 var speedBackground = 1 / 2;
 var speedFarBackground = 1 / 3;
+var speedSuperFarBackground = 1 / 10;
 var timingWalking = 200;
 var timingBlink = 100;
 var teleporting = false;
@@ -55,6 +57,7 @@ var ledIndicators = $(".led-indicator");
 var countdownTime = -5;
 var countdownStarted = false;
 var countdownTimer;
+var starfieldFirstOnBottom = true;
 
 function cycleBoard() {
 	$(".title-sign-wrapper").toggleClass("title-sign-wrapper-transformed");
@@ -123,7 +126,6 @@ function updateCountdown() {
 
 function launchRocket() {
 	$(".sky").css("transform", "translate(0px, 8000px");
-	$(".space").css("transform", "translate(0px, 8000px");
 	$(".container").addClass("shook");
 	setTimeout(function() {
 		$(".container").removeClass("shook");
@@ -203,11 +205,21 @@ function drawPieCharts() {
 }
 
 function drawStarfield() {
-	var contextSpace = $(".space")[0].getContext("2d");
+	var contextSpace = $(".space-canvas")[0].getContext("2d");
 	contextSpace.fillStyle = "#FFFFFF";
 	var x = 0;
 	var y = 0;
 	var radius = 1;
+	for (var i = 0; i < 10000; i++) {
+		x = Math.floor(Math.random() * 8000);
+		y = Math.floor(Math.random() * 8000);
+		radius = Math.floor(Math.random() * 3);
+		contextSpace.beginPath();
+		contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
+		contextSpace.fill();
+	}
+	contextSpace = $(".space-canvas")[1].getContext("2d");
+	contextSpace.fillStyle = "#FFFFFF";
 	for (var i = 0; i < 10000; i++) {
 		x = Math.floor(Math.random() * 8000);
 		y = Math.floor(Math.random() * 8000);
@@ -429,6 +441,7 @@ function updateMovement(sceneX) {
 			- Math.max(0, Math.min(sceneX - 12300, $(document).width() / 8));
 	var positionBackground = -adjustedSceneX * speedBackground;
 	var positionFarBackground = -adjustedSceneX * speedFarBackground;
+	var positionSuperFarBackground = -adjustedSceneX * speedSuperFarBackground;
 	scenes.css("transform", "translate(" + Math.min(positionScene, 0) + "px"
 			+ ", " + sceneY + "px)");
 	backgrounds.css("transform", "translate(" + Math.min(positionBackground, 0)
@@ -436,6 +449,9 @@ function updateMovement(sceneX) {
 	farBackgrounds.css("transform", "translate("
 			+ Math.min(positionFarBackground, 0) + "px, " + sceneY
 			* speedFarBackground + "px)");
+	superFarBackgrounds.css("transform", "translate("
+			+ Math.min(positionSuperFarBackground, 0) + "px, " + sceneY
+			* speedSuperFarBackground + "px)");
 	bradContainer.css("transform", "translateX(" + positionBrad + "px)");
 	if (adjustedSceneX < lastSceneX || lastPositionBrad > positionBrad) {
 		if (!moving && !disableWalking) {
