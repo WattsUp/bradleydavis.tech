@@ -309,6 +309,13 @@
 .teleporter {
 	height: 400px;
 	width: 261px;
+	background-image: url(images/teleporter.png);
+}
+
+.teleporter-science {
+	height: 400px;
+	width: 261px;
+	background-image: url(images/teleporter-science.png);
 }
 
 .teleporter-console {
