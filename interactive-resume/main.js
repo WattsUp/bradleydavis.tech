@@ -295,7 +295,8 @@ function updateHidden(sceneX) {
 }
 
 function updateStory(sceneX) {
-	if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300)) {
+	if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300)
+			|| (sceneX > 14350 && sceneX < 15000)) {
 		disableWalking = true;
 	} else {
 		disableWalking = false;
@@ -354,12 +355,12 @@ function updateStory(sceneX) {
 		$(".rocket-hatch").removeClass("rocket-hatch-close");
 		$(".rocket-hatch").addClass("rocket-hatch-open");
 	}
-	if (sceneX > 8890) {
-		$("#tube-station-background").hide();
-		$("#tube-station-foreground").show();
+	if ((sceneX > 8890 && sceneX < 12300) || sceneX > 14350) {
+		$(".tube-station-background").hide();
+		$(".tube-station-foreground").show();
 	} else {
-		$("#tube-station-background").show();
-		$("#tube-station-foreground").hide();
+		$(".tube-station-background").show();
+		$(".tube-station-foreground").hide();
 	}
 	if (sceneX > 12300 && countdownStarted == false) {
 		countdownTimer = setInterval(updateCountdown, 1000);
@@ -406,8 +407,9 @@ function updateStory(sceneX) {
 }
 
 function updateMovement(sceneX) {
-	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
-	sceneY = sceneY + Math.max(0, Math.min(3410, sceneX - 8890));
+	var sceneY = Math.max(0, Math.min(950, sceneX - 5500))
+			+ Math.max(0, Math.min(3410, sceneX - 8890))
+			+ Math.max(0, Math.min(650, sceneX - 14350));
 	// Ride elevator @ 5500 for 950
 	// Ride turbolift @ 8880 for 4000
 	// Walk backwards though bridge @ 12300 for 2000
@@ -416,8 +418,9 @@ function updateMovement(sceneX) {
 			- Math.max(0, Math.min(3410 + $(document).width() / 4, sceneX
 					- 8890 + $(document).width() / 8))
 			- ($(document).width() / 2 - 900)
-			- Math.max(0, Math.min(2000, sceneX - 12300 - $(document).width()
-					/ 8)) * 2;
+			- Math.max(0, Math.min(2050 - $(document).width() / 8, sceneX
+					- 12300 - $(document).width() / 8)) * 2
+			- Math.max(0, Math.min(650, sceneX - 14350));
 	var positionScene = -adjustedSceneX * speedScene;
 	var positionBrad = (-bradContainer.width() / 2)
 			- Math.max(positionScene, 0)

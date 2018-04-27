@@ -926,17 +926,23 @@
 	background-image: url(images/pneumatic-elevator-tube.png);
 }
 
+.pneumatic-tube:nth-of-type(2) {
+	width: 150px;
+	height: 400px;
+	bottom: 4610px;
+	left: 6713px;
+	background-image: url(images/pneumatic-elevator-tube.png);
+}
+
 .pneumatic-tube-station {
 	width: 150px;
 	height: 250px;
-	left: 8763px;
 	background-image: url(images/pneumatic-elevator-station.png);
 }
 
 .pneumatic-tube-station-rear {
 	width: 150px;
 	height: 250px;
-	left: 2200px;
 	background-image: url(images/pneumatic-elevator-station-rear.png);
 }
 
