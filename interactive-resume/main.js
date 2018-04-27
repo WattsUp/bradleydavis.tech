@@ -5,14 +5,16 @@ $(function() {
 	setInterval(flashWSULCD, 1000);
 	setInterval(changeBacklightEngineRoom, 5000);
 	setInterval(skillsDisplayCycle, 5000);
+	setInterval(changeLeds, 500);
 	$(document).scroll(updateScene);
 	updateScene();
-	$("#teleporter-science").hide();
+	$(".teleporter-science").hide();
 	blink();
 	cycleParticleDisplay();
 	changeBacklightEngineRoom();
 	skillsDisplayCycle();
 	drawPieCharts();
+	drawStarfield();
 });
 
 $(window).resize(updateScene);
@@ -24,6 +26,7 @@ function getSceneX() {
 var scenes = $(".scene");
 var backgrounds = $(".scene-background");
 var farBackgrounds = $(".scene-far-background");
+var superFarBackgrounds = $(".scene-super-far-background");
 var onTheGrounds = $(".on-the-ground");
 var bradSprite = $("#brad");
 var bradContainer = $("#brad-container");
@@ -32,6 +35,7 @@ var groundHeight = $(".ground").height();
 var speedScene = 1 / 1;
 var speedBackground = 1 / 2;
 var speedFarBackground = 1 / 3;
+var speedSuperFarBackground = 1 / 10;
 var timingWalking = 200;
 var timingBlink = 100;
 var teleporting = false;
@@ -49,6 +53,11 @@ var skillsClicked = false;
 var skillsCurrent = 0;
 var particleDisplayCurrent = 0;
 var backlightEngineRoom = "#FF1C1C";
+var ledIndicators = $(".led-indicator");
+var countdownTime = -5;
+var countdownStarted = false;
+var countdownTimer;
+var starfieldFirstOnBottom = true;
 
 function cycleBoard() {
 	$(".title-sign-wrapper").toggleClass("title-sign-wrapper-transformed");
@@ -82,6 +91,47 @@ function changeBacklightEngineRoom() {
 	}, 2000);
 }
 
+function changeLeds() {
+	ledIndicators.each(function(index) {
+		switch (Math.floor(Math.random() * 15)) {
+		case 0:
+			$(this).css("background-color", "#FF595E");
+			break;
+		case 1:
+		case 2:
+			$(this).css("background-color", "#F2C200");
+			break;
+		default:
+			$(this).css("background-color", "#33FF33");
+			break;
+		}
+	});
+}
+
+function updateCountdown() {
+	if (countdownTime <= -10) {
+		$(".background-rocket-bridge-window>h1").text("T" + countdownTime);
+	} else if (countdownTime <= -1) {
+		$(".background-rocket-bridge-window>h1").text("T-0" + (-countdownTime));
+	} else if (countdownTime <= 9) {
+		$(".background-rocket-bridge-window>h1").text("T+0" + countdownTime);
+	} else {
+		$(".background-rocket-bridge-window>h1").text("T+" + countdownTime);
+	}
+	if (countdownTime == 0) {
+		setTimeout(launchRocket, 1);
+	}
+	countdownTime++;
+}
+
+function launchRocket() {
+	$(".sky").css("transform", "translate(0px, 8000px");
+	$(".container").addClass("shook");
+	setTimeout(function() {
+		$(".container").removeClass("shook");
+	}, 4000);
+}
+
 function teleporterChange(locationHash) {
 	if (!teleporting) {
 		teleporting = true;
@@ -109,10 +159,10 @@ function teleporterChange(locationHash) {
 			bradJumpContainer.css("bottom", "30px");
 		}, 1000);
 		setTimeout(function() {
-			$("#teleporter-science").show();
+			$(".teleporter-science").show();
 		}, 1400);
 		setTimeout(function() {
-			$("#teleporter-science").hide();
+			$(".teleporter-science").hide();
 			bradContainer.hide();
 			teleporting = false;
 			location.hash = locationHash;
@@ -152,6 +202,32 @@ function drawPieCharts() {
 	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90), radius
 			- radius * Math.sin(2 * Math.PI / 100 * 90));
 	context0.stroke();
+}
+
+function drawStarfield() {
+	var contextSpace = $(".space-canvas")[0].getContext("2d");
+	contextSpace.fillStyle = "#FFFFFF";
+	var x = 0;
+	var y = 0;
+	var radius = 1;
+	for (var i = 0; i < 10000; i++) {
+		x = Math.floor(Math.random() * 8000);
+		y = Math.floor(Math.random() * 8000);
+		radius = Math.floor(Math.random() * 3);
+		contextSpace.beginPath();
+		contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
+		contextSpace.fill();
+	}
+	contextSpace = $(".space-canvas")[1].getContext("2d");
+	contextSpace.fillStyle = "#FFFFFF";
+	for (var i = 0; i < 10000; i++) {
+		x = Math.floor(Math.random() * 8000);
+		y = Math.floor(Math.random() * 8000);
+		radius = Math.floor(Math.random() * 3);
+		contextSpace.beginPath();
+		contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
+		contextSpace.fill();
+	}
 }
 
 function skillsDisplay(currentDisplay) {
@@ -231,7 +307,8 @@ function updateHidden(sceneX) {
 }
 
 function updateStory(sceneX) {
-	if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300)) {
+	if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300)
+			|| (sceneX > 14350 && sceneX < 15000)) {
 		disableWalking = true;
 	} else {
 		disableWalking = false;
@@ -290,12 +367,23 @@ function updateStory(sceneX) {
 		$(".rocket-hatch").removeClass("rocket-hatch-close");
 		$(".rocket-hatch").addClass("rocket-hatch-open");
 	}
-	if (sceneX > 8890) {
-		$("#tube-station-background").hide();
-		$("#tube-station-foreground").show();
+	if ((sceneX > 8890 && sceneX < 12300) || sceneX > 14350) {
+		$(".tube-station-background").hide();
+		$(".tube-station-foreground").show();
 	} else {
-		$("#tube-station-background").show();
-		$("#tube-station-foreground").hide();
+		$(".tube-station-background").show();
+		$(".tube-station-foreground").hide();
+	}
+	if (sceneX > 12300 && countdownStarted == false) {
+		countdownTimer = setInterval(updateCountdown, 1000);
+		countdownStarted = true;
+	} else if (sceneX <= 12300 && countdownStarted == true) {
+		clearInterval(countdownTimer);
+		countdownStarted = false;
+		countdownTime = -6;
+		updateCountdown();
+		$(".sky").css("transform", "translate(0px, 0px");
+		$(".space").css("transform", "translate(0px, 0px");
 	}
 	var engineWireLength = Math.max(20, Math.min(1380, sceneX - 6900
 			- (movingRight ? 0 : 70)));
@@ -331,17 +419,20 @@ function updateStory(sceneX) {
 }
 
 function updateMovement(sceneX) {
-	var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
-	sceneY = sceneY + Math.max(0, Math.min(3410, sceneX - 8890));
+	var sceneY = Math.max(0, Math.min(950, sceneX - 5500))
+			+ Math.max(0, Math.min(3410, sceneX - 8890))
+			+ Math.max(0, Math.min(650, sceneX - 14350));
 	// Ride elevator @ 5500 for 950
 	// Ride turbolift @ 8880 for 4000
+	// Walk backwards though bridge @ 12300 for 2000
 	var adjustedSceneX = sceneX
 			- Math.max(0, Math.min(950, sceneX - 5500))
 			- Math.max(0, Math.min(3410 + $(document).width() / 4, sceneX
 					- 8890 + $(document).width() / 8))
 			- ($(document).width() / 2 - 900)
-			- Math.max(0, Math.min(950, sceneX - 12300 - $(document).width()
-					/ 8)) * 2;
+			- Math.max(0, Math.min(2050 - $(document).width() / 8, sceneX
+					- 12300 - $(document).width() / 8)) * 2
+			- Math.max(0, Math.min(650, sceneX - 14350));
 	var positionScene = -adjustedSceneX * speedScene;
 	var positionBrad = (-bradContainer.width() / 2)
 			- Math.max(positionScene, 0)
@@ -350,6 +441,7 @@ function updateMovement(sceneX) {
 			- Math.max(0, Math.min(sceneX - 12300, $(document).width() / 8));
 	var positionBackground = -adjustedSceneX * speedBackground;
 	var positionFarBackground = -adjustedSceneX * speedFarBackground;
+	var positionSuperFarBackground = -adjustedSceneX * speedSuperFarBackground;
 	scenes.css("transform", "translate(" + Math.min(positionScene, 0) + "px"
 			+ ", " + sceneY + "px)");
 	backgrounds.css("transform", "translate(" + Math.min(positionBackground, 0)
@@ -357,6 +449,9 @@ function updateMovement(sceneX) {
 	farBackgrounds.css("transform", "translate("
 			+ Math.min(positionFarBackground, 0) + "px, " + sceneY
 			* speedFarBackground + "px)");
+	superFarBackgrounds.css("transform", "translate("
+			+ Math.min(positionSuperFarBackground, 0) + "px, " + sceneY
+			* speedSuperFarBackground + "px)");
 	bradContainer.css("transform", "translateX(" + positionBrad + "px)");
 	if (adjustedSceneX < lastSceneX || lastPositionBrad > positionBrad) {
 		if (!moving && !disableWalking) {

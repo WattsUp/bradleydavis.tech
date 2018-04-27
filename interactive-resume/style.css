@@ -81,6 +81,7 @@
 	top: 0px;
 	width: 100%;
 	height: 100%;
+	background-color: #282828;
 }
 
 .brad {
@@ -155,9 +156,49 @@
 
 .scene-far-background {
 	width: 8000px;
-	height: 6000px;
+	height: 8000px;
 	bottom: 0px;
-	background: linear-gradient(#0000C0, #87CEEB);
+}
+
+.scene-super-far-background {
+	width: 8000px;
+	height: 8000px;
+	bottom: 0px;
+}
+
+.sky {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(#28282800, #0000C0FF, #87CEEBFF);
+	-webkit-transition: transform 7s ease-out;
+	-moz-transition: transform 7s ease-out;
+	-o-transition: transform 7s ease-out;
+	transition: transform 7s ease-out;
+}
+
+.space-canvas {
+	width: 100%;
+	height: 100%;
+	background: #282828;
+}
+
+.space-wrapper {
+	width: 100%;
+	height: 100%;
+	background: #282828;
+	-webkit-animation-name: move-stars;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-duration: 100s;
+	animation-name: move-stars;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 100s;
+}
+
+.space-wrapper:nth-of-type(2) {
+	-webkit-animation-delay: -50s;
+	animation-delay: -50s;
 }
 
 .tree-1 {
@@ -263,6 +304,13 @@
 .teleporter {
 	height: 400px;
 	width: 261px;
+	background-image: url(images/teleporter.png);
+}
+
+.teleporter-science {
+	height: 400px;
+	width: 261px;
+	background-image: url(images/teleporter-science.png);
 }
 
 .teleporter-console {
@@ -463,10 +511,9 @@
 }
 
 .fluid-bubble {
-	-webkit-animation-name: bubble-float; /* Chrome, Safari, Opera */
+	-webkit-animation-name: bubble-float;
 	-webkit-animation-iteration-count: infinite;
-	/* Chrome, Safari, Opera */
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear;
 	animation-name: bubble-float;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
@@ -479,43 +526,43 @@
 }
 
 .fluid-bubble1 {
-	-webkit-animation-delay: 50ms; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 1500ms; /* Chrome, Safari, Opera */
+	-webkit-animation-delay: 50ms;
+	-webkit-animation-duration: 1500ms;
 	animation-delay: 50ms;
 	animation-duration: 1500ms;
 }
 
 .fluid-bubble2 {
-	-webkit-animation-delay: 600ms; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 2000ms; /* Chrome, Safari, Opera */
+	-webkit-animation-delay: 600ms;
+	-webkit-animation-duration: 2000ms;
 	animation-delay: 600ms;
 	animation-duration: 2000ms;
 }
 
 .fluid-bubble3 {
-	-webkit-animation-delay: 200ms; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 1900ms; /* Chrome, Safari, Opera */
+	-webkit-animation-delay: 200ms;
+	-webkit-animation-duration: 1900ms;
 	animation-delay: 200ms;
 	animation-duration: 1900ms;
 }
 
 .fluid-bubble4 {
-	-webkit-animation-delay: 500ms; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 1300ms; /* Chrome, Safari, Opera */
+	-webkit-animation-delay: 500ms;
+	-webkit-animation-duration: 1300ms;
 	animation-delay: 500ms;
 	animation-duration: 1300ms;
 }
 
 .fluid-bubble5 {
-	-webkit-animation-delay: 100ms; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 1800ms; /* Chrome, Safari, Opera */
+	-webkit-animation-delay: 100ms;
+	-webkit-animation-duration: 1800ms;
 	animation-delay: 100ms;
 	animation-duration: 1800ms;
 }
 
 .fluid-bubble6 {
-	-webkit-animation-delay: 650ms; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 2200ms; /* Chrome, Safari, Opera */
+	-webkit-animation-delay: 650ms;
+	-webkit-animation-duration: 2200ms;
 	animation-delay: 650ms;
 	animation-duration: 2200ms;
 }
@@ -562,17 +609,15 @@
 	left: 0px;
 	height: 100%;
 	background-image: url('images/particle.png');
-	background-position: bottom; -webkit-animation : particle-viewer-image
-	infinite linear 15s, particle-viewer-particle infintie linear 1s;
-	animation: particle-viewer-image infinite linear 15s,
-		particle-viewer-particle infinite linear 1s;
+	background-position: bottom;
+	-webkit-animation : particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
+	animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
 	-webkit-transition: height 1.0s ease;
 	-webkit-transition: height 1.0s ease;
 	-moz-transition: height 1.0s ease;
 	-o-transition: height 1.0s ease;
 	transition: height 1.0s ease;
-	-webkit-animation: particle-viewer-image infinite linear 15s,
-		particle-viewer-particle infintie linear 1s;
+	-webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
 }
 
 .particle-viewer-lightning {
@@ -582,11 +627,9 @@
 	height: 275px;
 	background-image: url('images/particle-viewer-lightning.png');
 	-webkit-animation-name: particle-viewer-lightning;
-	/* Chrome, Safari, Opera */
 	-webkit-animation-iteration-count: infinite;
-	/* Chrome, Safari, Opera */
-	-webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
-	-webkit-animation-duration: 5s; /* Chrome, Safari, Opera */
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-duration: 5s;
 	animation-name: particle-viewer-lightning;
 	animation-iteration-count: infinite;
 	animation-timing-function: linear;
@@ -703,14 +746,6 @@
 	width: 30px;
 	height: 300px;
 	background-color: #BFBFBF;
-}
-
-.background-rocket {
-	width: 100%;
-	height: calc(100% - 650px);
-	bottom: 650px;
-	left: 0px;
-	background-color: #f2f2f2;
 }
 
 .background-engine-room {
@@ -884,17 +919,23 @@
 	background-image: url(images/pneumatic-elevator-tube.png);
 }
 
+.pneumatic-tube:nth-of-type(2) {
+	width: 150px;
+	height: 400px;
+	bottom: 4610px;
+	left: 6713px;
+	background-image: url(images/pneumatic-elevator-tube.png);
+}
+
 .pneumatic-tube-station {
 	width: 150px;
 	height: 250px;
-	left: 8763px;
 	background-image: url(images/pneumatic-elevator-station.png);
 }
 
 .pneumatic-tube-station-rear {
 	width: 150px;
 	height: 250px;
-	left: 2200px;
 	background-image: url(images/pneumatic-elevator-station-rear.png);
 }
 
@@ -1045,6 +1086,47 @@
 	font-size: 14px;
 }
 
+.background-rocket-bridge-window {
+	width: 820px;
+	height: 400px;
+	left: 800px;
+	bottom: 4360px;
+	background-position: center;
+	background-image: url(images/background-rocket-bridge-window.png);
+}
+
+.background-rocket-bridge-window>h1 {
+	font-size: 24px;
+	font-family: code-new-roman;
+	color: #33FF33;
+	margin: 0px;
+	width: 100%;
+	text-align: center;
+	top: 308px;
+}
+
+.background-rocket-bridge-left {
+	width: 780px;
+	height: 400px;
+	left: 25px;
+	bottom: 4360px;
+	background-image: url(images/background-rocket-bridge-left.png);
+}
+
+.background-rocket-bridge-right {
+	width: 780px;
+	height: 400px;
+	right: 25px;
+	bottom: 4360px;
+	background-image: url(images/background-rocket-bridge-right.png);
+}
+
+.led-indicator {
+	width: 3px;
+	height: 3px;
+	background-color: #33FF33;
+}
+
 .horizontal-line {
 	width: 100%;
 	height: 1px;
@@ -1060,6 +1142,17 @@
 
 .caution-tape {
 	background-image: url(images/caution-tape.png);
+}
+
+.shook {
+	-webkit-animation-name: shake;
+	-webkit-animation-iteration-count: infinite;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-duration: 0.5s;
+	animation-name: shake;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: 0.5s;
 }
 
 @keyframes bubble-float {
@@ -1082,4 +1175,42 @@
 @-webkit-keyframes particle-viewer-particle {
 	0%	 {left: 0px}
 	100% {left: -10px}
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@-webkit-keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@keyframes move-stars {
+	0% { transform: translate(0px, -8000px); }
+	100% { transform: translate(0px, 8000px); }
+}
+
+@-webkit-keyframes move-stars {
+	0% { transform: translate(0px, -8000px); }
+	100% { transform: translate(0px, 8000px); }
 }
