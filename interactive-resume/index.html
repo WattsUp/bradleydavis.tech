@@ -38,14 +38,26 @@
 		<div id="contact" class="absolute" style="top: 1300px"></div>
 	</div>
 	<div id="container" class="container">
+		<div class="scene-super-far-background absolute">
+			<div class="space-wrapper absolute">
+				<canvas class="space-canvas absolute" width=8000 height=8000></canvas>
+			</div>
+			<div class="space-wrapper absolute">
+				<canvas class="space-canvas absolute" width=8000 height=8000></canvas>
+			</div>
+		</div>
 		<div class="scene-far-background absolute">
-			<div class="cloud-1 absolute" style="left: 200px; bottom: 800px"></div>
-			<div class="cloud-2 absolute" style="left: 1000px; bottom: 700px"></div>
-			<div class="cloud-2 absolute" style="left: 1700px; bottom: 800px"></div>
-			<div class="cloud-1 absolute" style="left: 2500px; bottom: 750px"></div>
-			<div class="cloud-1 absolute" style="left: 3800px; bottom: 750px"></div>
-			<div class="cloud-2 absolute" style="left: 3700px; bottom: 1300px"></div>
-			<div class="cloud-2 absolute" style="left: 4200px; bottom: 1900px"></div>
+			<div class="sky absolute">
+				<div class="cloud-1 absolute" style="left: 200px; bottom: 800px"></div>
+				<div class="cloud-2 absolute" style="left: 1000px; bottom: 700px"></div>
+				<div class="cloud-2 absolute" style="left: 1700px; bottom: 800px"></div>
+				<div class="cloud-1 absolute" style="left: 2500px; bottom: 750px"></div>
+				<div class="cloud-1 absolute" style="left: 3800px; bottom: 750px"></div>
+				<div class="cloud-2 absolute" style="left: 3700px; bottom: 1300px"></div>
+				<div class="cloud-2 absolute" style="left: 4200px; bottom: 1900px"></div>
+				<div class="cloud-1 absolute" style="left: 3400px; bottom: 2300px"></div>
+				<div class="cloud-2 absolute" style="left: 2800px; bottom: 4000px"></div>
+			</div>
 		</div>
 		<div class="scene-background absolute">
 			<div class="tree-4 on-the-ground absolute" style="left: 150px"></div>
@@ -79,11 +91,9 @@
 						Me</button>
 				</div>
 			</div>
-			<div class="teleporter on-the-ground absolute"
-				style="left: 50px; background-image: url(images/teleporter.png)"></div>
-			<div id="teleporter-science"
-				class="teleporter on-the-ground absolute"
-				style="left: 50px; background-image: url(images/teleporter-science.png)"></div>
+			<div class="teleporter on-the-ground absolute" style="left: 50px"></div>
+			<div class="teleporter-science on-the-ground absolute"
+				style="left: 50px"></div>
 			<div class="wall-laboratory on-the-ground absolute"
 				style="left: 585px"></div>
 			<div class="wall-laboratory on-the-ground absolute"
@@ -242,7 +252,6 @@
 				<div class="rocket-engine absolute" style="left: 50px"></div>
 				<div class="rocket-engine absolute" style="left: 500px"></div>
 				<div class="rocket-engine absolute" style="left: 950px"></div>
-				<div class="background-rocket absolute"></div>
 				<div id="engine-room" class="background-engine-room absolute"
 					style="bottom: 950px">
 					<div></div>
@@ -256,6 +265,46 @@
 				<div class="background-engine-room absolute" style="bottom: 3500px">
 					<div></div>
 				</div>
+				<div class="background-rocket-bridge-window absolute">
+					<div class="led-indicator absolute" style="left: 453px; top: 306px"></div>
+					<div class="led-indicator absolute" style="left: 453px; top: 311px"></div>
+					<div class="led-indicator absolute" style="left: 453px; top: 316px"></div>
+					<div class="led-indicator absolute" style="left: 453px; top: 321px"></div>
+					<div class="led-indicator absolute" style="left: 453px; top: 326px"></div>
+					<div class="led-indicator absolute" style="left: 453px; top: 331px"></div>
+					<div class="led-indicator absolute" style="left: 453px; top: 336px"></div>
+					<div class="led-indicator absolute" style="left: 458px; top: 306px"></div>
+					<div class="led-indicator absolute" style="left: 458px; top: 311px"></div>
+					<div class="led-indicator absolute" style="left: 458px; top: 316px"></div>
+					<div class="led-indicator absolute" style="left: 458px; top: 321px"></div>
+					<div class="led-indicator absolute" style="left: 458px; top: 326px"></div>
+					<div class="led-indicator absolute" style="left: 458px; top: 331px"></div>
+					<div class="led-indicator absolute" style="left: 458px; top: 336px"></div>
+					<div class="led-indicator absolute" style="left: 463px; top: 306px"></div>
+					<div class="led-indicator absolute" style="left: 463px; top: 311px"></div>
+					<div class="led-indicator absolute" style="left: 463px; top: 316px"></div>
+					<div class="led-indicator absolute" style="left: 463px; top: 321px"></div>
+					<div class="led-indicator absolute" style="left: 463px; top: 326px"></div>
+					<div class="led-indicator absolute" style="left: 463px; top: 331px"></div>
+					<div class="led-indicator absolute" style="left: 463px; top: 336px"></div>
+					<div class="led-indicator absolute" style="left: 468px; top: 306px"></div>
+					<div class="led-indicator absolute" style="left: 468px; top: 311px"></div>
+					<div class="led-indicator absolute" style="left: 468px; top: 316px"></div>
+					<div class="led-indicator absolute" style="left: 468px; top: 321px"></div>
+					<div class="led-indicator absolute" style="left: 468px; top: 326px"></div>
+					<div class="led-indicator absolute" style="left: 468px; top: 331px"></div>
+					<div class="led-indicator absolute" style="left: 468px; top: 336px"></div>
+					<div class="led-indicator absolute" style="left: 473px; top: 306px"></div>
+					<div class="led-indicator absolute" style="left: 473px; top: 311px"></div>
+					<div class="led-indicator absolute" style="left: 473px; top: 316px"></div>
+					<div class="led-indicator absolute" style="left: 473px; top: 321px"></div>
+					<div class="led-indicator absolute" style="left: 473px; top: 326px"></div>
+					<div class="led-indicator absolute" style="left: 473px; top: 331px"></div>
+					<div class="led-indicator absolute" style="left: 473px; top: 336px"></div>
+					<h1 class="absolute">T-06</h1>
+				</div>
+				<div class="background-rocket-bridge-left absolute"></div>
+				<div class="background-rocket-bridge-right absolute"></div>
 				<div class="ground-foundation-rocket absolute"
 					style="width: 2360px; height: 240px; left: 30px; bottom: 680px"></div>
 				<div class="ground-foundation-rocket absolute"
@@ -266,6 +315,8 @@
 					style="width: 2360px; height: 100px; left: 30px; bottom: 3380px; background-position: center"></div>
 				<div class="ground-foundation-rocket absolute"
 					style="width: 2360px; height: 100px; left: 30px; bottom: 4230px"></div>
+				<div class="ground-foundation-rocket absolute"
+					style="width: 2360px; height: 190px; left: 30px; bottom: 4790px"></div>
 				<div class="ground-flooring-rocket absolute" style="bottom: 650px"></div>
 				<div class="ground-flooring-rocket absolute" style="bottom: 920px"></div>
 				<div class="ground-flooring-rocket absolute" style="bottom: 1650px"></div>
@@ -276,6 +327,9 @@
 				<div class="ground-flooring-rocket absolute" style="bottom: 3480px;"></div>
 				<div class="ground-flooring-rocket absolute" style="bottom: 4200px"></div>
 				<div class="ground-flooring-rocket absolute" style="bottom: 4330px;"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 4760px;"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 4980px;"></div>
+				<div class="ground-flooring-rocket absolute" style="bottom: 5460px;"></div>
 				<div class="wall-rocket absolute" style="left: 0px;"></div>
 				<div class="wall-rocket absolute" style="right: 0px;"></div>
 				<div class="rocket-hatch-frame absolute" style="bottom: 950px"></div>
@@ -430,12 +484,20 @@
 					<div class="absolute"></div>
 				</div>
 				<div class="pneumatic-tube-station-rear absolute"
-					style="bottom: 950px">
-					<div id="tube-station-background" class="absolute"></div>
+					style="bottom: 950px; left: 2200px">
+					<div class="tube-station-background absolute"></div>
 				</div>
 				<div class="pneumatic-tube-station-rear absolute"
-					style="bottom: 4360px">
-					<div id="tube-station-background" class="absolute"></div>
+					style="bottom: 4360px; left: 2200px">
+					<div class="absolute"></div>
+				</div>
+				<div class="pneumatic-tube-station-rear absolute"
+					style="bottom: 4360px; left: 150px">
+					<div class="tube-station-background absolute"></div>
+				</div>
+				<div class="pneumatic-tube-station-rear absolute"
+					style="bottom: 5010px; left: 150px">
+					<div class="absolute"></div>
 				</div>
 				<div class="display-rocket-600 absolute"
 					style="left: 1500px; bottom: 1960px">
@@ -562,8 +624,11 @@
 		</div>
 		<div class="scene absolute">
 			<div class="on-the-ground absolute">
-				<div id="tube-station-foreground"
-					class="pneumatic-tube-station absolute" style="bottom: 950px"></div>
+				<div class="pneumatic-tube-station tube-station-foreground absolute"
+					style="bottom: 950px; left: 8763px"></div>
+				<div class="pneumatic-tube absolute"></div>
+				<div class="pneumatic-tube-station tube-station-foreground absolute"
+					style="bottom: 4360px; left: 6713px"></div>
 				<div class="pneumatic-tube absolute"></div>
 			</div>
 		</div>
