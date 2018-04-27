@@ -8,7 +8,7 @@ $(function() {
 	setInterval(changeLeds, 500);
 	$(document).scroll(updateScene);
 	updateScene();
-	$("#teleporter-science").hide();
+	$(".teleporter-science").hide();
 	blink();
 	cycleParticleDisplay();
 	changeBacklightEngineRoom();
@@ -157,10 +157,10 @@ function teleporterChange(locationHash) {
 			bradJumpContainer.css("bottom", "30px");
 		}, 1000);
 		setTimeout(function() {
-			$("#teleporter-science").show();
+			$(".teleporter-science").show();
 		}, 1400);
 		setTimeout(function() {
-			$("#teleporter-science").hide();
+			$(".teleporter-science").hide();
 			bradContainer.hide();
 			teleporting = false;
 			location.hash = locationHash;
