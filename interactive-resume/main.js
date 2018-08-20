@@ -190,18 +190,37 @@ function drawPieCharts() {
 	context0.moveTo(radius, radius);
 	context0.lineTo(radius * 2, radius);
 	context0.moveTo(radius, radius);
-	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 10), radius
-			- radius * Math.sin(2 * Math.PI / 100 * 10));
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 15), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 15));
 	context0.moveTo(radius, radius);
-	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 25), radius
-			- radius * Math.sin(2 * Math.PI / 100 * 25));
-	context0.moveTo(radius, radius);
-	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 55), radius
-			- radius * Math.sin(2 * Math.PI / 100 * 55));
+	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 70), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 70));
 	context0.moveTo(radius, radius);
 	context0.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90), radius
 			- radius * Math.sin(2 * Math.PI / 100 * 90));
+	context0.moveTo(radius, radius);
 	context0.stroke();
+	var context1 = $(".experience-pie")[1].getContext("2d");
+	$(".experience-pie")[1].width = radius * 2;
+	$(".experience-pie")[1].height = radius * 2;
+	context1.strokeStyle = "#282828";
+	context1.lineWidth = 2;
+	context1.beginPath();
+	context1.moveTo(radius, radius);
+	context1.lineTo(radius * 2, radius);
+	context1.moveTo(radius, radius);
+	context1.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 10), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 10));
+	context1.moveTo(radius, radius);
+	context1.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 25), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 25));
+	context1.moveTo(radius, radius);
+	context1.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 55), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 55));
+	context1.moveTo(radius, radius);
+	context1.lineTo(radius + radius * Math.cos(2 * Math.PI / 100 * 90), radius
+			- radius * Math.sin(2 * Math.PI / 100 * 90));
+	context1.stroke();
 }
 
 function drawStarfield() {
