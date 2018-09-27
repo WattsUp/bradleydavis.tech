@@ -1121,6 +1121,32 @@
 	background-image: url(images/background-rocket-bridge-right.png);
 }
 
+.project-viewer {
+	width: 1200px;
+	height: 530px;
+	left: 50%;
+	bottom: 5010px;
+	transform: translateX(-50%);
+	background-image: url(images/project-viewer.png);
+}
+
+.project-viewer-stand {
+	width: 5px;
+	height: 100px;
+	left: 900px;
+	bottom: 25px;
+	background-image: url(images/project-viewer-stand.png);
+}
+
+.project-viewer-conveyor {
+	width: 99px;
+	height: 19px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: -19px;
+	background-image: url(images/project-viewer-conveyor.png);
+}
+
 .led-indicator {
 	width: 3px;
 	height: 3px;
