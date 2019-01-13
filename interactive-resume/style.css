@@ -45,8 +45,10 @@ button {
   top: 0px;
   font-family: tektrron;
   font-size: 50px;
-  -webkit-transition: transform 1.0s;
-  transition: transform 1.0s;
+  -webkit-transition: transform 1s;
+  -moz-transition: transform 1s;
+  -o-transition: transform 1s;
+  transition: transform 1s;
   z-index: 1000;
   overflow: hidden;
 }
@@ -106,7 +108,6 @@ button {
 }
 
 .jump-up-small {
-  -webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1);
   -webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
   -moz-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
   -o-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
@@ -114,7 +115,6 @@ button {
 }
 
 .jump-down-small {
-  -webkit-transition: bottom 0.4s cubic-bezier(0.600, 0, 0.735, 0.045);
   -webkit-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
   -moz-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
   -o-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
@@ -123,14 +123,12 @@ button {
 
 .ease-left {
   -webkit-transition: left 1.0s ease;
-  -webkit-transition: left 1.0s ease;
   -moz-transition: left 1.0s ease;
   -o-transition: left 1.0s ease;
   transition: left 1.0s ease;
 }
 
 .ease-transform {
-  -webkit-transition: transform 1.0s ease;
   -webkit-transition: transform 1.0s ease;
   -moz-transition: transform 1.0s ease;
   -o-transition: transform 1.0s ease;
@@ -293,7 +291,7 @@ button {
 .wall-rocket {
   width: 30px;
   background-image: url(images/wall-rocket.png);
-  height: 9000px;
+  height: 100%;
   bottom: 650px
 }
 
@@ -523,6 +521,10 @@ button {
 .fluid-bubble1 {
   -webkit-animation-delay: 50ms;
   -webkit-animation-duration: 1500ms;
+  -moz-animation-delay: 50ms;
+  -moz-animation-duration: 1500ms;
+  -o-animation-delay: 50ms;
+  -o-animation-duration: 1500ms;
   animation-delay: 50ms;
   animation-duration: 1500ms;
 }
@@ -530,6 +532,10 @@ button {
 .fluid-bubble2 {
   -webkit-animation-delay: 600ms;
   -webkit-animation-duration: 2000ms;
+  -moz-animation-delay: 600ms;
+  -moz-animation-duration: 2000ms;
+  -o-animation-delay: 600ms;
+  -o-animation-duration: 2000ms;
   animation-delay: 600ms;
   animation-duration: 2000ms;
 }
@@ -537,6 +543,10 @@ button {
 .fluid-bubble3 {
   -webkit-animation-delay: 200ms;
   -webkit-animation-duration: 1900ms;
+  -moz-animation-delay: 200ms;
+  -moz-animation-duration: 1900ms;
+  -o-animation-delay: 200ms;
+  -o-animation-duration: 1900ms;
   animation-delay: 200ms;
   animation-duration: 1900ms;
 }
@@ -544,6 +554,10 @@ button {
 .fluid-bubble4 {
   -webkit-animation-delay: 500ms;
   -webkit-animation-duration: 1300ms;
+  -moz-animation-delay: 500ms;
+  -moz-animation-duration: 1300ms;
+  -o-animation-delay: 500ms;
+  -o-animation-duration: 1300ms;
   animation-delay: 500ms;
   animation-duration: 1300ms;
 }
@@ -551,6 +565,10 @@ button {
 .fluid-bubble5 {
   -webkit-animation-delay: 100ms;
   -webkit-animation-duration: 1800ms;
+  -moz-animation-delay: 100ms;
+  -moz-animation-duration: 1800ms;
+  -o-animation-delay: 100ms;
+  -o-animation-duration: 1800ms;
   animation-delay: 100ms;
   animation-duration: 1800ms;
 }
@@ -558,6 +576,10 @@ button {
 .fluid-bubble6 {
   -webkit-animation-delay: 650ms;
   -webkit-animation-duration: 2200ms;
+  -moz-animation-delay: 650ms;
+  -moz-animation-duration: 2200ms;
+  -o-animation-delay: 650ms;
+  -o-animation-duration: 2200ms;
   animation-delay: 650ms;
   animation-duration: 2200ms;
 }
@@ -608,11 +630,9 @@ button {
   -webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
   animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
   -webkit-transition: height 1.0s ease;
-  -webkit-transition: height 1.0s ease;
   -moz-transition: height 1.0s ease;
   -o-transition: height 1.0s ease;
   transition: height 1.0s ease;
-  -webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
 }
 
 .particle-viewer-lightning {
@@ -708,7 +728,7 @@ button {
 
 .rocket {
   width: 2420px;
-  height: 8000px;
+  height: 7000px;
   left: 6563px;
 }
 
@@ -728,12 +748,18 @@ button {
 .rocket-hatch-close {
   left: 0px;
   transform: translateY(0px);
+  -webkit-transition: left 1s ease 1s, transform 1s ease;
+  -moz-transition: left 1s ease 1s, transform 1s ease;
+  -o-transition: left 1s ease 1s, transform 1s ease;
   transition: left 1s ease 1s, transform 1s ease;
 }
 
 .rocket-hatch-open {
   left: 30px;
   transform: translateY(-330px);
+  -webkit-transition: left 1s ease, transform 1s ease 1s;
+  -moz-transition: left 1s ease, transform 1s ease 1s;
+  -o-transition: left 1s ease, transform 1s ease 1s;
   transition: left 1s ease, transform 1s ease 1s;
 }
 
@@ -1015,6 +1041,13 @@ button {
   text-align: left;
 }
 
+.box {
+  -webkit-transition: left 0.5s ease, bottom 0.5s ease;
+  -moz-transition: left 0.5s ease, bottom 0.5s ease;
+  -o-transition: left 0.5s ease, bottom 0.5s ease;
+  transition: left 0.5s ease, bottom 0.5s ease;
+}
+
 .box>h1 {
   font-size: 20px;
   font-family: tektrron;
@@ -1121,6 +1154,50 @@ button {
   background-image: url(images/background-rocket-bridge-right.png);
 }
 
+.project {
+  width: 750px;
+  height: 458px;
+  left: 675px;
+  bottom: 47px;
+  background-size: 100% 100%;
+  -webkit-transition: transform 0.5s ease;
+  -moz-transition: transform 0.5s ease;
+  -o-transition: transform 0.5s ease;
+  transition: transform 0.5s ease;
+  text-decoration: none;
+  color: #33FF33;
+  text-align: center;
+  transform-origin: 50% 100%;
+  transform: translate(-50%) scale(1.0);
+}
+
+.project>h1 {
+  font-size: 30px;
+  font-family: tektrron;
+  width: 100%;
+  padding: 3px 10px;
+}
+
+.project>h2 {
+  font-size: 22px;
+  font-family: tektrron;
+  width: 100%;
+  padding: 3px 10px;
+}
+
+.project>p {
+  font-size: 18px;
+  font-family: code-new-roman;
+  padding: 3px 10px;
+}
+
+.project>div {
+  width: 300px;
+  height: 300px;
+  left: 225px;
+  bottom: 0px;
+}
+
 .project-viewer {
   width: 1200px;
   height: 530px;
@@ -1139,12 +1216,24 @@ button {
   text-align: center;
 }
 
+.project-viewer-lightning {
+  width: 408px;
+  height: 180px;
+  left: 330px;
+  bottom: 20px;
+  background-image: url(images/project-viewer-lightning.png);
+}
+
 .project-viewer-stand {
   width: 5px;
   height: 10px;
   left: 900px;
   bottom: 25px;
   background-image: url(images/project-viewer-stand.png);
+  -webkit-transition: left 0.5s ease, height 0.5s ease;
+  -moz-transition: left 0.5s ease, height 0.5s ease;
+  -o-transition: left 0.5s ease, height 0.5s ease;
+  transition: left 0.5s ease, height 0.5s ease;
 }
 
 .project-viewer-conveyor {
