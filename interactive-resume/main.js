@@ -76,7 +76,7 @@ function getRandomInt(min, max) {
 }
 
 function changeProject(index) {
-  if(changingProject){
+  if (changingProject) {
     return;
   }
   changingProject = true;
@@ -442,6 +442,10 @@ function updateStory(sceneX) {
     bradJumpContainer.addClass('jump-up-small');
     bradJumpContainer.removeClass('jump-down-small');
     bradJumpContainer.css('bottom', '55px');
+  } else if (sceneX > 16800 && sceneX < 19020) {
+    bradJumpContainer.addClass('jump-up-small');
+    bradJumpContainer.removeClass('jump-down-small');
+    bradJumpContainer.css('bottom', '66px');
   } else {
     bradJumpContainer.addClass('jump-down-small');
     bradJumpContainer.removeClass('jump-up-small');
@@ -485,12 +489,16 @@ function updateStory(sceneX) {
   } else {
     $('.thruster-small-on').css('display', 'none');
   }
-  if (sceneX > 7000) {
+  if (sceneX > 7000 && sceneX < 17000) {
     $('.rocket-hatch').addClass('rocket-hatch-close');
     $('.rocket-hatch').removeClass('rocket-hatch-open');
+    $('.rocket-hatch:eq(0)').css('left', '0px');
+    $('.rocket-hatch:eq(1)').css('left', '2390px');
   } else {
     $('.rocket-hatch').removeClass('rocket-hatch-close');
     $('.rocket-hatch').addClass('rocket-hatch-open');
+    $('.rocket-hatch:eq(0)').css('left', '30px');
+    $('.rocket-hatch:eq(1)').css('left', '2420px');
   }
   if ((sceneX > 8890 && sceneX < 12300) || sceneX > 14350) {
     $('.tube-station-background').hide();
@@ -509,6 +517,20 @@ function updateStory(sceneX) {
     updateCountdown();
     $('.sky').css('transform', 'translate(0px, 0px');
     $('.space').css('transform', 'translate(0px, 0px');
+  }
+  if (sceneX > 16400 && sceneX < 16950) {
+    $('.shuttle-door-top')
+        .css('transform', 'rotateX(180deg) perspective(600px)');
+    $('.shuttle-door-bottom')
+        .css('transform', 'rotateX(-180deg) perspective(600px)');
+  } else {
+    $('.shuttle-door-top').css('transform', 'rotateX(0deg)');
+    $('.shuttle-door-bottom').css('transform', 'rotateX(0deg)');
+  }
+  if (sceneX > 16950) {
+    $('.shuttle-thrust').show();
+  } else {
+    $('.shuttle-thrust').hide();
   }
   var engineWireLength =
       Math.max(20, Math.min(1380, sceneX - 6900 - (movingRight ? 0 : 70)));
@@ -530,6 +552,7 @@ function updateStory(sceneX) {
   var batteryLCDWSULeft = 2000 + Math.max(0, Math.min(3148, sceneX - 850));
   var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
   var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
+  var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 2000));
   $('#rover').css(
       'transform',
       'translate(' + roverPosition + 'px' +
@@ -542,6 +565,8 @@ function updateStory(sceneX) {
       .css('transform', 'translateY(' + batteryLCDWSUBottom + 'px)');
   $('#elevator-cargo').css('transform', 'translateY(' + elevatorCargoY + 'px)');
   $('.engine-room-wire').css('width', engineWireLength + 'px');
+  $('.shuttle').css('left', (1899 + shuttlePosition) + 'px');
+  $('.shuttle-foreground').css('left', (8660 + shuttlePosition) + 'px');
 }
 
 function updateMovement(sceneX) {

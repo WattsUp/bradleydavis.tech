@@ -746,21 +746,24 @@ button {
 }
 
 .rocket-hatch-close {
-  left: 0px;
   transform: translateY(0px);
   -webkit-transition: left 1s ease 1s, transform 1s ease;
   -moz-transition: left 1s ease 1s, transform 1s ease;
   -o-transition: left 1s ease 1s, transform 1s ease;
   transition: left 1s ease 1s, transform 1s ease;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
 }
 
 .rocket-hatch-open {
-  left: 30px;
   transform: translateY(-330px);
-  -webkit-transition: left 1s ease, transform 1s ease 1s;
-  -moz-transition: left 1s ease, transform 1s ease 1s;
-  -o-transition: left 1s ease, transform 1s ease 1s;
-  transition: left 1s ease, transform 1s ease 1s;
+  -webkit-transition: left 1s ease, transform 0.5s ease 0.5s;
+  -moz-transition: left 1s ease, transform 0.5s ease 0.5s;
+  -o-transition: left 1s ease, transform 0.5s ease 0.5s;
+  transition: left 1s ease, transform 0.5s ease 0.5s;
+  -ms-transition: left 1s ease, transform 0.5s ease 0.5s;
 }
 
 .rocket-hatch-frame {
@@ -1275,6 +1278,76 @@ button {
   border: 2px solid #33FF33;
   background-color: #33FF33;
   color: #282828;
+}
+
+.shuttle {
+  width: 198px;
+  height: 275px;
+  bottom: 5010px;
+  left: 1899px;
+  background-image: url(images/shuttle-left.png);
+}
+
+.shuttle-thrust {
+  width: 12px;
+  height: 45px;
+  bottom: 5px;
+  left: -12px;
+  background-image: url(images/shuttle-thrust.png);
+}
+
+.shuttle-foreground {
+  width: 283px;
+  height: 275px;
+  bottom: 5010px;
+  left: 8660px;
+  background-image: url(images/shuttle-right.png);
+}
+
+.shuttle-door-top {
+  width: 115px;
+  height: 140px;
+  top: 10px;
+  left: 83px;
+  transform-origin: 50% 0%;
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+
+.shuttle-door-top.exterior {
+  background-image: url(images/shuttle-door-top-exterior.png);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.shuttle-door-top.interior {
+  background-image: url(images/shuttle-door-top-interior.png);
+}
+
+.shuttle-door-bottom {
+  width: 115px;
+  height: 60px;
+  bottom: 65px;
+  left: 83px;
+  transform-origin: 50% 100%;
+  transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -ms-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+}
+
+.shuttle-door-bottom.exterior {
+  background-image: url(images/shuttle-door-bottom-exterior.png);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.shuttle-door-bottom.interior {
+  background-image: url(images/shuttle-door-bottom-interior.png);
 }
 
 .led-indicator {
