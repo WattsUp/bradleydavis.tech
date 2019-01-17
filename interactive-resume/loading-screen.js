@@ -1,12 +1,12 @@
-$(window).bind("load", function() {
-  $("#loading-screen").css("transform", "translateY(-100%)");
+$(window).bind('load', function() {
+  $('.loading-screen').css('transform', 'translateY(-100%)');
   setTimeout(function() {
     clearInterval(interval);
-    $("#loading-screen").hide();
+    $('.loading-screen').hide();
   }, 1000);
   setTimeout(function() {
     // $(document).scrollTop(0);
-    location.hash = "";
+    location.hash = '';
   }, 10);
 });
 
@@ -26,12 +26,14 @@ var count = startCount;
 var interval;
 
 $(function setupLissajous() {
-  $("#loading-canvas").attr("width", height + "px");
-  $("#loading-canvas").attr("height", width + "px");
-  var canvas = document.getElementById("loading-canvas");
-  context = canvas.getContext("2d");
-  context.strokeStyle = "rgb(51, 255, 51)";
-  context.fillStyle = "rgba(0, 0, 0, 0.07)";
+  $('.loading-canvas').attr('width', height + 'px');
+  $('.loading-canvas').attr('height', width + 'px');
+  var canvas = document.getElementById('loading-canvas');
+  context = canvas.getContext('2d');
+  context.strokeStyle = 'rgb(51, 255, 51)';
+  context.fillStyle = 'rgb(40,40,40)';
+  context.fillRect(0, 0, width, height);
+  context.fillStyle = 'rgba(40, 40, 40, 0.07)';
   interval = setInterval(updateLissajous, 10);
 });
 

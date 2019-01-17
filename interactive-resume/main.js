@@ -27,14 +27,14 @@ function getSceneX() {
   return $(document).scrollTop();
 }
 
-var scenes = $('.scene');
+var scenes = $('#scenes');
 var backgrounds = $('.scene-background');
-var farBackgrounds = $('.scene-far-background');
-var superFarBackgrounds = $('.scene-super-far-background');
+var farBackgrounds = $('.scene-background.far');
+var superFarBackgrounds = $('.scene-background.super-far');
 var onTheGrounds = $('.on-the-ground');
-var bradSprite = $('#brad');
-var bradContainer = $('#brad-container');
-var bradJumpContainer = $('#brad-jump-container');
+var bradSprite = $('.brad');
+var bradContainer = $('.brad-container');
+var bradJumpContainer = $('.brad-container>div');
 var groundHeight = $('.ground').height();
 var speedScene = 1 / 1;
 var speedBackground = 1 / 2;
@@ -237,12 +237,12 @@ function teleporterChange(locationHash) {
     teleporting = true;
     bradContainer.css('left', '175px');
     bradContainer.css('transform', 'translateX(-50%)');
-    bradContainer.addClass('ease-left');
-    bradJumpContainer.addClass('jump-up-small');
-    bradJumpContainer.removeClass('jump-down-small');
-    scenes.addClass('ease-transform');
-    backgrounds.addClass('ease-transform');
-    farBackgrounds.addClass('ease-transform');
+    bradContainer.addClass('transition-all-1s');
+    bradJumpContainer.addClass('jump-up');
+    bradJumpContainer.removeClass('jump-down');
+    scenes.addClass('transition-all-1s');
+    backgrounds.addClass('transition-all-1s');
+    farBackgrounds.addClass('transition-all-1s');
     scenes.css('transform', 'translateX(0px)');
     backgrounds.css('transform', 'translateX(0px)');
     farBackgrounds.css('transform', 'translateX(0px)');
@@ -253,9 +253,9 @@ function teleporterChange(locationHash) {
     setTimeout(updateWalkingSprite, timingWalking * 2);
     setTimeout(updateWalkingSprite, timingWalking * 3);
     setTimeout(function() {
-      scenes.removeClass('ease-transform');
-      backgrounds.removeClass('ease-transform');
-      farBackgrounds.removeClass('ease-transform');
+      scenes.removeClass('transition-all-1s');
+      backgrounds.removeClass('transition-all-1s');
+      farBackgrounds.removeClass('transition-all-1s');
       bradJumpContainer.css('bottom', '30px');
     }, 1000);
     setTimeout(function() {
@@ -271,9 +271,9 @@ function teleporterChange(locationHash) {
       bradContainer.show();
       teleporting = false;
       bradContainer.css('left', '50%');
-      bradContainer.removeClass('ease-left');
+      bradContainer.removeClass('transition-all-1s');
       bradJumpContainer.css('bottom', '0px');
-      bradJumpContainer.removeClass('jump-up-small');
+      bradJumpContainer.removeClass('jump-up');
       updateScene();
     }, 2500);
   }
@@ -376,15 +376,15 @@ function skillsDisplayCycle() {
 
 function blink() {
   if (movingRight) {
-    $('#brad-eyes-right').show();
-    $('#brad-eyes-left').hide();
+    $('.brad-eyes.right').show();
+    $('.brad-eyes.left').hide();
   } else {
-    $('#brad-eyes-right').hide();
-    $('#brad-eyes-left').show();
+    $('.brad-eyes.right').hide();
+    $('.brad-eyes.left').show();
   }
   setTimeout(function() {
-    $('#brad-eyes-right').hide();
-    $('#brad-eyes-left').hide();
+    $('.brad-eyes.right').hide();
+    $('.brad-eyes.left').hide();
   }, timingBlink);
 }
 
@@ -439,16 +439,16 @@ function updateStory(sceneX) {
     disableWalking = false;
   }
   if (sceneX > 480 && sceneX < 6500) {
-    bradJumpContainer.addClass('jump-up-small');
-    bradJumpContainer.removeClass('jump-down-small');
+    bradJumpContainer.addClass('jump-up');
+    bradJumpContainer.removeClass('jump-down');
     bradJumpContainer.css('bottom', '55px');
   } else if (sceneX > 16800 && sceneX < 19020) {
-    bradJumpContainer.addClass('jump-up-small');
-    bradJumpContainer.removeClass('jump-down-small');
+    bradJumpContainer.addClass('jump-up');
+    bradJumpContainer.removeClass('jump-down');
     bradJumpContainer.css('bottom', '66px');
   } else {
-    bradJumpContainer.addClass('jump-down-small');
-    bradJumpContainer.removeClass('jump-up-small');
+    bradJumpContainer.addClass('jump-down');
+    bradJumpContainer.removeClass('jump-up');
     bradJumpContainer.css('bottom', '0px');
   }
   if (sceneX > 850 && sceneX < 3998) {
