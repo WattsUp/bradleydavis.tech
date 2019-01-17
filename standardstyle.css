@@ -1,0 +1,65 @@
+@font-face {
+  font-family: 'tektrron';
+  src: url('../fonts/tektrron.eot');
+  src: url('../fonts/tektrron.eot?#iefix') format('embedded-opentype'), url('../fonts/tektrron.woff') format('woff'), url('../fonts/tektrron.svg#tektrronregular') format('svg'), url('../fonts/tektrron.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'code-new-roman';
+  src: url('../fonts/code-new-roman.eot');
+  src: url('../fonts/code-new-roman.eot?#iefix') format('embedded-opentype'), url('../fonts/code-new-roman.woff') format('woff'), url('../fonts/code-new-roman.svg#code_new_romanregular') format('svg'), url('../fonts/code-new-roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+button {
+  cursor: pointer;
+}
+
+.background-dark {
+  background: #282828;
+}
+
+.color-accent {
+  color: #33FF33;
+}
+
+.fill-horz {
+  width: 100%;
+}
+
+.fill-vert {
+  height: 100%;
+}
+
+.text-title {
+  font-family: tektrron;
+}
+
+.text-body {
+  font-family: code-new-roman;
+}
+
+.transition-all-1s {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.transform-center {
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}

@@ -13,40 +13,41 @@
 
     gtag('config', 'UA-117703589-1');
   </script>
-  <link rel="stylesheet" href="style.css">
   <meta charset="ISO-8859-1">
   <title>Bradley L. Davis</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/utils.js"></script>
   <script src="loading-screen.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="/standardstyle.css">
 </head>
 
 <body>
-  <div id="loading-screen" class="loading-screen">
-    <canvas id="loading-canvas" class="loading-canvas absolute"></canvas>
-    <div class="loading-screen-text absolute">
-      <span>Bradley L. Davis<br>Interactive Resume<br>Loading...
-      </span>
-    </div>
+  <div class="loading-screen background-dark color-accent text-title transition-all-1s">
+    <canvas class="loading-canvas absolute background-dark transform-center"></canvas>
+    <span class="absolute transform-center fill-horz">Bradley L. Davis<br>Interactive Resume<br>Loading...
+    </span>
   </div>
-  <div id="page" class="page">
+  <div class="background-dark" style="height: 30000px">
     <div id="about" class="absolute" style="top: 1000px"></div>
     <div id="skills" class="absolute" style="top: 6800px"></div>
     <div id="experience" class="absolute" style="top: 9800px"></div>
     <div id="portfolio" class="absolute" style="top: 15300px"></div>
-    <div id="awards" class="absolute" style="top: 11000px"></div>
-    <div id="contact" class="absolute" style="top: 1300px"></div>
+    <div id="awards" class="absolute" style="top: 17000px"></div>
+    <div id="contact" class="absolute" style="top: 200s00px"></div>
   </div>
-  <div id="container" class="container">
-    <div class="scene-super-far-background absolute">
-      <div class="space-wrapper absolute">
-        <canvas class="space-canvas absolute" width=8000 height=8000></canvas>
+  <div class="container fill-horz fill-vert background-dark">
+    <div class="scene-background super-far absolute">
+      <div class="space-wrapper absolute fill-horz fill-vert background-dark">
+        <canvas class="absolute fill-horz fill-vert background-dark" width=8000 height=8000></canvas>
       </div>
-      <div class="space-wrapper absolute">
-        <canvas class="space-canvas absolute" width=8000 height=8000></canvas>
+      <div class="space-wrapper absolute fill-horz fill-vert background-dark">
+        <canvas class="absolute fill-horz fill-vert background-dark" width=8000 height=8000></canvas>
       </div>
     </div>
-    <div class="scene-far-background absolute">
-      <div class="sky absolute">
+    <div class="scene-background far absolute">
+      <div class="sky fill-vert fill-horz absolute">
         <div class="cloud-1 absolute" style="left: 200px; bottom: 800px"></div>
         <div class="cloud-2 absolute" style="left: 1000px; bottom: 700px"></div>
         <div class="cloud-2 absolute" style="left: 1700px; bottom: 800px"></div>
@@ -66,13 +67,15 @@
       <div class="tree-2 on-the-ground absolute" style="left: 3100px"></div>
       <div class="tree-1 on-the-ground absolute" style="left: 3200px"></div>
     </div>
-    <div id="scenes" class="scene absolute" style="width: 4000px">
-      <div id="ground-laboratory" class="ground absolute" style="width: 10000px;">
-        <div class="ground-flooring-lab absolute"></div>
-        <div class="ground-foundation-lab absolute"></div>
-      </div>
-      <div id="background-laboratory" class="background-laboratory on-the-ground absolute">
-        <div id="ceiling-laboratory" class="ceiling-laboratory absolute"></div>
+    <div id="scenes" class="absolute fill-vert" style="width: 4000px">
+      <div class="scene lab absolute fill-vert">
+        <div class="ground lab absolute" style="width: 10000px;">
+          <div class="flooring absolute fill-horz"></div>
+          <div class="foundation absolute fill-horz"></div>
+        </div>
+        <div class="background on-the-ground absolute">
+          <div class="ceiling absolute"></div>
+        </div>
       </div>
       <div id="teleporter-console" class="teleporter-console on-the-ground absolute">
         <h1>Teleporter</h1>
@@ -94,7 +97,7 @@
       <div class="wall-laboratory on-the-ground absolute" style="left: 5370px"></div>
       <div class="title-sign on-the-ground absolute">
         <div class="title-sign-screen absolute">
-          <div class="title-sign-wrapper absolute ease-transform">
+          <div class="title-sign-wrapper absolute transition-all-1s">
             <h1 class="absolute">
               Bradley<br>L. Davis
             </h1>
@@ -179,8 +182,8 @@
         <div class="particle-viewer-image-wrapper absolute">
           <div class="particle-viewer-particles absolute"></div>
           <div class="particle-viewer-image absolute" style="background-image: url(images/particle-mask-seattle.png)"></div>
-          <div class="particle-viewer-image absolute ease-transform" style="background-image: url(images/particle-mask-apple.png)"></div>
-          <div class="particle-viewer-image absolute ease-transform" style="background-image: url(images/particle-mask-cascades.png)"></div>
+          <div class="particle-viewer-image absolute transition-all-1s" style="background-image: url(images/particle-mask-apple.png)"></div>
+          <div class="particle-viewer-image absolute transition-all-1s" style="background-image: url(images/particle-mask-cascades.png)"></div>
         </div>
         <div class="particle-viewer-lightning absolute"></div>
         <div class="particle-viewer-frame absolute"></div>
@@ -659,11 +662,11 @@
         </div>
       </div>
     </div>
-    <div id="brad-container" class="brad-container on-the-ground absolute">
-      <div id="brad-jump-container" class="brad-jump-container absolute">
-        <div id="brad" class="brad absolute"></div>
-        <div id="brad-eyes-right" class="absolute brad-eyes" style="left: 96px; background-image: url(images/brad-eyes-closed-right.png)"></div>
-        <div id="brad-eyes-left" class="absolute brad-eyes" style="left: 76px; background-image: url(images/brad-eyes-closed-left.png)"></div>
+    <div class="brad-container on-the-ground absolute">
+      <div class="absolute fill-horz fill-vert">
+        <div class="brad absolute"></div>
+        <div class="absolute brad-eyes right"></div>
+        <div class="absolute brad-eyes left"></div>
       </div>
     </div>
     <div class="scene absolute">
