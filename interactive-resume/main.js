@@ -28,6 +28,7 @@ function getSceneX() {
 }
 
 var scenes = $('#scenes');
+var foregrounds = $('.scene-foreground');
 var backgrounds = $('.scene-background');
 var farBackgrounds = $('.scene-background.far');
 var superFarBackgrounds = $('.scene-background.super-far');
@@ -160,7 +161,7 @@ function changeProject(index) {
 }
 
 function cycleBoard() {
-  $('.title-sign-wrapper').toggleClass('title-sign-wrapper-transformed');
+  $('.title-sign-wrapper').toggleClass('transformYn50');
 }
 
 function cycleParticleDisplay() {
@@ -185,9 +186,9 @@ function flashWSULCD() {
 }
 
 function changeBacklightEngineRoom() {
-  $('#engine-room').css('background-color', backlightEngineRoom);
+  $('.rocket>.background:eq(0)').css('background-color', backlightEngineRoom);
   setTimeout(function() {
-    $('#engine-room').css('background-color', '#737373');
+    $('.rocket>.background:eq(0)').css('background-color', '#737373');
   }, 2000);
 }
 
@@ -210,13 +211,13 @@ function changeLeds() {
 
 function updateCountdown() {
   if (countdownTime <= -10) {
-    $('.background-rocket-bridge-window>h1').text('T' + countdownTime);
+    $('.bridge-window>h1').text('T' + countdownTime);
   } else if (countdownTime <= -1) {
-    $('.background-rocket-bridge-window>h1').text('T-0' + (-countdownTime));
+    $('.bridge-window>h1').text('T-0' + (-countdownTime));
   } else if (countdownTime <= 9) {
-    $('.background-rocket-bridge-window>h1').text('T+0' + countdownTime);
+    $('.bridge-window>h1').text('T+0' + countdownTime);
   } else {
-    $('.background-rocket-bridge-window>h1').text('T+' + countdownTime);
+    $('.bridge-window>h1').text('T+' + countdownTime);
   }
   if (countdownTime == 0) {
     setTimeout(launchRocket, 1);
@@ -281,9 +282,9 @@ function teleporterChange(locationHash) {
 
 function drawPieCharts() {
   var radius = 120;
-  var context0 = $('.experience-pie')[0].getContext('2d');
-  $('.experience-pie')[0].width = radius * 2;
-  $('.experience-pie')[0].height = radius * 2;
+  var context0 = $('.experience-panel>canvas')[0].getContext('2d');
+  $('.experience-panel>canvas')[0].width = radius * 2;
+  $('.experience-panel>canvas')[0].height = radius * 2;
   context0.strokeStyle = '#282828';
   context0.lineWidth = 2;
   context0.beginPath();
@@ -303,9 +304,9 @@ function drawPieCharts() {
       radius - radius * Math.sin(2 * Math.PI / 100 * 65));
   context0.moveTo(radius, radius);
   context0.stroke();
-  var context1 = $('.experience-pie')[1].getContext('2d');
-  $('.experience-pie')[1].width = radius * 2;
-  $('.experience-pie')[1].height = radius * 2;
+  var context1 = $('.experience-panel>canvas')[1].getContext('2d');
+  $('.experience-panel>canvas')[1].width = radius * 2;
+  $('.experience-panel>canvas')[1].height = radius * 2;
   context1.strokeStyle = '#282828';
   context1.lineWidth = 2;
   context1.beginPath();
@@ -457,26 +458,26 @@ function updateStory(sceneX) {
     $('.rover-tractor-beam').css('display', 'none');
   }
   if (sceneX > 1150) {
-    $('#fluid-electronics').removeClass('discipline-tank-fluid-hidden');
+    $('#fluid-electronics').removeClass('transformYp100');
     setTimeout(function() {
-      $('#fluid-software').removeClass('discipline-tank-fluid-hidden');
+      $('#fluid-software').removeClass('transformYp100');
     }, 250);
     setTimeout(function() {
-      $('#fluid-hardware').removeClass('discipline-tank-fluid-hidden');
+      $('#fluid-hardware').removeClass('transformYp100');
     }, 500);
     setTimeout(function() {
-      $('#fluid-art').removeClass('discipline-tank-fluid-hidden');
+      $('#fluid-art').removeClass('transformYp100');
     }, 750);
   } else if (sceneX < 1100) {
-    $('#fluid-electronics').addClass('discipline-tank-fluid-hidden');
+    $('#fluid-electronics').addClass('transformYp100');
     setTimeout(function() {
-      $('#fluid-software').addClass('discipline-tank-fluid-hidden');
+      $('#fluid-software').addClass('transformYp100');
     }, 250);
     setTimeout(function() {
-      $('#fluid-hardware').addClass('discipline-tank-fluid-hidden');
+      $('#fluid-hardware').addClass('transformYp100');
     }, 500);
     setTimeout(function() {
-      $('#fluid-art').addClass('discipline-tank-fluid-hidden');
+      $('#fluid-art').addClass('transformYp100');
     }, 750);
   }
   if (sceneX > 3998) {
@@ -485,9 +486,9 @@ function updateStory(sceneX) {
     $('.lcd-wsu-on').hide();
   }
   if (sceneX > 5500) {
-    $('.thruster-small-on').css('display', 'block');
+    $('.thruster-on').show();
   } else {
-    $('.thruster-small-on').css('display', 'none');
+    $('.thruster-on').hide();
   }
   if (sceneX > 7000 && sceneX < 17000) {
     $('.rocket-hatch').addClass('rocket-hatch-close');
@@ -553,17 +554,17 @@ function updateStory(sceneX) {
   var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
   var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
   var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 2000));
-  $('#rover').css(
+  $('.rover').css(
       'transform',
       'translate(' + roverPosition + 'px' +
           ', ' + roverY + 'px)');
   $('.rover-wheel').css('transform', 'rotate(' + roverRotate + 'deg)');
   $('.rover-tractor-beam')
       .css('transform', 'rotate(' + roverTractorAngle + 'rad)');
-  $('#battery-lcd-wsu').css('left', batteryLCDWSULeft + 'px');
-  $('#battery-lcd-wsu')
+  $('#battery').css('left', batteryLCDWSULeft + 'px');
+  $('#battery')
       .css('transform', 'translateY(' + batteryLCDWSUBottom + 'px)');
-  $('#elevator-cargo').css('transform', 'translateY(' + elevatorCargoY + 'px)');
+  $('.elevator-cargo').css('transform', 'translateY(' + elevatorCargoY + 'px)');
   $('.engine-room-wire').css('width', engineWireLength + 'px');
   $('.shuttle').css('left', (1899 + shuttlePosition) + 'px');
   $('.shuttle-foreground').css('left', (8660 + shuttlePosition) + 'px');
@@ -609,6 +610,10 @@ function updateMovement(sceneX) {
       'transform',
       'translate(' + Math.min(positionScene, 0) + 'px' +
           ', ' + sceneY + 'px)');
+  foregrounds.css(
+    'transform',
+    'translate(' + Math.min(positionScene, 0) + 'px' +
+        ', ' + sceneY + 'px)');
   backgrounds.css(
       'transform',
       'translate(' + Math.min(positionBackground, 0) + 'px, ' + sceneY + 'px)');
