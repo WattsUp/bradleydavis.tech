@@ -1,92 +1,41 @@
-@font-face {
-  font-family: 'tektrron';
-  src: url('../fonts/tektrron.eot');
-  src: url('../fonts/tektrron.eot?#iefix') format('embedded-opentype'), url('../fonts/tektrron.woff') format('woff'), url('../fonts/tektrron.svg#tektrronregular') format('svg'), url('../fonts/tektrron.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'code-new-roman';
-  src: url('../fonts/code-new-roman.eot');
-  src: url('../fonts/code-new-roman.eot?#iefix') format('embedded-opentype'), url('../fonts/code-new-roman.woff') format('woff'), url('../fonts/code-new-roman.svg#code_new_romanregular') format('svg'), url('../fonts/code-new-roman.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-  margin: 0px;
+body {
   image-rendering: pixelated;
 }
 
-button {
-  cursor: pointer;
-}
-
 .page {
-  left: 0px;
-  top: 0px;
-  width: 100%;
   height: 30000px;
-  background-color: #000000;
-}
-
-.absolute {
-  position: absolute;
 }
 
 .loading-screen {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #000000;
-  color: #33FF33;
   left: 0px;
   top: 0px;
-  font-family: tektrron;
   font-size: 50px;
-  -webkit-transition: transform 1s;
-  -moz-transition: transform 1s;
-  -o-transition: transform 1s;
-  transition: transform 1s;
   z-index: 1000;
   overflow: hidden;
 }
 
-.loading-screen-text {
-  width: 620px;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
+.loading-screen>span {
+  vertical-align: middle;
   text-align: center;
 }
 
-.loading-screen-text>span {
-  vertical-align: middle;
-}
-
 .loading-canvas {
-  background-color: #000000;
   width: 800px;
   height: 800px;
-  top: 50%;
-  left: 50%;
-  transform: translateY(-50%) translateX(-50%);
 }
 
-.container {
+.page-container {
   position: fixed;
-  left: 0px;
   top: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: #282828;
 }
 
 .brad {
   width: 600px;
   height: 400px;
-  background-image: url(images/brad-sprite.png);
+  background-image: url('images/brad-sprite.png');
 }
 
 .brad-container {
@@ -95,9 +44,7 @@ button {
   left: 50%;
 }
 
-.brad-jump-container {
-  width: 200px;
-  height: 200px;
+.brad-container>div {
   overflow: hidden;
 }
 
@@ -107,87 +54,59 @@ button {
   bottom: 159px;
 }
 
-.jump-up-small {
+.brad-eyes.right {
+  left: 96px;
+  background-image: url('images/brad-eyes-closed-right.png');
+}
+
+.brad-eyes.left {
+  left: 76px;
+  background-image: url('images/brad-eyes-closed-left.png');
+}
+
+.jump-up {
   -webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
   -moz-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+  -ms-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
   -o-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
   transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
 }
 
-.jump-down-small {
+.jump-down {
   -webkit-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
   -moz-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+  -ms-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
   -o-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
   transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
 }
 
-.ease-left {
-  -webkit-transition: left 1.0s ease;
-  -moz-transition: left 1.0s ease;
-  -o-transition: left 1.0s ease;
-  transition: left 1.0s ease;
-}
-
-.ease-transform {
-  -webkit-transition: transform 1.0s ease;
-  -moz-transition: transform 1.0s ease;
-  -o-transition: transform 1.0s ease;
-  transition: transform 1.0s ease;
-}
-
-.scene {
-  height: 100%;
-}
-
 .scene-background {
-  width: 100%;
-  height: 100%;
   width: 8000px;
-  height: 6000px;
+  height: 8000px;
   bottom: 0px;
   background-color: transparent;
 }
 
-.scene-far-background {
-  width: 8000px;
-  height: 8000px;
+.scene, .scene-foreground {
   bottom: 0px;
 }
 
-.scene-super-far-background {
-  width: 8000px;
-  height: 8000px;
-  bottom: 0px;
+.scene.lab {
+  width: 3000px;
 }
 
 .sky {
-  width: 100%;
-  height: 100%;
   background: linear-gradient(#28282800, #0000C0FF, #87CEEBFF);
   -webkit-transition: transform 7s ease-out;
   -moz-transition: transform 7s ease-out;
+  -ms-transition: transform 7s ease-out;
   -o-transition: transform 7s ease-out;
   transition: transform 7s ease-out;
 }
 
-.space-canvas {
-  width: 100%;
-  height: 100%;
-  background: #282828;
-}
-
 .space-wrapper {
-  width: 100%;
-  height: 100%;
-  background: #282828;
-  -webkit-animation-name: move-stars;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-duration: 100s;
-  animation-name: move-stars;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: 100s;
+  animation: move-stars 100s linear infinite;
+  -webkit-animation: move-stars 100s linear infinite;
 }
 
 .space-wrapper:nth-of-type(2) {
@@ -231,68 +150,87 @@ button {
   background-image: url(images/cloud-2.png);
 }
 
-.on-the-ground {
-  bottom: 100px;
-}
-
 .ground {
   max-height: 200px;
   height: 15%;
   bottom: 0px;
 }
 
-.ground-flooring-lab {
-  width: 100%;
+.flooring {
   height: 40px;
+}
+
+.lab>.flooring {
   background-image: url(images/ground-flooring-concrete.png);
 }
 
-.ground-flooring-rocket {
-  width: 100%;
-  height: 30px;
+.rocket>.flooring {
   background-image: url(images/ground-flooring-tile.png);
+  height: 30px;
 }
 
-.ground-foundation-lab {
-  width: 100%;
-  top: 40px;
+.foundation {
   height: 160px;
-  background-image: url(images/ground-pipes.png);
 }
 
-.ground-foundation-rocket {
+.lab>.foundation {
+  background-image: url(images/ground-pipes.png);
+  top: 40px;
+}
+
+.rocket>.foundation {
   background-image: url(images/ground-rocket-pipes.png);
 }
 
-.display-large {
-  width: 800px;
-  height: 380px;
-  background-image: url(images/display-large.png);
-}
-
-.display-rocket-800 {
-  width: 800px;
-  height: 380px;
-  background-image: url(images/display-rocket-800.png);
-}
-
-.display-rocket-600 {
-  width: 600px;
-  height: 380px;
-  background-image: url(images/display-rocket-600.png);
-}
-
-.wall-laboratory {
+.lab>.background {
+  width: 5400px;
   height: 400px;
+  background-image: url(images/background-lab.png);
+}
+
+.lab>.background>.ceiling {
+  width: 5400px;
+  height: 75px;
+  bottom: 375px;
+  background-image: url(images/ceiling-lab.png);
+}
+
+.rocket>.background {
+  width: 2380px;
+  height: 700px;
+  left: 15px;
+  background-color: #737373;
+}
+
+.rocket>.background>div {
+  background-image: url('images/background-engine-room.png');
+}
+
+.wall {
   width: 30px;
+}
+
+.lab>.wall {
+  height: 400px;
   background-image: url(images/wall-lab.png);
 }
 
-.wall-rocket {
-  width: 30px;
-  background-image: url(images/wall-rocket.png);
+.rocket>.wall {
   height: 100%;
-  bottom: 650px
+  bottom: 650px;
+  background-image: url(images/wall-rocket.png);
+}
+
+.display-800 {
+  width: 800px;
+  height: 380px;
+  background-image: url(images/display-800.png);
+}
+
+.display-600 {
+  width: 600px;
+  height: 380px;
+  background-image: url(images/display-600.png);
 }
 
 .teleporter {
@@ -315,74 +253,34 @@ button {
 }
 
 .teleporter-console>h1 {
-  color: #52ade1;
-  width: 100%;
+  height: 55px;
   text-align: center;
-  font-family: tektrron;
   font-size: 30px;
-  margin: 6px 0px;
+  line-height: 55px;
 }
 
-.teleporter-screen {
+.teleporter-console>div {
   left: 35px;
   bottom: 20px;
-  background-color: #282828;
   width: 170px;
   height: 200px;
-  margin: 0px auto;
 }
 
-.teleporter-screen>button {
-  font-family: code-new-roman;
+.teleporter-console>div>button {
   font-size: 24px;
-  color: #33FF33;
-  background-color: transparent;
-  width: 100%;
-  border: 2px solid transparent;
   height: 16.6667%;
-  outline: none;
-  -webkit-transition: border 0.3s, background 0.3s, color 0.3s;
-  -moz-transition: border 0.3s, background 0.3s, color 0.3s;
-  -o-transition: border 0.3s, background 0.3s, color 0.3s;
-  transition: border 0.3s, background 0.3s, color 0.3s;
-}
-
-.teleporter-screen>button:hover {
-  border: 2px solid #33FF33;
-}
-
-.teleporter-screen>button:active {
-  border: 2px solid #33FF33;
-  background-color: #33FF33;
-  color: #282828;
-}
-
-.background-laboratory {
-  width: 5400px;
-  height: 400px;
-  left: 0px;
-  background-image: url(images/background-lab.png);
-}
-
-.ceiling-laboratory {
-  width: 5400px;
-  height: 75px;
-  bottom: 375px;
-  left: 0px;
-  background-image: url(images/ceiling-lab.png);
 }
 
 .title-sign {
-  color: #33FF33;
   width: 450px;
   height: 240px;
   text-align: center;
   left: 675px;
-  transform: translateY(-160px);
+  top: 0px;
   background-image: url(images/title-sign.png);
 }
 
-.title-sign-screen {
+.title-sign>div {
   width: 410px;
   height: 160px;
   overflow: hidden;
@@ -391,85 +289,63 @@ button {
 }
 
 .title-sign-wrapper {
-  width: 100%;
   height: 200%;
 }
 
 .title-sign-wrapper>h1 {
   font-size: 64px;
-  font-family: tektrron;
-  width: 100%;
   top: 25%;
-  transform: translateY(-50%);
-  margin: 0px;
 }
 
 .title-sign-wrapper>h2 {
   font-size: 32px;
-  font-family: tektrron;
-  width: 100%;
-  margin: 0px;
   top: calc(50% + 10px);
 }
 
 .title-sign-wrapper>h3 {
   font-size: 24px;
-  font-family: code-new-roman;
-  width: 80%;
   margin: 0px;
   top: calc(50% + 60px);
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.title-sign-wrapper-transformed {
-  transform: translateY(-50%);
+  width: 328px;
+  left: 41px;
 }
 
 .hanging-sign {
-  color: #33FF33;
   width: 240px;
   height: 160px;
   text-align: center;
-  transform: translateY(-240px);
   background-image: url(images/hanging-sign.png);
+}
+
+.hanging-sign>h1, .hanging-sign>h2, .hanging-sign>h3 {
+  top: 100px;
 }
 
 .hanging-sign>h1 {
   font-size: 32px;
-  font-family: tektrron;
-  width: 100%;
-  margin: 0px;
-  top: 100px;
-  transform: translateY(-50%);
 }
 
 .hanging-sign>h2 {
   font-size: 26px;
-  font-family: tektrron;
-  width: 100%;
-  margin: 0px;
-  top: 100px;
-  transform: translateY(-50%);
 }
 
 .hanging-sign>h3 {
   font-size: 24px;
-  font-family: tektrron;
-  width: 100%;
-  margin: 0px;
-  top: 100px;
-  transform: translateY(-50%);
-}
-
-.hanging-sign-rocket {
-  background-image: url(images/hanging-sign-rocket.png);
 }
 
 .discipline-label {
   width: 1036px;
   height: 380px;
   overflow: hidden;
+}
+
+.discipline-label>h1 {
+  font-size: 24px;
+}
+
+.discipline-label>.line {
+  height: 6px;
+  background-image: url(images/caution-tape.png);
 }
 
 .discipline-tank {
@@ -482,10 +358,8 @@ button {
   width: 200px;
   top: 340px;
   height: 40px;
-  margin: 0px;
   text-align: center;
   font-size: 24px;
-  font-family: code-new-roman;
 }
 
 .discipline-tank-fluid {
@@ -493,23 +367,11 @@ button {
   height: 350px;
   background-color: #FF08C2;
   opacity: 0.7;
-  -webkit-transition: transform 1.0s;
-  -moz-transition: transform 1.0s;
-  -o-transition: transform 1.0s;
-  transition: transform 1.0s;
-}
-
-.discipline-tank-fluid-hidden {
-  transform: translateY(100%);
 }
 
 .fluid-bubble {
-  -webkit-animation-name: bubble-float;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  animation-name: bubble-float;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  -webkit-animation: bubble-float infinite linear;
+  animation: bubble-float infinite linear;
   bottom: 0px;
   height: 10px;
   width: 10px;
@@ -518,68 +380,44 @@ button {
   opacity: 0.4;
 }
 
-.fluid-bubble1 {
+.fluid-bubble:nth-child(6n+0) {
   -webkit-animation-delay: 50ms;
   -webkit-animation-duration: 1500ms;
-  -moz-animation-delay: 50ms;
-  -moz-animation-duration: 1500ms;
-  -o-animation-delay: 50ms;
-  -o-animation-duration: 1500ms;
   animation-delay: 50ms;
   animation-duration: 1500ms;
 }
 
-.fluid-bubble2 {
+.fluid-bubble:nth-child(6n+1) {
   -webkit-animation-delay: 600ms;
   -webkit-animation-duration: 2000ms;
-  -moz-animation-delay: 600ms;
-  -moz-animation-duration: 2000ms;
-  -o-animation-delay: 600ms;
-  -o-animation-duration: 2000ms;
   animation-delay: 600ms;
   animation-duration: 2000ms;
 }
 
-.fluid-bubble3 {
+.fluid-bubble:nth-child(6n+2) {
   -webkit-animation-delay: 200ms;
   -webkit-animation-duration: 1900ms;
-  -moz-animation-delay: 200ms;
-  -moz-animation-duration: 1900ms;
-  -o-animation-delay: 200ms;
-  -o-animation-duration: 1900ms;
   animation-delay: 200ms;
   animation-duration: 1900ms;
 }
 
-.fluid-bubble4 {
+.fluid-bubble:nth-child(6n+3) {
   -webkit-animation-delay: 500ms;
   -webkit-animation-duration: 1300ms;
-  -moz-animation-delay: 500ms;
-  -moz-animation-duration: 1300ms;
-  -o-animation-delay: 500ms;
-  -o-animation-duration: 1300ms;
   animation-delay: 500ms;
   animation-duration: 1300ms;
 }
 
-.fluid-bubble5 {
+.fluid-bubble:nth-child(6n+4) {
   -webkit-animation-delay: 100ms;
   -webkit-animation-duration: 1800ms;
-  -moz-animation-delay: 100ms;
-  -moz-animation-duration: 1800ms;
-  -o-animation-delay: 100ms;
-  -o-animation-duration: 1800ms;
   animation-delay: 100ms;
   animation-duration: 1800ms;
 }
 
-.fluid-bubble6 {
+.fluid-bubble:nth-child(6n+5) {
   -webkit-animation-delay: 650ms;
   -webkit-animation-duration: 2200ms;
-  -moz-animation-delay: 650ms;
-  -moz-animation-duration: 2200ms;
-  -o-animation-delay: 650ms;
-  -o-animation-duration: 2200ms;
   animation-delay: 650ms;
   animation-duration: 2200ms;
 }
@@ -588,7 +426,6 @@ button {
   width: 498px;
   height: 350px;
   left: 3800px;
-  background-color: #282828;
 }
 
 .particle-viewer-frame {
@@ -608,31 +445,17 @@ button {
 }
 
 .particle-viewer-image {
-  width: 100%;
-  height: 100%;
   bottom: 0px;
-}
-
-.particle-viewer-image>div {
-  width: 100%;
-  height: 100%;
-  bottom: 100%;
-  background-color: #282828;
 }
 
 .particle-viewer-particles {
   width: 110%;
   bottom: 0px;
   left: 0px;
-  height: 100%;
   background-image: url('images/particle.png');
   background-position: bottom;
-  -webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infintie linear 1s;
+  -webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
   animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
-  -webkit-transition: height 1.0s ease;
-  -moz-transition: height 1.0s ease;
-  -o-transition: height 1.0s ease;
-  transition: height 1.0s ease;
 }
 
 .particle-viewer-lightning {
@@ -641,14 +464,6 @@ button {
   width: 450px;
   height: 275px;
   background-image: url('images/particle-viewer-lightning.png');
-  -webkit-animation-name: particle-viewer-lightning;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-duration: 5s;
-  animation-name: particle-viewer-lightning;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: 5s;
 }
 
 .lcd-wsu {
@@ -680,7 +495,7 @@ button {
   width: 225px;
   height: 40px;
   bottom: 15px;
-  background-image: url(images/rover-chassis.png);
+  background-image: url('images/rover-chassis.png');
 }
 
 .rover-mast {
@@ -688,14 +503,15 @@ button {
   height: 100px;
   left: 185px;
   bottom: 55px;
-  background-image: url(images/rover-mast.png);
+  background-image: url('images/rover-mast.png');
 }
 
 .rover-wheel {
   width: 60px;
   height: 60px;
   bottom: 0px;
-  background-image: url(images/rover-wheel.png);
+  background-image: url('images/rover-wheel.png');
+  image-rendering: auto;
 }
 
 .rover-tractor-beam {
@@ -704,7 +520,7 @@ button {
   top: -30px;
   left: 215px;
   transform-origin: 0% 50%;
-  background-image: url(images/rover-tractor-beam.png);
+  background-image: url('images/rover-tractor-beam.png');
 }
 
 .elevator-cargo {
@@ -712,24 +528,63 @@ button {
   height: 20px;
   left: 6263px;
   transform: translateY(20px);
+  background-image: url('images/caution-tape.png');
 }
 
-.thruster-small {
+.thruster {
   width: 31px;
   height: 19px;
-  background-image: url('images/thruster-small.png');
+  background-image: url('images/thruster.png');
 }
 
-.thruster-small-on {
+.thruster-on {
   width: 31px;
   height: 19px;
-  background-image: url('images/thruster-small-on.png');
+  background-image: url('images/thruster-on.png');
 }
 
 .rocket {
   width: 2420px;
   height: 7000px;
   left: 6563px;
+}
+
+.bridge-window {
+  width: 820px;
+  height: 400px;
+  left: 800px;
+  bottom: 4360px;
+  background-position: center;
+  background-image: url('images/bridge-window.png');
+}
+
+.bridge-window>h1 {
+  font-size: 24px;
+  text-align: center;
+  top: 308px;
+}
+
+.bridge-window>canvas {
+  width: 26px;
+  height: 33px;
+  left: 460px;
+  top: 306px;
+}
+
+.bridge-left {
+  width: 780px;
+  height: 400px;
+  left: 25px;
+  bottom: 4360px;
+  background-image: url('images/bridge-left.png');
+}
+
+.bridge-right {
+  width: 780px;
+  height: 400px;
+  right: 25px;
+  bottom: 4360px;
+  background-image: url('images/bridge-right.png');
 }
 
 .rocket-engine {
@@ -772,23 +627,6 @@ button {
   background-color: #BFBFBF;
 }
 
-.background-engine-room {
-  width: 2380px;
-  height: 700px;
-  left: 15px;
-  background-color: #737373;
-  -webkit-transition: background-color 1.0s;
-  -moz-transition: background-color 1.0s;
-  -o-transition: background-color 1.0s;
-  transition: background-color 1.0s;
-}
-
-.background-engine-room>div {
-  width: 100%;
-  height: 100%;
-  background-image: url('images/background-engine-room.png');
-}
-
 .skills-wrapper {
   width: 770px;
   height: 350px;
@@ -797,18 +635,13 @@ button {
 }
 
 .skills-wrapper>h1 {
-  margin: 0px;
   text-align: center;
   font-size: 26px;
-  font-family: tektrron;
-  color: #33FF33;
 }
 
 .skills-wrapper>h2 {
   margin: 0px 0px 0px 260px;
   font-size: 22px;
-  font-family: code-new-roman;
-  color: #33FF33;
 }
 
 .skills-wrapper>h2>span {
@@ -819,81 +652,60 @@ button {
 .skills-wrapper>h3 {
   margin: 10px 0px 0px 10px;
   font-size: 22px;
-  font-family: code-new-roman;
-  color: #33FF33;
 }
 
-.skills-wrapper-line {
+.skills-wrapper>.line {
   width: 2px;
   height: 290px;
-  background-color: #33FF33;
   bottom: 5px;
 }
 
-.skills-battery {
+.skills {
   height: 24px;
-  background-image: url(images/skills-battery.png);
+  left: 261px;
 }
 
-.skills-code {
-  height: 24px;
-  background-image: url(images/skills-code.png);
+.skills.battery {
+  background-image: url('images/skills-battery.png');
 }
 
-.skills-hardware {
-  height: 24px;
-  background-image: url(images/skills-wrench.png);
+.skills.code {
+  background-image: url('images/skills-code.png');
 }
 
-.skills-fine-art {
-  height: 24px;
-  background-image: url(images/skills-pencil.png);
+.skills.hardware {
+  background-image: url('images/skills-wrench.png');
 }
 
-.engine-room-console {
+.skills.fine-art {
+  background-image: url('images/skills-pencil.png');
+}
+
+.console {
   width: 150px;
   height: 210px;
   left: 1400px;
   bottom: 1180px;
-  background-image: url(images/engine-room-console.png);
+  background-image: url('images/engine-room-console.png');
 }
 
-.engine-room-console>h1 {
+.console>h1 {
   width: 150px;
   height: 60px;
   text-align: center;
   font-size: 26px;
-  font-family: tektrron;
-  color: #52ade1;
-  margin: 0px;
 }
 
-.engine-room-console>div {
+.console>div {
   width: 130px;
   height: 140px;
   top: 60px;
   left: 10px;
 }
 
-.engine-room-console>div>button {
-  width: 100%;
+.console>div>button {
   height: 25%;
   font-size: 20px;
-  font-family: code-new-roman;
-  color: #33FF33;
-  border: 0px;
-  padding: 0px;
-  background-color: #282828;
-}
-
-.engine-room-console>div>button:hover {
-  border: 2px solid #33FF33;
-}
-
-.engine-room-console>div>button:active {
-  border: 2px solid #33FF33;
-  background-color: #33FF33;
-  color: #282828;
 }
 
 .engine-room-wire {
@@ -901,7 +713,7 @@ button {
   height: 20px;
   left: 329px;
   bottom: 1000px;
-  background-image: url(images/rocket-engine-power-cable.png);
+  background-image: url('images/rocket-engine-power-cable.png');
   background-position: right;
 }
 
@@ -910,7 +722,7 @@ button {
   height: 28px;
   right: 0px;
   bottom: -4px;
-  background-image: url(images/rocket-engine-power-plug.png);
+  background-image: url('images/rocket-engine-power-plug.png');
 }
 
 .engine-room-jack {
@@ -918,21 +730,21 @@ button {
   height: 76px;
   left: 1700px;
   bottom: 950px;
-  background-image: url(images/rocket-engine-power-jack.png);
+  background-image: url('images/rocket-engine-power-jack.png');
 }
 
 .engine-room-cables {
   width: 517px;
   height: 250px;
   bottom: 1400px;
-  background-image: url(images/rocket-engine-room-cables.png);
+  background-image: url('images/rocket-engine-room-cables.png');
 }
 
 .engine-room-cables-long {
   width: 669px;
   height: 250px;
   bottom: 1400px;
-  background-image: url(images/rocket-engine-room-cables-long.png);
+  background-image: url('images/rocket-engine-room-cables-long.png');
 }
 
 .pneumatic-tube {
@@ -940,33 +752,31 @@ button {
   height: 3160px;
   bottom: 1200px;
   left: 8763px;
-  background-image: url(images/pneumatic-elevator-tube.png);
+  background-image: url('images/pneumatic-elevator-tube.png');
 }
 
 .pneumatic-tube:nth-of-type(2) {
-  width: 150px;
   height: 400px;
   bottom: 4610px;
   left: 6713px;
-  background-image: url(images/pneumatic-elevator-tube.png);
 }
 
 .pneumatic-tube-station {
   width: 150px;
   height: 250px;
-  background-image: url(images/pneumatic-elevator-station.png);
+  background-image: url('images/pneumatic-elevator-station.png');
 }
 
 .pneumatic-tube-station-rear {
   width: 150px;
   height: 250px;
-  background-image: url(images/pneumatic-elevator-station-rear.png);
+  background-image: url('images/pneumatic-elevator-station-rear.png');
 }
 
 .pneumatic-tube-station-rear>div {
   width: 150px;
   height: 250px;
-  background-image: url(images/pneumatic-elevator-station.png);
+  background-image: url('images/pneumatic-elevator-station.png');
 }
 
 .experience-panel {
@@ -974,55 +784,33 @@ button {
   top: 15px;
   height: 350px;
   width: 570px;
-  color: #33FF33;
   text-align: center;
 }
 
 .experience-panel>h1 {
   font-size: 24px;
-  font-family: tektrron;
-  width: 100%;
-  margin: 3px 0px 3px 0px;
-  background-color: #33FF33;
-  color: #282828;
+  margin: 3px 0px;
 }
 
 .experience-panel>h2 {
   font-size: 22px;
-  font-family: code-new-roman;
-  width: 100%;
-  margin: 0px;
 }
 
 .experience-panel>h3 {
   font-size: 18px;
-  font-family: code-new-roman;
-  width: 100%;
-  margin: 0px;
 }
 
 .experience-panel>h4 {
   font-size: 18px;
-  font-family: code-new-roman;
-  margin: 0px;
   right: 5px;
   bottom: 5px;
 }
 
-.experience-panel>div {
-  transform: translate(-50%, -50%);
-}
-
 .experience-panel>div>h1 {
   font-size: 18px;
-  font-family: code-new-roman;
-  color: #282828;
-  margin: 0px;
 }
 
 .experience-panel>canvas {
-  font-size: 18px;
-  font-family: tektrron;
   width: 240px;
   height: 240px;
   bottom: 10px;
@@ -1030,13 +818,8 @@ button {
   border-radius: 50%;
 }
 
-.experience-pie {
-  background-color: #33FF33;
-}
-
 .experience-panel>span {
   font-size: 16px;
-  font-family: code-new-roman;
   width: 280px;
   height: 230px;
   bottom: 25px;
@@ -1044,25 +827,15 @@ button {
   text-align: left;
 }
 
-.box {
-  -webkit-transition: left 0.5s ease, bottom 0.5s ease;
-  -moz-transition: left 0.5s ease, bottom 0.5s ease;
-  -o-transition: left 0.5s ease, bottom 0.5s ease;
-  transition: left 0.5s ease, bottom 0.5s ease;
-}
-
 .box>h1 {
   font-size: 20px;
-  font-family: tektrron;
-  margin: 0px;
   text-align: center;
-  color: #52ade1;
 }
 
 .box.square-100 {
   width: 100px;
   height: 100px;
-  background-image: url(images/box-square-100.png);
+  background-image: url('images/box-square-100.png');
 }
 
 .box.square-100>h1 {
@@ -1073,7 +846,7 @@ button {
 .box.square-70 {
   width: 70px;
   height: 70px;
-  background-image: url(images/box-square-70.png);
+  background-image: url('images/box-square-70.png');
 }
 
 .box.square-70>h1 {
@@ -1085,7 +858,7 @@ button {
 .box.end-100 {
   width: 100px;
   height: 100px;
-  background-image: url(images/box-end-square-100.png);
+  background-image: url('images/box-end-square-100.png');
 }
 
 .box.end-100>h1 {
@@ -1096,7 +869,7 @@ button {
 .box.rect-100 {
   width: 200px;
   height: 100px;
-  background-image: url(images/box-rect-100.png);
+  background-image: url('images/box-rect-100.png');
 }
 
 .box.rect-100>h1 {
@@ -1107,7 +880,7 @@ button {
 .box.rect-70 {
   width: 180px;
   height: 70px;
-  background-image: url(images/box-rect-70.png);
+  background-image: url('images/box-rect-70.png');
 }
 
 .box.rect-70>h1 {
@@ -1119,42 +892,7 @@ button {
 .box.rect-30 {
   width: 110px;
   height: 30px;
-  background-image: url(images/box-rect-30.png);
-}
-
-.background-rocket-bridge-window {
-  width: 820px;
-  height: 400px;
-  left: 800px;
-  bottom: 4360px;
-  background-position: center;
-  background-image: url(images/background-rocket-bridge-window.png);
-}
-
-.background-rocket-bridge-window>h1 {
-  font-size: 24px;
-  font-family: code-new-roman;
-  color: #33FF33;
-  margin: 0px;
-  width: 100%;
-  text-align: center;
-  top: 308px;
-}
-
-.background-rocket-bridge-left {
-  width: 780px;
-  height: 400px;
-  left: 25px;
-  bottom: 4360px;
-  background-image: url(images/background-rocket-bridge-left.png);
-}
-
-.background-rocket-bridge-right {
-  width: 780px;
-  height: 400px;
-  right: 25px;
-  bottom: 4360px;
-  background-image: url(images/background-rocket-bridge-right.png);
+  background-image: url('images/box-rect-30.png');
 }
 
 .project {
@@ -1163,12 +901,7 @@ button {
   left: 675px;
   bottom: 47px;
   background-size: 100% 100%;
-  -webkit-transition: transform 0.5s ease;
-  -moz-transition: transform 0.5s ease;
-  -o-transition: transform 0.5s ease;
-  transition: transform 0.5s ease;
   text-decoration: none;
-  color: #33FF33;
   text-align: center;
   transform-origin: 50% 100%;
   transform: translate(-50%) scale(1.0);
@@ -1176,21 +909,16 @@ button {
 
 .project>h1 {
   font-size: 30px;
-  font-family: tektrron;
-  width: 100%;
   padding: 3px 10px;
 }
 
 .project>h2 {
   font-size: 22px;
-  font-family: tektrron;
-  width: 100%;
   padding: 3px 10px;
 }
 
 .project>p {
   font-size: 18px;
-  font-family: code-new-roman;
   padding: 3px 10px;
 }
 
@@ -1206,14 +934,11 @@ button {
   height: 530px;
   left: 50%;
   bottom: 5010px;
-  transform: translateX(-50%);
-  background-image: url(images/project-viewer.png);
+  background-image: url('images/project-viewer.png');
 }
 
 .project-viewer>h1 {
   font-size: 32px;
-  font-family: tektrron;
-  color: #52ade1;
   width: 300px;
   margin: 32px 0;
   text-align: center;
@@ -1224,7 +949,7 @@ button {
   height: 180px;
   left: 330px;
   bottom: 20px;
-  background-image: url(images/project-viewer-lightning.png);
+  background-image: url('images/project-viewer-lightning.png');
 }
 
 .project-viewer-stand {
@@ -1232,20 +957,15 @@ button {
   height: 10px;
   left: 900px;
   bottom: 25px;
-  background-image: url(images/project-viewer-stand.png);
-  -webkit-transition: left 0.5s ease, height 0.5s ease;
-  -moz-transition: left 0.5s ease, height 0.5s ease;
-  -o-transition: left 0.5s ease, height 0.5s ease;
-  transition: left 0.5s ease, height 0.5s ease;
+  background-image: url('images/project-viewer-stand.png');
 }
 
 .project-viewer-conveyor {
   width: 99px;
   height: 19px;
   left: 50%;
-  transform: translateX(-50px);
   top: -19px;
-  background-image: url(images/project-viewer-conveyor.png);
+  background-image: url('images/project-viewer-conveyor.png');
 }
 
 .project-viewer-buttons {
@@ -1259,25 +979,10 @@ button {
   width: 100%;
   height: 8.33333%;
   font-size: 20px;
-  font-family: code-new-roman;
-  color: #33FF33;
-  border: 0px;
-  padding: 0px;
-  background-color: #282828;
   display: flex;
   box-sizing: border-box;
   align-items: center;
   justify-content: center;
-}
-
-.project-viewer-buttons>button:hover, .project-viewer-buttons>a:hover {
-  border: 2px solid #33FF33;
-}
-
-.project-viewer-buttons>button:active, .project-viewer-buttons>a:active {
-  border: 2px solid #33FF33;
-  background-color: #33FF33;
-  color: #282828;
 }
 
 .shuttle {
@@ -1285,7 +990,7 @@ button {
   height: 275px;
   bottom: 5010px;
   left: 1899px;
-  background-image: url(images/shuttle-left.png);
+  background-image: url('images/shuttle-left.png');
 }
 
 .shuttle-thrust {
@@ -1293,7 +998,7 @@ button {
   height: 45px;
   bottom: 5px;
   left: -12px;
-  background-image: url(images/shuttle-thrust.png);
+  background-image: url('images/shuttle-thrust.png');
 }
 
 .shuttle-foreground {
@@ -1301,7 +1006,7 @@ button {
   height: 275px;
   bottom: 5010px;
   left: 8660px;
-  background-image: url(images/shuttle-right.png);
+  background-image: url('images/shuttle-right.png');
 }
 
 .shuttle-door-top {
@@ -1310,21 +1015,16 @@ button {
   top: 10px;
   left: 83px;
   transform-origin: 50% 0%;
-  transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
 }
 
 .shuttle-door-top.exterior {
-  background-image: url(images/shuttle-door-top-exterior.png);
-  backface-visibility: hidden;
+  background-image: url('images/shuttle-door-top-exterior.png');
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .shuttle-door-top.interior {
-  background-image: url(images/shuttle-door-top-interior.png);
+  background-image: url('images/shuttle-door-top-interior.png');
 }
 
 .shuttle-door-bottom {
@@ -1333,189 +1033,19 @@ button {
   bottom: 65px;
   left: 83px;
   transform-origin: 50% 100%;
-  transition: all 500ms ease;
-  -webkit-transition: all 500ms ease;
-  -moz-transition: all 500ms ease;
-  -ms-transition: all 500ms ease;
-  -o-transition: all 500ms ease;
 }
 
 .shuttle-door-bottom.exterior {
-  background-image: url(images/shuttle-door-bottom-exterior.png);
-  backface-visibility: hidden;
+  background-image: url('images/shuttle-door-bottom-exterior.png');
   -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 .shuttle-door-bottom.interior {
-  background-image: url(images/shuttle-door-bottom-interior.png);
-}
-
-.led-indicator {
-  width: 3px;
-  height: 3px;
-  background-color: #33FF33;
-}
-
-.horizontal-line {
-  width: 100%;
-  height: 1px;
-}
-
-.white {
-  background-color: #FFFFFF;
-}
-
-.green {
-  background-color: #33FF33;
-}
-
-.caution-tape {
-  background-image: url(images/caution-tape.png);
+  background-image: url('images/shuttle-door-bottom-interior.png');
 }
 
 .shook {
-  -webkit-animation-name: shake;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-duration: 0.5s;
-  animation-name: shake;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-  animation-duration: 0.5s;
-}
-
-@keyframes bubble-float {
-  0% {
-    transform: translateY(0px);
-  }
-  70% {
-    transform: translateY(-245px);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(-350px);
-    opacity: 0;
-  }
-}
-
-@-webkit-keyframes bubble-float {
-  0% {
-    transform: translateY(0px);
-  }
-  70% {
-    transform: translateY(-245px);
-    opacity: 0.4;
-  }
-  100% {
-    transform: translateY(-350px);
-    opacity: 0;
-  }
-}
-
-@keyframes particle-viewer-particle {
-  0% {
-    left: 0px
-  }
-  100% {
-    left: -10px
-  }
-}
-
-@-webkit-keyframes particle-viewer-particle {
-  0% {
-    left: 0px
-  }
-  100% {
-    left: -10px
-  }
-}
-
-@keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-@-webkit-keyframes shake {
-  0% {
-    transform: translate(1px, 1px) rotate(0deg);
-  }
-  10% {
-    transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    transform: translate(3px, 2px) rotate(0deg);
-  }
-  40% {
-    transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    transform: translate(3px, 1px) rotate(-1deg);
-  }
-  80% {
-    transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    transform: translate(1px, 2px) rotate(0deg);
-  }
-  100% {
-    transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-@keyframes move-stars {
-  0% {
-    transform: translate(0px, -8000px);
-  }
-  100% {
-    transform: translate(0px, 8000px);
-  }
-}
-
-@-webkit-keyframes move-stars {
-  0% {
-    transform: translate(0px, -8000px);
-  }
-  100% {
-    transform: translate(0px, 8000px);
-  }
+  animation: shake 0.5s infinite linear;
+  -webkit-animation: shake 0.5s infinite linear;
 }

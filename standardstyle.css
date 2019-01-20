@@ -1,0 +1,139 @@
+@font-face {
+  font-family: 'tektrron';
+  src: url('../fonts/tektrron.eot');
+  src: url('../fonts/tektrron.eot?#iefix') format('embedded-opentype'), url('../fonts/tektrron.woff') format('woff'), url('../fonts/tektrron.svg#tektrronregular') format('svg'), url('../fonts/tektrron.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'code-new-roman';
+  src: url('../fonts/code-new-roman.eot');
+  src: url('../fonts/code-new-roman.eot?#iefix') format('embedded-opentype'), url('../fonts/code-new-roman.woff') format('woff'), url('../fonts/code-new-roman.svg#code_new_romanregular') format('svg'), url('../fonts/code-new-roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0px;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.background-accent {
+  background: #33FF33;
+}
+
+.background-dark {
+  background: #282828;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+.button-accent {
+  background-color: transparent;
+  border: 2px solid transparent;
+  color: #33FF33;
+  padding: 0;
+}
+
+.button-accent:hover {
+  border: 2px solid #33FF33;
+}
+
+.button-accent:active {
+  border: 2px solid #33FF33;
+  background-color: #33FF33;
+  color: #282828;
+}
+
+.color-accent {
+  color: #33FF33;
+}
+
+.color-dark {
+  color: #282828;
+}
+
+.color-primary {
+  color: #52ade1;
+}
+
+.fill-horz {
+  width: 100%;
+}
+
+.fill-vert {
+  height: 100%;
+}
+
+.text-title {
+  font-family: tektrron;
+}
+
+.text-body {
+  font-family: code-new-roman;
+}
+
+.transition-all-1s {
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
+}
+
+.transition-all-500ms {
+  -webkit-transition: all 500ms;
+  -moz-transition: all 500ms;
+  -ms-transition: all 500ms;
+  -o-transition: all 500ms;
+  transition: all 500ms;
+}
+
+.transition-all-300ms {
+  -webkit-transition: all 300ms;
+  -moz-transition: all 300ms;
+  -ms-transition: all 300ms;
+  -o-transition: all 300ms;
+  transition: all 300ms;
+}
+
+.transform-center {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  -moz-transform: translateY(-50%) translateX(-50%);
+  -ms-transform: translateY(-50%) translateX(-50%);
+  -o-transform: translateY(-50%) translateX(-50%);
+  transform: translateY(-50%) translateX(-50%);
+}
+
+.transformXn50 {
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.transformYn50 {
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.transformYp100 {
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+}
