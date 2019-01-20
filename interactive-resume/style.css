@@ -27,7 +27,7 @@ body {
   height: 800px;
 }
 
-.container {
+.page-container {
   position: fixed;
   top: 0px;
 }
@@ -511,6 +511,7 @@ body {
   height: 60px;
   bottom: 0px;
   background-image: url('images/rover-wheel.png');
+  image-rendering: auto;
 }
 
 .rover-tractor-beam {
@@ -564,7 +565,7 @@ body {
 }
 
 .bridge-window>canvas {
-  width: 23px;
+  width: 26px;
   height: 33px;
   left: 460px;
   top: 306px;

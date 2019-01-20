@@ -25,7 +25,7 @@
 
 <body>
   <div class="loading-screen background-dark color-accent text-title transition-all-1s">
-    <canvas class="loading-canvas absolute background-dark transform-center"></canvas>
+    <canvas class="loading-canvas absolute background-dark transform-center" height="800" width="800"></canvas>
     <span class="absolute transform-center fill-horz">Bradley L. Davis<br>Interactive Resume<br>Loading...
     </span>
   </div>
@@ -37,7 +37,7 @@
     <div id="awards" class="absolute" style="top: 17000px"></div>
     <div id="contact" class="absolute" style="top: 200s00px"></div>
   </div>
-  <div class="container fill-horz fill-vert background-dark">
+  <div class="page-container fill-horz fill-vert background-dark">
     <div class="scene-background super-far absolute">
       <div class="space-wrapper absolute fill-horz fill-vert background-dark">
         <canvas class="absolute fill-horz fill-vert background-dark" width=8000 height=8000></canvas>
@@ -68,11 +68,13 @@
       <div class="tree-1 on-the-ground absolute" style="left: 3200px"></div>
     </div>
     <div id="scenes" class="absolute fill-vert">
+      <div class="scene ground">
+          <div class="ground lab absolute" style="width: 10000px;">
+            <div class="flooring absolute fill-horz"></div>
+            <div class="foundation absolute fill-horz"></div>
+          </div>
+      </div>
       <div class="scene lab absolute fill-vert">
-        <div class="ground lab absolute" style="width: 10000px;">
-          <div class="flooring absolute fill-horz"></div>
-          <div class="foundation absolute fill-horz"></div>
-        </div>
         <div class="background on-the-ground absolute">
           <div class="ceiling absolute"></div>
           <div class="title-sign absolute">
@@ -260,7 +262,7 @@
         <div class="rocket-engine absolute" style="left: 1910px"></div>
         <div class="bridge-window absolute">
           <h1 class="absolute text-body fill-horz color-accent">T-06</h1>
-          <canvas class="absolute background-dark"></canvas>
+          <canvas class="absolute background-dark" width="26" height="33"></canvas>
         </div>
         <div class="bridge-left absolute"></div>
         <div class="bridge-right absolute"></div>
@@ -404,7 +406,7 @@
             <h1 class="text-title color-dark background-accent fill-horz">Schweitzer Engineering Laboratory</h1>
             <h2 class="text-body fill-horz">Hardware Engineering Intern</h2>
             <h4 class="text-body absolute">May 2018 - Present</h4>
-            <canvas class="absolute"></canvas>
+            <canvas class="absolute background-accent"></canvas>
             <span class="absolute text-body">Developed a Gigabit Ethernet
               reliability and throughput testing software<br> <br>
               Created a testing tool to detect manufacturing defects<br> <br>
@@ -434,7 +436,7 @@
             <h1 class="text-title color-dark background-accent fill-horz">Tahoma Robotics Camp</h1>
             <h2 class="text-body fill-horz">Lead Technical Counselor</h2>
             <h4 class="text-body absolute">June 2015 - June 2018</h4>
-            <canvas class="absolute"></canvas>
+            <canvas class="absolute background-accent"></canvas>
             <span class="absolute text-body">Aided campers with designing,
               building, wiring, and programming of VEX robots<br> <br>Formulated
               unique games for each year including programming a real-time
@@ -469,7 +471,7 @@
             <h1 class="text-title color-dark background-accent fill-horz">Smith Gardens</h1>
             <h2 class="text-body fill-horz">Retail Mechandiser</h2>
             <h4 class="text-body absolute">May 2017 - August 2017</h4>
-            <canvas class="absolute"></canvas>
+            <canvas class="absolute background-accent"></canvas>
             <span class="absolute text-body">Verified, sorted, and consolidated
               daily deliveries with existing inventory to maximize aesthetic
               appeal of merchandise to meet sales goals <br> <br>Served

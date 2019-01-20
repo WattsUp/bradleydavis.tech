@@ -1,285 +1,32 @@
+/**
+ * Function run when page is ready
+ */
 $(function() {
   setInterval(blink, 4000);
+  setInterval(changeLeds, 500);
   setInterval(cycleBoard, 5000);
   setInterval(cycleParticleDisplay, 5000);
+  setInterval(flashBacklightEngineRoom, 5000);
   setInterval(flashWSULCD, 1000);
-  setInterval(changeBacklightEngineRoom, 5000);
   setInterval(skillsDisplayCycle, 5000);
-  setInterval(changeLeds, 500);
-  $(document).scroll(updateScene);
-  updateScene();
-  $('.teleporter-science').hide();
-  $('.project-viewer-lightning').hide();
   blink();
   cycleParticleDisplay();
-  changeBacklightEngineRoom();
   skillsDisplayCycle();
+
+  $('.teleporter-science').hide();
+  $('.project-viewer-lightning').hide();
+  cssPrefix($('.project'), 'transform', 'translate(-50%) scale(0.0)');
+  $('.project').hide();
+
+  updateScene();
   drawPieCharts();
   drawStarfield();
   changeProject(0);
-  $('.project').css('transform', 'translate(-50%) scale(0.0)');
-  $('.project').fadeOut(250);
 });
 
-$(window).resize(updateScene);
-
-function getSceneX() {
-  return $(document).scrollTop();
-}
-
-var scenes = $('#scenes');
-var foregrounds = $('.scene-foreground');
-var backgrounds = $('.scene-background');
-var farBackgrounds = $('.scene-background.far');
-var superFarBackgrounds = $('.scene-background.super-far');
-var onTheGrounds = $('.on-the-ground');
-var bradSprite = $('.brad');
-var bradContainer = $('.brad-container');
-var bradJumpContainer = $('.brad-container>div');
-var groundHeight = $('.ground').height();
-var speedScene = 1 / 1;
-var speedBackground = 1 / 2;
-var speedFarBackground = 1 / 3;
-var speedSuperFarBackground = 1 / 10;
-var timingWalking = 200;
-var timingBlink = 100;
-var teleporting = false;
-var moving = false;
-var movingRight = true;
-var currentWalkingFrame = 0;
-var stopWalkingTimeout = 250;
-var walkingIntervalID = null;
-var stopWalkingTimeoutID = null;
-var lastSceneX = getSceneX();
-var lastPositionBrad = 0;
-var disableWalking = false;
-var engineRoomOff = true;
-var skillsClicked = false;
-var skillsCurrent = 0;
-var particleDisplayCurrent = 0;
-var backlightEngineRoom = '#FF1C1C';
-var ledIndicators = $('.led-indicator');
-var countdownTime = -5;
-var countdownStarted = false;
-var countdownTimer;
-var starfieldFirstOnBottom = true;
-var currentBox = -1;
-var changingProject = false;
-
-function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
-}
-
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function changeProject(index) {
-  if (changingProject) {
-    return;
-  }
-  changingProject = true;
-  var time = 0;
-  var conveyor = $('.project-viewer-stand');
-  var lightning = $('.project-viewer-lightning');
-  if (currentBox != -1) {
-    var oldProject = $('.project:eq(' + currentBox + ')');
-    var oldBoxObj = $('.project-viewer > .box:eq(' + currentBox + ')');
-    lightning.show();
-    oldProject.css('transform', 'translate(-50%) scale(0.0)');
-    oldProject.fadeOut(250);
-    oldBoxObj.fadeIn(250);
-    time += 500;
-
-    var oldHeight = 20 + 40 * currentBox;
-    var bottom = 65 + 40 * currentBox;
-
-    setTimeout(function() {
-      lightning.hide();
-      oldBoxObj.css('left', '800px');
-    }, time);
-    time += 500;
-
-    setTimeout(function() {
-      conveyor.css('left', '992px');
-      conveyor.css('height', oldHeight + 'px');
-      oldBoxObj.css('bottom', bottom + 'px');
-      oldBoxObj.css('left', '940px');
-    }, time);
-    time += 500;
-
-    setTimeout(function() {
-      oldBoxObj.css('left', '1053px');
-    }, time);
-    time += 500;
-  }
-
-  var height = 20 + 40 * index;
-  setTimeout(function() {
-    conveyor.css('left', '992px');
-    conveyor.css('height', height + 'px');
-  }, time);
-  time += 500;
-
-  var boxObj = $('.project-viewer > .box:eq(' + index + ')');
-  setTimeout(function() {
-    boxObj.css('left', '940px');
-  }, time);
-  time += 500;
-
-  setTimeout(function() {
-    conveyor.css('left', '850px');
-    conveyor.css('height', '3px');
-    boxObj.css('left', '800px');
-    boxObj.css('bottom', '47px');
-  }, time);
-  time += 500;
-
-  setTimeout(function() {
-    boxObj.css('left', '620px');
-  }, time);
-  time += 500;
-
-  setTimeout(function() {
-    lightning.show();
-    var project = $('.project:eq(' + index + ')');
-    project.fadeIn(250);
-    project.css('transform', 'translate(-50%) scale(1.0)');
-    boxObj.fadeOut(250);
-  }, time);
-  time += 500;
-
-  setTimeout(function() {
-    lightning.hide();
-    changingProject = false;
-  }, time);
-  time += 500;
-
-  currentBox = index;
-}
-
-function cycleBoard() {
-  $('.title-sign-wrapper').toggleClass('transformYn50');
-}
-
-function cycleParticleDisplay() {
-  particleDisplayCurrent = (particleDisplayCurrent + 1) % 3;
-  $('.particle-viewer-particles').css('height', '0%');
-  $('.particle-viewer-lightning').show();
-  setTimeout(function() {
-    $('.particle-viewer-image').hide();
-    $('.particle-viewer-image:eq(' + particleDisplayCurrent + ')').show();
-    $('.particle-viewer-particles').css('height', '100%');
-  }, 1000)
-  setTimeout(function() {
-    $('.particle-viewer-lightning').hide();
-  }, 2000);
-}
-
-function flashWSULCD() {
-  $('.lcd-wsu-on').css('opacity', '0.0');
-  setTimeout(function() {
-    $('.lcd-wsu-on').css('opacity', '1.0');
-  }, 250);
-}
-
-function changeBacklightEngineRoom() {
-  $('.rocket>.background:eq(0)').css('background-color', backlightEngineRoom);
-  setTimeout(function() {
-    $('.rocket>.background:eq(0)').css('background-color', '#737373');
-  }, 2000);
-}
-
-function changeLeds() {
-  ledIndicators.each(function(index) {
-    switch (Math.floor(Math.random() * 15)) {
-      case 0:
-        $(this).css('background-color', '#FF595E');
-        break;
-      case 1:
-      case 2:
-        $(this).css('background-color', '#F2C200');
-        break;
-      default:
-        $(this).css('background-color', '#33FF33');
-        break;
-    }
-  });
-}
-
-function updateCountdown() {
-  if (countdownTime <= -10) {
-    $('.bridge-window>h1').text('T' + countdownTime);
-  } else if (countdownTime <= -1) {
-    $('.bridge-window>h1').text('T-0' + (-countdownTime));
-  } else if (countdownTime <= 9) {
-    $('.bridge-window>h1').text('T+0' + countdownTime);
-  } else {
-    $('.bridge-window>h1').text('T+' + countdownTime);
-  }
-  if (countdownTime == 0) {
-    setTimeout(launchRocket, 1);
-  }
-  countdownTime++;
-}
-
-function launchRocket() {
-  $('.sky').css('transform', 'translate(0px, 8000px');
-  $('.container').addClass('shook');
-  setTimeout(function() {
-    $('.container').removeClass('shook');
-  }, 4000);
-}
-
-function teleporterChange(locationHash) {
-  if (!teleporting) {
-    teleporting = true;
-    bradContainer.css('left', '175px');
-    bradContainer.css('transform', 'translateX(-50%)');
-    bradContainer.addClass('transition-all-1s');
-    bradJumpContainer.addClass('jump-up');
-    bradJumpContainer.removeClass('jump-down');
-    scenes.addClass('transition-all-1s');
-    backgrounds.addClass('transition-all-1s');
-    farBackgrounds.addClass('transition-all-1s');
-    scenes.css('transform', 'translateX(0px)');
-    backgrounds.css('transform', 'translateX(0px)');
-    farBackgrounds.css('transform', 'translateX(0px)');
-    console.log(locationHash);
-    movingRight = false;
-    updateWalkingSprite();
-    setTimeout(updateWalkingSprite, timingWalking);
-    setTimeout(updateWalkingSprite, timingWalking * 2);
-    setTimeout(updateWalkingSprite, timingWalking * 3);
-    setTimeout(function() {
-      scenes.removeClass('transition-all-1s');
-      backgrounds.removeClass('transition-all-1s');
-      farBackgrounds.removeClass('transition-all-1s');
-      bradJumpContainer.css('bottom', '30px');
-    }, 1000);
-    setTimeout(function() {
-      $('.teleporter-science').show();
-    }, 1400);
-    setTimeout(function() {
-      $('.teleporter-science').hide();
-      bradContainer.hide();
-      teleporting = false;
-      location.hash = locationHash;
-    }, 2000);
-    setTimeout(function() {
-      bradContainer.show();
-      teleporting = false;
-      bradContainer.css('left', '50%');
-      bradContainer.removeClass('transition-all-1s');
-      bradJumpContainer.css('bottom', '0px');
-      bradJumpContainer.removeClass('jump-up');
-      updateScene();
-    }, 2500);
-  }
-}
-
+/**
+ * Draw the work experience pie charts
+ */
 function drawPieCharts() {
   var radius = 120;
   var context0 = $('.experience-panel>canvas')[0].getContext('2d');
@@ -331,8 +78,11 @@ function drawPieCharts() {
   context1.stroke();
 }
 
+/**
+ * Draw the stars randomly
+ */
 function drawStarfield() {
-  var contextSpace = $('.space-canvas')[0].getContext('2d');
+  var contextSpace = $('.space-wrapper>canvas')[0].getContext('2d');
   contextSpace.fillStyle = '#FFFFFF';
   var x = 0;
   var y = 0;
@@ -345,7 +95,7 @@ function drawStarfield() {
     contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
     contextSpace.fill();
   }
-  contextSpace = $('.space-canvas')[1].getContext('2d');
+  contextSpace = $('.space-wrapper>canvas')[1].getContext('2d');
   contextSpace.fillStyle = '#FFFFFF';
   for (var i = 0; i < 10000; i++) {
     x = Math.floor(Math.random() * 8000);
@@ -357,38 +107,425 @@ function drawStarfield() {
   }
 }
 
+
+/**
+ * Update the scene when window is resized or scrolled
+ */
+$(window).resize(updateScene);
+$(document).scroll(updateScene);
+
+/***************************** Interval Functions *****************************/
+var bridgeLeds = $('.bridge-window>canvas')[0].getContext('2d');
+var countdownText = $('.bridge-window>h1');
+var engineRoom = $('.rocket>.background:eq(0)');
+var eyesRight = $('.brad-eyes.right');
+var eyesLeft = $('.brad-eyes.left');
+var titleSign = $('.title-sign-wrapper');
+var particles = $('.particle-viewer-particles');
+var particleImages = $('.particle-viewer-image');
+var particleLightning = $('.particle-viewer-lightning');
+var skillsWrapper = $('.skills-wrapper');
+var wsuLCD = $('.lcd-wsu-on');
+
+var backlightEngineRoom = '#FF1C1C';
+var engineRoomTimeout;
+var movingRight = true;
+var particleDisplayCurrent = 0;
+var skillsClicked = false;
+var skillsCurrent = 0;
+var wsuLCDOff = true;
+
+/**
+ * Blink the eyes
+ */
+function blink() {
+  if (movingRight) {
+    eyesRight.show();
+    eyesLeft.hide();
+  } else {
+    eyesRight.hide();
+    eyesLeft.show();
+  }
+  setTimeout(function() {
+    eyesRight.hide();
+    eyesLeft.hide();
+  }, 100);
+}
+
+/**
+ * Redraws the bridge's leds
+ */
+function changeLeds() {
+  for (var row = 0; row < 5; row++) {
+    for (var col = 0; col < 4; col++) {
+      switch (getRandomInt(0, 15)) {
+        case 0:
+          bridgeLeds.fillStyle = '#FF595E';
+          break;
+        case 1:
+        case 2:
+          bridgeLeds.fillStyle = '#F2C200';
+          break;
+        default:
+          bridgeLeds.fillStyle = '#33FF33';
+          break;
+      }
+      bridgeLeds.fillRect(col * 6 + 2, row * 6 + 2, 4, 4);
+    }
+  }
+}
+
+/**
+ * Alternates the first title board
+ */
+function cycleBoard() {
+  titleSign.toggleClass('transformYn50');
+}
+
+/**
+ * Changes the particle display to the next image
+ */
+function cycleParticleDisplay() {
+  particleDisplayCurrent = (particleDisplayCurrent + 1) % 3;
+  particles.css('height', '0%');
+  particleLightning.show();
+  setTimeout(function() {
+    particleImages.hide();
+    particleImages.eq(particleDisplayCurrent).show();
+    particles.css('height', '100%');
+  }, 1000)
+  setTimeout(function() {
+    particleLightning.hide();
+  }, 2000);
+}
+
+/**
+ * Flashes the WSU LCD
+ */
+function flashWSULCD() {
+  if (!wsuLCDOff) {
+    wsuLCD.show();
+    setTimeout(function() {
+      wsuLCD.hide();
+    }, 750);
+  }
+}
+
+/**
+ * Flashes the backlight of the engineroom
+ */
+function flashBacklightEngineRoom() {
+  engineRoom.css('background-color', backlightEngineRoom);
+  clearTimeout(engineRoomTimeout);
+  engineRoomTimeout = setTimeout(function() {
+    engineRoom.css('background-color', '#737373');
+  }, 2000);
+}
+
+/**
+ * Changes the skills display
+ */
+function skillsDisplayCycle() {
+  if (!skillsClicked) {
+    skillsCurrent = (skillsCurrent + 1) % 4;
+    skillsWrapper.hide();
+    skillsWrapper.eq(skillsCurrent).show();
+  }
+}
+
+/**
+ * Increment the count down timer
+ * Launch the rocket when the timer reaches 0
+ */
+function updateCountdown() {
+  if (countdownTime <= -10) {
+    countdownText.text('T' + countdownTime);
+  } else if (countdownTime <= -1) {
+    countdownText.text('T-0' + (-countdownTime));
+  } else if (countdownTime <= 9) {
+    countdownText.text('T+0' + countdownTime);
+  } else {
+    countdownText.text('T+' + countdownTime);
+  }
+  if (countdownTime == 0) {
+    setTimeout(launchRocket, 1);
+  }
+  countdownTime++;
+}
+
+/************************** User Activated Functions **************************/
+var changingProject = false;
+var countdownTime = -5;
+var currentBox = -1;
+var teleporting = false;
+var skillsClickedTimeout;
+
+var projects = $('.project');
+var projectBoxes = $('.project-viewer > .box')
+var projectConveyor = $('.project-viewer-stand');
+var projectLightning = $('.project-viewer-lightning');
+var teleporterScience = $('.teleporter-science');
+
+/**
+ * Swaps current project to the selected one
+ * @param {number} index
+ */
+function changeProject(index) {
+  if (changingProject) {
+    return;
+  }
+  changingProject = true;
+
+  var time = 0;
+  if (currentBox != -1) {
+    var oldProject = projects.eq(currentBox);
+    var oldBoxObj = projectBoxes.eq(currentBox);
+
+    // Shrink current project down into its box
+    projectLightning.show();
+    cssPrefix(oldProject, 'transform', 'translate(-50%) scale(0.0)')
+    oldProject.fadeOut(250);
+    oldBoxObj.fadeIn(250);
+    time += 500;
+
+    var oldHeight = 20 + 40 * currentBox;
+    var bottom = 65 + 40 * currentBox;
+
+    // Stop shrinking, slide box onto conveyor
+    setTimeout(function() {
+      projectLightning.hide();
+      oldBoxObj.css('left', '800px');
+    }, time);
+    time += 500;
+
+    // Move box and conveyor to its shelf
+    setTimeout(function() {
+      projectConveyor.css('left', '992px');
+      projectConveyor.css('height', oldHeight + 'px');
+      oldBoxObj.css('bottom', bottom + 'px');
+      oldBoxObj.css('left', '940px');
+    }, time);
+    time += 500;
+
+    // Slide box into it shelf
+    setTimeout(function() {
+      oldBoxObj.css('left', '1053px');
+    }, time);
+    time += 500;
+  }
+
+  // Move conveyor to selected project's shelf
+  var height = 20 + 40 * index;
+  setTimeout(function() {
+    projectConveyor.css('left', '992px');
+    projectConveyor.css('height', height + 'px');
+  }, time);
+  time += 500;
+
+  // Slide box onto conveyor
+  var boxObj = projectBoxes.eq(index);
+  setTimeout(function() {
+    boxObj.css('left', '940px');
+  }, time);
+  time += 500;
+
+  // Move box and conveyor to the platform
+  setTimeout(function() {
+    projectConveyor.css('left', '850px');
+    projectConveyor.css('height', '3px');
+    boxObj.css('left', '800px');
+    boxObj.css('bottom', '47px');
+  }, time);
+  time += 500;
+
+  // Slide box onto the platform
+  setTimeout(function() {
+    boxObj.css('left', '620px');
+  }, time);
+  time += 500;
+
+  // Unshrink the project
+  setTimeout(function() {
+    projectLightning.show();
+    var project = projects.eq(index);
+    project.fadeIn(250);
+    cssPrefix(project, 'transform', 'translate(-50%) scale(1.0)')
+    boxObj.fadeOut(250);
+  }, time);
+  time += 500;
+
+  // Stop growing the project
+  setTimeout(function() {
+    projectLightning.hide();
+    changingProject = false;
+  }, time);
+  time += 500;
+
+  currentBox = index;
+}
+
+/**
+ * Use the teleporter to teleport to a section
+ * @param {string} locationHash
+ */
+function teleporterChange(locationHash) {
+  if (teleporting) {
+    return;
+  }
+  teleporting = true;
+
+  // Move background to the right
+  scenes.addClass('transition-all-1s');
+  backgrounds.addClass('transition-all-1s');
+  farBackgrounds.addClass('transition-all-1s');
+  cssPrefix(scenes, 'transform', 'translateX(0px)');
+  cssPrefix(backgrounds, 'transform', 'translateX(0px)');
+  cssPrefix(farBackgrounds, 'transform', 'translateX(0px)');
+
+  // Walk Brad into the teleporter
+  bradContainer.css('left', '175px');
+  bradContainer.addClass('transition-all-1s');
+  bradJumpContainer.addClass('jump-up');
+  bradJumpContainer.removeClass('jump-down');
+  movingRight = false;
+  updateWalkingSprite();
+  setTimeout(updateWalkingSprite, timingWalking);
+  setTimeout(updateWalkingSprite, timingWalking * 2);
+  setTimeout(updateWalkingSprite, timingWalking * 3);
+
+  // Jump Brad into the teleporter
+  setTimeout(function() {
+    scenes.removeClass('transition-all-1s');
+    backgrounds.removeClass('transition-all-1s');
+    farBackgrounds.removeClass('transition-all-1s');
+    bradContainer.removeClass('transition-all-1s');
+    bradJumpContainer.css('bottom', '35px');
+  }, 1000);
+
+  // Start the teleportation
+  setTimeout(function() {
+    teleporterScience.show();
+    bradContainer.fadeOut(600);
+  }, 1400);
+
+  // Finish the teleporting, make Brad disappear, and change the location
+  setTimeout(function() {
+    teleporterScience.hide();
+    teleporting = false;
+    location.hash = locationHash;
+  }, 2000);
+
+  // Make Brad appear
+  setTimeout(function() {
+    bradContainer.fadeIn(600);
+    teleporting = false;
+    bradContainer.css('left', '50%');
+    bradJumpContainer.css('bottom', '0px');
+    bradJumpContainer.removeClass('jump-up');
+    updateScene();
+  }, 2500);
+}
+
+/**
+ * Change the skills display then resume cycling
+ * @param {number} currentDisplay
+ */
 function skillsDisplay(currentDisplay) {
   skillsClicked = true;
   skillsCurrent = currentDisplay;
-  $('.skills-wrapper').hide();
-  $('.skills-wrapper:eq(' + skillsCurrent + ')').show();
-  setTimeout(function() {
+  skillsWrapper.hide();
+  skillsWrapper.eq(skillsCurrent).show();
+  clearTimeout(skillsClickedTimeout);
+  skillsClickedTimeout = setTimeout(function() {
     skillsClicked = false;
   }, 10000);
 }
 
-function skillsDisplayCycle() {
-  if (!skillsClicked) {
-    skillsCurrent = (skillsCurrent + 1) % 4;
-    $('.skills-wrapper').hide();
-    $('.skills-wrapper:eq(' + skillsCurrent + ')').show();
+/****************************** Scene Functions *******************************/
+var countdownStarted = false;
+var countdownTimer;
+var disableWalking = false;
+var currentWalkingFrame = 0;
+var groundHeight = 0;
+var lastPositionBrad = 0;
+var lastAdjustedSceneX = $(document).scrollTop();
+var moving = false;
+var timingWalking = 200;
+var speedScene = 1 / 1;
+var speedBackground = 1 / 2;
+var speedFarBackground = 1 / 3;
+var speedSuperFarBackground = 1 / 10;
+var stopWalkingTimeout;
+
+var backgrounds = $('.scene-background');
+var bradSprite = $('.brad');
+var bradContainer = $('.brad-container');
+var bradJumpContainer = $('.brad-container>div');
+var elevator = $('.elevator-cargo');
+var elevatorThruster = $('.thruster-on');
+var engineRoomWire = $('.engine-room-wire');
+var farBackgrounds = $('.scene-background.far');
+var fluidElectronics = $('#fluid-electronics');
+var fluidSoftware = $('#fluid-software');
+var fluidHardware = $('#fluid-hardware');
+var fluidArt = $('#fluid-art');
+var foregrounds = $('.scene-foreground');
+var ground = $('.ground');
+var lab = $('.scene.lab');
+var lcdBattery = $('#battery');
+var onTheGrounds = $('.on-the-ground');
+var rocket = $('.scene.rocket');
+var rocketHatch = $('.rocket-hatch');
+var rocketPowerStatus = $('#rocket-power-status');
+var rover = $('.rover');
+var roverTracorBeam = $('.rover-tractor-beam');
+var roverWheels = $('.rover-wheel');
+var scenes = $('#scenes');
+var sky = $('.sky');
+var shuttle = $('.shuttle');
+var shuttleForeground = $('.shuttle-foreground');
+var shuttleDoorTop = $('.shuttle-door-top');
+var shuttleDoorBottom = $('.shuttle-door-bottom');
+var shuttleThrust = $('.shuttle-thrust');
+var superFarBackgrounds = $('.scene-background.super-far');
+var tubeBackground = $('.tube-station-background');
+var tubeForeground = $('.tube-station-foreground');
+
+/**
+ * Transform the components in the scene
+ */
+function updateScene() {
+  var sceneX = $(document).scrollTop();
+  // Elevator @ 5500
+  // Tubes @ 8890 and 14350
+  var sceneY = Math.max(0, Math.min(950, sceneX - 5500)) +
+      Math.max(0, Math.min(3410, sceneX - 8890)) +
+      Math.max(0, Math.min(650, sceneX - 14350));
+  console.log('sceneX: ' + sceneX + ' sceneY: ' + sceneY);
+  updateMovement(sceneX, sceneY);
+  updateStory(sceneX, sceneY);
+  updateHidden(sceneX);
+  if (groundHeight != ground.height()) {
+    groundHeight = ground.height();
+    onTheGrounds.css('bottom', groundHeight + 'px');
   }
 }
 
-function blink() {
-  if (movingRight) {
-    $('.brad-eyes.right').show();
-    $('.brad-eyes.left').hide();
-  } else {
-    $('.brad-eyes.right').hide();
-    $('.brad-eyes.left').show();
-  }
+/**
+ * Launch the rocket into orbit
+ */
+function launchRocket() {
+  cssPrefix(sky, 'transform', 'translateY(8000px');
+  var pageContainer = $('.page-container');
+  pageContainer.addClass('shook');
   setTimeout(function() {
-    $('.brad-eyes.right').hide();
-    $('.brad-eyes.left').hide();
-  }, timingBlink);
+    pageContainer.removeClass('shook');
+  }, 4000);
 }
 
+/**
+ * Change the sprite to the next walking frame
+ */
 function updateWalkingSprite() {
   bradSprite.css('bottom', (movingRight * -200) + 'px');
   currentWalkingFrame = (currentWalkingFrame + 1) % 4;
@@ -407,43 +544,44 @@ function updateWalkingSprite() {
   }
 }
 
-function updateScene() {
-  var sceneX = getSceneX();
-  console.log('sceneX: ' + sceneX);
-  updateMovement(sceneX);
-  updateStory(sceneX);
-  updateHidden(sceneX);
-  groundHeight = $('.ground').height();
-  onTheGrounds.css('bottom', groundHeight + 'px');
-}
-
+/**
+ * Hide scenes that are not visible
+ * @param {number} sceneX
+ */
 function updateHidden(sceneX) {
-  if (sceneX < 6500) {
-    $('.discipline-label').show();
-    $('.particle-viewer').show();
+  if (sceneX < 7500) {
+    lab.show();
   } else {
-    $('.discipline-label').hide();
-    $('.particle-viewer').hide();
+    lab.hide();
   }
   if (sceneX > 3700) {
-    $('.rocket').show();
+    rocket.show();
   } else {
-    $('.rocket').hide();
+    rocket.hide();
   }
 }
 
-function updateStory(sceneX) {
+/**
+ * Update story components
+ * @param {number} sceneX
+ * @param {number} sceneY
+ */
+function updateStory(sceneX, sceneY) {
+  // Don't walk on the rover, in the tubes, or in the shuttle
   if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300) ||
-      (sceneX > 14350 && sceneX < 15000)) {
+      (sceneX > 14350 && sceneX < 15000) || sceneX > 16950) {
     disableWalking = true;
   } else {
     disableWalking = false;
   }
+
   if (sceneX > 480 && sceneX < 6500) {
+    // Jump onto the rover
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
     bradJumpContainer.css('bottom', '55px');
   } else if (sceneX > 16800 && sceneX < 19020) {
+    // Jump into the shuttle
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
     bradJumpContainer.css('bottom', '66px');
@@ -452,62 +590,77 @@ function updateStory(sceneX) {
     bradJumpContainer.removeClass('jump-up');
     bradJumpContainer.css('bottom', '0px');
   }
+
+  // Turn on the rover's tractor beam
   if (sceneX > 850 && sceneX < 3998) {
-    $('.rover-tractor-beam').css('display', 'block');
+    roverTracorBeam.show();
   } else {
-    $('.rover-tractor-beam').css('display', 'none');
+    roverTracorBeam.hide();
   }
+
+  // Fill up the fluid tanks
   if (sceneX > 1150) {
-    $('#fluid-electronics').removeClass('transformYp100');
+    fluidElectronics.removeClass('transformYp100');
     setTimeout(function() {
-      $('#fluid-software').removeClass('transformYp100');
+      fluidSoftware.removeClass('transformYp100');
     }, 250);
     setTimeout(function() {
-      $('#fluid-hardware').removeClass('transformYp100');
+      fluidHardware.removeClass('transformYp100');
     }, 500);
     setTimeout(function() {
-      $('#fluid-art').removeClass('transformYp100');
+      fluidArt.removeClass('transformYp100');
     }, 750);
   } else if (sceneX < 1100) {
-    $('#fluid-electronics').addClass('transformYp100');
+    fluidElectronics.addClass('transformYp100');
     setTimeout(function() {
-      $('#fluid-software').addClass('transformYp100');
+      fluidSoftware.addClass('transformYp100');
     }, 250);
     setTimeout(function() {
-      $('#fluid-hardware').addClass('transformYp100');
+      fluidHardware.addClass('transformYp100');
     }, 500);
     setTimeout(function() {
-      $('#fluid-art').addClass('transformYp100');
+      fluidArt.addClass('transformYp100');
     }, 750);
   }
+
+  // Turn on the WSU LCD
   if (sceneX > 3998) {
-    $('.lcd-wsu-on').show();
+    wsuLCDOff = false;
   } else {
-    $('.lcd-wsu-on').hide();
+    wsuLCDOff = true;
+    wsuLCD.hide();
   }
+
+  // Turn on the elevator's thrusters
   if (sceneX > 5500) {
-    $('.thruster-on').show();
+    elevatorThruster.show();
   } else {
-    $('.thruster-on').hide();
+    elevatorThruster.hide();
   }
+
+  // Close the hatches for launch
   if (sceneX > 7000 && sceneX < 17000) {
-    $('.rocket-hatch').addClass('rocket-hatch-close');
-    $('.rocket-hatch').removeClass('rocket-hatch-open');
-    $('.rocket-hatch:eq(0)').css('left', '0px');
-    $('.rocket-hatch:eq(1)').css('left', '2390px');
+    rocketHatch.addClass('rocket-hatch-close');
+    rocketHatch.removeClass('rocket-hatch-open');
+    rocketHatch.eq(0).css('left', '0px');
+    rocketHatch.eq(1).css('left', '2390px');
   } else {
-    $('.rocket-hatch').removeClass('rocket-hatch-close');
-    $('.rocket-hatch').addClass('rocket-hatch-open');
-    $('.rocket-hatch:eq(0)').css('left', '30px');
-    $('.rocket-hatch:eq(1)').css('left', '2420px');
+    rocketHatch.removeClass('rocket-hatch-close');
+    rocketHatch.addClass('rocket-hatch-open');
+    rocketHatch.eq(0).css('left', '30px');
+    rocketHatch.eq(1).css('left', '2420px');
   }
+
+  // Swap foreground and background tubes to put Brad inside it
   if ((sceneX > 8890 && sceneX < 12300) || sceneX > 14350) {
-    $('.tube-station-background').hide();
-    $('.tube-station-foreground').show();
+    tubeBackground.hide();
+    tubeForeground.show();
   } else {
-    $('.tube-station-background').show();
-    $('.tube-station-foreground').hide();
+    tubeBackground.show();
+    tubeForeground.hide();
   }
+
+  // Start the countdown timer
   if (sceneX > 12300 && countdownStarted == false) {
     countdownTimer = setInterval(updateCountdown, 1000);
     countdownStarted = true;
@@ -516,117 +669,143 @@ function updateStory(sceneX) {
     countdownStarted = false;
     countdownTime = -6;
     updateCountdown();
-    $('.sky').css('transform', 'translate(0px, 0px');
-    $('.space').css('transform', 'translate(0px, 0px');
+    cssPrefix(sky, 'transform', 'translateY(0px');
   }
+
+  // Operate the shuttle doors
   if (sceneX > 16400 && sceneX < 16950) {
-    $('.shuttle-door-top')
-        .css('transform', 'rotateX(180deg) perspective(600px)');
-    $('.shuttle-door-bottom')
-        .css('transform', 'rotateX(-180deg) perspective(600px)');
+    cssPrefix(
+        shuttleDoorTop, 'transform', 'rotateX(180deg) perspective(600px)');
+    cssPrefix(
+        shuttleDoorBottom, 'transform', 'rotateX(-180deg) perspective(600px)');
   } else {
-    $('.shuttle-door-top').css('transform', 'rotateX(0deg)');
-    $('.shuttle-door-bottom').css('transform', 'rotateX(0deg)');
+    cssPrefix(shuttleDoorTop, 'transform', 'rotateX(0deg)');
+    cssPrefix(shuttleDoorBottom, 'transform', 'rotateX(0deg)');
   }
+
+  // Turn on the shuttle's thrust
   if (sceneX > 16950) {
-    $('.shuttle-thrust').show();
+    shuttleThrust.show();
   } else {
-    $('.shuttle-thrust').hide();
+    shuttleThrust.hide();
   }
+
+  // Move the engine room wire
   var engineWireLength =
       Math.max(20, Math.min(1380, sceneX - 6900 - (movingRight ? 0 : 70)));
+  engineRoomWire.css('width', engineWireLength + 'px');
   if (engineWireLength == 1380) {
     backlightEngineRoom = '#33FF33';
-    changeBacklightEngineRoom();
-    $('#rocket-power-status').css('color', '#33FF33');
+    flashBacklightEngineRoom();
+    rocketPowerStatus.css('color', '#33FF33');
   } else {
     backlightEngineRoom = '#FF1C1C';
-    changeBacklightEngineRoom();
-    $('#rocket-power-status').css('color', '#FF1C1C');
+    flashBacklightEngineRoom();
+    rocketPowerStatus.css('color', '#FF1C1C');
   }
-  var sceneY = Math.max(0, Math.min(950, sceneX - 5500));
-  var roverPosition = Math.min(5000, Math.max(-500 + sceneX * speedScene, 0));
+
+  // Move the rover
+  var roverX = Math.min(5000, Math.max(-500 + sceneX * speedScene, 0));
   var roverY = -sceneY + Math.max(0, Math.min(950, (sceneX - 6800) / 2));
-  var elevatorCargoY =
+  var roverRotate = roverX / (Math.PI * 60) * 360;
+  cssPrefix(
+      rover, 'transform',
+      'translate(' + roverX + 'px' +
+          ', ' + roverY + 'px)');
+  cssPrefix(roverWheels, 'transform', 'rotate(' + roverRotate + 'deg)');
+
+  // Move the elevator
+  var elevatorY =
       -sceneY + Math.max(0, Math.min(950, (sceneX - 6800) / 2)) + 20;
-  var roverRotate = roverPosition / (Math.PI * 60) * 360;
+  cssPrefix(elevator, 'transform', 'translateY(' + elevatorY + 'px)');
+
+  // Move the LCD's batttery
   var batteryLCDWSULeft = 2000 + Math.max(0, Math.min(3148, sceneX - 850));
   var batteryLCDWSUBottom = -Math.max(0, Math.min(88, sceneX - 850));
   var roverTractorAngle = Math.atan((147 + batteryLCDWSUBottom - 30) / 170);
+  lcdBattery.css('left', batteryLCDWSULeft + 'px');
+  cssPrefix(
+      lcdBattery, 'transform', 'translateY(' + batteryLCDWSUBottom + 'px)');
+  cssPrefix(
+      roverTracorBeam, 'transform', 'rotate(' + roverTractorAngle + 'rad)');
+
+  // Move the shuttle
   var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 2000));
-  $('.rover').css(
-      'transform',
-      'translate(' + roverPosition + 'px' +
-          ', ' + roverY + 'px)');
-  $('.rover-wheel').css('transform', 'rotate(' + roverRotate + 'deg)');
-  $('.rover-tractor-beam')
-      .css('transform', 'rotate(' + roverTractorAngle + 'rad)');
-  $('#battery').css('left', batteryLCDWSULeft + 'px');
-  $('#battery')
-      .css('transform', 'translateY(' + batteryLCDWSUBottom + 'px)');
-  $('.elevator-cargo').css('transform', 'translateY(' + elevatorCargoY + 'px)');
-  $('.engine-room-wire').css('width', engineWireLength + 'px');
-  $('.shuttle').css('left', (1899 + shuttlePosition) + 'px');
-  $('.shuttle-foreground').css('left', (8660 + shuttlePosition) + 'px');
+  shuttle.css('left', (1899 + shuttlePosition) + 'px');
+  shuttleForeground.css('left', (8660 + shuttlePosition) + 'px');
 }
 
-function updateMovement(sceneX) {
-  var sceneY = Math.max(0, Math.min(950, sceneX - 5500)) +
-      Math.max(0, Math.min(3410, sceneX - 8890)) +
-      Math.max(0, Math.min(650, sceneX - 14350));
+/**
+ * Move Brad and the backgrounds
+ * @param {number} sceneX
+ * @param {number} sceneY
+ */
+function updateMovement(sceneX, sceneY) {
+  var adjustedSceneX = sceneX;
+  var screenWidth = $(document).width();
+
+  // Center the scene
+  adjustedSceneX -= (screenWidth / 2 - 900);
+
   // Ride elevator @ 5500 for 950
-  // Ride turbolift @ 8880 for 4000
-  // Walk backwards though bridge @ 12300 for 2000
-  var adjustedSceneX = sceneX - Math.max(0, Math.min(950, sceneX - 5500)) -
+  adjustedSceneX -= Math.max(0, Math.min(950, sceneX - 5500));
+
+  // Ride turbolift @ 8890 for 3410
+  adjustedSceneX -= Math.max(
+      0, Math.min(3410 + screenWidth / 4, sceneX - 8890 + screenWidth / 8));
+
+  // Walk backwards though bridge @ 12300 for 2050
+  adjustedSceneX -=
       Math.max(
           0,
-          Math.min(
-              3410 + $(document).width() / 4,
-              sceneX - 8890 + $(document).width() / 8)) -
-      ($(document).width() / 2 - 900) -
-      Math.max(
-          0,
-          Math.min(
-              2050 - $(document).width() / 8,
-              sceneX - 12300 - $(document).width() / 8)) *
-          2 -
-      Math.max(0, Math.min(650, sceneX - 14350));
+          Math.min(2050 - screenWidth / 8, sceneX - 12300 - screenWidth / 8)) *
+      2;
+
+  // Ride turbolift @ 14350 for 650
+  adjustedSceneX -= Math.max(0, Math.min(650, sceneX - 14350));
+
+  // Move the scenes and foregrounds
   var positionScene = -adjustedSceneX * speedScene;
-  var positionBrad = (-bradContainer.width() / 2) - Math.max(positionScene, 0) +
-      Math.max(
-          0,
-          Math.min(
-              sceneX - 8890 + $(document).width() / 8,
-              $(document).width() / 8)) -
-      Math.max(0, Math.min(sceneX - 12300, $(document).width() / 8));
+  positionScene = Math.floor(positionScene);
+  cssPrefix(
+      scenes, 'transform',
+      'translate(' + Math.min(positionScene, 0) + 'px' +
+          ', ' + sceneY + 'px)');
+  cssPrefix(
+      foregrounds, 'transform',
+      'translate(' + Math.min(positionScene, 0) + 'px' +
+          ', ' + sceneY + 'px)');
+
+  // Move Brad
+  var positionBrad = (-bradContainer.width() / 2) - Math.max(positionScene, 0);
+  positionBrad +=
+      Math.max(0, Math.min(sceneX - 8890 + screenWidth / 8, screenWidth / 8))
+  positionBrad -= Math.max(0, Math.min(sceneX - 12300, screenWidth / 8));
+  positionBrad = Math.floor(positionBrad);
+  cssPrefix(bradContainer, 'transform', 'translateX(' + positionBrad + 'px)');
+
+  // Move backgrounds
   var positionBackground = -adjustedSceneX * speedBackground;
   var positionFarBackground = -adjustedSceneX * speedFarBackground;
   var positionSuperFarBackground = -adjustedSceneX * speedSuperFarBackground;
-  positionScene = Math.floor(positionScene);
-  positionBackground = Math.floor(positionBackground);
-  positionFarBackground = Math.floor(positionFarBackground);
-  positionSuperFarBackground = Math.floor(positionSuperFarBackground);
-  scenes.css(
-      'transform',
-      'translate(' + Math.min(positionScene, 0) + 'px' +
-          ', ' + sceneY + 'px)');
-  foregrounds.css(
-    'transform',
-    'translate(' + Math.min(positionScene, 0) + 'px' +
-        ', ' + sceneY + 'px)');
-  backgrounds.css(
-      'transform',
-      'translate(' + Math.min(positionBackground, 0) + 'px, ' + sceneY + 'px)');
-  farBackgrounds.css(
-      'transform',
-      'translate(' + Math.min(positionFarBackground, 0) + 'px, ' +
+  positionBackground = Math.min(0, Math.floor(positionBackground));
+  positionFarBackground = Math.min(0, Math.floor(positionFarBackground));
+  positionSuperFarBackground =
+      Math.min(0, Math.floor(positionSuperFarBackground));
+  cssPrefix(
+      backgrounds, 'transform',
+      'translate(' + positionBackground + 'px, ' + sceneY + 'px)');
+  cssPrefix(
+      farBackgrounds, 'transform',
+      'translate(' + positionFarBackground + 'px, ' +
           sceneY * speedFarBackground + 'px)');
-  superFarBackgrounds.css(
-      'transform',
-      'translate(' + Math.min(positionSuperFarBackground, 0) + 'px, ' +
+  cssPrefix(
+      superFarBackgrounds, 'transform',
+      'translate(' + positionSuperFarBackground + 'px, ' +
           sceneY * speedSuperFarBackground + 'px)');
-  bradContainer.css('transform', 'translateX(' + positionBrad + 'px)');
-  if (adjustedSceneX < lastSceneX || lastPositionBrad > positionBrad) {
+
+  // Animate sprite when walking
+  if (adjustedSceneX < lastAdjustedSceneX || lastPositionBrad > positionBrad) {
     if (!moving && !disableWalking) {
       movingRight = false;
       moving = true;
@@ -641,10 +820,12 @@ function updateMovement(sceneX) {
       setTimeout(updateWalkingSprite, timingWalking * 2);
     }
   }
-  clearTimeout(stopWalkingTimeoutID);
-  stopWalkingTimeoutID = setTimeout(function() {
+
+  // Stop walking when it is time to stop
+  clearTimeout(stopWalkingTimeout);
+  stopWalkingTimeout = setTimeout(function() {
     moving = false;
-  }, stopWalkingTimeout);
-  lastSceneX = adjustedSceneX;
+  }, 250);
+  lastAdjustedSceneX = adjustedSceneX;
   lastPositionBrad = positionBrad;
 }
