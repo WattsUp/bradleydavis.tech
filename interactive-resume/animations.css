@@ -1,0 +1,135 @@
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(-245px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-350px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes bubble-float {
+  0% {
+    transform: translateY(0px);
+  }
+  70% {
+    transform: translateY(-245px);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-350px);
+    opacity: 0;
+  }
+}
+
+@keyframes particle-viewer-particle {
+  0% {
+    left: 0px
+  }
+  100% {
+    left: -10px
+  }
+}
+
+@-webkit-keyframes particle-viewer-particle {
+  0% {
+    left: 0px
+  }
+  100% {
+    left: -10px
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@-webkit-keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@keyframes move-stars {
+  0% {
+    transform: translate(0px, -8000px);
+  }
+  100% {
+    transform: translate(0px, 8000px);
+  }
+}
+
+@-webkit-keyframes move-stars {
+  0% {
+    transform: translate(0px, -8000px);
+  }
+  100% {
+    transform: translate(0px, 8000px);
+  }
+}
