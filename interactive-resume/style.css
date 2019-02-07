@@ -87,6 +87,12 @@ body {
   background-color: transparent;
 }
 
+.scene-background.super-far {
+  left: 500px;
+  width: 4000px;
+  height: 3200px;
+}
+
 .scene, .scene-foreground {
   bottom: 0px;
 }
@@ -95,23 +101,16 @@ body {
   width: 3000px;
 }
 
+.move-stars {
+  transform: translate(-1000px);
+  -webkit-transform: translate(-1000px);
+  -moz-transform: translate(-1000px);
+  -ms-transform: translate(-1000px);
+  -o-transform: translate(-1000px);
+}
+
 .sky {
   background: linear-gradient(#28282800, #0000C0FF, #87CEEBFF);
-  -webkit-transition: transform 7s ease-out;
-  -moz-transition: transform 7s ease-out;
-  -ms-transition: transform 7s ease-out;
-  -o-transition: transform 7s ease-out;
-  transition: transform 7s ease-out;
-}
-
-.space-wrapper {
-  animation: move-stars 100s linear infinite;
-  -webkit-animation: move-stars 100s linear infinite;
-}
-
-.space-wrapper:nth-of-type(2) {
-  -webkit-animation-delay: -50s;
-  animation-delay: -50s;
 }
 
 .tree-1 {
@@ -1048,4 +1047,35 @@ body {
 .shook {
   animation: shake 0.5s infinite linear;
   -webkit-animation: shake 0.5s infinite linear;
+}
+
+.space {
+  width: 5000px;
+  height: 7000px;
+  left: 9000px;
+}
+
+.award-meteor {
+  width: 400px;
+  height: 400px;
+}
+
+.award-meteor>div {
+  background: url('images/award-meteor.png');
+  animation: meteor-roll 15s infinite linear;
+  -webkit-animation: meteor-roll 15s infinite linear;
+}
+
+.award-meteor>span {
+  width: 300px;
+}
+
+.award-meteor>span>h1 {
+  text-align: center;
+  text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
+}
+
+.award-meteor>span>h2 {
+  text-align: center;
+  text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
 }

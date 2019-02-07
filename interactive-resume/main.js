@@ -95,16 +95,6 @@ function drawStarfield() {
     contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
     contextSpace.fill();
   }
-  contextSpace = $('.space-wrapper>canvas')[1].getContext('2d');
-  contextSpace.fillStyle = '#FFFFFF';
-  for (var i = 0; i < 10000; i++) {
-    x = Math.floor(Math.random() * 8000);
-    y = Math.floor(Math.random() * 8000);
-    radius = Math.floor(Math.random() * 3);
-    contextSpace.beginPath();
-    contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
-    contextSpace.fill();
-  }
 }
 
 
@@ -482,6 +472,7 @@ var roverTracorBeam = $('.rover-tractor-beam');
 var roverWheels = $('.rover-wheel');
 var scenes = $('#scenes');
 var sky = $('.sky');
+var stars = $('.space-wrapper');
 var shuttle = $('.shuttle');
 var shuttleForeground = $('.shuttle-foreground');
 var shuttleDoorTop = $('.shuttle-door-top');
@@ -500,7 +491,9 @@ function updateScene() {
   // Tubes @ 8890 and 14350
   var sceneY = Math.max(0, Math.min(950, sceneX - 5500)) +
       Math.max(0, Math.min(3410, sceneX - 8890)) +
-      Math.max(0, Math.min(650, sceneX - 14350));
+      Math.max(0, Math.min(650, sceneX - 14350)) +
+      Math.max(0, Math.min((sceneX - 19600) / 2, 350));
+  sceneY = Math.floor(sceneY);
   console.log('sceneX: ' + sceneX + ' sceneY: ' + sceneY);
   updateMovement(sceneX, sceneY);
   updateStory(sceneX, sceneY);
@@ -516,6 +509,7 @@ function updateScene() {
  */
 function launchRocket() {
   cssPrefix(sky, 'transform', 'translateY(8000px');
+  cssPrefix(stars, 'transform', 'translateY(1000px');
   var pageContainer = $('.page-container');
   pageContainer.addClass('shook');
   setTimeout(function() {
@@ -580,7 +574,7 @@ function updateStory(sceneX, sceneY) {
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
     bradJumpContainer.css('bottom', '55px');
-  } else if (sceneX > 16800 && sceneX < 19020) {
+  } else if (sceneX > 16800 && sceneX < 22000) {
     // Jump into the shuttle
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
@@ -670,6 +664,7 @@ function updateStory(sceneX, sceneY) {
     countdownTime = -6;
     updateCountdown();
     cssPrefix(sky, 'transform', 'translateY(0px');
+    cssPrefix(stars, 'transform', 'translateY(0px');
   }
 
   // Operate the shuttle doors
@@ -730,9 +725,15 @@ function updateStory(sceneX, sceneY) {
       roverTracorBeam, 'transform', 'rotate(' + roverTractorAngle + 'rad)');
 
   // Move the shuttle
-  var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 2000));
+  var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 5000));
+  var shuttleY = Math.max(0, Math.min((sceneX - 18650) / 2, 350));
+  shuttleY -= Math.max(0, Math.min((sceneX - 20000) / 2, 100));
+  shuttleY += Math.max(0, Math.min((sceneX - 20900) / 2, 100));
+  shuttleY = Math.floor(shuttleY);
   shuttle.css('left', (1899 + shuttlePosition) + 'px');
+  shuttle.css('bottom', (5010 + shuttleY) + 'px');
   shuttleForeground.css('left', (8660 + shuttlePosition) + 'px');
+  shuttleForeground.css('bottom', (5010 + shuttleY) + 'px');
 }
 
 /**
@@ -782,7 +783,14 @@ function updateMovement(sceneX, sceneY) {
       Math.max(0, Math.min(sceneX - 8890 + screenWidth / 8, screenWidth / 8))
   positionBrad -= Math.max(0, Math.min(sceneX - 12300, screenWidth / 8));
   positionBrad = Math.floor(positionBrad);
-  cssPrefix(bradContainer, 'transform', 'translateX(' + positionBrad + 'px)');
+  var positionBradY = Math.max(0, Math.min((sceneX - 18650) / 2, 350));
+  positionBradY -= Math.max(0, Math.min((sceneX - 19600) / 2, 350));
+  positionBradY -= Math.max(0, Math.min((sceneX - 20000) / 2, 100));
+  positionBradY += Math.max(0, Math.min((sceneX - 20900) / 2, 100));
+  positionBradY = -Math.floor(positionBradY);
+  cssPrefix(
+      bradContainer, 'transform',
+      'translate(' + positionBrad + 'px, ' + positionBradY + 'px)');
 
   // Move backgrounds
   var positionBackground = -adjustedSceneX * speedBackground;
