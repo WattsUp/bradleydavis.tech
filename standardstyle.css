@@ -80,6 +80,14 @@ button {
   font-family: code-new-roman;
 }
 
+.transition-all-7s {
+  -webkit-transition: all 7s;
+  -moz-transition: all 7s;
+  -ms-transition: all 7s;
+  -o-transition: all 7s;
+  transition: all 7s;
+}
+
 .transition-all-1s {
   -webkit-transition: all 1s;
   -moz-transition: all 1s;
