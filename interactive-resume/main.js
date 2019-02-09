@@ -97,7 +97,6 @@ function drawStarfield() {
   }
 }
 
-
 /**
  * Update the scene when window is resized or scrolled
  */
@@ -441,6 +440,7 @@ var lastPositionBrad = 0;
 var lastAdjustedSceneX = $(document).scrollTop();
 var moving = false;
 var timingWalking = 200;
+var screenHeight = 0;
 var speedScene = 1 / 1;
 var speedBackground = 1 / 2;
 var speedFarBackground = 1 / 3;
@@ -471,6 +471,7 @@ var rover = $('.rover');
 var roverTracorBeam = $('.rover-tractor-beam');
 var roverWheels = $('.rover-wheel');
 var scenes = $('#scenes');
+var scrollContainer = $('#scroll-container');
 var sky = $('.sky');
 var stars = $('.space-wrapper');
 var shuttle = $('.shuttle');
@@ -492,7 +493,8 @@ function updateScene() {
   var sceneY = Math.max(0, Math.min(950, sceneX - 5500)) +
       Math.max(0, Math.min(3410, sceneX - 8890)) +
       Math.max(0, Math.min(650, sceneX - 14350)) +
-      Math.max(0, Math.min((sceneX - 19600) / 2, 350));
+      Math.max(0, Math.min((sceneX - 19600) / 2, 350)) -
+      Math.max(0, Math.min(sceneX - 23400, 800));
   sceneY = Math.floor(sceneY);
   console.log('sceneX: ' + sceneX + ' sceneY: ' + sceneY);
   updateMovement(sceneX, sceneY);
@@ -501,6 +503,10 @@ function updateScene() {
   if (groundHeight != ground.height()) {
     groundHeight = ground.height();
     onTheGrounds.css('bottom', groundHeight + 'px');
+  }
+  if (screenHeight != window.innerHeight) {
+    screenHeight = window.innerHeight;
+    scrollContainer.css('height', (25000 + screenHeight) + 'px');
   }
 }
 
@@ -563,7 +569,7 @@ function updateHidden(sceneX) {
 function updateStory(sceneX, sceneY) {
   // Don't walk on the rover, in the tubes, or in the shuttle
   if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300) ||
-      (sceneX > 14350 && sceneX < 15000) || sceneX > 16950) {
+      (sceneX > 14350 && sceneX < 15000) || (sceneX > 16950 && sceneX < 24200)) {
     disableWalking = true;
   } else {
     disableWalking = false;
@@ -574,7 +580,7 @@ function updateStory(sceneX, sceneY) {
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
     bradJumpContainer.css('bottom', '55px');
-  } else if (sceneX > 16800 && sceneX < 22000) {
+  } else if (sceneX > 16800 && sceneX < 24450) {
     // Jump into the shuttle
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
@@ -668,7 +674,7 @@ function updateStory(sceneX, sceneY) {
   }
 
   // Operate the shuttle doors
-  if (sceneX > 16400 && sceneX < 16950) {
+  if ((sceneX > 16400 && sceneX < 16950) || (sceneX > 24250 && sceneX < 24700)) {
     cssPrefix(
         shuttleDoorTop, 'transform', 'rotateX(180deg) perspective(600px)');
     cssPrefix(
@@ -725,10 +731,11 @@ function updateStory(sceneX, sceneY) {
       roverTracorBeam, 'transform', 'rotate(' + roverTractorAngle + 'rad)');
 
   // Move the shuttle
-  var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 5000));
+  var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 6380));
   var shuttleY = Math.max(0, Math.min((sceneX - 18650) / 2, 350));
   shuttleY -= Math.max(0, Math.min((sceneX - 20000) / 2, 100));
   shuttleY += Math.max(0, Math.min((sceneX - 20900) / 2, 100));
+  shuttleY -= Math.max(0, Math.min(sceneX - 23400, 800));
   shuttleY = Math.floor(shuttleY);
   shuttle.css('left', (1899 + shuttlePosition) + 'px');
   shuttle.css('bottom', (5010 + shuttleY) + 'px');
@@ -743,7 +750,7 @@ function updateStory(sceneX, sceneY) {
  */
 function updateMovement(sceneX, sceneY) {
   var adjustedSceneX = sceneX;
-  var screenWidth = $(document).width();
+  var screenWidth = window.innerWidth;
 
   // Center the scene
   adjustedSceneX -= (screenWidth / 2 - 900);
@@ -764,6 +771,12 @@ function updateMovement(sceneX, sceneY) {
 
   // Ride turbolift @ 14350 for 650
   adjustedSceneX -= Math.max(0, Math.min(650, sceneX - 14350));
+
+  // Land the shuttle on Mars
+  adjustedSceneX -= Math.max(0, Math.min(sceneX - 23400, 800));
+
+  // Walk backwards to radio system
+  adjustedSceneX -= Math.max(0, Math.min(sceneX - 24200, 800)) * 2;
 
   // Move the scenes and foregrounds
   var positionScene = -adjustedSceneX * speedScene;
