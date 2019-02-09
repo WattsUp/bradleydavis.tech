@@ -89,8 +89,8 @@ body {
 
 .scene-background.super-far {
   left: 500px;
-  width: 4000px;
-  height: 3200px;
+  width: 5000px;
+  height: 5000px;
 }
 
 .scene, .scene-foreground {
@@ -99,14 +99,6 @@ body {
 
 .scene.lab {
   width: 3000px;
-}
-
-.move-stars {
-  transform: translate(-1000px);
-  -webkit-transform: translate(-1000px);
-  -moz-transform: translate(-1000px);
-  -ms-transform: translate(-1000px);
-  -o-transform: translate(-1000px);
 }
 
 .sky {
@@ -1078,4 +1070,12 @@ body {
 .award-meteor>span>h2 {
   text-align: center;
   text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
+}
+
+.mars {
+  width: 4800px;
+  height: 500px;
+  bottom: 4060px;
+  left: 3400px;
+  background: #701010;
 }
