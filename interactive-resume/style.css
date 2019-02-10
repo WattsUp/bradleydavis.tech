@@ -1074,8 +1074,8 @@ body {
 
 .mars {
   width: 4800px;
-  height: 500px;
-  bottom: 4060px;
+  height:300px;
+  bottom: 4280px;
   left: 3400px;
-  background: #701010;
+  background: url('images/ground-mars.png');
 }
