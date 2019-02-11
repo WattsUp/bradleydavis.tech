@@ -244,7 +244,7 @@ function updateCountdown() {
 
 /************************** User Activated Functions **************************/
 var changingProject = false;
-var countdownTime = -5;
+var countdownTime = -3;
 var currentBox = -1;
 var teleporting = false;
 var skillsClickedTimeout;
@@ -431,6 +431,7 @@ function skillsDisplay(currentDisplay) {
 }
 
 /****************************** Scene Functions *******************************/
+var animateLaunch = true;
 var countdownStarted = false;
 var countdownTimer;
 var disableWalking = false;
@@ -439,13 +440,14 @@ var groundHeight = 0;
 var lastPositionBrad = 0;
 var lastAdjustedSceneX = $(document).scrollTop();
 var moving = false;
-var timingWalking = 200;
+var rocketLaunched = false;
 var screenHeight = 0;
 var speedScene = 1 / 1;
 var speedBackground = 1 / 2;
 var speedFarBackground = 1 / 3;
 var speedSuperFarBackground = 1 / 10;
 var stopWalkingTimeout;
+var timingWalking = 200;
 
 var backgrounds = $('.scene-background');
 var bradSprite = $('.brad');
@@ -464,6 +466,7 @@ var ground = $('.ground');
 var lab = $('.scene.lab');
 var lcdBattery = $('#battery');
 var onTheGrounds = $('.on-the-ground');
+var pageContainer = $('.page-container');
 var rocket = $('.scene.rocket');
 var rocketHatch = $('.rocket-hatch');
 var rocketPowerStatus = $('#rocket-power-status');
@@ -514,13 +517,20 @@ function updateScene() {
  * Launch the rocket into orbit
  */
 function launchRocket() {
+  if (animateLaunch) {
+    sky.addClass('transition-all-7s');
+    stars.addClass('transition-all-7s');
+    pageContainer.addClass('shook');
+    setTimeout(function() {
+      pageContainer.removeClass('shook');
+    }, 4000);
+  } else {
+    sky.removeClass('transition-all-7s');
+    stars.removeClass('transition-all-7s');
+  }
   cssPrefix(sky, 'transform', 'translateY(8000px');
   cssPrefix(stars, 'transform', 'translateY(1000px');
-  var pageContainer = $('.page-container');
-  pageContainer.addClass('shook');
-  setTimeout(function() {
-    pageContainer.removeClass('shook');
-  }, 4000);
+  rocketLaunched = true;
 }
 
 /**
@@ -569,7 +579,8 @@ function updateHidden(sceneX) {
 function updateStory(sceneX, sceneY) {
   // Don't walk on the rover, in the tubes, or in the shuttle
   if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300) ||
-      (sceneX > 14350 && sceneX < 15000) || (sceneX > 16950 && sceneX < 24200)) {
+      (sceneX > 14350 && sceneX < 15000) ||
+      (sceneX > 16950 && sceneX < 24200)) {
     disableWalking = true;
   } else {
     disableWalking = false;
@@ -660,21 +671,45 @@ function updateStory(sceneX, sceneY) {
     tubeForeground.hide();
   }
 
-  // Start the countdown timer
-  if (sceneX > 12300 && countdownStarted == false) {
+  // Start the countdown timer to launch the rocket
+  if (sceneX > 15000 && !rocketLaunched) {
+    // Skip to space
+    if (!countdownStarted) {
+      countdownTimer = setInterval(updateCountdown, 1000);
+      countdownStarted = true;
+    }
+    animateLaunch = false;
+    launchRocket();
+  } else if (sceneX > 12300 && countdownStarted == false && !rocketLaunched) {
     countdownTimer = setInterval(updateCountdown, 1000);
     countdownStarted = true;
-  } else if (sceneX <= 12300 && countdownStarted == true) {
+  } else if (sceneX < 12000 && countdownStarted == true && rocketLaunched) {
+    animateLaunch = true;
     clearInterval(countdownTimer);
     countdownStarted = false;
-    countdownTime = -6;
+    countdownTime = -4;
     updateCountdown();
+    sky.addClass('transition-all-7s');
+    stars.addClass('transition-all-7s');
     cssPrefix(sky, 'transform', 'translateY(0px');
     cssPrefix(stars, 'transform', 'translateY(0px');
+    rocketLaunched = false;
+  } else if (sceneX < 8000 && rocketLaunched) {
+    // Skip to ground
+    clearInterval(countdownTimer);
+    countdownStarted = false;
+    countdownTime = -4;
+    updateCountdown();
+    sky.removeClass('transition-all-7s');
+    stars.removeClass('transition-all-7s');
+    cssPrefix(sky, 'transform', 'translateY(0px');
+    cssPrefix(stars, 'transform', 'translateY(0px');
+    rocketLaunched = false;
   }
 
   // Operate the shuttle doors
-  if ((sceneX > 16400 && sceneX < 16950) || (sceneX > 24250 && sceneX < 24700)) {
+  if ((sceneX > 16400 && sceneX < 16950) ||
+      (sceneX > 24250 && sceneX < 24700)) {
     cssPrefix(
         shuttleDoorTop, 'transform', 'rotateX(180deg) perspective(600px)');
     cssPrefix(
