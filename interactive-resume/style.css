@@ -1,4 +1,5 @@
 body {
+  image-rendering: crisp-edges;
   image-rendering: pixelated;
 }
 
@@ -56,12 +57,28 @@ body {
 
 .brad-eyes.right {
   left: 96px;
-  background-image: url('images/brad-eyes-closed-right.png');
+  background: url('images/brad-eyes-closed-right.png');
 }
 
 .brad-eyes.left {
   left: 76px;
-  background-image: url('images/brad-eyes-closed-left.png');
+  background: url('images/brad-eyes-closed-left.png');
+}
+
+.brad-mask {
+  width: 56px;
+  height: 69px;
+  bottom: 130px;
+  left: 71px;
+}
+
+.brad-mask>.right {
+  background: url('images/brad-mask-right.png');
+}
+
+.brad-mask>.left {
+  left: 2px;
+  background: url('images/brad-mask-left.png');
 }
 
 .jump-up {
@@ -87,6 +104,12 @@ body {
   background-color: transparent;
 }
 
+.scene-background.super-far {
+  left: 500px;
+  width: 5000px;
+  height: 5000px;
+}
+
 .scene, .scene-foreground {
   bottom: 0px;
 }
@@ -96,22 +119,7 @@ body {
 }
 
 .sky {
-  background: linear-gradient(#28282800, #0000C0FF, #87CEEBFF);
-  -webkit-transition: transform 7s ease-out;
-  -moz-transition: transform 7s ease-out;
-  -ms-transition: transform 7s ease-out;
-  -o-transition: transform 7s ease-out;
-  transition: transform 7s ease-out;
-}
-
-.space-wrapper {
-  animation: move-stars 100s linear infinite;
-  -webkit-animation: move-stars 100s linear infinite;
-}
-
-.space-wrapper:nth-of-type(2) {
-  -webkit-animation-delay: -50s;
-  animation-delay: -50s;
+  background: linear-gradient(rgba(40, 40, 40, 0), rgba(0, 0, 192, 1), rgba(135, 206, 235, 1));
 }
 
 .tree-1 {
@@ -1048,4 +1056,142 @@ body {
 .shook {
   animation: shake 0.5s infinite linear;
   -webkit-animation: shake 0.5s infinite linear;
+}
+
+.space {
+  width: 5000px;
+  height: 7000px;
+  left: 9000px;
+}
+
+.award-meteor {
+  width: 400px;
+  height: 400px;
+}
+
+.award-meteor>div {
+  background: url('images/award-meteor.png');
+  animation: meteor-roll 15s infinite linear;
+  -webkit-animation: meteor-roll 15s infinite linear;
+}
+
+.award-meteor>span {
+  width: 300px;
+}
+
+.award-meteor>span>h1 {
+  text-align: center;
+  text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
+}
+
+.award-meteor>span>h2 {
+  text-align: center;
+  text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
+}
+
+.mars {
+  width: 5200px;
+  height: 300px;
+  bottom: 4280px;
+  left: 3200px;
+  background: url('images/ground-mars.png');
+}
+
+.mars-mountains {
+  width: 4800px;
+  height: 100px;
+  bottom: 45000px;
+  left: 6000px;
+  background: url('images/mars-mountains.png');
+  -webkit-transform: translateY(-4000px);
+  -moz-transform: translateY(-4550px);
+  -ms-transform: translateY(-4550px);
+  -o-transform: translateY(-4550px);
+  transform: translateY(-4550px);
+}
+
+.mars-lander {
+  width: 300px;
+  height: 141px;
+  left: 1800px;
+  bottom: 280px;
+  background: url('images/mars-lander.png');
+}
+
+.mars-lander-mast {
+  width: 24px;
+  height: 300px;
+  bottom: 105px;
+  left: 230px;
+  background: url('images/mars-lander-mast.png');
+  transform-origin: 0% 100%;
+  -webkit-transform: scale(1.41, 0);
+  -moz-transform: scale(1.41, 0);
+  -ms-transform: scale(1.41, 0);
+  -o-transform: scale(1.41, 0);
+  transform: scale(1.41, 0);
+}
+
+.mars-lander-mast>form {
+  right: 24px;
+  width: 300px;
+  height: 240px;
+  border: 5px solid #737373;
+  transform-origin: 100% 0%;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
+}
+
+.mars-lander-mast>form>h1 {
+  font-size: 18px;
+  width: 280px;
+  left: 10px;
+  top: 3px;
+  text-align: center;
+}
+
+.mars-lander-mast>form>input {
+  font-size: 14px;
+  width: 276px;
+  left: 10px;
+  top: 27px;
+  border: none;
+  padding: 2px;
+}
+
+.mars-lander-mast>form>textarea {
+  font-size: 14px;
+  width: 276px;
+  left: 10px;
+  top: 57px;
+  height: 145px;
+  border: none;
+  padding: 2px;
+  resize: none;
+}
+
+.mars-lander-mast>form>button {
+  font-size: 18px;
+  width: 280px;
+  left: 10px;
+  bottom: 3px;
+}
+
+.mars-lander-flag {
+  height: 120px;
+  width: 160px;
+  top: 0px;
+  left: 24px;
+  background: url('images/mars-lander-flag.png');
+  background-size: 100% 100%;
+  image-rendering: auto;
+  transform-origin: 0% 0%;
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transform: scaleX(0);
 }
