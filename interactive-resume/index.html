@@ -35,7 +35,7 @@
     <div id="experience" class="absolute" style="top: 9800px"></div>
     <div id="portfolio" class="absolute" style="top: 15300px"></div>
     <div id="awards" class="absolute" style="top: 19000px"></div>
-    <div id="contact" class="absolute" style="top: 22000px"></div>
+    <div id="contact" class="absolute" style="top: 25000px"></div>
   </div>
   <div class="page-container fill-horz fill-vert background-dark">
     <div class="scene-background super-far absolute">
@@ -63,6 +63,7 @@
       <div class="tree-4 on-the-ground absolute" style="left: 2300px"></div>
       <div class="tree-2 on-the-ground absolute" style="left: 3100px"></div>
       <div class="tree-1 on-the-ground absolute" style="left: 3200px"></div>
+      <div class="mars-mountains on-the-ground absolute"></div>
     </div>
     <div id="scenes" class="absolute fill-vert">
       <div class="scene ground">
@@ -634,9 +635,20 @@
           </span>
         </div>
         <div class="mars absolute">
+          <div class="mars-lander absolute">
+            <div class="mars-lander-mast absolute transition-all-1s">
+              <form method="POST" class="absolute background-dark transition-all-1s" action="https://formspree.io/me@bradleydavis.tech">
+                <h1 class="text-body absolute color-primary">Contact Me</h1>
+                <input class="text-body absolute" type="email" name="email" placeholder="Your email">
+                <textarea class="text-body absolute" name="message" placeholder="Your Message"></textarea>
+                <button class="text-body absolute button-accent" type="submit">Transmit to Earth</button>
+              </form>
+              <div class="mars-lander-flag absolute transition-all-500ms"></div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="scene rocket on-the-ground absolute">
+      <div class="scene rocket on-the-ground absolute" style="width: 0px; height: 0px">
         <div class="shuttle absolute">
           <div class="shuttle-door-top interior absolute transition-all-500ms"> </div>
           <div class="shuttle-door-top exterior absolute transition-all-500ms"></div>
@@ -651,6 +663,10 @@
         <div class="brad absolute"></div>
         <div class="absolute brad-eyes right"></div>
         <div class="absolute brad-eyes left"></div>
+        <div class="absolute brad-mask">
+          <div class="right absolute fill-horz fill-vert"></div>
+          <div class="left absolute fill-horz fill-vert"></div>
+        </div>
       </div>
     </div>
     <div class="scene-foreground absolute on-the-ground">
