@@ -437,6 +437,7 @@ var countdownTimer;
 var disableWalking = false;
 var currentWalkingFrame = 0;
 var groundHeight = 0;
+var landerMastDeployed = false;
 var lastPositionBrad = 0;
 var lastAdjustedSceneX = $(document).scrollTop();
 var moving = false;
@@ -455,6 +456,7 @@ var bradContainer = $('.brad-container');
 var bradJumpContainer = $('.brad-container>div');
 var elevator = $('.elevator-cargo');
 var elevatorThruster = $('.thruster-on');
+var emailForm = $('.mars-lander-mast>form');
 var engineRoomWire = $('.engine-room-wire');
 var farBackgrounds = $('.scene-background.far');
 var fluidElectronics = $('#fluid-electronics');
@@ -464,7 +466,12 @@ var fluidArt = $('#fluid-art');
 var foregrounds = $('.scene-foreground');
 var ground = $('.ground');
 var lab = $('.scene.lab');
+var landerMast = $('.mars-lander-mast');
+var landerFlag = $('.mars-lander-flag');
 var lcdBattery = $('#battery');
+var mask = $('.brad-mask');
+var maskRight = $('.brad-mask>.right');
+var maskLeft = $('.brad-mask>.left');
 var onTheGrounds = $('.on-the-ground');
 var pageContainer = $('.page-container');
 var rocket = $('.scene.rocket');
@@ -528,8 +535,8 @@ function launchRocket() {
     sky.removeClass('transition-all-7s');
     stars.removeClass('transition-all-7s');
   }
-  cssPrefix(sky, 'transform', 'translateY(8000px');
-  cssPrefix(stars, 'transform', 'translateY(1000px');
+  cssPrefix(sky, 'transform', 'translateY(8000px)');
+  cssPrefix(stars, 'transform', 'translateY(1000px)');
   rocketLaunched = true;
 }
 
@@ -551,6 +558,13 @@ function updateWalkingSprite() {
     case 3:
       bradSprite.css('left', '-400px');
       break;
+  }
+  if (movingRight) {
+    maskRight.show();
+    maskLeft.hide();
+  } else {
+    maskRight.hide();
+    maskLeft.show();
   }
 }
 
@@ -691,10 +705,13 @@ function updateStory(sceneX, sceneY) {
     updateCountdown();
     sky.addClass('transition-all-7s');
     stars.addClass('transition-all-7s');
-    cssPrefix(sky, 'transform', 'translateY(0px');
-    cssPrefix(stars, 'transform', 'translateY(0px');
-    rocketLaunched = false;
-  } else if (sceneX < 8000 && rocketLaunched) {
+    cssPrefix(sky, 'transform', 'translateY(0px)');
+    cssPrefix(stars, 'transform', 'translateY(0px)');
+    setTimeout(function() {
+      rocketLaunched = false;
+    }, 7000);
+  }
+  if (sceneX < 8000 && rocketLaunched) {
     // Skip to ground
     clearInterval(countdownTimer);
     countdownStarted = false;
@@ -702,8 +719,8 @@ function updateStory(sceneX, sceneY) {
     updateCountdown();
     sky.removeClass('transition-all-7s');
     stars.removeClass('transition-all-7s');
-    cssPrefix(sky, 'transform', 'translateY(0px');
-    cssPrefix(stars, 'transform', 'translateY(0px');
+    cssPrefix(sky, 'transform', 'translateY(0px)');
+    cssPrefix(stars, 'transform', 'translateY(0px)');
     rocketLaunched = false;
   }
 
@@ -720,7 +737,7 @@ function updateStory(sceneX, sceneY) {
   }
 
   // Turn on the shuttle's thrust
-  if (sceneX > 16950) {
+  if (sceneX > 16950 && sceneX < 24200) {
     shuttleThrust.show();
   } else {
     shuttleThrust.hide();
@@ -738,6 +755,25 @@ function updateStory(sceneX, sceneY) {
     backlightEngineRoom = '#FF1C1C';
     flashBacklightEngineRoom();
     rocketPowerStatus.css('color', '#FF1C1C');
+  }
+
+  // Put on oxygen mask
+  if (sceneX > 24320) {
+    mask.show();
+  } else {
+    mask.hide();
+  }
+
+  // Deploy the lander's deployables
+  if (sceneX > 24900 && !landerMastDeployed) {
+    landerMastDeployed = true;
+    cssPrefix(landerMast, 'transform', 'scaleY(1.0)');
+    setTimeout(function() {
+      cssPrefix(emailForm, 'transform', 'scaleX(1.0)');
+    }, 1000);
+    setTimeout(function() {
+      cssPrefix(landerFlag, 'transform', 'scaleX(1.0)');
+    }, 2000);
   }
 
   // Move the rover
