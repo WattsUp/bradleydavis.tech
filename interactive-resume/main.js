@@ -95,18 +95,7 @@ function drawStarfield() {
     contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
     contextSpace.fill();
   }
-  contextSpace = $('.space-wrapper>canvas')[1].getContext('2d');
-  contextSpace.fillStyle = '#FFFFFF';
-  for (var i = 0; i < 10000; i++) {
-    x = Math.floor(Math.random() * 8000);
-    y = Math.floor(Math.random() * 8000);
-    radius = Math.floor(Math.random() * 3);
-    contextSpace.beginPath();
-    contextSpace.arc(x, y, radius, 0, Math.PI * 2, true);
-    contextSpace.fill();
-  }
 }
-
 
 /**
  * Update the scene when window is resized or scrolled
@@ -255,7 +244,7 @@ function updateCountdown() {
 
 /************************** User Activated Functions **************************/
 var changingProject = false;
-var countdownTime = -5;
+var countdownTime = -3;
 var currentBox = -1;
 var teleporting = false;
 var skillsClickedTimeout;
@@ -442,20 +431,24 @@ function skillsDisplay(currentDisplay) {
 }
 
 /****************************** Scene Functions *******************************/
+var animateLaunch = true;
 var countdownStarted = false;
 var countdownTimer;
 var disableWalking = false;
 var currentWalkingFrame = 0;
 var groundHeight = 0;
+var landerMastDeployed = false;
 var lastPositionBrad = 0;
 var lastAdjustedSceneX = $(document).scrollTop();
 var moving = false;
-var timingWalking = 200;
+var rocketLaunched = false;
+var screenHeight = 0;
 var speedScene = 1 / 1;
 var speedBackground = 1 / 2;
 var speedFarBackground = 1 / 3;
 var speedSuperFarBackground = 1 / 10;
 var stopWalkingTimeout;
+var timingWalking = 200;
 
 var backgrounds = $('.scene-background');
 var bradSprite = $('.brad');
@@ -463,6 +456,7 @@ var bradContainer = $('.brad-container');
 var bradJumpContainer = $('.brad-container>div');
 var elevator = $('.elevator-cargo');
 var elevatorThruster = $('.thruster-on');
+var emailForm = $('.mars-lander-mast>form');
 var engineRoomWire = $('.engine-room-wire');
 var farBackgrounds = $('.scene-background.far');
 var fluidElectronics = $('#fluid-electronics');
@@ -472,8 +466,14 @@ var fluidArt = $('#fluid-art');
 var foregrounds = $('.scene-foreground');
 var ground = $('.ground');
 var lab = $('.scene.lab');
+var landerMast = $('.mars-lander-mast');
+var landerFlag = $('.mars-lander-flag');
 var lcdBattery = $('#battery');
+var mask = $('.brad-mask');
+var maskRight = $('.brad-mask>.right');
+var maskLeft = $('.brad-mask>.left');
 var onTheGrounds = $('.on-the-ground');
+var pageContainer = $('.page-container');
 var rocket = $('.scene.rocket');
 var rocketHatch = $('.rocket-hatch');
 var rocketPowerStatus = $('#rocket-power-status');
@@ -481,7 +481,9 @@ var rover = $('.rover');
 var roverTracorBeam = $('.rover-tractor-beam');
 var roverWheels = $('.rover-wheel');
 var scenes = $('#scenes');
+var scrollContainer = $('#scroll-container');
 var sky = $('.sky');
+var stars = $('.space-wrapper');
 var shuttle = $('.shuttle');
 var shuttleForeground = $('.shuttle-foreground');
 var shuttleDoorTop = $('.shuttle-door-top');
@@ -500,7 +502,10 @@ function updateScene() {
   // Tubes @ 8890 and 14350
   var sceneY = Math.max(0, Math.min(950, sceneX - 5500)) +
       Math.max(0, Math.min(3410, sceneX - 8890)) +
-      Math.max(0, Math.min(650, sceneX - 14350));
+      Math.max(0, Math.min(650, sceneX - 14350)) +
+      Math.max(0, Math.min((sceneX - 19600) / 2, 350)) -
+      Math.max(0, Math.min(sceneX - 23400, 800));
+  sceneY = Math.floor(sceneY);
   console.log('sceneX: ' + sceneX + ' sceneY: ' + sceneY);
   updateMovement(sceneX, sceneY);
   updateStory(sceneX, sceneY);
@@ -509,18 +514,30 @@ function updateScene() {
     groundHeight = ground.height();
     onTheGrounds.css('bottom', groundHeight + 'px');
   }
+  if (screenHeight != window.innerHeight) {
+    screenHeight = window.innerHeight;
+    scrollContainer.css('height', (25000 + screenHeight) + 'px');
+  }
 }
 
 /**
  * Launch the rocket into orbit
  */
 function launchRocket() {
-  cssPrefix(sky, 'transform', 'translateY(8000px');
-  var pageContainer = $('.page-container');
-  pageContainer.addClass('shook');
-  setTimeout(function() {
-    pageContainer.removeClass('shook');
-  }, 4000);
+  if (animateLaunch) {
+    sky.addClass('transition-all-7s');
+    stars.addClass('transition-all-7s');
+    pageContainer.addClass('shook');
+    setTimeout(function() {
+      pageContainer.removeClass('shook');
+    }, 4000);
+  } else {
+    sky.removeClass('transition-all-7s');
+    stars.removeClass('transition-all-7s');
+  }
+  cssPrefix(sky, 'transform', 'translateY(8000px)');
+  cssPrefix(stars, 'transform', 'translateY(1000px)');
+  rocketLaunched = true;
 }
 
 /**
@@ -541,6 +558,13 @@ function updateWalkingSprite() {
     case 3:
       bradSprite.css('left', '-400px');
       break;
+  }
+  if (movingRight) {
+    maskRight.show();
+    maskLeft.hide();
+  } else {
+    maskRight.hide();
+    maskLeft.show();
   }
 }
 
@@ -569,7 +593,8 @@ function updateHidden(sceneX) {
 function updateStory(sceneX, sceneY) {
   // Don't walk on the rover, in the tubes, or in the shuttle
   if ((sceneX > 480 && sceneX < 6500) || (sceneX > 8890 && sceneX < 12300) ||
-      (sceneX > 14350 && sceneX < 15000) || sceneX > 16950) {
+      (sceneX > 14350 && sceneX < 15000) ||
+      (sceneX > 16950 && sceneX < 24200)) {
     disableWalking = true;
   } else {
     disableWalking = false;
@@ -580,7 +605,7 @@ function updateStory(sceneX, sceneY) {
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
     bradJumpContainer.css('bottom', '55px');
-  } else if (sceneX > 16800 && sceneX < 19020) {
+  } else if (sceneX > 16800 && sceneX < 24450) {
     // Jump into the shuttle
     bradJumpContainer.addClass('jump-up');
     bradJumpContainer.removeClass('jump-down');
@@ -660,31 +685,59 @@ function updateStory(sceneX, sceneY) {
     tubeForeground.hide();
   }
 
-  // Start the countdown timer
-  if (sceneX > 12300 && countdownStarted == false) {
+  // Start the countdown timer to launch the rocket
+  if (sceneX > 15000 && !rocketLaunched) {
+    // Skip to space
+    if (!countdownStarted) {
+      countdownTimer = setInterval(updateCountdown, 1000);
+      countdownStarted = true;
+    }
+    animateLaunch = false;
+    launchRocket();
+  } else if (sceneX > 12300 && countdownStarted == false && !rocketLaunched) {
     countdownTimer = setInterval(updateCountdown, 1000);
     countdownStarted = true;
-  } else if (sceneX <= 12300 && countdownStarted == true) {
+  } else if (sceneX < 12000 && countdownStarted == true && rocketLaunched) {
+    animateLaunch = true;
     clearInterval(countdownTimer);
     countdownStarted = false;
-    countdownTime = -6;
+    countdownTime = -4;
     updateCountdown();
-    cssPrefix(sky, 'transform', 'translateY(0px');
+    sky.addClass('transition-all-7s');
+    stars.addClass('transition-all-7s');
+    cssPrefix(sky, 'transform', 'translateY(0px)');
+    cssPrefix(stars, 'transform', 'translateY(0px)');
+    setTimeout(function() {
+      rocketLaunched = false;
+    }, 7000);
+  }
+  if (sceneX < 8000 && rocketLaunched) {
+    // Skip to ground
+    clearInterval(countdownTimer);
+    countdownStarted = false;
+    countdownTime = -4;
+    updateCountdown();
+    sky.removeClass('transition-all-7s');
+    stars.removeClass('transition-all-7s');
+    cssPrefix(sky, 'transform', 'translateY(0px)');
+    cssPrefix(stars, 'transform', 'translateY(0px)');
+    rocketLaunched = false;
   }
 
   // Operate the shuttle doors
-  if (sceneX > 16400 && sceneX < 16950) {
+  if ((sceneX > 16400 && sceneX < 16950) ||
+      (sceneX > 24250 && sceneX < 24700)) {
     cssPrefix(
         shuttleDoorTop, 'transform', 'rotateX(180deg) perspective(600px)');
     cssPrefix(
         shuttleDoorBottom, 'transform', 'rotateX(-180deg) perspective(600px)');
   } else {
-    cssPrefix(shuttleDoorTop, 'transform', 'rotateX(0deg)');
-    cssPrefix(shuttleDoorBottom, 'transform', 'rotateX(0deg)');
+    cssPrefix(shuttleDoorTop, 'transform', 'rotateX(0deg) perspective(600px)');
+    cssPrefix(shuttleDoorBottom, 'transform', 'rotateX(0deg) perspective(600px)');
   }
 
   // Turn on the shuttle's thrust
-  if (sceneX > 16950) {
+  if (sceneX > 16950 && sceneX < 24200) {
     shuttleThrust.show();
   } else {
     shuttleThrust.hide();
@@ -702,6 +755,25 @@ function updateStory(sceneX, sceneY) {
     backlightEngineRoom = '#FF1C1C';
     flashBacklightEngineRoom();
     rocketPowerStatus.css('color', '#FF1C1C');
+  }
+
+  // Put on oxygen mask
+  if (sceneX > 24320) {
+    mask.show();
+  } else {
+    mask.hide();
+  }
+
+  // Deploy the lander's deployables
+  if (sceneX > 24900 && !landerMastDeployed) {
+    landerMastDeployed = true;
+    cssPrefix(landerMast, 'transform', 'scale(1.0, 1.0)');
+    setTimeout(function() {
+      cssPrefix(emailForm, 'transform', 'scaleX(1.0)');
+    }, 1000);
+    setTimeout(function() {
+      cssPrefix(landerFlag, 'transform', 'scaleX(1.0)');
+    }, 2000);
   }
 
   // Move the rover
@@ -730,9 +802,16 @@ function updateStory(sceneX, sceneY) {
       roverTracorBeam, 'transform', 'rotate(' + roverTractorAngle + 'rad)');
 
   // Move the shuttle
-  var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 2000));
+  var shuttlePosition = Math.max(0, Math.min(sceneX - 17020, 6380));
+  var shuttleY = Math.max(0, Math.min((sceneX - 18650) / 2, 350));
+  shuttleY -= Math.max(0, Math.min((sceneX - 20000) / 2, 100));
+  shuttleY += Math.max(0, Math.min((sceneX - 20900) / 2, 100));
+  shuttleY -= Math.max(0, Math.min(sceneX - 23400, 800));
+  shuttleY = Math.floor(shuttleY);
   shuttle.css('left', (1899 + shuttlePosition) + 'px');
+  shuttle.css('bottom', (5010 + shuttleY) + 'px');
   shuttleForeground.css('left', (8660 + shuttlePosition) + 'px');
+  shuttleForeground.css('bottom', (5010 + shuttleY) + 'px');
 }
 
 /**
@@ -742,7 +821,7 @@ function updateStory(sceneX, sceneY) {
  */
 function updateMovement(sceneX, sceneY) {
   var adjustedSceneX = sceneX;
-  var screenWidth = $(document).width();
+  var screenWidth = window.innerWidth;
 
   // Center the scene
   adjustedSceneX -= (screenWidth / 2 - 900);
@@ -764,6 +843,12 @@ function updateMovement(sceneX, sceneY) {
   // Ride turbolift @ 14350 for 650
   adjustedSceneX -= Math.max(0, Math.min(650, sceneX - 14350));
 
+  // Land the shuttle on Mars
+  adjustedSceneX -= Math.max(0, Math.min(sceneX - 23400, 800));
+
+  // Walk backwards to radio system
+  adjustedSceneX -= Math.max(0, Math.min(sceneX - 24200, 800)) * 2;
+
   // Move the scenes and foregrounds
   var positionScene = -adjustedSceneX * speedScene;
   positionScene = Math.floor(positionScene);
@@ -782,7 +867,14 @@ function updateMovement(sceneX, sceneY) {
       Math.max(0, Math.min(sceneX - 8890 + screenWidth / 8, screenWidth / 8))
   positionBrad -= Math.max(0, Math.min(sceneX - 12300, screenWidth / 8));
   positionBrad = Math.floor(positionBrad);
-  cssPrefix(bradContainer, 'transform', 'translateX(' + positionBrad + 'px)');
+  var positionBradY = Math.max(0, Math.min((sceneX - 18650) / 2, 350));
+  positionBradY -= Math.max(0, Math.min((sceneX - 19600) / 2, 350));
+  positionBradY -= Math.max(0, Math.min((sceneX - 20000) / 2, 100));
+  positionBradY += Math.max(0, Math.min((sceneX - 20900) / 2, 100));
+  positionBradY = -Math.floor(positionBradY);
+  cssPrefix(
+      bradContainer, 'transform',
+      'translate(' + positionBrad + 'px, ' + positionBradY + 'px)');
 
   // Move backgrounds
   var positionBackground = -adjustedSceneX * speedBackground;
