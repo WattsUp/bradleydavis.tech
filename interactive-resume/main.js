@@ -732,8 +732,8 @@ function updateStory(sceneX, sceneY) {
     cssPrefix(
         shuttleDoorBottom, 'transform', 'rotateX(-180deg) perspective(600px)');
   } else {
-    cssPrefix(shuttleDoorTop, 'transform', 'rotateX(0deg)');
-    cssPrefix(shuttleDoorBottom, 'transform', 'rotateX(0deg)');
+    cssPrefix(shuttleDoorTop, 'transform', 'rotateX(0deg) perspective(600px)');
+    cssPrefix(shuttleDoorBottom, 'transform', 'rotateX(0deg) perspective(600px)');
   }
 
   // Turn on the shuttle's thrust
@@ -767,7 +767,7 @@ function updateStory(sceneX, sceneY) {
   // Deploy the lander's deployables
   if (sceneX > 24900 && !landerMastDeployed) {
     landerMastDeployed = true;
-    cssPrefix(landerMast, 'transform', 'scaleY(1.0)');
+    cssPrefix(landerMast, 'transform', 'scale(1.0, 1.0)');
     setTimeout(function() {
       cssPrefix(emailForm, 'transform', 'scaleX(1.0)');
     }, 1000);
