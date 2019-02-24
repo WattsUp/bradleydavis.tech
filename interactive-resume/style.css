@@ -915,6 +915,10 @@ body {
   transform: translate(-50%) scale(1.0);
 }
 
+.project:hover {
+  text-decoration: none;
+}
+
 .project>h1 {
   font-size: 30px;
   padding: 3px 10px;
