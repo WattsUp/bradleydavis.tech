@@ -23,35 +23,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
-<body>
+<body class="relative">
   <header class="background-primary">
-    <h1 class="text-title color-dark">Bradley L. Davis</h1>
+    <a class="text-title color-dark" href="/">Bradley L. Davis</a>
     <div class="header-right">
-      <button class="menu-wheel transition-all-1s">
+      <div class="menu-wheel">
         <div class="menu-wheel-icon b-rad"></div>
-        <h1 class="text-body color-dark menu-wheel-text">About Me</h1>
-      </button>
-      <button class="menu-wheel transition-all-1s">
+        <a class="text-body color-dark" href="/about">About Me</a>
+      </div>
+      <div class="menu-wheel">
         <div class="menu-wheel-icon portfolio"></div>
-        <h1 class="text-body color-dark">Portfolio</h1>
-      </button>
-      <button class="menu-wheel labs transition-all-1s">
+        <a class="text-body color-dark" href="/portfolio">Portfolio</a>
+      </div>
+      <div class="menu-wheel labs">
         <div class="menu-wheel-icon labs"></div>
-        <h1 class="text-body color-dark">Laboratory</h1>
-      </button>
-      <button class="menu-wheel life transition-all-1s">
+        <a class="text-body color-dark" href="/lab">Laboratories</a>
+      </div>
+      <div class="menu-wheel life">
         <div class="menu-wheel-icon life"></div>
-        <h1 class="text-body color-dark">Life & Travel</h1>
-      </button>
-      <button class="menu-wheel contact transition-all-1s">
+        <a class="text-body color-dark" href="/life">Life & Travel</a>
+      </div>
+      <div class="menu-wheel contact">
         <div class="menu-wheel-icon contact"></div>
-        <h1 class="text-body color-dark">Contact Me</h1>
-      </button>
+        <a class="text-body color-dark" href="/contact">Contact Me</a>
+      </div>
     </div>
   </header>
-  <h2>Under construction</h2>
-  <h3><a href="interactive-resume/">Interactive Resume</a></h3>
-  <h3><a href="files/Bradley-L-Davis-Resume.2018.01.pdf">PDF Resume</a></h3>
-  <h3><a href="files/Bradley-L-Davis-Portfolio.2018.01.pdf">PDF Portfolio</a></h3>
+  <main>
+    <div class="banner relative" style="background-image: url('/images/interactive-resume.png'); background-position: 50% 80%">
+      <div class="banner-text absolute">
+        <h1 class="text-title">Interactive Resume</h1>
+        <p class="text-body">This website tells of my resume through story and cute pixel art.</p>
+        <a class="text-body button-accent transition-all-300ms" href="/interactive-resume">Launch</a>
+      </div>
+    </div>
+    <div class="main-text text-body">
+      <h1 class="text-title">Welcome</h1>
+      <p>That fellow in the red, he is pretty cool. I guess he lives here which is interesting, I wonder how he eats,
+        <i>hmm</i>. Perhaps he has a big pot of soup, or a hamburger, sent my email. This talk of food makes me hungry, are you
+        hungry? Never mind. He wanders about near the bottom if you want to say hi.</p>
+      <p>Oh no, I almost forgot to introduce myself. I am Bradley.</p>
+      <p><i>Hi, Bradley.</i></p>
+      <p>I am the dude in the red, that fellow is me. I'm an engineer, or at least I try to be. Let me show you my place: <i>uhhh...</i>
+        Oh, up there on the left is my name. On the right are different parts of my place, feel free to peruse but
+        don't touch the radioac... <b>CONNECTION HAS BEEN TERMINATED</b></p>
+      <p><b>CONNECTION REESTABLISHED:</b> Awkward... forgot about what I can and cannot say, <i>haha</i>. Where was I?
+        Oh yeah, have fun, stay a while. There is a futon and some chips in the pantry if you need to crash here. Today
+        is <i id="food-message"></i>, there might be some in the fridge. Enjoy!</p>
+      <p class="text-hidden">Oh yeah, one more thing: you know what is really awkward? This empty
+        space. I mean... I <i>could</i> remove it since it doesn't do anything productive. But it was here before I
+        had all of this other text, and its presence really made me whole. I enjoyed having the extra bit of space
+        after the main content. I'm sure I could figure out how to add an empty space after the stuff above instead of
+        typing this paragraph then hiding it. <b>To Stack Overflow</b>, up top... anyone?... Okay, just let me know when
+        you want to fist bump me, then I can put my hand down. This is going to be so funny, those on mobile probably
+        can't see this message unless they randomly tap the screen. I think this is enough space. Also, please fist
+        bump me, I'm loosing feeling.</p>
+    </div>
+  </main>
+  <footer class="fill-horz absolute">
+    <hr class="background-primary fill-horz">
+    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="footer-link github" href="https://github.com/WattsUp"></a>
+      <a class="footer-link contact" href="mailto:me@bradleydavis.tech"></a>
+    </div>
+    <div class="footer-brad absolute transition-all-2s">
+      <div class="footer-brad-sprite absolute"></div>
+    </div>
+  </footer>
   <script src="/standardscript.js"></script>
+  <script src="/main.js"></script>
 </body>

@@ -1,0 +1,9 @@
+.color-swatch {
+  margin: 1rem;
+  border: 2px #ffffff solid;
+  flex: 1;
+}
+
+.color-swatch>h1, .color-swatch>h2 {
+  padding: 0.5rem;
+}
