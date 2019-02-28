@@ -1,0 +1,32 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  border-width: 0.25rem;
+}
+
+.contact-form>input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+}
+
+.contact-form>textarea {
+  margin: 0.5rem 0;
+  height: 12rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+}
+
+.contact-form>button {
+  margin: 0.5rem auto;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}

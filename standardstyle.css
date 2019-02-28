@@ -275,7 +275,7 @@ main {
 .main-text {
   width: 80%;
   margin: 0 auto;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
 }
 
 .main-text>h1 {
@@ -299,7 +299,7 @@ main {
 }
 
 .main-text>p {
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 .menu-wheel {
