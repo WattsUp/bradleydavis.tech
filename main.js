@@ -12,7 +12,7 @@ $(window).bind('load', function() {
 function updateFoodMessage() {
   var menu = [
     'Sundae Sunday', 'Meatloaf Monday', 'Thai Tuesday', 'Waffle Wednesday',
-    'Thai Thursday', 'Fried Food Friday', 'Salmon Saturday'
+    'Turnip Thursday', 'Fried Food Friday', 'Salmon Saturday'
   ];
   $('#food-message').text(menu[(new Date()).getDay()]);
   var today = new Date();
