@@ -162,6 +162,10 @@ button {
   flex-direction: row;
 }
 
+.float-left {
+  float: left;
+}
+
 footer {
   bottom: 0px;
   height: 10rem;
@@ -296,6 +300,12 @@ main {
 .main-text>h4 {
   font-size: 1.5rem;
   margin-top: 0.5rem;
+}
+
+.main-text>img {
+  max-width: 40%;
+  max-height: 30rem;
+  padding: 0.5rem;
 }
 
 .main-text>p {
