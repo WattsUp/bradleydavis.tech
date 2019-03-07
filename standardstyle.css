@@ -38,6 +38,14 @@
   }
 }
 
+:root {
+  --color-primary: #52ade1;
+  --color-secondary: #164693;
+  --color-accent: #33FF33;
+  --color-light: #FFFFFF;
+  --color-dark: #282828;
+}
+
 * {
   margin: 0px;
 }
@@ -49,7 +57,7 @@ a {
 
 a:hover, a:active {
   text-decoration: underline;
-  color: #33FF33;
+  color: var(--color-accent);
 }
 
 .absolute {
@@ -57,19 +65,19 @@ a:hover, a:active {
 }
 
 .background-accent {
-  background: #33FF33;
+  background: var(--color-accent);
 }
 
 .background-dark {
-  background: #282828;
+  background: var(--color-dark);
 }
 
 .background-primary {
-  background: #52ade1;
+  background: var(--color-primary);
 }
 
 .background-secondary {
-  background: #164693;
+  background: var(--color-secondary);
 }
 
 .banner {
@@ -118,35 +126,34 @@ button {
 .button-accent {
   background-color: transparent;
   border: 2px solid transparent;
-  color: #33FF33;
-  background: #282828;
+  color: var(--color-accent);
+  background: var(--color-dark);
   padding: 0;
 }
 
 .button-accent:hover {
-  border: 2px solid #33FF33;
+  border: 2px solid var(--color-accent);
 }
 
 .button-accent:active {
-  border: 2px solid #33FF33;
-  background-color: #33FF33;
-  color: #282828;
+  border: 2px solid var(--color-accent);
+  color: var(--color-dark);
 }
 
 .color-accent {
-  color: #33FF33;
+  color: var(--color-accent);
 }
 
 .color-dark {
-  color: #282828;
+  color: var(--color-dark);
 }
 
 .color-primary {
-  color: #52ade1;
+  color: var(--color-primary);
 }
 
 .color-secondary {
-  color: #164693;
+  color: var(--color-secondary);
 }
 
 .fill-horz {
@@ -255,7 +262,7 @@ header>a {
 }
 
 header>a:hover, header>a:active {
-  color: #282828;
+  color: var(--color-dark);
   text-decoration: none;
 }
 
@@ -265,8 +272,8 @@ header>a:hover, header>a:active {
 }
 
 html {
-  background: #282828;
-  color: #FFFFFF;
+  background: var(--color-dark);
+  color: var(--color-light);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
@@ -346,7 +353,7 @@ main {
 }
 
 .menu-wheel>a:hover, .menu-wheel>a:active {
-  color: #282828;
+  color: var(--color-dark);
   text-decoration: none;
 }
 
