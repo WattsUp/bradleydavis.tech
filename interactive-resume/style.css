@@ -33,6 +33,15 @@ body {
   top: 0px;
 }
 
+.button-accent {
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  padding: 0;
+}
+
 .brad {
   width: 600px;
   height: 400px;

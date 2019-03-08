@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-117703589-1');
+  </script>
+  <meta charset="UTF-8">
+  <title>Bradley L. Davis | me@bradleydavis.tech</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/utils.js"></script>
+  <link rel="stylesheet" href="/standardstyle.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="theme-color" content="#164693">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body class="relative">
+  <header class="background-primary">
+    <a class="text-title color-dark" href="/">Bradley L. Davis</a>
+    <div class="header-right">
+      <div class="menu-wheel">
+        <div class="menu-wheel-icon b-rad"></div>
+        <a class="text-body color-dark" href="/about" tabindex="-1">About Me</a>
+      </div>
+      <div class="menu-wheel">
+        <div class="menu-wheel-icon portfolio"></div>
+        <a class="text-body color-dark" href="/portfolio" tabindex="-1">Portfolio</a>
+      </div>
+      <div class="menu-wheel">
+        <div class="menu-wheel-icon labs"></div>
+        <a class="text-body color-dark" href="/lab" tabindex="-1">Laboratories</a>
+      </div>
+      <div class="menu-wheel">
+        <div class="menu-wheel-icon life"></div>
+        <a class="text-body color-dark" href="/life" tabindex="-1">Life & Travel</a>
+      </div>
+      <div class="menu-wheel">
+        <div class="menu-wheel-icon contact"></div>
+        <a class="text-body color-dark" href="/contact" tabindex="-1">Contact Me</a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="main-text text-body">
+      <h2 class="text-title">Laboratories</h2>
+      <p>This is a collection of my personal projects with some group projects too.</p>
+      <div class="columnar-root">
+        <div class="columnar-tile transition-transform-1s">
+          <div class="columnar-tile-flipper transition-transform-1s">
+            <div class="columnar-tile-face fill-horz front" style="background-image: url('personal-website/image.png')">
+              <img class="fill-horz" src="personal-website/image.png">
+            </div>
+            <div class="columnar-tile-face fill-horz back absolute">
+              <div class="columnar-tile-upper">
+                <h1 class="background-secondary">Personal Website</h1>
+                <p>My personal and professional website. Starting freshman year of college, I began with an online
+                  version of my resume that feels like a game. I have learned much about HTML, CSS, and Javascript with
+                  it. It is hosted on Github pages, <i>thanks Github</i>.</p>
+                <p>In addition, all artwork, excluding the Github mark, has been drawn by hand by yours truly.
+                  Sometimes I impress myself.</p>
+              </div>
+              <div class="columnar-tile-lower"><a class="button-accent transition-all-300ms" href="/interactive-resume/">Check
+                  it out</a>
+                <div><a class="icon-link github" href="https://github.com/WattsUp/bradleydavis.tech"></a></div>
+              </div>
+              <p>tags: <a href="/search/?tag=art">art</a>, <a href="/search/?tag=css">CSS</a>, <a href="/search/?tag=github%20pages">Github
+                  Pages</a>, <a href="/search/?tag=html">HTML</a>, <a href="/search/?tag=javascript">JS</a>, <a href="/search/?tag=software">software</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="columnar-tile transition-transform-1s">
+          <div class="columnar-tile-flipper transition-transform-1s">
+            <div class="columnar-tile-face fill-horz front" style="background-image: url('eagle-scripts/image.jpeg')">
+              <img class="fill-horz" src="eagle-scripts/image.jpeg">
+            </div>
+            <div class="columnar-tile-face fill-horz back absolute">
+              <div class="columnar-tile-upper">
+                <h1 class="background-secondary">EAGLE Resources</h1>
+                <p>I am an avid user of Autodesk EAGLE and often create libraries, scripts, and design rules to improve
+                  my workflow.</p>
+                <p>One such script takes the board file and automatically generates an Excel file for each drill
+                  diameter containing the locations of the holes. In addition, it generates eight versions of
+                  transformations to properly align the holes when imported into Autodesk Inventor for mechanical CAD
+                  work.</p>
+              </div>
+              <div class="columnar-tile-lower">
+                <div></div>
+                <div><a class="icon-link github" href="https://github.com/WattsUp/EAGLE-Resources"></a></div>
+              </div>
+              <p>tags: <a href="/search/?tag=cad">CAD</a>, <a href="/search/?tag=eagle">EAGLE</a>, <a href="/search/?tag=java">JAVA</a>,
+                <a href="/search/?tag=software">software</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="fill-horz absolute">
+    <hr class="background-primary fill-horz">
+    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="icon-link github" href="http://github.com/WattsUp"></a>
+      <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
+    </div>
+    <div class="footer-brad absolute transition-all-2s">
+      <div class="footer-brad-sprite absolute"></div>
+    </div>
+  </footer>
+  <script src="/standardscript.js"></script>
+  <script src="main.js"></script>
+</body>

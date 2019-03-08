@@ -22,11 +22,4 @@
 
 .contact-form>button {
   margin: 0.5rem auto;
-  padding: 0.5rem 1rem;
-  font-size: 1.5rem;
-  border-radius: 0.5rem;
-  -webkit-border-radius: 0.5rem;
-  -moz-border-radius: 0.5rem;
-  -ms-border-radius: 0.5rem;
-  -o-border-radius: 0.5rem;
 }
