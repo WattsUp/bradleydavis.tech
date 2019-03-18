@@ -1,0 +1,29 @@
+.color-swatch {
+  margin: 1rem;
+  border: 2px #ffffff solid;
+  flex: 1;
+}
+
+.color-swatch>h1, .color-swatch>h2 {
+  padding: 0.5rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  border-width: 0.25rem;
+  margin: 0 auto;
+}
+
+.search-form>input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+  font-size: 1.5rem;
+}
+
+.search-form>button {
+  margin: 0.5rem auto;
+}
