@@ -1,0 +1,49 @@
+.tile {
+  width: 20rem;
+  min-height: 20rem;
+  border: 2px solid var(--color-light);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  overflow: hidden;
+  margin: 0.5rem;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.tile-link {
+  display: block;
+  color: var(--color-light);
+  text-decoration: none;
+  flex: 1;
+}
+
+.tile-title {
+  padding: 0.5rem;
+  background: var(--color-secondary);
+  min-height: 7rem;
+}
+
+.tile-link:hover {
+  color: var(--color-light);
+  text-decoration: none;
+}
+
+.tile-link:hover .tile-title {
+  background: var(--color-primary);
+  color: var(--color-dark);
+}
+
+.tile-link>h2 {
+  padding: 0.5rem;
+}
+
+.tile-link>h3 {
+  padding: 0.5rem;
+}
+
+.tile>p {
+  padding: 0.5rem;
+}

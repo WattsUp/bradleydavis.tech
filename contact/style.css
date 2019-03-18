@@ -1,0 +1,26 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  border-width: 0.25rem;
+  margin: 0 auto;
+}
+
+.contact-form>input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+}
+
+.contact-form>textarea {
+  margin: 0.5rem 0;
+  height: 12rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+}
+
+.contact-form>button {
+  margin: 0.5rem auto;
+}
