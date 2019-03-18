@@ -255,6 +255,10 @@ footer>span>a {
   background-image: url('/images/github.png');
 }
 
+.icon-link.search {
+  background-image: url('/images/menu-wheel-search-light.png');
+}
+
 header {
   min-height: 3.5rem;
   display: flex;
