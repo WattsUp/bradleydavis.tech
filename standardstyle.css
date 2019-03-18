@@ -94,12 +94,14 @@ a:hover, a:active {
 
 .banner-text>h1 {
   font-size: 3rem;
+  text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark);
 }
 
 .banner-text>p {
   padding: 0.5rem 0;
   font-size: 1rem;
   font-weight: bold;
+  text-shadow: 0.1rem 0.1rem 1rem var(--color-dark);
 }
 
 .banner-text>a {
@@ -148,6 +150,10 @@ button {
 
 .color-dark {
   color: var(--color-dark);
+}
+
+.color-light {
+  color: var(--color-light);
 }
 
 .color-primary {
