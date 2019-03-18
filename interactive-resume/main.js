@@ -506,7 +506,7 @@ function updateScene() {
       Math.max(0, Math.min((sceneX - 19600) / 2, 350)) -
       Math.max(0, Math.min(sceneX - 23400, 800));
   sceneY = Math.floor(sceneY);
-  console.log('sceneX: ' + sceneX + ' sceneY: ' + sceneY);
+  // console.log('sceneX: ' + sceneX + ' sceneY: ' + sceneY);
   updateMovement(sceneX, sceneY);
   updateStory(sceneX, sceneY);
   updateHidden(sceneX);
