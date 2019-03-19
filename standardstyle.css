@@ -170,9 +170,15 @@ button {
   column-gap: 1rem;
 }
 
+.columnar-root.col-3 {
+  column-width: 30rem;
+  column-count: 3;
+}
+
 .columnar-root>a {
   display: inline-block;
-  margin-top: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
 .columnar-root>a:hover>figure {
