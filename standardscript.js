@@ -4,8 +4,8 @@
 $(window).bind('load', function() {
   requestAnimationFrame(animateMenuWheels);
   $('#copyright-date').text((new Date()).getFullYear());
-  setInterval(moveFooterBrad, 4000);
-  moveFooterBrad();
+  brad.click(moveFooterBradManual);
+  moveFooterBradManual();
 });
 
 /****************************** Header Functions ******************************/
@@ -61,11 +61,18 @@ var brad = $('.footer-brad');
 var bradSprite = $('.footer-brad-sprite');
 var footer = $('footer').eq(0);
 
+var bradInterval = 0;
 var currentWalkingFrame = 0;
 var lastBradPosition = 0;
 var moving = false;
 var movingRight = true;
 var timingWalking = 200;
+
+function moveFooterBradManual(){
+  clearInterval(bradInterval);
+  bradInterval = setInterval(moveFooterBrad, 4000);
+  moveFooterBrad();
+}
 
 /**
  * Randomly move brad in the footer
