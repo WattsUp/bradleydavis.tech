@@ -177,6 +177,7 @@ body {
   height: 40px;
 }
 
+
 .lab>.flooring {
   background-image: url(images/ground-flooring-concrete.png);
 }
@@ -283,9 +284,12 @@ body {
   height: 200px;
 }
 
-.teleporter-console>div>button {
-  font-size: 24px;
-  height: 16.6667%;
+.teleporter-console>div>* {
+  font-size: 22px;
+  height: 14.2857%;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 .title-sign {
