@@ -353,18 +353,17 @@ main {
   width: 12.92rem;
 }
 
-.menu-wheel>a {
+.menu-wheel>h1 {
   font-size: 1.25rem;
   line-height: 1.75rem;
   width: 8.92rem;
   text-align: left;
   white-space: nowrap;
-  text-decoration: none;
   font-weight: bold;
   margin: 0 0 0 0.5rem;
 }
 
-.menu-wheel>a:hover, .menu-wheel>a:active {
+.menu-wheel:hover, .menu-wheel:active {
   color: var(--color-dark);
   text-decoration: none;
 }
