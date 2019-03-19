@@ -1,5 +1,12 @@
+.columnar-tile {
+  display: block;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  -webkit-column-break-inside: avoid;
+  padding-top: 0.5rem;
+}
+
 .tile {
-  width: 20rem;
   min-height: 20rem;
   border: 2px solid var(--color-light);
   border-radius: 1rem;
@@ -8,7 +15,6 @@
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
   overflow: hidden;
-  margin: 0.5rem;
   display: inline-flex;
   flex-direction: column;
 }
