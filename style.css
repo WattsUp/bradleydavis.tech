@@ -4,7 +4,7 @@
   flex: 1;
 }
 
-.color-swatch>h1, .color-swatch>h2 {
+.color-swatch>* {
   padding: 0.5rem;
 }
 

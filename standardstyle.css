@@ -144,6 +144,11 @@ button {
   background-color: var(--color-accent);
 }
 
+.center-margin {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .color-accent {
   color: var(--color-accent);
 }
@@ -189,7 +194,15 @@ button {
   -o-transform: scale(1.02);
 }
 
-.columnar-root>a>figure {
+.columnar-root:hover>a>figure:not(:hover) {
+  opacity: 0.4;
+}
+
+.display-inline-block {
+  display: inline-block;
+}
+
+figure {
   border: 0.1rem solid var(--color-light);
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -199,7 +212,7 @@ button {
   display: inline-block;
 }
 
-.columnar-root>a>figure img {
+figure img {
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
@@ -207,12 +220,13 @@ button {
   -o-border-radius: 1rem;
 }
 
-.columnar-root>a>figure figcaption {
+figure figcaption {
   padding: 0.5rem;
 }
 
-.columnar-root:hover>a>figure:not(:hover) {
-  opacity: 0.4;
+figure figcaption>* {
+  margin: 0;
+  padding: 0;
 }
 
 .fill-horz {
@@ -230,6 +244,10 @@ button {
 
 .float-left {
   float: left;
+}
+
+.float-right {
+  float: right;
 }
 
 footer {
@@ -285,31 +303,6 @@ footer>span>a {
   left: 0rem;
 }
 
-.icon-link {
-  display: block;
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0.25rem;
-  background-size: contain;
-  opacity: 0.8;
-}
-
-.icon-link:hover {
-  opacity: 1.0;
-}
-
-.icon-link.contact {
-  background-image: url('/images/menu-wheel-contact-light.png');
-}
-
-.icon-link.github {
-  background-image: url('/images/github.png');
-}
-
-.icon-link.search {
-  background-image: url('/images/menu-wheel-search-light.png');
-}
-
 header {
   min-height: 3.5rem;
   display: flex;
@@ -334,12 +327,81 @@ header>a:hover, header>a:active {
   margin: 0 0.25rem 0 auto;
 }
 
+h1 {
+  font-size: 3rem;
+  margin-top: 0.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+  margin-top: 0.5rem;
+}
+
+.hidden-link, .hidden-link:hover, .hidden-link:active, .hidden-link:visited {
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+}
+
+.hidden-text {
+  opacity: 0.0;
+  transition: 5s opacity;
+  -webkit-transition: 5s opacity;
+  -moz-transition: 5s opacity;
+  -ms-transition: 5s opacity;
+  -o-transition: 5s opacity;
+}
+
 html {
   background: var(--color-dark);
   color: var(--color-light);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   text-size-adjust: 100%;
+}
+
+.icon-link {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0.25rem;
+  background-size: contain;
+  opacity: 0.8;
+}
+
+.icon-link:hover {
+  opacity: 1.0;
+}
+
+.icon-link.contact {
+  background-image: url('/images/menu-wheel-contact-light.png');
+}
+
+.icon-link.external {
+  background-image: url('/images/menu-wheel-external-light.png');
+}
+
+.icon-link.github {
+  background-image: url('/images/github.png');
+}
+
+.icon-link.search {
+  background-image: url('/images/menu-wheel-search-light.png');
 }
 
 main {
@@ -350,36 +412,13 @@ main {
   width: 80%;
   margin: 0 auto;
   padding-bottom: 1rem;
+  overflow: auto;
 }
 
-.main-text>h1 {
-  font-size: 4rem;
-  margin-top: 0.5rem;
-}
-
-.main-text>h2 {
-  font-size: 3rem;
-  margin-top: 0.5rem;
-}
-
-.main-text>h3 {
-  font-size: 2rem;
-  margin-top: 0.5rem;
-}
-
-.main-text>h4 {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-.main-text>img {
-  max-width: 40%;
-  max-height: 30rem;
+.main-text>img, .main-text>a>img {
+  max-width: 25rem;
+  max-height: 40rem;
   padding: 0.5rem;
-}
-
-.main-text>p {
-  padding-bottom: 1rem;
 }
 
 .menu-wheel {
@@ -447,21 +486,24 @@ main {
   background-image: url('/images/menu-wheel-contact.png');
 }
 
+p {
+  padding-bottom: 1rem;
+}
+
 .relative {
   position: relative;
 }
 
-.text-body {
-  font-family: code-new-roman;
+.text-align-center {
+  text-align: center;
 }
 
-.text-hidden {
-  opacity: 0.0;
-  transition: 5s opacity;
-  -webkit-transition: 5s opacity;
-  -moz-transition: 5s opacity;
-  -ms-transition: 5s opacity;
-  -o-transition: 5s opacity;
+.text-align-right {
+  text-align: right;
+}
+
+.text-body {
+  font-family: code-new-roman;
 }
 
 .text-hidden:hover, .text-hidden:active {
@@ -555,9 +597,9 @@ main {
 }
 
 .transformYp100 {
+  transform: translateY(100%);
   -webkit-transform: translateY(100%);
   -moz-transform: translateY(100%);
   -ms-transform: translateY(100%);
   -o-transform: translateY(100%);
-  transform: translateY(100%);
 }
