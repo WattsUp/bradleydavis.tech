@@ -17,6 +17,7 @@
   overflow: hidden;
   display: inline-flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .tile-link {
@@ -42,11 +43,15 @@
   color: var(--color-dark);
 }
 
-.tile-link>h2 {
+.tile-link>* {
+  margin: 0;
+}
+
+.tile-link>h4 {
   padding: 0.5rem;
 }
 
-.tile-link>h3 {
+.tile-link>h5 {
   padding: 0.5rem;
 }
 
