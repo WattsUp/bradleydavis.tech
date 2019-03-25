@@ -19,6 +19,7 @@
   <script src="/utils.js"></script>
   <script src="loading-screen.js"></script>
   <link rel="stylesheet" href="/standardstyle.css">
+  <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="animations.css">
   <link rel="icon" href="/favicon.ico">
@@ -39,7 +40,7 @@
     <div id="awards" class="absolute" style="top: 19000px"></div>
     <div id="contact" class="absolute" style="top: 25000px"></div>
   </div>
-  <div class="page-container fill-horz fill-vert background-dark">
+  <div class="page-container fill-horz fill-vert background-dark text-monospace">
     <div class="scene-background super-far absolute">
       <div class="space-wrapper absolute fill-horz fill-vert background-dark transition-all-7s">
         <canvas class="absolute fill-horz fill-vert background-dark" width=5000 height=5000></canvas>
@@ -82,7 +83,7 @@
               <div class="title-sign-wrapper absolute transition-all-1s fill-horz">
                 <h1 class="absolute color-accent fill-horz text-title transformYn50">Bradley<br>L. Davis</h1>
                 <h2 class="absolute color-accent fill-horz text-title">Interactive Resume</h2>
-                <h3 class="absolute color-accent text-body">Scroll down OR press down arrow OR teleport to a section</h3>
+                <h3 class="absolute color-accent">Scroll down OR press down arrow OR teleport to a section</h3>
               </div>
             </div>
           </div>
@@ -105,15 +106,15 @@
         <div class="teleporter-console on-the-ground absolute">
           <h1 class="fill-horz color-primary text-title">Teleporter</h1>
           <div class="absolute background-dark">
-            <button type="button" class="button-accent fill-horz text-body transition-all-300ms" onClick="teleporterChange('about');">About
+            <button type="button" class="button-accent fill-horz transition-all-300ms text-monospace" onClick="teleporterChange('about');">About
               Me</button>
-            <button type="button" class="button-accent fill-horz text-body transition-all-300ms" onClick="teleporterChange('skills');">Skills</button>
-            <button type="button" class="button-accent fill-horz text-body transition-all-300ms" onClick="teleporterChange('experience');">Experience</button>
-            <button type="button" class="button-accent fill-horz text-body transition-all-300ms" onClick="teleporterChange('portfolio');">Portfolio</button>
-            <button type="button" class="button-accent fill-horz text-body transition-all-300ms" onClick="teleporterChange('awards');">Awards</button>
-            <button type="button" class="button-accent fill-horz text-body transition-all-300ms" onClick="teleporterChange('contact');">Contact
+            <button type="button" class="button-accent fill-horz transition-all-300ms text-monospace" onClick="teleporterChange('skills');">Skills</button>
+            <button type="button" class="button-accent fill-horz transition-all-300ms text-monospace" onClick="teleporterChange('experience');">Experience</button>
+            <button type="button" class="button-accent fill-horz transition-all-300ms text-monospace" onClick="teleporterChange('portfolio');">Portfolio</button>
+            <button type="button" class="button-accent fill-horz transition-all-300ms text-monospace" onClick="teleporterChange('awards');">Awards</button>
+            <button type="button" class="button-accent fill-horz transition-all-300ms text-monospace" onClick="teleporterChange('contact');">Contact
               Me</button>
-            <a href="/" class="button-accent fill-horz text-body transition-all-300ms absolute">Return Home</a>
+            <a href="/" class="button-accent fill-horz transition-all-300ms absolute">Return Home</a>
           </div>
         </div>
         <div class="teleporter on-the-ground absolute" style="left: 50px"></div>
@@ -123,10 +124,10 @@
           <div class="line fill-horz absolute" style="bottom: 223px"></div>
           <div class="line fill-horz absolute" style="bottom: 159px"></div>
           <div class="line fill-horz absolute" style="bottom: 95px"></div>
-          <h1 style="bottom: 292px" class="absolute text-body">Excellent</h1>
-          <h1 style="bottom: 228px" class="absolute text-body">Skilled</h1>
-          <h1 style="bottom: 164px" class="absolute text-body">Familiar</h1>
-          <h1 style="bottom: 100px" class="absolute text-body">Beginner</h1>
+          <h1 style="bottom: 292px" class="absolute">Excellent</h1>
+          <h1 style="bottom: 228px" class="absolute">Skilled</h1>
+          <h1 style="bottom: 164px" class="absolute">Familiar</h1>
+          <h1 style="bottom: 100px" class="absolute">Beginner</h1>
           <div id="fluid-electronics" class="discipline-tank-fluid transformYp100 absolute transition-all-1s" style="top: 60px; left: 188px">
             <div class="fluid-bubble absolute" style="left: 20px"></div>
             <div class="fluid-bubble absolute" style="left: 100px"></div>
@@ -168,16 +169,16 @@
             <div class="fluid-bubble absolute" style="left: 130px"></div>
           </div>
           <div id="tank-electronics" class="discipline-tank absolute" style="left: 160px">
-            <h1 class="absolute text-body">Electronics</h1>
+            <h1 class="absolute">Electronics</h1>
           </div>
           <div id="tank-software" class="discipline-tank absolute" style="left: 380px">
-            <h1 class="absolute text-body">Software</h1>
+            <h1 class="absolute">Software</h1>
           </div>
           <div id="tank-hardware" class="discipline-tank absolute" style="left: 600px">
-            <h1 class="absolute text-body">Hardware</h1>
+            <h1 class="absolute">Hardware</h1>
           </div>
           <div id="tank-art" class="discipline-tank absolute" style="left: 820px">
-            <h1 class="absolute text-body">Fine Art</h1>
+            <h1 class="absolute">Fine Art</h1>
           </div>
         </div>
         <div class="particle-viewer on-the-ground absolute background-dark">
@@ -262,7 +263,7 @@
         <div class="rocket-engine absolute" style="left: 1460px"></div>
         <div class="rocket-engine absolute" style="left: 1910px"></div>
         <div class="bridge-window absolute">
-          <h1 class="absolute text-body fill-horz color-accent">T-04</h1>
+          <h1 class="absolute fill-horz color-accent">T-04</h1>
           <canvas class="absolute background-dark" width="26" height="33"></canvas>
         </div>
         <div class="bridge-left absolute"></div>
@@ -282,16 +283,16 @@
         <div class="display-800 absolute" style="left: 580px; bottom: 1110px"></div>
         <div class="skills-wrapper absolute">
           <h1 class="color-accent text-title">Electronic Skills</h1>
-          <h2 class="color-accent text-body">
+          <h2 class="color-accent">
             <span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
           </h2>
-          <h3 class="color-accent text-body">Autodesk EAGLE</h3>
-          <h3 class="color-accent text-body">Digital Multimeter</h3>
-          <h3 class="color-accent text-body">Oscilloscope</h3>
-          <h3 class="color-accent text-body">Logic Analyzer</h3>
-          <h3 class="color-accent text-body">SMD &#38; THT Soldering</h3>
-          <h3 class="color-accent text-body">Troubleshooting</h3>
-          <h3 class="color-accent text-body">Verilog</h3>
+          <h3 class="color-accent">Autodesk EAGLE</h3>
+          <h3 class="color-accent">Digital Multimeter</h3>
+          <h3 class="color-accent">Oscilloscope</h3>
+          <h3 class="color-accent">Logic Analyzer</h3>
+          <h3 class="color-accent">SMD &#38; THT Soldering</h3>
+          <h3 class="color-accent">Troubleshooting</h3>
+          <h3 class="color-accent">Verilog</h3>
           <div class="line absolute background-accent" style="left: 260px"></div>
           <div class="line absolute background-accent" style="left: 380px"></div>
           <div class="line absolute background-accent" style="left: 500px"></div>
@@ -306,17 +307,17 @@
         </div>
         <div class="skills-wrapper absolute">
           <h1 class="color-accent text-title">Software Skills</h1>
-          <h2 class="color-accent text-body">
+          <h2 class="color-accent">
             <span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
           </h2>
-          <h3 class="color-accent text-body">C/C++</h3>
-          <h3 class="color-accent text-body">Java</h3>
-          <h3 class="color-accent text-body">CSS</h3>
-          <h3 class="color-accent text-body">Git</h3>
-          <h3 class="color-accent text-body">HTML</h3>
-          <h3 class="color-accent text-body">Javascript</h3>
-          <h3 class="color-accent text-body">JQuery</h3>
-          <h3 class="color-accent text-body">Unity/C#</h3>
+          <h3 class="color-accent">C/C++</h3>
+          <h3 class="color-accent">Java</h3>
+          <h3 class="color-accent">CSS</h3>
+          <h3 class="color-accent">Git</h3>
+          <h3 class="color-accent">HTML</h3>
+          <h3 class="color-accent">Javascript</h3>
+          <h3 class="color-accent">JQuery</h3>
+          <h3 class="color-accent">Unity/C#</h3>
           <div class="line absolute background-accent" style="left: 260px"></div>
           <div class="line absolute background-accent" style="left: 380px"></div>
           <div class="line absolute background-accent" style="left: 500px"></div>
@@ -332,15 +333,15 @@
         </div>
         <div class="skills-wrapper absolute">
           <h1 class="color-accent text-title">Hardware Skills</h1>
-          <h2 class="color-accent text-body">
+          <h2 class="color-accent">
             <span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
           </h2>
-          <h3 class="color-accent text-body">Autodesk Inventor</h3>
-          <h3 class="color-accent text-body">Laser Cutters</h3>
-          <h3 class="color-accent text-body">3D Printers</h3>
-          <h3 class="color-accent text-body">CNC Machines</h3>
-          <h3 class="color-accent text-body">Power Tools</h3>
-          <h3 class="color-accent text-body">Autodesk HSM</h3>
+          <h3 class="color-accent">Autodesk Inventor</h3>
+          <h3 class="color-accent">Laser Cutters</h3>
+          <h3 class="color-accent">3D Printers</h3>
+          <h3 class="color-accent">CNC Machines</h3>
+          <h3 class="color-accent">Power Tools</h3>
+          <h3 class="color-accent">Autodesk HSM</h3>
           <div class="line absolute background-accent" style="left: 260px"></div>
           <div class="line absolute background-accent" style="left: 380px"></div>
           <div class="line absolute background-accent" style="left: 500px"></div>
@@ -354,16 +355,16 @@
         </div>
         <div class="skills-wrapper absolute">
           <h1 class="color-accent text-title">Fine Art Skills</h1>
-          <h2 class="color-accent text-body">
+          <h2 class="color-accent">
             <span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
           </h2>
-          <h3 class="color-accent text-body">Autodesk 3DS Max</h3>
-          <h3 class="color-accent text-body">Gimp</h3>
-          <h3 class="color-accent text-body">Graphic Design</h3>
-          <h3 class="color-accent text-body">Music Performance</h3>
-          <h3 class="color-accent text-body">Music Composition</h3>
-          <h3 class="color-accent text-body">Adobe Illustrator</h3>
-          <h3 class="color-accent text-body">DaVinci Resolve</h3>
+          <h3 class="color-accent">Autodesk 3DS Max</h3>
+          <h3 class="color-accent">Gimp</h3>
+          <h3 class="color-accent">Graphic Design</h3>
+          <h3 class="color-accent">Music Performance</h3>
+          <h3 class="color-accent">Music Composition</h3>
+          <h3 class="color-accent">Adobe Illustrator</h3>
+          <h3 class="color-accent">DaVinci Resolve</h3>
           <div class="line absolute background-accent" style="left: 260px"></div>
           <div class="line absolute background-accent" style="left: 380px"></div>
           <div class="line absolute background-accent" style="left: 500px"></div>
@@ -379,10 +380,10 @@
         <div class="console absolute">
           <h1 class="absolute text-title color-primary">Display Control</h1>
           <div class="absolute">
-            <button class="fill-horz text-body button-accent transition-all-300ms" onClick="skillsDisplay(0);">Electronics</button>
-            <button class="fill-horz text-body button-accent transition-all-300ms" onClick="skillsDisplay(1);">Software</button>
-            <button class="fill-horz text-body button-accent transition-all-300ms" onClick="skillsDisplay(2);">Hardware</button>
-            <button class="fill-horz text-body button-accent transition-all-300ms" onClick="skillsDisplay(3);">Fine Art</button>
+            <button class="fill-horz button-accent transition-all-300ms text-monospace" onClick="skillsDisplay(0);">Electronics</button>
+            <button class="fill-horz button-accent transition-all-300ms text-monospace" onClick="skillsDisplay(1);">Software</button>
+            <button class="fill-horz button-accent transition-all-300ms text-monospace" onClick="skillsDisplay(2);">Hardware</button>
+            <button class="fill-horz button-accent transition-all-300ms text-monospace" onClick="skillsDisplay(3);">Fine Art</button>
           </div>
         </div>
         <div class="engine-room-jack absolute"></div>
@@ -403,85 +404,85 @@
         </div>
         <div class="display-600 absolute" style="left: 1500px; bottom: 1960px">
           <div class="experience-panel absolute color-accent">
-            <h3 class="text-body fill-horz">Work Experience</h3>
+            <h3 class="fill-horz">Work Experience</h3>
             <h1 class="text-title color-dark background-accent fill-horz">Schweitzer Engineering Laboratory</h1>
-            <h2 class="text-body fill-horz">Hardware Engineering Intern</h2>
-            <h4 class="text-body absolute">May 2018 - Present</h4>
+            <h2 class="fill-horz">Hardware Engineering Intern</h2>
+            <h4 class="absolute">May 2018 - Present</h4>
             <canvas class="absolute background-accent"></canvas>
-            <span class="absolute text-body">Developed a Gigabit Ethernet
+            <span class="absolute">Developed a Gigabit Ethernet
               reliability and throughput testing software<br> <br>
               Created a testing tool to detect manufacturing defects<br> <br>
               Aided board bring-up of an Intel Atom based computer
             </span>
             <div class="absolute transform-center" style="left: 65px; top: 235px">
-              <h1 class="text-body color-dark">Bug Fixing</h1>
-              <h1 class="text-body color-dark">20%</h1>
+              <h1 class="color-dark">Bug Fixing</h1>
+              <h1 class="color-dark">20%</h1>
             </div>
             <div class="absolute transform-center" style="left: 155px; top: 280px">
-              <h1 class="text-body color-dark">Code</h1>
-              <h1 class="text-body color-dark">35%</h1>
+              <h1 class="color-dark">Code</h1>
+              <h1 class="color-dark">35%</h1>
             </div>
             <div class="absolute transform-center" style="left: 70px; top: 175px">
-              <h1 class="text-body color-dark">Circuits</h1>
-              <h1 class="text-body color-dark">15%</h1>
+              <h1 class="color-dark">Circuits</h1>
+              <h1 class="color-dark">15%</h1>
             </div>
             <div class="absolute transform-center" style="left: 175px; top: 170px">
-              <h1 class="text-body color-dark">Testing</h1>
-              <h1 class="text-body color-dark">30%</h1>
+              <h1 class="color-dark">Testing</h1>
+              <h1 class="color-dark">30%</h1>
             </div>
           </div>
         </div>
         <div class="display-600 absolute" style="left: 1500px; bottom: 2810px">
           <div class="experience-panel absolute color-accent">
-            <h3 class="text-body fill-horz">Work Experience</h3>
+            <h3 class="fill-horz">Work Experience</h3>
             <h1 class="text-title color-dark background-accent fill-horz">Tahoma Robotics Camp</h1>
-            <h2 class="text-body fill-horz">Lead Technical Counselor</h2>
-            <h4 class="text-body absolute">June 2015 - June 2018</h4>
+            <h2 class="fill-horz">Lead Technical Counselor</h2>
+            <h4 class="absolute">June 2015 - June 2018</h4>
             <canvas class="absolute background-accent"></canvas>
-            <span class="absolute text-body">Aided campers with designing,
+            <span class="absolute">Aided campers with designing,
               building, wiring, and programming of VEX robots<br> <br>Formulated
               unique games for each year including programming a real-time
               scoring software with integration into professional audio/visual
               live streaming equipment
             </span>
             <div class="absolute transform-center" style="left: 120px; top: 295px">
-              <h1 class="text-body color-dark">Animation</h1>
-              <h1 class="text-body color-dark">35%</h1>
+              <h1 class="color-dark">Animation</h1>
+              <h1 class="color-dark">35%</h1>
             </div>
             <div class="absolute transform-center" style="left: 70px; top: 170px">
-              <h1 class="text-body color-dark">Code</h1>
-              <h1 class="text-body color-dark">30%</h1>
+              <h1 class="color-dark">Code</h1>
+              <h1 class="color-dark">30%</h1>
             </div>
             <div class="absolute transform-center" style="left: 170px; top: 145px">
-              <h1 class="text-body color-dark">Design</h1>
-              <h1 class="text-body color-dark">15%</h1>
+              <h1 class="color-dark">Design</h1>
+              <h1 class="color-dark">15%</h1>
             </div>
             <div class="absolute transform-center" style="left: 220px; top: 190px">
-              <h1 class="text-body color-dark">CAD</h1>
-              <h1 class="text-body color-dark">10%</h1>
+              <h1 class="color-dark">CAD</h1>
+              <h1 class="color-dark">10%</h1>
             </div>
             <div class="absolute transform-center" style="left: 205px; top: 242px">
-              <h1 class="text-body color-dark">Teaching</h1>
-              <h1 class="text-body color-dark">10%</h1>
+              <h1 class="color-dark">Teaching</h1>
+              <h1 class="color-dark">10%</h1>
             </div>
           </div>
         </div>
         <div class="display-600 absolute color-accent" style="left: 1500px; bottom: 3660px">
           <div class="experience-panel absolute">
-            <h3 class="text-body fill-horz">Work Experience</h3>
+            <h3 class="fill-horz">Work Experience</h3>
             <h1 class="text-title color-dark background-accent fill-horz">Smith Gardens</h1>
-            <h2 class="text-body fill-horz">Retail Merchandiser</h2>
-            <h4 class="text-body absolute">May 2017 - August 2017</h4>
+            <h2 class="fill-horz">Retail Merchandiser</h2>
+            <h4 class="absolute">May 2017 - August 2017</h4>
             <canvas class="absolute background-accent"></canvas>
-            <span class="absolute text-body">Verified, sorted, and consolidated
+            <span class="absolute">Verified, sorted, and consolidated
               daily deliveries with existing inventory to maximize aesthetic
               appeal of merchandise to meet sales goals <br> <br>Served
               as liaison between management on product requests, sales numbers,
               and problem solving
             </span>
             <div class="absolute transform-center" style="left: 130px; top: 220px">
-              <h1 class="text-body color-dark">Customer Service</h1>
-              <h1 class="text-body color-dark">100%</h1>
+              <h1 class="color-dark">Customer Service</h1>
+              <h1 class="color-dark">100%</h1>
             </div>
           </div>
         </div>
@@ -580,16 +581,16 @@
           <div class="box rect-30 absolute transition-all-500ms" style="bottom: 425px; left: 1053px"></div>
           <div class="box rect-30 absolute transition-all-500ms" style="bottom: 465px; left: 1053px"></div>
           <div class="project-viewer-buttons absolute">
-            <button class="button-accent text-body transition-all-300ms" onclick="changeProject(0);">CougSat-1</button>
-            <button class="button-accent text-body transition-all-300ms" onclick="changeProject(1);">Hindenbearg</button>
-            <button class="button-accent text-body transition-all-300ms" onclick="changeProject(2);">bradleydavis.tech</button>
-            <button class="button-accent text-body transition-all-300ms" onclick="changeProject(3);">Mallard Madness</button>
-            <a class="button-accent text-body transition-all-300ms" href="/portfolio">More Projects</a>
+            <button class="button-accent transition-all-300ms text-monospace" onclick="changeProject(0);">CougSat-1</button>
+            <button class="button-accent transition-all-300ms text-monospace" onclick="changeProject(1);">Hindenbearg</button>
+            <button class="button-accent transition-all-300ms text-monospace" onclick="changeProject(2);">bradleydavis.tech</button>
+            <button class="button-accent transition-all-300ms text-monospace" onclick="changeProject(3);">Mallard Madness</button>
+            <a class="button-accent transition-all-300ms" href="/portfolio">More Projects</a>
           </div>
           <a href="/portfolio/cougsat-1" class="project absolute transition-all-500ms color-accent">
             <h1 class="text-title fill-horz">CougSat-1</h1>
             <h2 class="text-title fill-horz">WSU's Nanosatellite</h2>
-            <p class="text-body">Cougs in Space is Washington State University’s satellite club.
+            <p>Cougs in Space is Washington State University’s satellite club.
               Its first nanosatellite <i>CougSat-1</i> is launching in the Spring of 2020.
               It is paving a path for aerospace development at WSU and is experimenting a biological payload.</p>
             <div class="absolute" style="background-image: url(images/project-cougsat-1.png)"></div>
@@ -597,7 +598,7 @@
           <a href="/portfolio/hindenbearg" class="project absolute transition-all-500ms color-accent">
             <h1 class="text-title fill-horz">Hidenbearg</h1>
             <h2 class="text-title fill-horz">World Class FRC Robot</h2>
-            <p class="text-body">Tahoma High School’s robotics club, Bear Metal, participated in FIRST Robotics
+            <p>Tahoma High School’s robotics club, Bear Metal, participated in FIRST Robotics
               Challenge’s Steamworks in
               2017.
               The robot designed, fabricated, assembled, wired, and programmed in six weeks was named <i>Hindenbearg</i>.
@@ -608,13 +609,13 @@
           <a href="/portfolio/website" class="project absolute transition-all-500ms color-accent">
             <h1 class="text-title fill-horz">bradleydavis.tech</h1>
             <h2 class="text-title fill-horz">Personal Website</h2>
-            <p class="text-body">This interactive resume is a demonstration of my website and artistic skills.</p>
+            <p>This interactive resume is a demonstration of my website and artistic skills.</p>
             <div class="absolute" style="background-image: url(images/project-website.png)"></div>
           </a>
           <a href="/portfolio/mallard-madness" class="project absolute transition-all-500ms color-accent">
             <h1 class="text-title fill-horz">Mallard Madness</h1>
             <h2 class="text-title fill-horz">Robotics Summer Camp</h2>
-            <p class="text-body">For the annual summer camp hosted by Tahoma Robotics Club, I created the game the
+            <p>For the annual summer camp hosted by Tahoma Robotics Club, I created the game the
               campers play.
               This includes all rules, game mechanics, animation, and testing out gameplay using prototype robots.</p>
             <div class="absolute" style="background-image: url(images/project-mallard-madness.png)"></div>
@@ -627,24 +628,24 @@
           <div class="fill-horz fill-vert" style="animation-duration: 25s; animation-direction: reverse; -webkit-animation-duration: 25s; -webkit-animation-direction: reverse"></div>
           <span class="transform-center absolute">
             <h1 class="color-primary text-title">WSU President's Honor Roll</h1>
-            <h2 class="color-primary text-body">Fall 2018 - Fall 2019</h2>
+            <h2 class="color-primary">Fall 2018 - Fall 2019</h2>
           </span>
         </div>
         <div class="award-meteor absolute" style="left:2900px; bottom: 5600px">
           <div class="fill-horz fill-vert"></div>
           <span class="transform-center absolute">
             <h1 class="color-primary text-title">AP Scholar With Distinction</h1>
-            <h2 class="color-primary text-body">2016</h2>
+            <h2 class="color-primary">2016</h2>
           </span>
         </div>
         <div class="mars absolute">
           <div class="mars-lander absolute">
             <div class="mars-lander-mast absolute transition-all-1s">
               <form method="POST" class="absolute background-dark transition-all-1s" action="https://formspree.io/me@bradleydavis.tech">
-                <h1 class="text-body absolute color-primary">Contact Me</h1>
-                <input class="text-body absolute" type="email" name="email" placeholder="Your email">
-                <textarea class="text-body absolute" name="message" placeholder="Your message"></textarea>
-                <button class="text-body absolute button-accent transition-all-300ms" type="submit">Transmit to Earth</button>
+                <h1 class="absolute color-primary">Contact Me</h1>
+                <input class="absolute" type="email" name="email" placeholder="Your email">
+                <textarea class="absolute" name="message" placeholder="Your message"></textarea>
+                <button class="absolute button-accent transition-all-300ms text-monospace" type="submit">Transmit to Earth</button>
               </form>
               <div class="mars-lander-flag absolute transition-all-500ms"></div>
             </div>
