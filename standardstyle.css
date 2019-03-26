@@ -85,6 +85,14 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
   display: inline-block;
 }
 
+blockquote {
+  margin-block-start: 0.25rem;
+  margin-block-end: 0.25rem;
+  margin-inline-start: 2rem;
+  margin-inline-end: 2rem;
+  font-style: italic;
+}
+
 body {
   min-height: 100vh;
 }
@@ -135,6 +143,12 @@ button {
 .center-margin {
   margin-left: auto;
   margin-right: auto;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: table;
 }
 
 code {
@@ -434,11 +448,12 @@ main {
   display: table;
 }
 
-.main-text>img, .main-text>a>img, .main-text>p>img {
+.main-text-image {
   width: 25rem;
   max-width: 100%;
   max-height: 40rem;
-  padding: 0.5rem;
+  margin: 0.25rem 0;
+  padding: 0 0.5rem;
   box-sizing: border-box;
 }
 
@@ -508,8 +523,8 @@ main {
 }
 
 p {
-  padding-top: 0.25rem;
-  padding-bottom: 0.75rem;
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
 }
 
 .relative {
