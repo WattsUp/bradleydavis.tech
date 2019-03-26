@@ -1,25 +1,6 @@
-@media only all and (max-width: 800px) {
-  html {
-    font-size: 12px;
-  }
-}
-
-@media only all and (max-width: 350px) {
-  html {
-    font-size: 10px;
-  }
-}
-
-@media only all and (min-width: 801px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-@media only all and (min-width: 1500px) {
-  html {
-    font-size: 20px;
-  }
+html {
+  font-size: 16px;
+  word-break: break-word;
 }
 
 :root {
@@ -28,10 +9,8 @@
   --color-accent: #33FF33;
   --color-light: #FFFFFF;
   --color-dark: #282828;
-
   --color-primary-d50: #295771;
   --color-primary-d80: #10232d;
-
   --color-dark-b10: #3D3D3D;
   --color-dark-b20: #535353;
 }
@@ -85,13 +64,13 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 }
 
 .banner-text {
-  top: 3rem;
-  left: 3rem;
-  width: 20rem;
+  top: 5%;
+  left: 5%;
+  width: 50%;
+  min-width: 20rem;
 }
 
 .banner-text>h1 {
-  font-size: 3rem;
   text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark);
 }
 
@@ -341,28 +320,46 @@ header>a:hover, header>a:active {
 }
 
 h1 {
-  font-size: 3rem;
-  margin-top: 0.5rem;
+  margin-top: 0.6rem;
+  line-height: 1;
 }
 
 h2 {
-  font-size: 2.5rem;
   margin-top: 0.5rem;
+  line-height: 1;
 }
 
 h3 {
-  font-size: 2rem;
-  margin-top: 0.5rem;
+  margin-top: 0.4rem;
+  line-height: 1;
 }
 
 h4 {
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
+  line-height: 1;
 }
 
 h5 {
-  font-size: 1.25rem;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
+  line-height: 1;
+}
+
+@media (min-width: 769px) {
+  h1 {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 2.5rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+  }
+  h5 {
+    font-size: 1.25rem;
+  }
 }
 
 .hidden-link, .hidden-link:hover, .hidden-link:active, .hidden-link:visited {
@@ -437,7 +434,7 @@ main {
   display: table;
 }
 
-.main-text>img, .main-text>a>img {
+.main-text>img, .main-text>a>img, .main-text>p>img {
   width: 25rem;
   max-width: 100%;
   max-height: 40rem;
@@ -511,7 +508,8 @@ main {
 }
 
 p {
-  padding-bottom: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.75rem;
 }
 
 .relative {
@@ -522,7 +520,7 @@ p {
   margin-bottom: 0.5rem;
 }
 
-.spoiler-button[value='Reveal Spoilers'] + .spoiler-content>div {
+.spoiler-button[value='Reveal Spoilers']+.spoiler-content>div {
   margin-top: -500%;
 }
 

@@ -40,6 +40,7 @@ body {
   -ms-border-radius: 0;
   -o-border-radius: 0;
   padding: 0;
+  margin: 0;
 }
 
 .brad {
@@ -1190,7 +1191,7 @@ h1, h2, h3, h4, h5 {
   width: 276px;
   left: 10px;
   top: 57px;
-  height: 145px;
+  height: 120px;
   border: none;
   padding: 2px;
   resize: none;
@@ -1200,7 +1201,15 @@ h1, h2, h3, h4, h5 {
   font-size: 18px;
   width: 280px;
   left: 10px;
+  bottom: 27px;
+}
+
+.mars-lander-mast>form>a {
+  font-size: 18px;
+  width: 280px;
+  left: 10px;
   bottom: 3px;
+  text-align: center;
 }
 
 .mars-lander-flag {
