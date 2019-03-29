@@ -433,6 +433,14 @@ html {
   background-image: url('/images/menu-wheel-search-light.png');
 }
 
+.img-caption {
+  font-size: 0.75rem;
+  font-style: italic;
+  display: block;
+  text-align: center;
+  margin-bottom: 0.25rem;
+}
+
 main {
   padding: 0 0 10rem 0;
 }
