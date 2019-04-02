@@ -4,15 +4,17 @@ html {
 }
 
 :root {
-  --color-primary: #52ade1;
+  --color-primary: #52ADE1;
   --color-secondary: #164693;
   --color-accent: #33FF33;
   --color-light: #FFFFFF;
   --color-dark: #282828;
+  --color-primary-d10: #4A9CCB;
   --color-primary-d50: #295771;
-  --color-primary-d80: #10232d;
+  --color-primary-d80: #10232D;
   --color-dark-b10: #3D3D3D;
   --color-dark-b20: #535353;
+  --color-dark-b50: #949494;
 }
 
 * {
@@ -47,6 +49,10 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 
 .background-dark {
   background: var(--color-dark);
+}
+
+.background-light {
+  background: var(--color-light);
 }
 
 .background-primary {
@@ -145,7 +151,7 @@ button {
   margin-right: auto;
 }
 
-.clearfix::after{
+.clearfix::after {
   content: "";
   clear: both;
   display: table;
@@ -673,5 +679,47 @@ p {
 }
 
 ul {
-  padding-left: 1.5rem;
+  padding-left: 1.0rem;
+  list-style-type: none;
+}
+
+ul.small, ul.small ul {
+  padding-left: 0.5rem;
+}
+
+ul li {
+  background-size: 16px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  list-style-type: none;
+  padding-left: 22px;
+}
+
+ul.small li {
+  background-size: 12px;
+  padding-left: 16px;
+}
+
+ul li {
+  background-image: url('/images/bullet-1.png');
+}
+
+ul li li {
+  background-image: url('/images/bullet-2.png');
+}
+
+ul li li li {
+  background-image: url('/images/bullet-3.png');
+}
+
+ul.dark li {
+  background-image: url('/images/bullet-1-dark.png');
+}
+
+ul.dark li li {
+  background-image: url('/images/bullet-2-dark.png');
+}
+
+ul.dark li li li {
+  background-image: url('/images/bullet-3-dark.png');
 }
