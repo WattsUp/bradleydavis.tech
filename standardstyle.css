@@ -181,56 +181,21 @@ code {
   color: var(--color-secondary);
 }
 
-.columnar-root {
-  column-width: 20rem;
-  column-count: 4;
-  column-gap: 1rem;
-}
-
-.columnar-root.col-3 {
-  column-width: 30rem;
-  column-count: 3;
-}
-
-.columnar-root>a {
-  display: inline-block;
-  margin-top: 0.75rem;
-  margin-bottom: 0.25rem;
-}
-
-.columnar-root>a:hover>figure {
-  transform: scale(1.02);
-  -webkit-transform: scale(1.02);
-  -moz-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-  -o-transform: scale(1.02);
-}
-
-.columnar-root:hover>a>figure:not(:hover) {
-  opacity: 0.4;
-}
-
 .display-inline-block {
   display: inline-block;
 }
 
 figure {
-  border: 0.1rem solid var(--color-light);
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
   display: inline-block;
   color: var(--color-dark);
 }
 
 figure img {
-  border-radius: 1rem;
-  -webkit-border-radius: 1rem;
-  -moz-border-radius: 1rem;
-  -ms-border-radius: 1rem;
-  -o-border-radius: 1rem;
+  border-radius: 0.9rem;
+  -webkit-border-radius: 0.9rem;
+  -moz-border-radius: 0.9rem;
+  -ms-border-radius: 0.9rem;
+  -o-border-radius: 0.9rem;
 }
 
 figure figcaption {
@@ -475,6 +440,27 @@ main {
 .main-text-image.large {
   width: 50rem;
   max-height: 80rem;
+}
+
+.masonry {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-auto-rows: 0;
+}
+
+.masonry>a {
+  border: 0.1rem solid var(--color-light);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  background: var(--color-primary);
+}
+
+.masonry:hover>a:not(:hover) {
+  opacity: 0.4;
 }
 
 .menu-wheel {
