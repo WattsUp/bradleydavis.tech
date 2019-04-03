@@ -472,6 +472,11 @@ main {
   box-sizing: border-box;
 }
 
+.main-text-image.large {
+  width: 50rem;
+  max-height: 80rem;
+}
+
 .menu-wheel {
   height: 3.5rem;
   width: 3.5rem;
