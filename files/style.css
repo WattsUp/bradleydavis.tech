@@ -69,7 +69,7 @@ hr {
 }
 
 .section {
-  margin: 0 0 16px 0;
+  margin: 0 0 12px 0;
 }
 
 .section>h2>span {
@@ -85,6 +85,11 @@ hr {
   height: 11in;
   padding: 0.5in;
   box-sizing: border-box;
+  margin-bottom: 0.25in;
+}
+
+.size-letter:last-of-type {
+  margin-bottom: 0;
 }
 
 .size-letter>h1 {
