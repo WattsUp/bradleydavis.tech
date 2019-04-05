@@ -68,6 +68,9 @@ var moving = false;
 var movingRight = true;
 var timingWalking = 200;
 
+/**
+ * Reset the interval timer and manually move the brad
+ */
 function moveFooterBradManual(){
   clearInterval(bradInterval);
   bradInterval = setInterval(moveFooterBrad, 4000);

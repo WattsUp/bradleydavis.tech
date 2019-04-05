@@ -40,6 +40,7 @@ body {
   -ms-border-radius: 0;
   -o-border-radius: 0;
   padding: 0;
+  margin: 0;
 }
 
 .brad {
@@ -88,6 +89,10 @@ body {
 .brad-mask>.left {
   left: 2px;
   background: url('images/brad-mask-left.png');
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 0;
 }
 
 .jump-up {
@@ -661,7 +666,7 @@ body {
 }
 
 .skills-wrapper>h2 {
-  margin: 0px 0px 0px 260px;
+  margin: 4px 0px 0px 260px;
   font-size: 22px;
 }
 
@@ -671,7 +676,7 @@ body {
 }
 
 .skills-wrapper>h3 {
-  margin: 10px 0px 0px 10px;
+  margin: 14px 0px 0px 10px;
   font-size: 22px;
 }
 
@@ -1097,11 +1102,13 @@ body {
 }
 
 .award-meteor>span>h1 {
+  font-size: 32px;
   text-align: center;
   text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
 }
 
 .award-meteor>span>h2 {
+  font-size: 24px;
   text-align: center;
   text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
 }
@@ -1184,7 +1191,7 @@ body {
   width: 276px;
   left: 10px;
   top: 57px;
-  height: 145px;
+  height: 120px;
   border: none;
   padding: 2px;
   resize: none;
@@ -1194,7 +1201,15 @@ body {
   font-size: 18px;
   width: 280px;
   left: 10px;
+  bottom: 27px;
+}
+
+.mars-lander-mast>form>a {
+  font-size: 18px;
+  width: 280px;
+  left: 10px;
   bottom: 3px;
+  text-align: center;
 }
 
 .mars-lander-flag {
