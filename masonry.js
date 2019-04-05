@@ -3,6 +3,7 @@
  */
 $(window).bind('load', function() {
   resizeMasonry();
+  setTimeout(resizeMasonry, 2000);
 });
 
 window.onresize = resizeMasonry;
