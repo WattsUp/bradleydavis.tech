@@ -10,6 +10,9 @@ window.onresize = resizeMasonry;
 var roots = $('.masonry');
 var rootBricks = [];
 
+/**
+ * Populate the array of bricks from the children of the masonry
+ */
 function findBricks() {
   roots = $('.masonry');
   for (var i = 0; i < roots.length; i++) {
@@ -17,6 +20,9 @@ function findBricks() {
   }
 }
 
+/**
+ * Change the size of the bricks to evenly fit
+ */
 function resizeMasonry() {
   findBricks();
 
