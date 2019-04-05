@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
+  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <meta charset="UTF-8">
+  <title>Bradley L. Davis | me@bradleydavis.tech</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="/utils.js"></script>
+  <link rel="stylesheet" href="/standardstyle.css">
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#52ADE1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body class="relative">
+  <header class="background-primary"> <a class="text-title color-dark" href="/">Bradley L. Davis</a>
+    <div class="header-right"> <a class="menu-wheel" href="/about" tabindex="-1">
+        <div class="menu-wheel-icon b-rad"></div>
+        <h1 class="text-body color-dark">About Me</h1>
+      </a> <a class="menu-wheel" href="/portfolio" tabindex="-1">
+        <div class="menu-wheel-icon portfolio"></div>
+        <h1 class="text-body color-dark">Portfolio</h1>
+      </a> <a class="menu-wheel" href="/lab" tabindex="-1">
+        <div class="menu-wheel-icon labs"></div>
+        <h1 class="text-body color-dark">Laboratories</h1>
+      </a> <a class="menu-wheel" href="/life" tabindex="-1">
+        <div class="menu-wheel-icon life"></div>
+        <h1 class="text-body color-dark">Life & Travel</h1>
+      </a> <a class="menu-wheel" href="/contact" tabindex="-1">
+        <div class="menu-wheel-icon contact"></div>
+        <h1 class="text-body color-dark">Contact Me</h1>
+      </a> </div>
+  </header>
+  <main>
+    <div class="main-text text-body">
+      <h1 class="text-title">Cougs in Space</h1>
+      <h2>Chief Technical Officer</h2>
+      <h5>August 2017 - Present // Pullman, WA</h5>
+      <p><a class="icon-link github" href="https://github.com/CougsInSpace"></a><a class="icon-link external"
+          href="http://cougs.space"></a></p>
+      <p>Cougs in Space is Washington State University’s satellite club. Our target: launching WSU’s first of many
+        CougSats, a 10cm CubeSat, into low earth orbit. CougSat-1’s primary mission is to develop a robust satellite for
+        use on future missions. Secondary missions include broadcasting <i>Go Cougs!</i> and testing a germination
+        experiment. The render below was created in <a href="http://autodesk.com/products/3ds-max">Autodesk 3ds Max</a>
+        with the <a href="https://otoy.com">OctaneRender</a>.</p>
+      <p class="text-align-center"><a href="render_4857w.png"><img class="main-text-image large"
+            alt="Render of CougSat-1 in orbit above Earth" title="CougSat-1 render" src="render_607w.png"
+            srcset="render_1814w.png 1814w, render_1214w.png, render_607w.png 607w"></a></p>
+      <p class="clearfix"><img alt="Functional block diagram for CougSat-1" title="Functional block diagram"
+          class="float-right main-text-image" src="block-diagram_529w.png"
+          srcset="block-diagram_1058w.png 1058w, block-diagram_529w.png 529w">Quickly after joining my first week at
+        college, they recognized my engineering talents and put me into the position of Chief Technical Officer. My
+        duties are to advise and manage all projects related to the satellite. Our club has over 200 members in 6 teams
+        building 9 subsystems. All of which need to interface without fault when orbiting 400 km above Earth. There is a
+        high attention to detail required to coordinate this sophisticated system. Inspired from my experience with the
+        agile methodology at <a href="/portfolio/work-sel/">SEL</a>, I introduced a project management system that is
+        proving effective at maintaining our schedule. As CTO, I also advise the senior projects that prototype
+        technologies for future satellites.</p>
+      <p class="clearfix"><img class="float-left main-text-image"
+          alt="Printed circuit board for CougSat-1's electrical power subsystem" title="EPS PCB" src="eps_661w.jpg"
+          srcset="eps_1322w.jpg 1322w, eps_661w.jpg 661w">My direct engineering contributions are primarily with the
+        Electrical Systems team designing printed circuit boards. Since I have joined, I have produced 8 unique boards.
+        Each board almost exclusively uses surface-mount technology components and must be engineered to a level of
+        robustness to survive the harsh space conditions. The Electrical Power Subsystem (<a
+          href="https://github.com/CougsInSpace/CougSat1-Hardware/tree/master/CougSat1-PowerBoard">EPS</a>, left) and
+        Communications Subsystem (<a
+          href="https://github.com/CougsInSpace/CougSat1-Hardware/tree/master/CougSat1-RadioBoard">Comms</a>) are two
+        such boards that are the most critical. The EPS generates power from the sun, stores energy for eclipse
+        operations, regulates voltage, and routes power to all the loads with intelligent monitoring and balancing. The
+        Comms uses radio frequency amateur bands to transfer data between the ground station and the satellite, in
+        addition to transmitting the secondary mission: <i>Go Cougs!</i>. Designing and routing the multi-layer Comms
+        board was difficult due to the high efficiency requirements, large number of parts, and tight trace
+        specifications.</p>
+      <p>In addition to electronics, I write <a
+          href="https://github.com/CougsInSpace/CougSat1-Software/tree/pmic/CougSat1-PMIC">software</a> for the embedded
+        microcontrollers and prototype mechanical solutions for various subsystems. The software, written in C++, uses
+        Mbed as the operating system and hardware abstraction library. I have written many drivers to the various
+        integrated circuits connected to the microcontroller. The next big software task for me is the Comms which has
+        three software defined radios which has a lot of math and needs to be very reliable. The mechanical solutions I
+        design often relate to the Comms antennae which need to be stowed during launch and then deployed while in
+        orbit. One such antenna is a helical high gain antenna fabricated out of super-elastic nitinol wire. It is a
+        couple millimeters thick collapsed then springs out to hundreds of millimeters long. Check out an animation of
+        the deployment below.</p>
+      <p class="text-align-center"><iframe width="560" height="315" src="https://www.youtube.com/embed/Dgh-bqW4tBU"
+          frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe></p>
+      <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=c%2B%2B">C++</a>, <a
+          href="/search/?q=cad">CAD</a>, <a href="/search/?q=debugging">debugging</a>, <a
+          href="/search/?q=electronics">electronics</a>, <a href="/search/?q=pcbs">PCBs</a>, <a
+          href="/search/?q=software">software</a>, <a href="/search/?q=system%20engineering">system engineering</a></p>
+    </div>
+  </main>
+  <footer class="fill-horz absolute">
+    <hr class="background-primary fill-horz">
+    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
+    <div> <a class="icon-link github" href="http://github.com/WattsUp"></a> <a class="icon-link contact"
+        href="mailto:me@bradleydavis.tech"></a> <a class="icon-link search" href="/search/"></a> </div>
+    <div class="footer-brad absolute transition-all-2s">
+      <div class="footer-brad-sprite absolute"></div>
+    </div>
+  </footer>
+  <script src="/standardscript.js"></script>
+</body>
+
+</html>
