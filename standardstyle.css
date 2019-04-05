@@ -181,6 +181,10 @@ code {
   color: var(--color-secondary);
 }
 
+.display-block {
+  display: block;
+}
+
 .display-inline-block {
   display: inline-block;
 }
@@ -288,10 +292,9 @@ header {
 }
 
 header>a {
-  font-size: 2rem;
+  font-size: 1.5rem;
   padding: 0.5rem;
   text-align: left;
-  white-space: nowrap;
   text-decoration: none;
 }
 
@@ -306,31 +309,39 @@ header>a:hover, header>a:active {
 }
 
 h1 {
+  font-size: 1.6rem;
   margin-top: 0.6rem;
   line-height: 1;
 }
 
 h2 {
+  font-size: 1.4rem;
   margin-top: 0.5rem;
   line-height: 1;
 }
 
 h3 {
+  font-size: 1.3rem;
   margin-top: 0.4rem;
   line-height: 1;
 }
 
 h4 {
+  font-size: 1.2rem;
   margin-top: 0.3rem;
   line-height: 1;
 }
 
 h5 {
+  font-size: 1.1rem;
   margin-top: 0.2rem;
   line-height: 1;
 }
 
 @media (min-width: 769px) {
+  header>a {
+    font-size: 2rem;
+  }
   h1 {
     font-size: 3rem;
   }

@@ -1,5 +1,4 @@
 .tile {
-  min-height: 20rem;
   border: 2px solid var(--color-light);
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -22,7 +21,6 @@
 .tile-title {
   padding: 0.5rem;
   background: var(--color-secondary);
-  min-height: 7rem;
 }
 
 .tile-link:hover {
@@ -49,4 +47,13 @@
 
 .tile>p {
   padding: 0.5rem;
+}
+
+@media (min-width: 769px) {
+  .tile {
+    min-height: 20rem;
+  }
+  .tile-title {
+    min-height: 7rem;
+  }
 }
