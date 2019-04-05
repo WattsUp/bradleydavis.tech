@@ -1,13 +1,4 @@
-.columnar-tile {
-  display: block;
-  break-inside: avoid;
-  page-break-inside: avoid;
-  -webkit-column-break-inside: avoid;
-  padding-top: 0.5rem;
-}
-
 .tile {
-  min-height: 20rem;
   border: 2px solid var(--color-light);
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -17,6 +8,7 @@
   overflow: hidden;
   display: inline-flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 .tile-link {
@@ -29,7 +21,6 @@
 .tile-title {
   padding: 0.5rem;
   background: var(--color-secondary);
-  min-height: 7rem;
 }
 
 .tile-link:hover {
@@ -42,14 +33,27 @@
   color: var(--color-dark);
 }
 
-.tile-link>h2 {
+.tile-link>* {
+  margin: 0;
+}
+
+.tile-link>h4 {
   padding: 0.5rem;
 }
 
-.tile-link>h3 {
+.tile-link>h5 {
   padding: 0.5rem;
 }
 
 .tile>p {
   padding: 0.5rem;
+}
+
+@media (min-width: 769px) {
+  .tile {
+    min-height: 20rem;
+  }
+  .tile-title {
+    min-height: 7rem;
+  }
 }
