@@ -109,11 +109,10 @@ button {
 }
 
 .button-accent {
-  background-color: transparent;
+  display: inline-block;
+  background: transparent;
   border: 0.1rem solid transparent;
   color: var(--color-accent);
-  background: var(--color-dark);
-  padding: 0;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   border-radius: 0.5rem;
@@ -123,6 +122,10 @@ button {
   -o-border-radius: 0.5rem;
   text-decoration: none;
   margin: 0.25rem;
+}
+
+.button-accent.dark{
+  background: var(--color-dark);
 }
 
 .button-accent.small {
