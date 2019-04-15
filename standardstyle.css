@@ -498,7 +498,7 @@ main {
   margin: 0.5rem 0;
 }
 
-.masonry>a {
+.masonry>*:not(.portfolio) {
   border: 0.1rem solid var(--color-light);
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -506,6 +506,9 @@ main {
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
   background: var(--color-primary);
+}
+
+.masonry>div {
   grid-row-end: span 40;
 }
 
