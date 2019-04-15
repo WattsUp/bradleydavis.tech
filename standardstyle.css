@@ -149,6 +149,40 @@ button {
   background-color: var(--color-accent);
 }
 
+.button-up {
+  background: var(--color-secondary);
+  position: fixed;
+  bottom: 2rem;
+  left: 0rem;
+  height: 3rem;
+  width: 5rem;
+  z-index: 99;
+  border-radius: 0 1.5rem 1.5rem 0;
+  -webkit-border-radius: 0 1.5rem 1.5rem 0;
+  -moz-border-radius: 0 1.5rem 1.5rem 0;
+  -ms-border-radius: 0 1.5rem 1.5rem 0;
+  -o-border-radius: 0 1.5rem 1.5rem 0;
+  transform: translateX(-5rem);
+  -webkit-transform: translateX(-5rem);
+  -moz-transform: translateX(-5rem);
+  -ms-transform: translateX(-5rem);
+  -o-transform: translateX(-5rem);
+}
+
+.button-up>button {
+  width: 3rem;
+  height: 3rem;
+  background: url('/images/menu-wheel-up-light.png');
+  background-size: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  -ms-border-radius: 1.5rem;
+  -o-border-radius: 1.5rem;
+  right: 0rem;
+}
+
 .center-margin {
   margin-left: auto;
   margin-right: auto;
