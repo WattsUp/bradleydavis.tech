@@ -109,11 +109,10 @@ button {
 }
 
 .button-accent {
-  background-color: transparent;
+  display: inline-block;
+  background: transparent;
   border: 0.1rem solid transparent;
   color: var(--color-accent);
-  background: var(--color-dark);
-  padding: 0;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
   border-radius: 0.5rem;
@@ -123,6 +122,10 @@ button {
   -o-border-radius: 0.5rem;
   text-decoration: none;
   margin: 0.25rem;
+}
+
+.button-accent.dark{
+  background: var(--color-dark);
 }
 
 .button-accent.small {
@@ -144,6 +147,40 @@ button {
   border: 0.1rem solid var(--color-accent);
   color: var(--color-dark);
   background-color: var(--color-accent);
+}
+
+.button-up {
+  background: var(--color-secondary);
+  position: fixed;
+  bottom: 2rem;
+  left: 0rem;
+  height: 3rem;
+  width: 5rem;
+  z-index: 99;
+  border-radius: 0 1.5rem 1.5rem 0;
+  -webkit-border-radius: 0 1.5rem 1.5rem 0;
+  -moz-border-radius: 0 1.5rem 1.5rem 0;
+  -ms-border-radius: 0 1.5rem 1.5rem 0;
+  -o-border-radius: 0 1.5rem 1.5rem 0;
+  transform: translateX(-5rem);
+  -webkit-transform: translateX(-5rem);
+  -moz-transform: translateX(-5rem);
+  -ms-transform: translateX(-5rem);
+  -o-transform: translateX(-5rem);
+}
+
+.button-up>button {
+  width: 3rem;
+  height: 3rem;
+  background: url('/images/menu-wheel-up-light.png');
+  background-size: 3rem;
+  border: none;
+  border-radius: 1.5rem;
+  -webkit-border-radius: 1.5rem;
+  -moz-border-radius: 1.5rem;
+  -ms-border-radius: 1.5rem;
+  -o-border-radius: 1.5rem;
+  right: 0rem;
 }
 
 .center-margin {
@@ -455,12 +492,13 @@ main {
 
 .masonry {
   display: grid;
-  grid-gap: 1rem;
+  grid-gap: 0.5rem;
   grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
   grid-auto-rows: 0;
+  margin: 0.5rem 0;
 }
 
-.masonry>a {
+.masonry>*:not(.portfolio) {
   border: 0.1rem solid var(--color-light);
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
@@ -468,6 +506,10 @@ main {
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
   background: var(--color-primary);
+}
+
+.masonry>div {
+  grid-row-end: span 40;
 }
 
 .masonry:hover>a:not(:hover) {

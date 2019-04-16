@@ -71,7 +71,7 @@ var timingWalking = 200;
 /**
  * Reset the interval timer and manually move the brad
  */
-function moveFooterBradManual(){
+function moveFooterBradManual() {
   clearInterval(bradInterval);
   bradInterval = setInterval(moveFooterBrad, 4000);
   moveFooterBrad();
@@ -145,4 +145,30 @@ function updateWalkingSprite() {
       bradSprite.css('left', '-14rem');
       break;
   }
+}
+
+/******************************* Scroll Button ********************************/
+$(window).bind('scroll', scrollUpdate);
+$(window).bind('resize', scrollUpdate);
+$(window).bind('orientationChange', scrollUpdate);
+
+var buttonUp = $('.button-up');
+
+/**
+ * Shows or hides the scrollUp button
+ */
+function scrollUpdate() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    cssPrefix(buttonUp, 'transform', 'translateX(0rem)');
+  } else {
+    cssPrefix(buttonUp, 'transform', 'translateX(-5rem)');
+  }
+}
+
+/**
+ * Scrolls to the top of the page
+ */
+function buttonScrollUp() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
