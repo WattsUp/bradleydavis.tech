@@ -4,6 +4,7 @@
 }
 
 hr {
+  border-top-color: #282828;
   border-top: 1px solid var(--color-dark);
   border-left: none;
   border-right: none;
@@ -12,6 +13,7 @@ hr {
 
 #link-cell, #link-email, #link-github, #link-web {
   padding: 0 0 0 24px;
+  color: #282828;
   color: var(--color-dark);
   background-repeat: no-repeat;
   background-position: center left;
@@ -42,6 +44,7 @@ hr {
 .panel h1 {
   margin: 10px 0 0 0;
   font-size: 22px;
+  color: #4A9CCB;
   color: var(--color-primary-d10);
 }
 
@@ -53,6 +56,7 @@ hr {
 .panel h3 {
   margin: 6px 0 0 0;
   font-size: 14px;
+  color: #949494;
   color: var(--color-dark-b50);
 }
 
@@ -73,6 +77,7 @@ hr {
 }
 
 .section>h2>span {
+  color: #949494;
   color: var(--color-dark-b50);
 }
 
@@ -95,6 +100,7 @@ hr {
 .size-letter>h1 {
   margin: -10px 0 0 -6px;
   font-size: 56px;
+  color: #4A9CCB;
   color: var(--color-primary-d10);
 }
 
