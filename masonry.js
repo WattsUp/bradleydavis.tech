@@ -1,7 +1,7 @@
 /**
  * Function once page is fully loaded
  */
-$(window).bind('load', function() {
+$(window).bind('load', function () {
   resizeMasonry();
   $(window).bind('resize', resizeMasonry);
   $(window).bind('orientationChange', resizeMasonry);
@@ -26,7 +26,7 @@ function findBricks() {
  */
 function resizeMasonry() {
   findBricks();
-  setTimeout(function() {
+  setTimeout(function () {
     for (var i = 0; i < roots.length; i++) {
       var root = roots.eq(i);
       var bricks = rootBricks[i];
