@@ -22,12 +22,14 @@ html {
 }
 
 a {
+  color: #52ADE1;
   color: var(--color-primary);
   text-decoration: none;
 }
 
 a:hover, a:active {
   text-decoration: underline;
+  color: #33FF33;
   color: var(--color-accent);
 }
 
@@ -44,22 +46,27 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 }
 
 .background-accent {
+  background: #33FF33;
   background: var(--color-accent);
 }
 
 .background-dark {
+  background: #282828;
   background: var(--color-dark);
 }
 
 .background-light {
+  background: #FFFFFF;
   background: var(--color-light);
 }
 
 .background-primary {
+  background: #52ADE1;
   background: var(--color-primary);
 }
 
 .background-secondary {
+  background: #164693;
   background: var(--color-secondary);
 }
 
@@ -77,6 +84,7 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 }
 
 .banner-text>h1 {
+  text-shadow: 0.1rem 0.1rem 0.5rem #282828;
   text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark);
 }
 
@@ -84,6 +92,7 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
   padding: 0.5rem 0;
   font-size: 1rem;
   font-weight: bold;
+  text-shadow: 0.1rem 0.1rem 1rem #282828;
   text-shadow: 0.1rem 0.1rem 1rem var(--color-dark);
 }
 
@@ -112,6 +121,7 @@ button {
   display: inline-block;
   background: transparent;
   border: 0.1rem solid transparent;
+  color: #33FF33;
   color: var(--color-accent);
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
@@ -124,7 +134,8 @@ button {
   margin: 0.25rem;
 }
 
-.button-accent.dark{
+.button-accent.dark {
+  background: #282828;
   background: var(--color-dark);
 }
 
@@ -139,17 +150,23 @@ button {
 }
 
 .button-accent:hover {
+  border: 0.1rem solid #33FF33;
   border: 0.1rem solid var(--color-accent);
+  border: 0.1rem solid;
   text-decoration: none;
 }
 
 .button-accent:active {
+  border: 0.1rem solid #33FF33;
   border: 0.1rem solid var(--color-accent);
+  color: #282828;
   color: var(--color-dark);
+  background-color: #33FF33;
   background-color: var(--color-accent);
 }
 
 .button-up {
+  background: #164693;
   background: var(--color-secondary);
   position: fixed;
   bottom: 2rem;
@@ -199,22 +216,27 @@ code {
 }
 
 .color-accent {
+  color: #33FF33;
   color: var(--color-accent);
 }
 
 .color-dark {
+  color: #282828;
   color: var(--color-dark);
 }
 
 .color-light {
+  color: #FFFFFF;
   color: var(--color-light);
 }
 
 .color-primary {
+  color: #52ADE1;
   color: var(--color-primary);
 }
 
 .color-secondary {
+  color: #164693;
   color: var(--color-secondary);
 }
 
@@ -228,6 +250,7 @@ code {
 
 figure {
   display: inline-block;
+  color: #282828;
   color: var(--color-dark);
 }
 
@@ -275,13 +298,13 @@ footer {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  text-align: center;
 }
 
 footer>div {
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-items: center;
+  justify-content: center;
 }
 
 footer>hr {
@@ -336,6 +359,7 @@ header>a {
 }
 
 header>a:hover, header>a:active {
+  color: #282828;
   color: var(--color-dark);
   text-decoration: none;
 }
@@ -416,7 +440,9 @@ h5 {
 }
 
 html {
+  background: #282828;
   background: var(--color-dark);
+  color: #FFFFFF;
   color: var(--color-light);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -461,6 +487,7 @@ html {
 }
 
 main {
+  display: block;
   padding: 0 0 10rem 0;
 }
 
@@ -490,6 +517,30 @@ main {
   max-height: 80rem;
 }
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  /* Internet Explorer */
+
+  main::before{
+    content: "Please update to a modern browser: Chrome, Safari, Mozilla, Edge, etc.";
+    text-align: center;
+    font-size: 30px;
+    font-family: quicksand;
+    background: #33FF33;
+    background: var(--color-accent);
+    color: #282828;
+    color: var(--color-dark);
+    display: block;
+  }
+
+  .masonry {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .masonry>* {
+    width: 33%;
+  }
+}
+
 .masonry {
   display: grid;
   grid-gap: 0.5rem;
@@ -499,13 +550,16 @@ main {
 }
 
 .masonry>*:not(.portfolio) {
+  border: 0.1rem solid #FFFFFF;
   border: 0.1rem solid var(--color-light);
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
   -ms-border-radius: 1rem;
   -o-border-radius: 1rem;
+  background: #52ADE1;
   background: var(--color-primary);
+  display: block;
 }
 
 .masonry>div {
@@ -549,6 +603,7 @@ main {
 }
 
 .menu-wheel:hover, .menu-wheel:active {
+  color: #282828;
   color: var(--color-dark);
   text-decoration: none;
 }
@@ -600,6 +655,7 @@ p {
 
 .spoiler-content {
   overflow: hidden;
+  background: #3D3D3D;
   background: var(--color-dark-b10);
   padding: 0.5rem;
 }
