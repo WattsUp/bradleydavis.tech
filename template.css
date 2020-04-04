@@ -1,4 +1,4 @@
-/* Colors and sizes */
+/****************************** Colors and sizes ******************************/
 
 :root {
   --color-primary: #52ADE1;
@@ -83,7 +83,7 @@ code {
   font-family: code-new-roman;
 }
 
-/* Main */
+/************************************ Main ************************************/
 
 main {
   display: block;
@@ -163,7 +163,7 @@ h5 {
   }
 }
 
-/* Fonts */
+/*********************************** Fonts ************************************/
 
 * {
   font-family: quicksand;
@@ -189,7 +189,7 @@ h5 {
   font-family: tektrron;
 }
 
-/* Links, external link icon */
+/*********************************** Links ************************************/
 
 a {
   color: var(--color-primary);
@@ -238,7 +238,7 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
   background-image: url('/images/menu-wheel-search-light.png');
 }
 
-/* Header */
+/*********************************** Header ***********************************/
 
 header {
   display: flex;
@@ -337,7 +337,7 @@ header>div>a .front>img {
   height: 100%;
 }
 
-/* Footer */
+/*********************************** Footer ***********************************/
 
 footer {
   position: absolute;
@@ -398,7 +398,7 @@ footer>span>a {
   position: absolute;
 }
 
-/* Custom unordered list bullets */
+/*************************** Unordered list bullets ***************************/
 
 ul {
   padding-left: 1.0;
@@ -618,11 +618,6 @@ figure figcaption>* {
   height: 100%;
 }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
 .float-left {
   float: left;
 }
@@ -676,17 +671,6 @@ figure figcaption>* {
   /* Internet Explorer */
 
 /*
-  main::before {
-    content: "Please update to a modern browser: Chrome, Safari, Mozilla, Edge, etc.";
-    text-align: center;
-    font-size: 30px;
-    font-family: quicksand;
-    background: #33FF33;
-    background: var(--color-accent);
-    color: #282828;
-    color: var(--color-dark);
-    display: block;
-  }
   .masonry {
     display: flex;
     flex-wrap: wrap;
