@@ -74,6 +74,14 @@ var footer = {
 function onLoad() {
   document.getElementById('copyright-date').innerHTML =
       (new Date()).getFullYear();
+  // When a spoiler is clicked, reduce its background to 10% opacity
+  document.querySelectorAll('.spoiler')
+      .forEach(item => {item.addEventListener('click', event => {
+                 item.style.background =
+                     window.getComputedStyle(item)
+                         .backgroundColor.replace('rgb', 'rgba')
+                         .replace(')', ',0.1)');
+               })})
   footer.init();
 }
 
