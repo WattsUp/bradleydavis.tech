@@ -76,7 +76,7 @@ function onLoad() {
       (new Date()).getFullYear();
   // When a spoiler is clicked, reduce its background to 10% opacity
   document.querySelectorAll('.spoiler')
-      .forEach(item => {item.addEventListener('click', event => {
+      .forEach(item => {item.addEventListener('click', function() {
                  item.style.background =
                      window.getComputedStyle(item)
                          .backgroundColor.replace('rgb', 'rgba')
