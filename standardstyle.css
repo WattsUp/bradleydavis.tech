@@ -378,16 +378,17 @@ footer>span>a {
   margin: 0.25rem;
 }
 
-.footer-brad {
+#footer-brad {
   height: 6.95rem;
   width: 6.95rem;
   bottom: 0;
   overflow: hidden;
   left: 0;
   position: absolute;
+  transition: left 2s;
 }
 
-.footer-brad>div {
+#footer-brad>div {
   height: 14rem;
   width: 21rem;
   background-image: url('/images/brad-sprite.png');
