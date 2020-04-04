@@ -443,6 +443,13 @@ ul.dark li li li {
   background-image: url('/images/bullet-3-dark.png');
 }
 
+/********************************** Spoilers **********************************/
+.spoiler {
+  background: var(--color-light);
+  border-radius: 4px;
+  transition: background 1s ease-out;
+}
+
 /* 
 .absolute {
   position: absolute;
@@ -711,21 +718,6 @@ figure figcaption>* {
 
 .relative {
   position: relative;
-}
-
-.spoiler-button {
-  margin-bottom: 0.5rem;
-}
-
-.spoiler-button[value='Reveal Spoilers']+.spoiler-content>div {
-  margin-top: -500%;
-}
-
-.spoiler-content {
-  overflow: hidden;
-  background: #3D3D3D;
-  background: var(--color-dark-b10);
-  padding: 0.5rem;
 }
 
 .text-align-center {
