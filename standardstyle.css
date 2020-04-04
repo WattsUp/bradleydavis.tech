@@ -150,7 +150,7 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 header>a {
@@ -169,22 +169,35 @@ header>a:hover, header>a:active {
 }
 
 .menu-wheel {
-  width: 3rem;
-  height: 3rem;
   margin: 0.25rem;
+  text-align: center;
+}
+
+.menu-wheel:hover, .menu-wheel:active {
+  text-decoration: none;
 }
 
 .menu-wheel>div {
   position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
+  width: 3rem;
+  height: 3rem;
   transition: transform 0.5s;
   transform-style: preserve-3d;
 }
 
-.menu-wheel:hover>div {
-  transform: rotateY(-180deg);
+.menu-wheel>h5 {
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+@media(hover) {
+  /* Hover compatible devices: desktops */
+  .menu-wheel:hover>div {
+    transform: rotateY(-180deg);
+  }
+  .menu-wheel>h5 {
+    display: none;
+  }
 }
 
 .menu-wheel>div>* {
@@ -212,7 +225,7 @@ header>a:hover, header>a:active {
   header>a {
     font-size: 2rem;
   }
-  .menu-wheel {
+  .menu-wheel>div {
     width: 3.5rem;
     height: 3.5rem;
   }
