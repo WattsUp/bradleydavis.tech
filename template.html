@@ -2,16 +2,12 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
   <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
   <meta charset="UTF-8">
-  <title>Template | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
+  <!-- <script async src="/standardscript.js"></script> -->
   <link rel="stylesheet" href="/standardstyle.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -20,26 +16,56 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="theme-color" content="#52ADE1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="style.css">
+  <title>Template | Bradley L. Davis | me@bradleydavis.tech</title>
 </head>
 
 <body class="relative">
-  <header class="background-primary"> <a class="text-title color-dark" href="/">Bradley L. Davis</a>
-    <div class="header-right"> <a class="menu-wheel" href="/about" tabindex="-1">
-        <div class="menu-wheel-icon b-rad"></div>
-        <h1 class="text-body color-dark">About Me</h1>
-      </a> <a class="menu-wheel" href="/portfolio" tabindex="-1">
-        <div class="menu-wheel-icon portfolio"></div>
-        <h1 class="text-body color-dark">Portfolio</h1>
-      </a> <a class="menu-wheel" href="/lab" tabindex="-1">
-        <div class="menu-wheel-icon labs"></div>
-        <h1 class="text-body color-dark">Laboratories</h1>
-      </a> <a class="menu-wheel" href="/life" tabindex="-1">
-        <div class="menu-wheel-icon life"></div>
-        <h1 class="text-body color-dark">Life & Travel</h1>
-      </a> <a class="menu-wheel" href="/contact" tabindex="-1">
-        <div class="menu-wheel-icon contact"></div>
-        <h1 class="text-body color-dark">Contact Me</h1>
-      </a> </div>
+  <header class="background-primary">
+    <a class="text-title color-dark" href="/">Bradley L. Davis</a>
+    <div class="header-right">
+      <a class="menu-wheel" href="/about">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="back color-secondary text-body background-light">
+            <h5>About</h5>
+          </div>
+        </div>
+      </a>
+      <a class="menu-wheel" href="/portfolio">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="back color-secondary text-body background-light">
+            <h5>Work</h5>
+          </div>
+        </div>
+      </a>
+      <a class="menu-wheel" href="/lab">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="back color-secondary text-body background-light">
+            <h5>Labs</h5>
+          </div>
+        </div>
+      </a>
+      <a class="menu-wheel" href="/life">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="back color-secondary text-body background-light">
+            <h5>Life</h5>
+          </div>
+        </div>
+      </a>
+      <a class="menu-wheel" href="/contact">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="back color-secondary text-body background-light">
+            <h5>Email</h5>
+          </div>
+        </div>
+      </a>
+    </div>
   </header>
   <main>
     <div class="main-text text-body">
@@ -107,6 +133,7 @@
           dog.,0123456789!$%&?</b></p>
       <p class="text-title" style="font-size: 1.5rem"><i>The quick brown fox jumps over the lazy
           dog.,0123456789!$%&?</i></p>
+      <br>
       <h3 class="text-body">Body: <a href="http://www.dafont.com/quicksand.font">Quicksand</a> </h3>
       <p class="text-body" style="font-size: 1.5rem">The quick brown fox jumps over the lazy
         dog.,0123456789!$%&@#^*(){}[]?</p>
@@ -118,6 +145,7 @@
           dog.,0123456789!$%&@#^*(){}[]?</b></p>
       <p class="text-body" style="font-size: 1.5rem"><i>The quick brown fox jumps over the lazy
           dog.,0123456789!$%&@#^*(){}[]?</i></p>
+      <br>
       <h3 class="text-monospace">Monospace (Code): <a href="http://www.dafont.com/code-new-roman.font">Code New
           Roman</a></h3>
       <p class="text-monospace" style="font-size: 1.5rem">The quick brown fox jumps over the lazy
@@ -138,7 +166,6 @@
       <div class="footer-brad-sprite absolute"></div>
     </div>
   </footer>
-  <script src="/standardscript.js"></script>
 </body>
 
 </html>
