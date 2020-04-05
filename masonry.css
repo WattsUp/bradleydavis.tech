@@ -1,0 +1,39 @@
+.masonry {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-auto-rows: 0;
+  margin: 0.5rem 0;
+}
+
+.masonry>* {
+  grid-column-end: span 1;
+  grid-row-end: span 40;
+  border: 0.1rem solid var(--color-light);
+  border-radius: 1rem;
+  -webkit-border-radius: 1rem;
+  -moz-border-radius: 1rem;
+  -ms-border-radius: 1rem;
+  -o-border-radius: 1rem;
+  background: var(--color-primary);
+  display: block;
+  transition: opacity 1s;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+}
+
+.masonry>a>figure {
+  width: 100%;
+}
+
+.masonry>div {
+  grid-row-end: span 40;
+}
+
+@media (min-width: 770px) {
+  .masonry:hover>a:not(:hover) {
+    opacity: 0.4;
+  }
+}
