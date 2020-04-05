@@ -2,85 +2,128 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
-  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
   <meta charset="UTF-8">
-  <title>Easter Eggs | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
-  <link rel="stylesheet" href="/standardstyle.css">
+  <script async src="/template.js"></script>
+  <link rel="stylesheet" href="/template.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="icon" href="/favicon.ico">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#164693">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#52ADE1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Easter Eggs | Bradley L. Davis | me@bradleydavis.tech</title>
 </head>
 
-<body class="relative">
-  <header class="background-primary"> <a class="text-title color-dark" href="/">Bradley L. Davis</a>
-    <div class="header-right"> <a class="menu-wheel" href="/about" tabindex="-1">
-        <div class="menu-wheel-icon b-rad"></div>
-        <h1 class="text-body color-dark">About Me</h1>
-      </a> <a class="menu-wheel" href="/portfolio" tabindex="-1">
-        <div class="menu-wheel-icon portfolio"></div>
-        <h1 class="text-body color-dark">Portfolio</h1>
-      </a> <a class="menu-wheel" href="/lab" tabindex="-1">
-        <div class="menu-wheel-icon labs"></div>
-        <h1 class="text-body color-dark">Laboratories</h1>
-      </a> <a class="menu-wheel" href="/life" tabindex="-1">
-        <div class="menu-wheel-icon life"></div>
-        <h1 class="text-body color-dark">Life & Travel</h1>
-      </a> <a class="menu-wheel" href="/contact" tabindex="-1">
-        <div class="menu-wheel-icon contact"></div>
-        <h1 class="text-body color-dark">Contact Me</h1>
-      </a> </div>
+<body>
+  <header>
+    <a href="/">Bradley L. Davis</a>
+    <div>
+      <a href="/about">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="back">
+            <h5>About</h5>
+          </div>
+        </div>
+        <h5>About</h5>
+      </a>
+      <a href="/portfolio">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="back">
+            <h5>Work</h5>
+          </div>
+        </div>
+        <h5>Work</h5>
+      </a>
+      <a href="/lab">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="back">
+            <h5>Labs</h5>
+          </div>
+        </div>
+        <h5>Labs</h5>
+      </a>
+      <a href="/life">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="back">
+            <h5>Life</h5>
+          </div>
+        </div>
+        <h5>Life</h5>
+      </a>
+      <a href="/contact">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="back">
+            <h5>Email</h5>
+          </div>
+        </div>
+        <h5>Email</h5>
+      </a>
+    </div>
   </header>
   <main>
-    <div class="main-text text-body">
-      <h1 class="text-title">Easter Eggs</h1>
-      <p>You found an Easter egg which is this page, <i>woah!</i> You can reveal the rest of them or continue searching.
-      </p> <input type="button" class="button-accent spoiler-button transition-all-300ms" value="Reveal Spoilers"
-        onclick="this.value=(this.value=='Reveal Spoilers')?'Hide Spoilers':'Reveal Spoilers';">
-      <div class="spoiler-content">
-        <div>
-          <ul>
-            <li>This page is an Easter egg</li>
-            <li>The home page has a hidden paragraph that can be revealed by hovering over its location</li>
-            <li>My about me <a href="/about/images/portrait.png">portrait</a> is emulated from the Kramer painted in <a
-                href="https://en.wikipedia.org/wiki/The_Letter_(Seinfeld)"><i>The Letter</i> episode</a>,
-              <i>Seinfeld</i></li>
-            <li>When the Brad in the footer is clicked, he runs away. If you click him many times quickly, he freaks
-              out. <i>#featurenotabug</i></li>
-            <li>Interactive resume eggs <ul>
-                <li>The about me particle display is emulated from the Wakanda technology <a
+    <h1 class="text-title">Easter Eggs</h1>
+    <p>You found an Easter egg which is this page, <i>woah!</i> You can reveal the rest of them or continue searching.
+    </p>
+    <p><button class="text-body button accent"
+        onclick="document.querySelectorAll('.spoiler').forEach(item => {item.click()})">Reveal All</button></p>
+    <div class="spoiler-content">
+      <div>
+        <ul>
+          <li><span class="spoiler">This page is an Easter egg</span></li>
+          <li><span class="spoiler">The home page has a hidden paragraph that can be revealed by hovering over its
+              location</span></li>
+          <li><span class="spoiler">My about me <a href="/about/images/portrait.png">portrait</a> is emulated from the
+              Kramer painted in <a href="https://en.wikipedia.org/wiki/The_Letter_(Seinfeld)"><i>The Letter</i>
+                episode</a>,
+              <i>Seinfeld</i></span></li>
+          <li><span class="spoiler">When the Brad in the footer is clicked, he runs away. If you click him many times
+              quickly, he freaks
+              out. <i>#featurenotabug</i></span></li>
+          <li><span class="spoiler">Interactive resume eggs</span>
+            <ul>
+              <li><span class="spoiler">The about me particle display is emulated from the Wakanda technology <a
                     href="http://experienceperception.com/black-panther-fui.html#vibraniumsand"><i>vibranium
-                      sand</i></a> from <i>Black Panther</i></li>
-                <li>The WSU blinky display is a workable LCD circuit using an STM microcontroller</li>
-                <li>My rocket's engines are the <a href="https://en.wikipedia.org/wiki/Rocketdyne_F-1">F1 engine</a> as
-                  found on the powerful Saturn V</li>
-                <li>The rocket engine room <ul>
-                    <li>Many of the information displays are emulated from the original series Star Trek, including the
+                      sand</i></a> from <i>Black Panther</i></span></li>
+              <li><span class="spoiler">The WSU blinky display is a workable LCD circuit using an STM
+                  microcontroller</span></li>
+              <li><span class="spoiler">My rocket's engines are the <a
+                    href="https://en.wikipedia.org/wiki/Rocketdyne_F-1">F1 engine</a> as
+                  found on the powerful Saturn V</span></li>
+              <li><span class="spoiler">The rocket engine room</span>
+                <ul>
+                  <li><span class="spoiler">Many of the information displays are emulated from the original series Star
+                      Trek, including the
                       random blinky lights on the console, and <i>The Next Generation</i>'s <a
-                        href="https://en.wikipedia.org/wiki/LCARS">LCARS</a></li>
-                    <li>There is a <a href="https://en.wikipedia.org/wiki/Lorentz_transformation">Lorentz
-                        transformation</a> on one of the displays</li>
-                    <li>The trajectory is a <a href="https://en.wikipedia.org/wiki/Hohmann_transfer_orbit">Hohmann
-                        transfer</a> with the planets and mars in the proper location</li>
-                  </ul>
-                </li>
-                <li>The Mallard Madness duck has been assimilated by the Borg, <i>resistance is futile</i></li>
-                <li>The shuttlecraft is taken from Star Trek</li>
-                <li>Some of the instruments on the Mars lander can be found on the <a
-                    href="https://en.wikipedia.org/wiki/InSight">Insight Lander</a></li>
-              </ul>
-            </li>
-            <li>The <a href="/">home page</a> has an ASCII art tesla coil in the HTML comments<br> <input type="button"
-                class="button-accent small spoiler-button transition-all-300ms" value="Reveal Spoilers"
-                onclick="this.value=(this.value=='Reveal Spoilers')?'Hide Spoilers':'Reveal Spoilers';">
-              <div class="spoiler-content">
-                <div>
-                  <pre class="text-monospace color-accent background-dark text-align-center" style="font-size: 0.4rem">
+                        href="https://en.wikipedia.org/wiki/LCARS">LCARS</a></span></li>
+                  <li><span class="spoiler">There is a <a
+                        href="https://en.wikipedia.org/wiki/Lorentz_transformation">Lorentz
+                        transformation</a> on one of the displays</span></li>
+                  <li><span class="spoiler">The trajectory is a <a
+                        href="https://en.wikipedia.org/wiki/Hohmann_transfer_orbit">Hohmann
+                        transfer</a> with the planets and mars in the proper location</span></li>
+                </ul>
+              </li>
+              <li><span class="spoiler">The Mallard Madness duck has been assimilated by the Borg, <i>resistance is
+                    futile</i></span></li>
+              <li><span class="spoiler">The shuttlecraft is taken from Star Trek</span></li>
+              <li><span class="spoiler">Some of the instruments on the Mars lander can be found on the <a
+                    href="https://en.wikipedia.org/wiki/InSight">Insight Lander</a></span></li>
+            </ul>
+          </li>
+          <li>
+            <div class="spoiler">The <a href="/">home page</a> has an ASCII art tesla coil in the HTML comments<br>
+              <pre class="text-monospace color-accent" style="font-size: 0.4rem; text-align: center;">
                                                    :I=NDZ??D7$ZIO=~=O:,~+DNII::D=            
                                                  :$.?IMMMIO8O8IN7I?O=,?N~==ZI=:D,=           
                                                   .7M$I8O$NIMDZ+7~~=8N$ION8DD8$N,:~          
@@ -121,26 +164,26 @@
 --__--____--        |MMMMMMMMMMMMMMMMMMMMMMM|                                   O:           
 LASFJKHUUAREIYBULVLBAFHJFGAHFGSKHBAJFWUGEFUHSDJKCBnmnBsbNFASAFFJBSHJSFHHJSFBHJBBJHDBFJKASFKAS
 MNBXCUYBXCLBAFLWEHLIUAPIUUZJBXVNMAWJLVIUAHSDVBJKGLBASDVBALSDJFVJJVHKASVLHUSDPAOPPQOIWEUBVNMGF
-                  </pre>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
+            </pre>
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
+    </div>
   </main>
-  <footer class="fill-horz absolute">
-    <hr class="background-primary fill-horz">
-    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
-    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
-    <div> <a class="icon-link github" href="http://github.com/WattsUp"></a> <a class="icon-link contact"
-        href="mailto:me@bradleydavis.tech"></a> <a class="icon-link search" href="/search/"></a> </div>
-    <div class="footer-brad absolute transition-all-2s">
-      <div class="footer-brad-sprite absolute"></div>
+  <footer>
+    <hr>
+    <h1>&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="icon-link github" href="http://github.com/WattsUp"></a>
+      <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
+      <a class="icon-link search" href="/search/"></a> </div>
+    <div id="footer-brad">
+      <div></div>
     </div>
   </footer>
-  <script src="/standardscript.js"></script>
 </body>
 
 </html>
