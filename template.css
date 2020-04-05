@@ -88,7 +88,15 @@ code {
 
 main {
   display: block;
-  padding-bottom: 10rem;
+  width: 80%;
+  margin: 0 auto;
+  padding-bottom: 11rem;
+}
+
+.main::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -102,18 +110,6 @@ main {
     color: var(--color-dark);
     display: block;
   }
-}
-
-.main-text {
-  width: 80%;
-  margin: 0 auto;
-  padding-bottom: 1rem;
-}
-
-.main-text::after {
-  content: "";
-  clear: both;
-  display: table;
 }
 
 p {
@@ -275,6 +271,10 @@ header>div>a>div {
   height: 3rem;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
 }
 
 header>div>a>h5 {
@@ -287,7 +287,11 @@ header>div>a>h5 {
   /* Hover compatible devices: desktops */
   header>div>a:hover>div {
     transform: rotateY(-180deg);
-  }
+    -webkit-transform: rotateY(-180deg);
+    -moz-transform: rotateY(-180deg);
+    -ms-transform: rotateY(-180deg);
+    -o-transform: rotateY(-180deg);
+}
   header>div>a>h5 {
     display: none;
   }
@@ -314,6 +318,10 @@ header>div>a>div>.back {
   align-items: center;
   color: var(--color-secondary);
   background: var(--color-light);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
 }
 
 @media (min-width: 769px) {
@@ -446,32 +454,36 @@ ul.dark li li li {
   background: var(--color-light);
   border-radius: 4px;
   transition: background 1s ease-out;
+  -webkit-transition: background 1s ease-out;
+  -moz-transition: background 1s ease-out;
+  -ms-transition: background 1s ease-out;
+  -o-transition: background 1s ease-out;
 }
 
-/* 
-.absolute {
-  position: absolute;
-}
+/*********************************** Banner ***********************************/
 
-.banner {
+banner {
   height: 30rem;
+  width: 100%;
   background-size: cover;
   background-position: center;
+  display: inline-block;
 }
 
-.banner-text {
+banner>div {
+  position: relative;
   top: 5%;
   left: 5%;
   width: 50%;
   min-width: 20rem;
 }
 
-.banner-text>h1 {
+banner>div>h1 {
   text-shadow: 0.1rem 0.1rem 0.5rem #282828;
   text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark);
 }
 
-.banner-text>p {
+banner>div>p {
   padding: 0.5rem 0;
   font-size: 1rem;
   font-weight: bold;
@@ -479,8 +491,59 @@ ul.dark li li li {
   text-shadow: 0.1rem 0.1rem 1rem var(--color-dark);
 }
 
-.banner-text>a {
+banner>div>a {
   display: inline-block;
+}
+
+/********************************** Buttons ***********************************/
+
+.button {
+  display: inline-block;
+  border: 0.1rem solid transparent;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  text-decoration: none;
+  margin: 0.25rem;
+  transition: background 0.3s, color 0.3s, border 0.3s;
+  -webkit-transition: background 0.3s, color 0.3s, border 0.3s;
+  -moz-transition: background 0.3s, color 0.3s, border 0.3s;
+  -ms-transition: background 0.3s, color 0.3s, border 0.3s;
+  -o-transition: background 0.3s, color 0.3s, border 0.3s;
+}
+
+.button.accent {
+  color: var(--color-accent);
+}
+
+.button.accent.small {
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+}
+
+.button.accent:hover {
+  border: 0.1rem solid var(--color-accent);
+  text-decoration: none;
+}
+
+.button.accent:active {
+  border: 0.1rem solid var(--color-accent);
+  color: var(--color-dark);
+  background-color: var(--color-accent);
+}
+
+/*
+.absolute {
+  position: absolute;
 }
 
 blockquote {
@@ -635,19 +698,6 @@ figure figcaption>* {
   color: inherit;
   text-decoration: none;
   cursor: default;
-}
-
-.hidden-text {
-  opacity: 0.0;
-  transition: 5s opacity;
-  -webkit-transition: 5s opacity;
-  -moz-transition: 5s opacity;
-  -ms-transition: 5s opacity;
-  -o-transition: 5s opacity;
-}
-
-.hidden-text:hover, .hidden-text:active {
-  opacity: 1.0;
 }
 
 .img-caption {
