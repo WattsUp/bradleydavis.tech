@@ -94,6 +94,40 @@ def getFiles(args):
   return htmlFiles
 
 
+def getCustomHead(fileData):
+  CUSTOM_HEAD = ""
+  
+  # Check for custom stylesheet
+  match = re.search(r"(<link.*\"style\.css.*>)", fileData)
+  if match:
+    for g in match.groups():
+      CUSTOM_HEAD += "\n  " + g
+  match = re.search(r"(<link.*/style\.css.*>)", fileData)
+  if match:
+    for g in match.groups():
+      CUSTOM_HEAD += "\n  " + g
+  match = re.search(r"(<link.*masonry\.css.*>)", fileData)
+  if match:
+    for g in match.groups():
+      CUSTOM_HEAD += "\n  " + g
+
+  # Check for custom script
+  match = re.search(r"(<script.*index.js\"></script>)", fileData)
+  if match:
+    for g in match.groups():
+      CUSTOM_HEAD += "\n  " + g
+  match = re.search(r"(<script.*lazy-load.js\"></script>)", fileData)
+  if match:
+    for g in match.groups():
+      CUSTOM_HEAD += "\n  " + g
+  match = re.search(r"(<script.*masonry.js\"></script>)", fileData)
+  if match:
+    for g in match.groups():
+      CUSTOM_HEAD += "\n  " + g
+  
+  return CUSTOM_HEAD
+
+
 def updateFile(template, filename):
   print("Updating", filename)
 
@@ -118,35 +152,7 @@ def updateFile(template, filename):
     return
   MAIN = MAIN.group(1)
 
-  CUSTOM_HEAD = ""
-
-  # Check for custom stylesheet
-  match = re.search(r"(<link.*\"style\.css.*>)", fileData)
-  if match:
-    for g in match.groups():
-      CUSTOM_HEAD += "\n  " + g
-  match = re.search(r"(<link.*/style\.css.*>)", fileData)
-  if match:
-    for g in match.groups():
-      CUSTOM_HEAD += "\n  " + g
-  match = re.search(r"(<link.*masonry\.css.*>)", fileData)
-  if match:
-    for g in match.groups():
-      CUSTOM_HEAD += "\n  " + g
-  
-  # Check for custom script
-  match = re.search(r"(<script.*index.js\"></script>)", fileData)
-  if match:
-    for g in match.groups():
-      CUSTOM_HEAD += "\n  " + g
-  match = re.search(r"(<script.*lazy-load.js\"></script>)", fileData)
-  if match:
-    for g in match.groups():
-      CUSTOM_HEAD += "\n  " + g
-  match = re.search(r"(<script.*masonry.js\"></script>)", fileData)
-  if match:
-    for g in match.groups():
-      CUSTOM_HEAD += "\n  " + g
+  CUSTOM_HEAD = getCustomHead(fileData)
 
   # Create file from template
   newFile = template.expand(
