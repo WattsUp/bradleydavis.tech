@@ -1,10 +1,17 @@
 var masonry = {
+  /**
+   * Initial masonry resize, add listeners
+   */
   init: function() {
     masonry.resize();
     window.addEventListener('load', masonry.resize);
     window.addEventListener('resize', masonry.resize);
     window.addEventListener('orientationChange', masonry.resize);
   },
+  /**
+   * For each masonry root, update its content with the appropriate number of
+   * rows
+   */
   resize: function() {
     document.querySelectorAll('.masonry').forEach(root => {
       var rootStyle = window.getComputedStyle(root);
