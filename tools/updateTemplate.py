@@ -96,8 +96,8 @@ def getFiles(args):
 
 def getCustomHead(fileData):
   CUSTOM_HEAD = ""
-  
-  # Check for custom stylesheet
+
+  # Check for custom stylesheets
   match = re.search(r"(<link.*\"style\.css.*>)", fileData)
   if match:
     for g in match.groups():
@@ -111,7 +111,7 @@ def getCustomHead(fileData):
     for g in match.groups():
       CUSTOM_HEAD += "\n  " + g
 
-  # Check for custom script
+  # Check for custom scripts
   match = re.search(r"(<script.*index.js\"></script>)", fileData)
   if match:
     for g in match.groups():

@@ -2,14 +2,11 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
-  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
   <meta charset="UTF-8">
-  <title>Schweitzer Engineering Laboratories | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
-  <link rel="stylesheet" href="/standardstyle.css">
+  <script async src="/template.js"></script>
+  <link rel="stylesheet" href="/template.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -19,71 +16,104 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="theme-color" content="#52ADE1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Schweitzer Engineering Laboratories | Bradley L. Davis | me@bradleydavis.tech</title>
 </head>
 
-<body class="relative">
-  <header class="background-primary"> <a class="text-title color-dark" href="/">Bradley L. Davis</a>
-    <div class="header-right"> <a class="menu-wheel" href="/about" tabindex="-1">
-        <div class="menu-wheel-icon b-rad"></div>
-        <h1 class="text-body color-dark">About Me</h1>
-      </a> <a class="menu-wheel" href="/portfolio" tabindex="-1">
-        <div class="menu-wheel-icon portfolio"></div>
-        <h1 class="text-body color-dark">Portfolio</h1>
-      </a> <a class="menu-wheel" href="/lab" tabindex="-1">
-        <div class="menu-wheel-icon labs"></div>
-        <h1 class="text-body color-dark">Laboratories</h1>
-      </a> <a class="menu-wheel" href="/life" tabindex="-1">
-        <div class="menu-wheel-icon life"></div>
-        <h1 class="text-body color-dark">Life & Travel</h1>
-      </a> <a class="menu-wheel" href="/contact" tabindex="-1">
-        <div class="menu-wheel-icon contact"></div>
-        <h1 class="text-body color-dark">Contact Me</h1>
-      </a> </div>
+<body>
+  <header>
+    <a href="/">Bradley L. Davis</a>
+    <div>
+      <a href="/about">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="back">
+            <h5>About</h5>
+          </div>
+        </div>
+        <h5>About</h5>
+      </a>
+      <a href="/portfolio">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="back">
+            <h5>Work</h5>
+          </div>
+        </div>
+        <h5>Work</h5>
+      </a>
+      <a href="/lab">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="back">
+            <h5>Labs</h5>
+          </div>
+        </div>
+        <h5>Labs</h5>
+      </a>
+      <a href="/life">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="back">
+            <h5>Life</h5>
+          </div>
+        </div>
+        <h5>Life</h5>
+      </a>
+      <a href="/contact">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="back">
+            <h5>Email</h5>
+          </div>
+        </div>
+        <h5>Email</h5>
+      </a>
+    </div>
   </header>
   <main>
-    <div class="main-text text-body">
-      <h1 class="text-title">Schweitzer Engineering Laboratories</h1>
-      <h2>Hardware Engineering Intern</h2>
-      <h5>May 2018 - Present // Pullman, WA</h5>
-      <p><a class="icon-link external" href="https://selinc.com/solutions/rugged-computers/"></a></p>
-      <p>I joined SEL's <i>Computing Systems</i> team at the end of my freshman year of college. Quickly after catching
-        my bearings, I was assigned the task of redesigning software used to test ethernet ports on the computers we
-        create. With a loose set of requirements, I refined the goal and began developing the software. The final
-        product, written in Java, tests up to ten ports each running at gigabit speeds and can interface in either
-        loopback mode or with an auxiliary unit. It is being used extensively in functional and type testing and has
-        received positive feedback from the technicians.</p>
-      <p>The next project I ran with addressed an issue in manufacturing that resulted in damage to the assembled unit
-        and a hazardous condition to the assemblers. I spent time exploring the root cause of the issue and presenting
-        to manufacturing some possible fixes. Deciding on a testing tool, I developed a PCB using <a
-          href="http://www.autodesk.com/products/eagle/">Autodesk EAGLE</a> and a CNC router with tight restrictions on
-        size, ease of use, and reliability. The tester has been in use for months and has caught many defects saving
-        money and life.</p>
-      <p>My current task is aiding in the development of an Intel computer designed for rugged environments, see the <a
-          href="http://selinc.com/products/3355/">SEL-3355</a>. I debug and present fixes to electrical bugs encountered
-        with the product. Beyond the initial board bring-up, I regularly execute functional tests to validate the
-        operation of the various circuits. With that comes writing testing plans, using testing tools such as
-        oscilloscopes and ethernet packet sniffers, documenting and defending results of the tests, and developing
-        solutions to failed test cases.</p>
-      <p>In my group, we utilize an agile methodology. I have become accustomed to using <a
-          href="http://www.atlassian.com/software/jira">JIRA</a> to track my tasks and analyze future work. I am also
-        well familiarized with the rituals of agile: sprint planning, stand-ups, and retrospectives.</p>
-      <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=cad">CAD</a>, <a
-          href="/search/?q=computers">computers</a>, <a href="/search/?q=debugging">debugging</a>, <a
-          href="/search/?q=electronics">electronics</a>, <a href="/search/?q=java">Java</a>, <a
-          href="/search/?q=pcbs">PCBs</a>, <a href="/search/?q=software">software</a></p>
-    </div>
+    <h1 class="text-title">Schweitzer Engineering Laboratories</h1>
+    <h2>Hardware Engineering Intern</h2>
+    <h5>May 2018 - Present // Pullman, WA</h5>
+    <p><a class="icon-link external" href="https://selinc.com/solutions/rugged-computers/"></a></p>
+    <p>I joined SEL's <i>Computing Systems</i> team at the end of my freshman year of college. Quickly after catching
+      my bearings, I was assigned the task of redesigning software used to test ethernet ports on the computers we
+      create. With a loose set of requirements, I refined the goal and began developing the software. The final
+      product, written in Java, tests up to ten ports each running at gigabit speeds and can interface in either
+      loopback mode or with an auxiliary unit. It is being used extensively in functional and type testing and has
+      received positive feedback from the technicians.</p>
+    <p>The next project I ran with addressed an issue in manufacturing that resulted in damage to the assembled unit
+      and a hazardous condition to the assemblers. I spent time exploring the root cause of the issue and presenting
+      to manufacturing some possible fixes. Deciding on a testing tool, I developed a PCB using <a
+        href="http://www.autodesk.com/products/eagle/">Autodesk EAGLE</a> and a CNC router with tight restrictions on
+      size, ease of use, and reliability. The tester has been in use for months and has caught many defects saving
+      money and life.</p>
+    <p>My current task is aiding in the development of an Intel computer designed for rugged environments, see the <a
+        href="http://selinc.com/products/3355/">SEL-3355</a>. I debug and present fixes to electrical bugs encountered
+      with the product. Beyond the initial board bring-up, I regularly execute functional tests to validate the
+      operation of the various circuits. With that comes writing testing plans, using testing tools such as
+      oscilloscopes and ethernet packet sniffers, documenting and defending results of the tests, and developing
+      solutions to failed test cases.</p>
+    <p>In my group, we utilize an agile methodology. I have become accustomed to using <a
+        href="http://www.atlassian.com/software/jira">JIRA</a> to track my tasks and analyze future work. I am also
+      well familiarized with the rituals of agile: sprint planning, stand-ups, and retrospectives.</p>
+    <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=cad">CAD</a>, <a
+        href="/search/?q=computers">computers</a>, <a href="/search/?q=debugging">debugging</a>, <a
+        href="/search/?q=electronics">electronics</a>, <a href="/search/?q=java">Java</a>, <a
+        href="/search/?q=pcbs">PCBs</a>, <a href="/search/?q=software">software</a></p>
   </main>
-  <footer class="fill-horz absolute">
-    <hr class="background-primary fill-horz">
-    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
-    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
-    <div> <a class="icon-link github" href="http://github.com/WattsUp"></a> <a class="icon-link contact"
-        href="mailto:me@bradleydavis.tech"></a> <a class="icon-link search" href="/search/"></a> </div>
-    <div class="footer-brad absolute transition-all-2s">
-      <div class="footer-brad-sprite absolute"></div>
+  <footer>
+    <hr>
+    <h1>&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="icon-link github" href="http://github.com/WattsUp"></a>
+      <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
+      <a class="icon-link search" href="/search/"></a> </div>
+    <div id="footer-brad">
+      <div></div>
     </div>
   </footer>
-  <script src="/standardscript.js"></script>
 </body>
 
 </html>

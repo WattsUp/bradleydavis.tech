@@ -1,43 +1,26 @@
-/**
- * Function once page is fully loaded
- */
-$(window).bind('load', function () {
-  resizeMasonry();
-  $(window).bind('resize', resizeMasonry);
-  $(window).bind('orientationChange', resizeMasonry);
-  setTimeout(resizeMasonry, 2000);
-});
-
-var roots = $('.masonry');
-var rootBricks = [];
-
-/**
- * Populate the array of bricks from the children of the masonry
- */
-function findBricks() {
-  roots = $('.masonry');
-  for (var i = 0; i < roots.length; i++) {
-    rootBricks.push(roots.eq(i).children());
-  }
-}
-
-/**
- * Change the size of the bricks to evenly fit
- */
-function resizeMasonry() {
-  findBricks();
-  setTimeout(function () {
-    for (var i = 0; i < roots.length; i++) {
-      var root = roots.eq(i);
-      var bricks = rootBricks[i];
-      var rowGap = parseInt(root.css('grid-row-gap'), 10);
-      var rowHeight = parseInt(root.css('grid-auto-rows'), 10);
-      for (var ii = 0; ii < bricks.length; ii++) {
-        var brick = bricks.eq(ii);
-        var height = brick.children().eq(0).height();
-        var rows = Math.ceil((height + rowGap) / (rowHeight + rowGap));
-        brick.css('grid-row-end', 'span ' + rows);
+var masonry = {
+  init: function() {
+    masonry.resize();
+    window.addEventListener('load', masonry.resize);
+    window.addEventListener('resize', masonry.resize);
+    window.addEventListener('orientationChange', masonry.resize);
+  },
+  resize: function() {
+    document.querySelectorAll('.masonry').forEach(root => {
+      var rootStyle = window.getComputedStyle(root);
+      var rowGap = parseInt(rootStyle.gridRowGap, 10);
+      var rowHeight = parseInt(rootStyle.gridAutoRows, 10);
+      for (var i = 0; i < root.children.length; i++) {
+        var child = root.children[i];
+        var contentHeight = child.children[0].offsetHeight
+        var rows = Math.ceil((contentHeight + rowGap) / (rowHeight + rowGap));
+        child.style.gridRowEnd = 'span ' + rows;
       }
-    }
-  }, 10);
-}
+    });
+  }
+};
+
+if (document.readyState == 'Loading')
+  window.addEventListener('DOMContentLoaded', masonry.init);
+else
+  masonry.init();

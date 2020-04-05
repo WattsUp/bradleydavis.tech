@@ -8,6 +8,9 @@ var footer = {
   movingRight: true,
   frameTime: 200,
   currentFrame: 0,
+  /**
+   * Initialize elements and listeners
+   */
   init: function() {
     this.brad = document.getElementById('footer-brad');
     this.sprite = this.brad.children[0];
@@ -16,11 +19,17 @@ var footer = {
     this.brad.addEventListener('click', this.moveManual, false);
     this.moveManual();
   },
+  /**
+   * Reset interval to now and execute a walk
+   */
   moveManual: function() {
     clearInterval(footer.interval);
     footer.interval = setInterval(footer.move, 4000);
     footer.move();
   },
+  /**
+   * Random walk within the bottom area, enqueue frames
+   */
   move: function() {
     var width = footer.brad.offsetWidth;
     var change = Math.floor((Math.random() * 1.5 + 0.5) * width);
@@ -49,6 +58,9 @@ var footer = {
     }
     footer.lastPosition = position;
   },
+  /**
+   * Animate the sprite by swapping frames
+   */
   walk: function() {
     footer.sprite.style.bottom = (footer.movingRight * -7) + 'rem';
     footer.currentFrame = (footer.currentFrame + 1) % 4;
@@ -75,13 +87,14 @@ function onLoad() {
   document.getElementById('copyright-date').innerHTML =
       (new Date()).getFullYear();
   // When a spoiler is clicked, reduce its background to 10% opacity
-  document.querySelectorAll('.spoiler')
-      .forEach(item => {item.addEventListener('click', function() {
-                 item.style.background =
-                     window.getComputedStyle(item)
-                         .backgroundColor.replace('rgb', 'rgba')
-                         .replace(')', ',0.1)');
-               })})
+  document.querySelectorAll('.spoiler').forEach(item => {
+    item.addEventListener('click', function() {
+      item.style.background = window.getComputedStyle(item)
+                                  .backgroundColor.replace('rgb', 'rgba')
+                                  .replace(')', ',0.05)');
+      item.classList.add('visible')
+    });
+  });
   footer.init();
 }
 
