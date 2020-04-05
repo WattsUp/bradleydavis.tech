@@ -2,16 +2,12 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
-  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
   <meta charset="UTF-8">
-  <title>Portfolio | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
-  <link rel="stylesheet" href="/standardstyle.css">
+  <script async src="/template.js"></script>
+  <link rel="stylesheet" href="/template.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -20,124 +16,165 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="theme-color" content="#52ADE1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Portfolio | Bradley L. Davis | me@bradleydavis.tech</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/masonry.css">
+  <script async src="/masonry.js"></script>
 </head>
 
-<body class="relative">
-  <header class="background-primary"> <a class="text-title color-dark" href="/">Bradley L. Davis</a>
-    <div class="header-right"> <a class="menu-wheel" href="/about" tabindex="-1">
-        <div class="menu-wheel-icon b-rad"></div>
-        <h1 class="text-body color-dark">About Me</h1>
-      </a> <a class="menu-wheel" href="/portfolio" tabindex="-1">
-        <div class="menu-wheel-icon portfolio"></div>
-        <h1 class="text-body color-dark">Portfolio</h1>
-      </a> <a class="menu-wheel" href="/lab" tabindex="-1">
-        <div class="menu-wheel-icon labs"></div>
-        <h1 class="text-body color-dark">Laboratories</h1>
-      </a> <a class="menu-wheel" href="/life" tabindex="-1">
-        <div class="menu-wheel-icon life"></div>
-        <h1 class="text-body color-dark">Life & Travel</h1>
-      </a> <a class="menu-wheel" href="/contact" tabindex="-1">
-        <div class="menu-wheel-icon contact"></div>
-        <h1 class="text-body color-dark">Contact Me</h1>
-      </a> </div>
+<body>
+  <header>
+    <a href="/">Bradley L. Davis</a>
+    <div>
+      <a href="/about">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="back">
+            <h5>About</h5>
+          </div>
+        </div>
+        <h5>About</h5>
+      </a>
+      <a href="/portfolio">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="back">
+            <h5>Work</h5>
+          </div>
+        </div>
+        <h5>Work</h5>
+      </a>
+      <a href="/lab">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="back">
+            <h5>Labs</h5>
+          </div>
+        </div>
+        <h5>Labs</h5>
+      </a>
+      <a href="/life">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="back">
+            <h5>Life</h5>
+          </div>
+        </div>
+        <h5>Life</h5>
+      </a>
+      <a href="/contact">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="back">
+            <h5>Email</h5>
+          </div>
+        </div>
+        <h5>Email</h5>
+      </a>
+    </div>
   </header>
   <main>
-    <div class="main-text text-body">
-      <h1 class="text-title">Portfolio</h1>
-      <p>For the collection of my personal projects, head to my <a href="/lab/">laboratories</a>.</p>
-      <p>Interactive Resume: <a href="/interactive-resume/">Updated March 2019</a><br> PDF Resume: <a
-          href="/files/Bradley-L-Davis-Resume.2019.04.pdf">Updated April 2019 (63kB)</a></p>
-      <h2>Work Experience</h2>
-      <div class="masonry">
-        <div class="portfolio">
-          <div class="tile fill-horz"> <a class="tile-link" href="work-sel">
-              <h3 class="tile-title transition-all-300ms">Schweitzer Engineering Laboratories</h3>
-              <h4>Hardware Engineering Intern</h4>
-              <h5>May 2018 - Present</h5>
-            </a>
-            <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=cad">CAD</a>, <a
-                href="/search/?q=computers">computers</a>, <a href="/search/?q=debugging">debugging</a>, <a
-                href="/search/?q=electronics">electronics</a>, <a href="/search/?q=java">Java</a>, <a
-                href="/search/?q=pcbs">PCBs</a>, <a href="/search/?q=software">software</a></p>
-          </div>
-        </div>
-        <div class="portfolio">
-          <div class="tile fill-horz"> <a class="tile-link" href="work-tahoma-robotics-camp">
-              <h3 class="tile-title transition-all-300ms">Tahoma Robotics Camp</h3>
-              <h4>Lead Technical Counselor</h4>
-              <h5>June 2014 - June 2018</h5>
-            </a>
-            <p>tags: <a href="/search/?q=animation">animation</a>, <a href="/search/?q=cad">CAD</a>, <a
-                href="/search/?q=customer%20service">customer service</a>, <a href="/search/?q=java">Java</a>, <a
-                href="/search/?q=manufacturing">manufacturing</a>, <a href="/search/?q=robotics">robotics</a>, <a
-                href="/search/?q=software">software</a></p>
-          </div>
-        </div>
-        <div class="portfolio">
-          <div class="tile fill-horz"> <a class="tile-link" href="work-smith-gardens">
-              <h3 class="tile-title transition-all-300ms">Smith Gardens</h3>
-              <h4>Retail Merchandiser</h4>
-              <h5>May 2017 - August 2017</h5>
-            </a>
-            <p>tags: <a href="/search/?q=customer%20service">customer service</a></p>
-          </div>
+    <h1 class="text-title">Portfolio</h1>
+    <p>For the collection of my personal projects, head to my <a href="/lab/">laboratories</a>.</p>
+    <p>Interactive Resume: <a href="/interactive-resume/">Updated March 2019</a><br> PDF Resume: <a
+        href="/files/Bradley-L-Davis-Resume.2019.04.pdf">Updated April 2019 (63kB)</a></p>
+    <h2>Work Experience</h2>
+    <div class="masonry">
+      <div>
+        <div>
+          <a href="work-sel">
+            <h3>Schweitzer Engineering Laboratories</h3>
+            <h4>Hardware Engineering Intern</h4>
+            <h5>May 2018 - Present</h5>
+          </a>
+          <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=cad">CAD</a>, <a
+              href="/search/?q=computers">computers</a>, <a href="/search/?q=debugging">debugging</a>, <a
+              href="/search/?q=electronics">electronics</a>, <a href="/search/?q=java">Java</a>, <a
+              href="/search/?q=pcbs">PCBs</a>, <a href="/search/?q=software">software</a></p>
         </div>
       </div>
-      <h2>Freelance Jobs</h2>
-      <div class="masonry">
-        <div class="portfolio">
-          <div class="tile"> <a class="tile-link" href="freelance-mustang-irs">
-              <h3 class="tile-title transition-all-300ms">Independent Rear Suspension</h3>
-              <h4>1968 Mustang</h4>
-              <h5>December 2015</h5>
-            </a>
-            <p>tags: <a href="/search/?q=cad">CAD</a>, <a href="/search/?q=mechanical">mechanical</a>, <a
-                href="/search/?q=technical%20drawings">technical drawings</a></p>
-          </div>
+      <div>
+        <div>
+          <a href="work-tahoma-robotics-camp">
+            <h3>Tahoma Robotics Camp</h3>
+            <h4>Lead Technical Counselor</h4>
+            <h5>June 2014 - June 2018</h5>
+          </a>
+          <p>tags: <a href="/search/?q=animation">animation</a>, <a href="/search/?q=cad">CAD</a>, <a
+              href="/search/?q=customer%20service">customer service</a>, <a href="/search/?q=java">Java</a>, <a
+              href="/search/?q=manufacturing">manufacturing</a>, <a href="/search/?q=robotics">robotics</a>, <a
+              href="/search/?q=software">software</a></p>
         </div>
       </div>
-      <h2>Club Contributions</h2>
-      <div class="masonry">
-        <div class="portfolio">
-          <div class="tile"> <a class="tile-link" href="club-cougs-in-space">
-              <h3 class="tile-title transition-all-300ms">Cougs in Space</h3>
-              <h4>Chief Technical Officer</h4>
-              <h5>August 2017 - Present</h5>
-            </a>
-            <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=c%2B%2B">C++</a>, <a
-                href="/search/?q=cad">CAD</a>, <a href="/search/?q=debugging">debugging</a>, <a
-                href="/search/?q=electronics">electronics</a>, <a href="/search/?q=pcbs">PCBs</a>, <a
-                href="/search/?q=software">software</a>, <a href="/search/?q=system%20engineering">system
-                engineering</a></p>
-          </div>
+      <div>
+        <div>
+          <a href="work-smith-gardens">
+            <h3>Smith Gardens</h3>
+            <h4>Retail Merchandiser</h4>
+            <h5>May 2017 - August 2017</h5>
+          </a>
+          <p>tags: <a href="/search/?q=customer%20service">customer service</a></p>
         </div>
-        <div class="portfolio">
-          <div class="tile"> <a class="tile-link" href="club-tahoma-robotics">
-              <h3 class="tile-title transition-all-300ms">Tahoma Robotics Club<br><i>Bear Metal</i></h3>
-              <h4>Design Lead</h4>
-              <h5>September 2012 - May 2017</h5>
-            </a>
-            <p>tags: <a href="/search/?q=cad">CAD</a>, <a href="/search/?q=manufacturing">manufacturing</a>, <a
-                href="/search/?q=mechanical">mechanical</a>, <a href="/search/?q=rendering">rendering</a>, <a
-                href="/search/?q=robotics">robotics</a>, <a href="/search/?q=technical%20drawings">technical
-                drawings</a></p>
-          </div>
+      </div>
+    </div>
+    <h2>Freelance Jobs</h2>
+    <div class="masonry">
+      <div>
+        <div>
+          <a href="freelance-mustang-irs">
+            <h3>Independent Rear Suspension</h3>
+            <h4>1968 Mustang</h4>
+            <h5>December 2015</h5>
+          </a>
+          <p>tags: <a href="/search/?q=cad">CAD</a>, <a href="/search/?q=mechanical">mechanical</a>, <a
+              href="/search/?q=technical%20drawings">technical drawings</a></p>
+        </div>
+      </div>
+    </div>
+    <h2>Club Contributions</h2>
+    <div class="masonry">
+      <div>
+        <div>
+          <a href="club-cougs-in-space">
+            <h3>Cougs in Space</h3>
+            <h4>Chief Technical Officer</h4>
+            <h5>August 2017 - Present</h5>
+          </a>
+          <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=c%2B%2B">C++</a>, <a
+              href="/search/?q=cad">CAD</a>, <a href="/search/?q=debugging">debugging</a>, <a
+              href="/search/?q=electronics">electronics</a>, <a href="/search/?q=pcbs">PCBs</a>, <a
+              href="/search/?q=software">software</a>, <a href="/search/?q=system%20engineering">system
+              engineering</a></p>
+        </div>
+      </div>
+      <div>
+        <div>
+          <a href="club-tahoma-robotics">
+            <h3>Tahoma Robotics Club<br><i>Bear Metal</i></h3>
+            <h4>Design Lead</h4>
+            <h5>September 2012 - May 2017</h5>
+          </a>
+          <p>tags: <a href="/search/?q=cad">CAD</a>, <a href="/search/?q=manufacturing">manufacturing</a>, <a
+              href="/search/?q=mechanical">mechanical</a>, <a href="/search/?q=rendering">rendering</a>, <a
+              href="/search/?q=robotics">robotics</a>, <a href="/search/?q=technical%20drawings">technical
+              drawings</a></p>
         </div>
       </div>
     </div>
   </main>
-  <footer class="fill-horz absolute">
-    <hr class="background-primary fill-horz">
-    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
-    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
-    <div> <a class="icon-link github" href="http://github.com/WattsUp"></a> <a class="icon-link contact"
-        href="mailto:me@bradleydavis.tech"></a> <a class="icon-link search" href="/search/"></a> </div>
-    <div class="footer-brad absolute transition-all-2s">
-      <div class="footer-brad-sprite absolute"></div>
+  <footer>
+    <hr>
+    <h1>&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="icon-link github" href="http://github.com/WattsUp"></a>
+      <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
+      <a class="icon-link search" href="/search/"></a> </div>
+    <div id="footer-brad">
+      <div></div>
     </div>
   </footer>
-  <script src="/standardscript.js"></script>
-  <script src="/masonry.js"></script>
 </body>
 
 </html>
