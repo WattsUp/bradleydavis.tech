@@ -2,18 +2,11 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
-  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
   <meta charset="UTF-8">
-  <title>Interactive Resume | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
-  <script src="loading-screen.js"></script>
-  <link rel="stylesheet" href="/standardstyle.css">
+  <link rel="stylesheet" href="/template.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="animations.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -21,13 +14,25 @@
   <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="theme-color" content="#52ADE1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Interactive Resume | Bradley L. Davis | me@bradleydavis.tech</title>
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="brad.css">
+  <link rel="stylesheet" href="story.css">
+  <script async src="loading-screen.js"></script>
+  <script async src="brad.js"></script>
+  <script async src="index.js"></script>
+  <script async src="story.js"></script>
 </head>
 
 <body>
-  <div class="loading-screen background-dark color-accent text-title transition-all-1s"> <canvas
-      class="loading-canvas absolute background-dark transform-center" height="800" width="800"></canvas> <span
-      class="absolute transform-center fill-horz">Bradley L. Davis<br>Interactive Resume<br>Loading... </span> </div>
-  <div id="scroll-container" class="background-dark" style="height: 24600px">
+  <div id="loading-screen" class="background-dark color-accent text-title">
+    <canvas height="800" width="800"></canvas>
+    <span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
+  </div>
+  <!-- <div id="scroll-container" class="background-dark" style="height: 24600px">
     <div id="about" class="absolute" style="top: 1000px"></div>
     <div id="skills" class="absolute" style="top: 6800px"></div>
     <div id="experience" class="absolute" style="top: 9800px"></div>
@@ -676,10 +681,7 @@
       <div class="shuttle-foreground absolute"></div>
       <div class="on-the-ground absolute"> </div>
     </div>
-  </div>
-  <script src="main.js"></script>
+  </div> -->
 </body>
-
-</html>
 
 </html>
