@@ -42,26 +42,26 @@ hr {
 }
 
 .panel h1 {
-  margin: 10px 0 0 0;
+  margin: 10px 0 0;
   font-size: 22px;
   color: #4A9CCB;
   color: var(--color-primary-d10);
 }
 
 .panel h2 {
-  margin: 6px 0 0 0;
+  margin: 6px 0 0;
   font-size: 16px;
 }
 
 .panel h3 {
-  margin: 6px 0 0 0;
+  margin: 6px 0 0;
   font-size: 14px;
   color: #949494;
   color: var(--color-dark-b50);
 }
 
 .panel p {
-  margin: 6px 0 0 0;
+  margin: 6px 0 0;
 }
 
 .panel.left {
@@ -73,7 +73,7 @@ hr {
 }
 
 .section {
-  margin: 0 0 12px 0;
+  margin: 0 0 12px;
 }
 
 .section>h2>span {
