@@ -37,6 +37,8 @@ var loading = {
     setTimeout(function() {
       clearInterval(loading.interval);
       document.body.removeChild(document.getElementById('loading-screen'));
+      document.getElementById('scroll-container').style.display = 'block';
+      document.getElementById('brad').style.opacity = '1.0';
     }, 1000);
   },
   /**
