@@ -17,7 +17,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>Interactive Resume | Bradley L. Davis | me@bradleydavis.tech</title>
-  <link rel="stylesheet" href="animations.css">
   <link rel="stylesheet" href="index.css">
   <link rel="stylesheet" href="brad.css">
   <link rel="stylesheet" href="story.css">
@@ -32,15 +31,42 @@
     <canvas height="800" width="800"></canvas>
     <span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
   </div>
-  <!-- <div id="scroll-container" class="background-dark" style="height: 24600px">
-    <div id="about" class="absolute" style="top: 1000px"></div>
-    <div id="skills" class="absolute" style="top: 6800px"></div>
-    <div id="experience" class="absolute" style="top: 9800px"></div>
-    <div id="portfolio" class="absolute" style="top: 15300px"></div>
-    <div id="awards" class="absolute" style="top: 19000px"></div>
-    <div id="contact" class="absolute" style="top: 25000px"></div>
+  <div id="scroll-container" style="height: 25000px; display: none;">
+    <div id="about" style="top: 1000px"></div>
+    <div id="skills" style="top: 6800px"></div>
+    <div id="experience" style="top: 9800px"></div>
+    <div id="portfolio" style="top: 15300px"></div>
+    <div id="awards" style="top: 19000px"></div>
+    <div id="contact" style="top: 25000px"></div>
   </div>
-  <div class="page-container fill-horz fill-vert background-dark text-monospace">
+  <div class="distance space">
+    <div class="sky"></div>
+  </div>
+  <div class="distance far">
+    <div class="cloud small" style="bottom: 400px; left: 300px"></div>
+    <div class="cloud small" style="bottom: 450px; left: 1200px"></div>
+    <div class="tree small" style="left: 350px"></div>
+    <div class="tree medium" style="left: 900px"></div>
+  </div>
+  <div class="distance mid">
+    <div class="cloud large" style="bottom: 260px; left: 800px"></div>
+    <div class="tree large" style="left: 50px"></div>
+    <div class="tree medium" style="left: 20px"></div>
+    <div class="tree huge" style="left: 1000px"></div>
+  </div>
+  <div class="distance close">
+    <div class="scene intro">
+      <div class="ground dirt"></div>
+      <h3>Scroll Down</h3>
+    </div>
+  </div>
+  <div id="brad">
+    <div class="eyes right"></div>
+    <div class="eyes left"></div>
+    <div class="mask right"></div>
+    <div class="mask left"></div>
+  </div>
+  <!-- <div class="page-container fill-horz fill-vert background-dark text-monospace">
     <div class="scene-background super-far absolute">
       <div class="space-wrapper absolute fill-horz fill-vert background-dark transition-all-7s"> <canvas
           class="absolute fill-horz fill-vert background-dark" width=5000 height=5000></canvas> </div>
