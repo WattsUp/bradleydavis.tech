@@ -85,10 +85,16 @@ body {
   background: rgb(139, 62, 25);
 }
 
-.far>.tree, .far>.cloud {
+.d3>* {
   bottom: -4px;
   filter: blur(1px);
   -webkit-filter: blur(1px);
+}
+
+.d4>* {
+  bottom: -4px;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 }
 
 .tree {

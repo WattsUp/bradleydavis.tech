@@ -31,7 +31,7 @@
     <canvas height="800" width="800"></canvas>
     <span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
   </div>
-  <div id="scroll-container" style="height: 25000px; display: none;">
+  <div id="scroll-container" style="height: 25000px" hidden>
     <div id="about" style="top: 1000px"></div>
     <div id="skills" style="top: 6800px"></div>
     <div id="experience" style="top: 9800px"></div>
@@ -42,29 +42,36 @@
   <div class="distance space">
     <div class="sky"></div>
   </div>
-  <div class="distance far">
+  <div class="distance d4">
     <div class="cloud small" style="bottom: 400px; left: 300px"></div>
-    <div class="cloud small" style="bottom: 450px; left: 1200px"></div>
+    <div class="cloud small" style="bottom: 600px; left: 1200px"></div>
+  </div>
+  <div class="distance d3">
     <div class="tree small" style="left: 350px"></div>
     <div class="tree medium" style="left: 900px"></div>
   </div>
-  <div class="distance mid">
+  <div class="distance d2">
     <div class="cloud large" style="bottom: 260px; left: 800px"></div>
     <div class="tree large" style="left: 50px"></div>
+  </div>
+  <div class="distance d1">
     <div class="tree medium" style="left: 20px"></div>
     <div class="tree huge" style="left: 1000px"></div>
   </div>
-  <div class="distance close">
+  <div class="distance d0">
     <div class="scene intro">
       <div class="ground dirt"></div>
-      <h3 id="scroll-down">Scroll Down</h3>
+      <h3 id="scroll-down" hidden>Scroll Down</h3>
     </div>
   </div>
   <div id="brad" class="distance">
-    <div class="eyes right"></div>
-    <div class="eyes left"></div>
-    <div class="mask right"></div>
-    <div class="mask left"></div>
+    <div id="brad-sprite">
+      <div class="eyes right"></div>
+      <div class="eyes left"></div>
+      <div class="mask right"></div>
+      <div class="mask left"></div>
+    </div>
+    <div id="teleporter-science"></div>
   </div>
   <!-- <div class="page-container fill-horz fill-vert background-dark text-monospace">
     <div class="scene-background super-far absolute">

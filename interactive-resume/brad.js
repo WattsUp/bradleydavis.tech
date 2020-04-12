@@ -4,6 +4,7 @@
 var brad = {
   sprite: null,
   eyeLids: [],
+  teleporterScience: null,
   movingRight: true,
   frameTime: 200,
   currentFrame: 0,
@@ -12,9 +13,10 @@ var brad = {
    * Initialize the sprite, add listeners
    */
   init: function() {
-    brad.sprite = document.getElementById('brad');
-    brad.eyeLids[0] = document.querySelector('#brad>.eyes.right');
-    brad.eyeLids[1] = document.querySelector('#brad>.eyes.left');
+    brad.sprite = document.getElementById('brad-sprite');
+    brad.eyeLids[0] = document.querySelector('#brad .eyes.right');
+    brad.eyeLids[1] = document.querySelector('#brad .eyes.left');
+    brad.teleporterScience = document.getElementById('teleporter-science');
 
     brad.eyeLids[0].hidden = false;
     brad.eyeLids[1].hidden = true;
@@ -25,6 +27,12 @@ var brad = {
    */
   enqueueWalk: function(movingRight) {
     brad.movingRight = movingRight;
+    brad.eyeLids[0].hidden = !movingRight;
+    brad.eyeLids[1].hidden = movingRight;
+    if (brad.movingRight)
+      brad.sprite.style.backgroundPositionY = 'top';
+    else
+      brad.sprite.style.backgroundPositionY = 'bottom';
     if (!brad.moving) {
       brad.moving = true;
       setTimeout(brad.walk, brad.frameTime);
@@ -35,11 +43,6 @@ var brad = {
    * Animate the sprite by swapping frames
    */
   walk: function() {
-    if (brad.movingRight)
-      brad.sprite.style.backgroundPositionY = 'top';
-    else
-      brad.sprite.style.backgroundPositionY = 'bottom';
-
     brad.currentFrame = (brad.currentFrame + 1) % 4;
     switch (brad.currentFrame) {
       case 0:
@@ -54,6 +57,21 @@ var brad = {
         brad.sprite.style.backgroundPositionX = 'right';
         break;
     }
+  },
+  /**
+   * Perform teleport manuever
+   * @param {bool} materializing 'landing' when true, 'leaving' when false
+   */
+  teleport: function(materializing) {
+    brad.teleporterScience.style.opacity = 1.0;
+    if (materializing) {
+      brad.sprite.style.opacity = 1.0;
+    } else {
+      brad.sprite.style.opacity = 0.0;
+    }
+    setTimeout(function() {
+      brad.teleporterScience.style.opacity = 0.0;
+    }, 1100);
   }
 };
 
