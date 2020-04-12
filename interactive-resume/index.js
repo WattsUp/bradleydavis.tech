@@ -6,7 +6,14 @@ var scene = {
    * Initialize the scene, add listeners
    */
   init: function() {
-
+    window.addEventListener('scroll', scene.onFirstScroll);
+  },
+  /**
+   * Actions to perform once the page is first scrolled
+   */
+  onFirstScroll: function() {
+    window.removeEventListener('scroll', scene.onFirstScroll);
+    document.getElementById('scroll-down').hidden = true;
   }
 };
 

@@ -2,11 +2,58 @@
  * The Brad sprite: movement, animation
  */
 var brad = {
+  sprite: null,
+  eyeLids: [],
+  movingRight: true,
+  frameTime: 200,
+  currentFrame: 0,
+  moving: false,
   /**
    * Initialize the sprite, add listeners
    */
-  init: function(){
+  init: function() {
+    brad.sprite = document.getElementById('brad');
+    brad.eyeLids[0] = document.querySelector('#brad>.eyes.right');
+    brad.eyeLids[1] = document.querySelector('#brad>.eyes.left');
 
+    brad.eyeLids[0].hidden = false;
+    brad.eyeLids[1].hidden = true;
+  },
+  /**
+   * Enqueue frames to animate walking, set the walking direction
+   * @param {bool} movingRight
+   */
+  enqueueWalk: function(movingRight) {
+    brad.movingRight = movingRight;
+    if (!brad.moving) {
+      brad.moving = true;
+      setTimeout(brad.walk, brad.frameTime);
+      setTimeout(brad.walk, brad.frameTime * 2);
+    }
+  },
+  /**
+   * Animate the sprite by swapping frames
+   */
+  walk: function() {
+    if (brad.movingRight)
+      brad.sprite.style.backgroundPositionY = 'top';
+    else
+      brad.sprite.style.backgroundPositionY = 'bottom';
+
+    brad.currentFrame = (brad.currentFrame + 1) % 4;
+    switch (brad.currentFrame) {
+      case 0:
+      case 2:
+        brad.sprite.style.backgroundPositionX = 'left';
+        brad.moving = false;
+        break;
+      case 1:
+        brad.sprite.style.backgroundPositionX = 'center';
+        break;
+      case 3:
+        brad.sprite.style.backgroundPositionX = 'right';
+        break;
+    }
   }
 };
 

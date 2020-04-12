@@ -9,11 +9,11 @@
   width: 100%;
   text-align: center;
   bottom: -60px;
-  animation: blink 1.5s infinite;
-  -webkit-animation: blink 1.5s infinite;
+  animation: flash 1.5s infinite;
+  -webkit-animation: flash 1.5s infinite;
 }
 
-@keyframes blink {
+@keyframes flash {
   0% {
     opacity: 1.0;
   }
