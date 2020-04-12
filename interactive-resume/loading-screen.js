@@ -10,8 +10,8 @@ var loading = {
   nodesX: 3.2,
   nodesY: 5.1,
   index: 0,
-  count: 20,
-  step: 2 * Math.PI / 200,
+  count: 40,
+  step: 2 * Math.PI / 400,
   /**
    * Initialize listeners
    */
@@ -26,7 +26,7 @@ var loading = {
     loading.context.fillStyle = '#282828';
     loading.context.fillRect(0, 0, width, height);
     loading.context.fillStyle = 'rgba(40, 40, 40, 0.07)';
-    loading.interval = setInterval(loading.update, 10);
+    loading.interval = setInterval(loading.update, 5);
   },
   /**
    * Slide the screen up then stop rendering and delete it
@@ -37,8 +37,9 @@ var loading = {
     setTimeout(function() {
       clearInterval(loading.interval);
       document.body.removeChild(document.getElementById('loading-screen'));
-      document.getElementById('scroll-container').style.display = 'block';
-      document.getElementById('brad').style.opacity = '1.0';
+      document.getElementById('scroll-container').hidden = false;
+      document.getElementById('scroll-down').hidden = false;
+      brad.teleport(true);
     }, 1000);
   },
   /**
