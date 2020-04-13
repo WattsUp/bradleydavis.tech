@@ -27,12 +27,6 @@ var brad = {
    */
   enqueueWalk: function(movingRight) {
     brad.movingRight = movingRight;
-    brad.eyeLids[0].hidden = !movingRight;
-    brad.eyeLids[1].hidden = movingRight;
-    if (brad.movingRight)
-      brad.sprite.style.backgroundPositionY = 'top';
-    else
-      brad.sprite.style.backgroundPositionY = 'bottom';
     if (!brad.moving) {
       brad.moving = true;
       setTimeout(brad.walk, brad.frameTime);
@@ -43,6 +37,13 @@ var brad = {
    * Animate the sprite by swapping frames
    */
   walk: function() {
+    brad.eyeLids[0].hidden = !brad.movingRight;
+    brad.eyeLids[1].hidden = brad.movingRight;
+    if (brad.movingRight)
+      brad.sprite.style.backgroundPositionY = 'top';
+    else
+      brad.sprite.style.backgroundPositionY = 'bottom';
+
     brad.currentFrame = (brad.currentFrame + 1) % 4;
     switch (brad.currentFrame) {
       case 0:

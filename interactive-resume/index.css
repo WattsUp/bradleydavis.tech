@@ -51,10 +51,9 @@ body {
 
 .distance {
   position: fixed;
-  bottom: 150px;
+  bottom: min(15vh, 200px);
   left: 0;
   width: 100%;
-  height: 100%;
 }
 
 .distance * {
@@ -64,6 +63,20 @@ body {
 .scene {
   bottom: 0;
   left: 0;
+}
+
+.center-wrapper {
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.center-wrapper>* {
+  position: relative;
 }
 
 /********************************** Scenery ***********************************/
@@ -77,12 +90,13 @@ body {
 
 .ground {
   width: 100%;
-  height: 150px;
-  bottom: -150px
+  height: 200px;
+  bottom: -200px;
 }
 
 .ground.dirt {
-  background: rgb(139, 62, 25);
+  background: url(images/ground-grass.png);
+  height: 220px;
 }
 
 .d3>* {
@@ -135,6 +149,66 @@ body {
   width: 400px;
   height: 150px;
   background-image: url(images/cloud-2.png);
+}
+
+/***************************** Shared Components ******************************/
+
+.thruster {
+  width: 31px;
+  height: 19px;
+  background-image: url('images/thruster-on.png');
+}
+
+.thruster:before {
+  content: '';
+  display: block;
+  width: 31px;
+  height: 19px;
+  background-image: url('images/thruster.png');
+}
+
+.display {
+  text-align: center;
+  color: var(--color-accent);
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.display.floating {
+  bottom: 250px;
+  animation: float 5s infinite ease-in-out;
+  -webkit-animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+  }
+}
+
+.display.floating>.thruster {
+  bottom: -19px;
+}
+
+.display.w400 {
+  width: 400px;
+  height: 250px;
+  background-image: url(images/display-400.png);
+}
+
+.display>h1, .display>h2, .display>h3, .display>h4 {
+  position: unset;
 }
 
 /*

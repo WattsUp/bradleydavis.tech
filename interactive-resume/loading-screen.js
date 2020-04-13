@@ -34,10 +34,10 @@ var loading = {
   hide: function() {
     document.getElementById('loading-screen').style.transform =
         'translateY(-100%)';
+    document.getElementById('scroll-container').hidden = false;
     setTimeout(function() {
       clearInterval(loading.interval);
       document.body.removeChild(document.getElementById('loading-screen'));
-      document.getElementById('scroll-container').hidden = false;
       document.getElementById('scroll-down').hidden = false;
       brad.teleport(true);
     }, 1000);

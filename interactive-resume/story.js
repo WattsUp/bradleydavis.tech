@@ -37,11 +37,11 @@ var story = {
    */
   setBackground: function(x, y) {
     story.distance[0].style.left = x + 'px';
-    story.distance[1].style.left = (x / 2) + 'px';
-    story.distance[2].style.left = (x / 3) + 'px';
-    story.distance[3].style.left = (x / 6) + 'px';
-    story.distance[4].style.left = (x / 10) + 'px';
-    story.distanceSpace.style.left = (x / 50) + 'px';
+    story.distance[1].style.left = (x / 1.5) + 'px';
+    story.distance[2].style.left = (x / 2) + 'px';
+    story.distance[3].style.left = (x / 4) + 'px';
+    story.distance[4].style.left = (x / 8) + 'px';
+    story.distanceSpace.style.left = (x / 40) + 'px';
   }
 };
 

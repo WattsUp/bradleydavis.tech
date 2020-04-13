@@ -1,12 +1,11 @@
 /******************************** Scene Intro *********************************/
 
 .scene.intro {
-  width: 100%;
-  height: 100%;
+  width: 1900px;
 }
 
-.scene.intro>h3 {
-  width: 100%;
+#scroll-down {
+  width: 100vw;
   text-align: center;
   bottom: -60px;
   animation: flash 1.5s infinite;
