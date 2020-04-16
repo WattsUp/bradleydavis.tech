@@ -133,11 +133,11 @@
   opacity: 0.7;
 }
 
-#lab-tanks>.fluid.excellent{
+#lab-tanks>.fluid.excellent {
   height: 320px;
 }
 
-#lab-tanks>.fluid.skilled{
+#lab-tanks>.fluid.skilled {
   height: 256px;
 }
 
@@ -156,6 +156,107 @@
   color: var(--color-dark);
   margin: 0;
 }
+
+#lab-particle-viewer {
+  left: 2600px;
+}
+
+#lab-particle-viewer>* {
+  bottom: 0;
+}
+
+#lab-particle-image {
+  left: 25px;
+  bottom: 50px;
+  width: 450px;
+  height: 275px;
+  background: var(--color-dark);
+  overflow: hidden;
+}
+
+#lab-particles {
+  width: 500px;
+  height: 100%;
+  bottom: 0;
+  background-image: url(images/lab-particle.png);
+  animation: lab-particles infinite 3s linear;
+  -webkit-animation: lab-particles infinite 3s linear;
+  transition: height 1s;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  -ms-transition: height 1s;
+  -o-transition: height 1s;
+}
+
+@keyframes lab-particles {
+  0% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50px);
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
+  }
+}
+
+#lab-particle-image>.mask {
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#lab-particle-lightning {
+  left: 25px;
+  bottom: 50px;
+  width: 450px;
+  height: 275px;
+  background-image: url(images/lab-particle-lightning.png);
+}
+
+#lab-particle-frame {
+  width: 500px;
+  height: 350px;
+  background-image: url(images/lab-particle-frame.png);
+}
+
+/* .particle-viewer-frame {
+  width: 500px;
+  height: 350px;
+  background-image: url(images/particle-viewer.png);
+  top: 0;
+  left: -1px;
+}
+
+.particle-viewer-image-wrapper {
+  left: 24px;
+  bottom: 50px;
+  width: 450px;
+  height: 275px;
+  overflow: hidden;
+}
+
+.particle-viewer-image {
+  bottom: 0;
+}
+
+.particle-viewer-particles {
+  width: 110%;
+  bottom: 0;
+  left: 0;
+  background-image: url('images/particle.png');
+  background-position: bottom;
+  -webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
+  animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
+}
+
+.particle-viewer-lightning {
+} */
 
 /* 
 .discipline-tank {
