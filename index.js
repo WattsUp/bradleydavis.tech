@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Changes the message about the current food day
  * Reruns at midnight

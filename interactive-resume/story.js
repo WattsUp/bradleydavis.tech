@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Story elements including scroll position initiated element changes
  */

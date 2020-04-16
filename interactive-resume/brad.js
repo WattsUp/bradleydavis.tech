@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * The Brad sprite: movement, animation
  */

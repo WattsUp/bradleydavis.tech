@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Creation of dynamic scene elements, movement of the scene
  */
@@ -15,8 +17,9 @@ var scene = {
         document.querySelectorAll('#lab-particle-image>.mask');
     scene.labParticleLightning =
         document.getElementById('lab-particle-lightning')
-    setInterval(scene.changeLabParticles, 5000);
-    scene.changeLabParticles();
+    setInterval(scene.labChangeParticles, 5000);
+    scene.labChangeParticles();
+    scene.labAddBubbles();
 
     window.addEventListener('scroll', scene.onFirstScroll);
   },
@@ -33,7 +36,7 @@ var scene = {
   /**
    * Change the current lab particle viewer mask
    */
-  changeLabParticles: function() {
+  labChangeParticles: function() {
     scene.labParticleLightning.hidden = false;
     scene.labParticles.style.height = '0';
 
@@ -47,6 +50,14 @@ var scene = {
     setTimeout(function() {
       scene.labParticleLightning.hidden = true;
     }, 2500);
+  },
+  /**
+   * Add floating bubbles randomly to the tank fluid
+   */
+  labAddBubbles: function() {
+    document.querySelectorAll('.tanks').forEach(tank => {
+      console.log(tank);
+    });
   }
 };
 

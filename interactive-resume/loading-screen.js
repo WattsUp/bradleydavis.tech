@@ -1,3 +1,5 @@
+'use strict';
+
 /**
  * Temporary shield protecting against FOUC
  */
@@ -7,6 +9,8 @@ var loading = {
   interval: null,
   x: 0,
   y: 0,
+  height: 0,
+  width: 0,
   nodesX: 3.2,
   nodesY: 5.1,
   index: 0,
@@ -19,12 +23,12 @@ var loading = {
     window.addEventListener('load', loading.hide);
     loading.context =
         document.getElementById('loading-screen').children[0].getContext('2d');
-    height = loading.context.canvas.clientHeight;
-    width = loading.context.canvas.clientWidth;
-    loading.startPoint = {x: width / 2, y: height / 2};
+    loading.height = loading.context.canvas.clientHeight;
+    loading.width = loading.context.canvas.clientWidth;
+    loading.startPoint = {x: loading.width / 2, y: loading.height / 2};
     loading.context.strokeStyle = '#33FF33';
     loading.context.fillStyle = '#282828';
-    loading.context.fillRect(0, 0, width, height);
+    loading.context.fillRect(0, 0, loading.width, loading.height);
     loading.context.fillStyle = 'rgba(40, 40, 40, 0.07)';
     loading.interval = setInterval(loading.update, 5);
   },
@@ -51,8 +55,8 @@ var loading = {
     loading.context.moveTo(
         loading.startPoint.x + loading.x, loading.startPoint.y - loading.y);
     loading.index += loading.step;
-    loading.x = height * Math.sin(loading.nodesX * loading.index) / 2;
-    loading.y = width * Math.sin(loading.nodesY * loading.index) / 2;
+    loading.x = loading.height * Math.sin(loading.nodesX * loading.index) / 2;
+    loading.y = loading.width * Math.sin(loading.nodesY * loading.index) / 2;
     loading.context.lineTo(
         loading.startPoint.x + loading.x, loading.startPoint.y - loading.y);
     loading.count--;

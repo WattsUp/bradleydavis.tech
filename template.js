@@ -1,3 +1,5 @@
+"use strict";
+
 var footer = {
   brad: null,
   sprite: null,

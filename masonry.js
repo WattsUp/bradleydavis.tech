@@ -1,3 +1,5 @@
+"use strict";
+
 var masonry = {
   /**
    * Initial masonry resize, add listeners
