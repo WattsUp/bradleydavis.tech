@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 /**
  * Creation of dynamic scene elements, movement of the scene
@@ -55,8 +55,16 @@ var scene = {
    * Add floating bubbles randomly to the tank fluid
    */
   labAddBubbles: function() {
-    document.querySelectorAll('.tanks').forEach(tank => {
-      console.log(tank);
+    document.querySelectorAll('.fluid').forEach(fluid => {
+      var bubbleSpaceWidth = fluid.clientWidth - 10 - 20;
+      for (var i = 0; i < 10; i++) {
+        var bubble = document.createElement('div');
+        bubble.classList.add("bubble");
+        bubble.style.animationDuration = (Math.random() * 3 + 3).toFixed(1) + "s";
+        bubble.style.animationDelay = -(Math.random() * 3).toFixed(1) + "s";
+        bubble.style.left = Math.round(Math.random() * bubbleSpaceWidth + 20) + "px";
+        fluid.appendChild(bubble);
+      }
     });
   }
 };

@@ -141,6 +141,43 @@
   height: 256px;
 }
 
+#lab-tanks>.fluid>.bubble {
+  -webkit-animation: bubble-float infinite linear;
+  animation: bubble-float infinite linear;
+  bottom: 0;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  opacity: 0.4;
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0) scale(0.1);
+    -webkit-transform: translateY(0) scale(0.1);
+    -moz-transform: translateY(0) scale(0.1);
+    -ms-transform: translateY(0) scale(0.1);
+    -o-transform: translateY(0) scale(0.1);
+  }
+  70% {
+    transform: translateY(-245px) scale(0.8);
+    -webkit-transform: translateY(-245px) scale(0.8);
+    -moz-transform: translateY(-245px) scale(0.8);
+    -ms-transform: translateY(-245px) scale(0.8);
+    -o-transform: translateY(-245px) scale(0.8);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-350px) scale(1.0);
+    -webkit-transform: translateY(-350px) scale(1.0);
+    -moz-transform: translateY(-350px) scale(1.0);
+    -ms-transform: translateY(-350px) scale(1.0);
+    -o-transform: translateY(-350px) scale(1.0);
+    opacity: 0;
+  }
+}
+
 #lab-tanks>.tank {
   width: 218px;
   height: 380px;
