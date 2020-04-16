@@ -225,101 +225,30 @@
   background-image: url(images/lab-particle-frame.png);
 }
 
-/* .particle-viewer-frame {
-  width: 500px;
+#lab-wsu {
+  width: 350px;
   height: 350px;
-  background-image: url(images/particle-viewer.png);
-  top: 0;
-  left: -1px;
+  left: 3760px;
+  background-image: url(images/lab-wsu.png);
 }
 
-.particle-viewer-image-wrapper {
-  left: 24px;
-  bottom: 50px;
-  width: 450px;
-  height: 275px;
-  overflow: hidden;
+#lab-wsu>div {
+  width: 350px;
+  height: 350px;
+  background-image: url(images/lab-wsu-on.png);
+  animation: flash 2s infinite;
+  -webkit-animation: flash 2s infinite;
 }
 
-.particle-viewer-image {
-  bottom: 0;
+#lab-battery {
+  width: 59px;
+  height: 59px;
+  background-image: url(images/lab-battery.png);
 }
 
-.particle-viewer-particles {
-  width: 110%;
-  bottom: 0;
-  left: 0;
-  background-image: url('images/particle.png');
-  background-position: bottom;
-  -webkit-animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
-  animation: particle-viewer-image infinite linear 15s, particle-viewer-particle infinite linear 1s;
+#lab-rover {
+  left: 700px;
 }
-
-.particle-viewer-lightning {
-} */
-
-/* 
-.discipline-tank {
-}
-
-.discipline-tank>h1 {
-}
-
-.discipline-tank-fluid {
-}
-
-.fluid-bubble {
-  -webkit-animation: bubble-float infinite linear;
-  animation: bubble-float infinite linear;
-  bottom: 0;
-  height: 10px;
-  width: 10px;
-  border-radius: 50%;
-  background-color: #FFFFFF;
-  opacity: 0.4;
-}
-
-.fluid-bubble:nth-child(6n+0) {
-  -webkit-animation-delay: 50ms;
-  -webkit-animation-duration: 1500ms;
-  animation-delay: 50ms;
-  animation-duration: 1500ms;
-}
-
-.fluid-bubble:nth-child(6n+1) {
-  -webkit-animation-delay: 600ms;
-  -webkit-animation-duration: 2000ms;
-  animation-delay: 600ms;
-  animation-duration: 2000ms;
-}
-
-.fluid-bubble:nth-child(6n+2) {
-  -webkit-animation-delay: 200ms;
-  -webkit-animation-duration: 1900ms;
-  animation-delay: 200ms;
-  animation-duration: 1900ms;
-}
-
-.fluid-bubble:nth-child(6n+3) {
-  -webkit-animation-delay: 500ms;
-  -webkit-animation-duration: 1300ms;
-  animation-delay: 500ms;
-  animation-duration: 1300ms;
-}
-
-.fluid-bubble:nth-child(6n+4) {
-  -webkit-animation-delay: 100ms;
-  -webkit-animation-duration: 1800ms;
-  animation-delay: 100ms;
-  animation-duration: 1800ms;
-}
-
-.fluid-bubble:nth-child(6n+5) {
-  -webkit-animation-delay: 650ms;
-  -webkit-animation-duration: 2200ms;
-  animation-delay: 650ms;
-  animation-duration: 2200ms;
-} */
 
 /****************************** Scene Launch Pad ******************************/
 

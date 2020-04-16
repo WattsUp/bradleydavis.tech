@@ -260,6 +260,38 @@ body {
   font-size: 24px;
 }
 
+.rover>.chassis {
+  width: 225px;
+  height: 40px;
+  bottom: 15px;
+  background-image: url(images/rover-chassis.png);
+}
+
+.rover>.mast {
+  width: 34px;
+  height: 100px;
+  left: 185px;
+  bottom: 55px;
+  background-image: url(images/rover-mast.png);
+}
+
+.rover>.wheel {
+  width: 60px;
+  height: 60px;
+  bottom: 0;
+  background-image: url(images/rover-wheel.png);
+  image-rendering: auto;
+}
+
+.rover>.beam {
+  width: 200px;
+  height: 75px;
+  bottom: 110px;
+  left: 215px;
+  transform-origin: 0% 50%;
+  background-image: url(images/rover-beam.png);
+}
+
 /*
 .page {
   height: 30000px;
