@@ -14,6 +14,9 @@ var scene = {
   onFirstScroll: function() {
     window.removeEventListener('scroll', scene.onFirstScroll);
     document.getElementById('scroll-down').hidden = true;
+    setTimeout(function() {
+      document.getElementById('scroll-down').hidden = true;
+    }, 5000);
   }
 };
 

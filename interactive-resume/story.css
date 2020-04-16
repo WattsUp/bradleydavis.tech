@@ -1,6 +1,6 @@
 /******************************** Scene Intro *********************************/
 
-.scene.intro {
+#scene-intro {
   width: 1900px;
 }
 
@@ -29,3 +29,39 @@
     opacity: 1.0;
   }
 }
+
+/********************************* Scene Lab **********************************/
+
+#scene-lab {
+  width: 4200px;
+  left: 1900px;
+}
+
+#scene-lab .ceiling{
+  width: 100%;
+  height: 75px;
+  bottom: 375px;
+  background-image: url(images/lab-ceiling.png);
+}
+
+#scene-lab .door{
+  width: 30px;
+  height: 400px;
+  bottom: 0px;
+  background-image: url(images/lab-door.png);
+}
+
+#scene-lab .wall{
+  width: 100%;
+  height: 400px;
+  bottom: 0px;
+  background-image: url(images/lab-wall.png);
+}
+
+/****************************** Scene Launch Pad ******************************/
+
+/******************************** Scene Rocket ********************************/
+
+/***************************** Scene Astroid Belt *****************************/
+
+/********************************* Scene Mars *********************************/

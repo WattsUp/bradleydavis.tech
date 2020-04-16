@@ -29,8 +29,11 @@ var brad = {
     brad.movingRight = movingRight;
     if (!brad.moving) {
       brad.moving = true;
+      brad.walk();
       setTimeout(brad.walk, brad.frameTime);
-      setTimeout(brad.walk, brad.frameTime * 2);
+      setTimeout(function() {
+        brad.moving = false;
+      }, brad.frameTime * 2);
     }
   },
   /**
@@ -49,7 +52,6 @@ var brad = {
       case 0:
       case 2:
         brad.sprite.style.backgroundPositionX = 'left';
-        brad.moving = false;
         break;
       case 1:
         brad.sprite.style.backgroundPositionX = 'center';

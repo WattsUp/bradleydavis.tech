@@ -82,9 +82,9 @@ body {
 /********************************** Scenery ***********************************/
 
 .sky {
-  background: linear-gradient(rgba(40, 40, 40, 0), rgba(0, 0, 192, 1), rgba(135, 206, 235, 1));
+  background: linear-gradient(rgba(40, 40, 40, 0), rgba(0, 0, 192, 1), rgb(106, 158, 226));
   width: 2000px;
-  height: 2000px;
+  height: 6000px;
   bottom: -200px;
 }
 
@@ -97,6 +97,20 @@ body {
 .ground.dirt {
   background: url(images/ground-grass.png);
   height: 220px;
+}
+
+.ground.pipes {
+  background: url(images/ground-pipes.png);
+  height: 160px;
+}
+
+.ground.pipes:before {
+  content: "";
+  display: block;
+  background: url(images/ground-flooring-concrete.png);
+  height: 40px;
+  top: -40px;
+  position: relative;
 }
 
 .d3>* {
