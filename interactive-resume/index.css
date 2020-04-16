@@ -65,9 +65,12 @@ body {
   left: 0;
 }
 
+.scene>*:not(.ground) {
+  bottom: 0
+}
+
 .center-wrapper {
   left: 50%;
-  bottom: 0;
   transform: translateX(-50%);
   -webkit-transform: translateX(-50%);
   -moz-transform: translateX(-50%);
@@ -223,6 +226,38 @@ body {
 
 .display>h1, .display>h2, .display>h3, .display>h4 {
   position: unset;
+}
+
+.hanging-sign {
+  width: 240px;
+  height: 160px;
+  text-align: center;
+  background-image: url(images/hanging-sign.png);
+  color: var(--color-accent);
+}
+
+.hanging-sign>* {
+  top: 100px;
+  left: 12px;
+  margin: 0;
+  width: 216px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.hanging-sign>h1 {
+  font-size: 32px;
+}
+
+.hanging-sign>h2 {
+  font-size: 26px;
+}
+
+.hanging-sign>h3 {
+  font-size: 24px;
 }
 
 /*

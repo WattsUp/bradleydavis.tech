@@ -37,26 +37,188 @@
   left: 1900px;
 }
 
-#scene-lab .ceiling{
+#scene-lab .ceiling {
   width: 100%;
   height: 75px;
   bottom: 375px;
   background-image: url(images/lab-ceiling.png);
 }
 
-#scene-lab .door{
+#scene-lab .door {
   width: 30px;
   height: 400px;
-  bottom: 0px;
   background-image: url(images/lab-door.png);
 }
 
-#scene-lab .wall{
+#scene-lab .wall {
   width: 100%;
   height: 400px;
-  bottom: 0px;
   background-image: url(images/lab-wall.png);
 }
+
+#lab-teleporter {
+  height: 400px;
+  width: 261px;
+  left: 50px;
+  background-image: url(images/teleporter.png);
+}
+
+#lab-console {
+  height: 275px;
+  width: 240px;
+  left: 330px;
+  background-image: url(images/teleporter-console.png);
+}
+
+#lab-console * {
+  position: unset;
+}
+
+#lab-console>h1 {
+  height: 55px;
+  text-align: center;
+  font-size: 30px;
+  line-height: 55px;
+  color: var(--color-primary);
+  font-family: tektrron;
+  margin: 0;
+}
+
+#lab-console>div {
+  margin: 0 auto;
+  background: var(--color-dark);
+  width: 170px;
+  height: 200px;
+}
+
+#lab-console>div>* {
+  width: 100%;
+  height: 16.666%;
+  font-size: 22px;
+  font-family: code-new-roman;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+#lab-tanks {
+  left: 1000px;
+  width: 1036px;
+  height: 380px;
+  font-family: code-new-roman;
+}
+
+#lab-tanks>hr {
+  width: 100%;
+  height: 6px;
+  background-image: url(images/caution-tape.png);
+  border: none;
+}
+
+#lab-tanks>h1 {
+  font-size: 24px;
+  color: var(--color-dark);
+}
+
+#lab-tanks>.fluid {
+  width: 146px;
+  bottom: 10px;
+  background-color: #FF08C2;
+  opacity: 0.7;
+}
+
+#lab-tanks>.fluid.excellent{
+  height: 320px;
+}
+
+#lab-tanks>.fluid.skilled{
+  height: 256px;
+}
+
+#lab-tanks>.tank {
+  width: 218px;
+  height: 380px;
+  background-image: url(images/lab-tank.png);
+}
+
+#lab-tanks>.tank>h1 {
+  width: 200px;
+  top: 340px;
+  height: 40px;
+  text-align: center;
+  font-size: 24px;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+/* 
+.discipline-tank {
+}
+
+.discipline-tank>h1 {
+}
+
+.discipline-tank-fluid {
+}
+
+.fluid-bubble {
+  -webkit-animation: bubble-float infinite linear;
+  animation: bubble-float infinite linear;
+  bottom: 0;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  opacity: 0.4;
+}
+
+.fluid-bubble:nth-child(6n+0) {
+  -webkit-animation-delay: 50ms;
+  -webkit-animation-duration: 1500ms;
+  animation-delay: 50ms;
+  animation-duration: 1500ms;
+}
+
+.fluid-bubble:nth-child(6n+1) {
+  -webkit-animation-delay: 600ms;
+  -webkit-animation-duration: 2000ms;
+  animation-delay: 600ms;
+  animation-duration: 2000ms;
+}
+
+.fluid-bubble:nth-child(6n+2) {
+  -webkit-animation-delay: 200ms;
+  -webkit-animation-duration: 1900ms;
+  animation-delay: 200ms;
+  animation-duration: 1900ms;
+}
+
+.fluid-bubble:nth-child(6n+3) {
+  -webkit-animation-delay: 500ms;
+  -webkit-animation-duration: 1300ms;
+  animation-delay: 500ms;
+  animation-duration: 1300ms;
+}
+
+.fluid-bubble:nth-child(6n+4) {
+  -webkit-animation-delay: 100ms;
+  -webkit-animation-duration: 1800ms;
+  animation-delay: 100ms;
+  animation-duration: 1800ms;
+}
+
+.fluid-bubble:nth-child(6n+5) {
+  -webkit-animation-delay: 650ms;
+  -webkit-animation-duration: 2200ms;
+  animation-delay: 650ms;
+  animation-duration: 2200ms;
+} */
 
 /****************************** Scene Launch Pad ******************************/
 

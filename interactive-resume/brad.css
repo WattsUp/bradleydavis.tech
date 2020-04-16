@@ -8,10 +8,12 @@
   -moz-transform: translateX(-50%);
   -ms-transform: translateX(-50%);
   -o-transform: translateX(-50%);
+  pointer-events: none;
 }
 
 #brad * {
   position: absolute;
+  pointer-events: none;
 }
 
 #brad-sprite {
