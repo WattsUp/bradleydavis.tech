@@ -58,7 +58,7 @@
     <div class="cloud large" style="bottom: 260px; left: 800px"></div>
     <div class="cloud small" style="bottom: 400px; left: 2000px"></div>
     <div class="tree large" style="left: 50px"></div>
-    <div class="scene intro">
+    <div class="scene" style="width: 100%">
       <div class="center-wrapper" style="left: 50vw">
         <div class="display w400 floating">
           <h1 class="text-title">Bradley L. Davis</h1>
@@ -96,11 +96,11 @@
       <div id="lab-console">
         <h1>Teleporter</h1>
         <div>
-          <button type="button" class="button accent" onClick="teleporterChange('skills')">Skills</button>
-          <button type="button" class="button accent" onClick="teleporterChange('experience')">Experience</button>
-          <button type="button" class="button accent" onClick="teleporterChange('portfolio')">Portfolio</button>
-          <button type="button" class="button accent" onClick="teleporterChange('awards')">Awards</button>
-          <button type="button" class="button accent" onClick="teleporterChange('contact')">Contact Me</button>
+          <button type="button" class="button accent" onClick="story.teleport('skills')">Skills</button>
+          <button type="button" class="button accent" onClick="story.teleport('experience')">Experience</button>
+          <button type="button" class="button accent" onClick="story.teleport('portfolio')">Portfolio</button>
+          <button type="button" class="button accent" onClick="story.teleport('awards')">Awards</button>
+          <button type="button" class="button accent" onClick="story.teleport('contact')">Contact Me</button>
           <a href="/" class="button accent">Return Home</a>
         </div>
       </div>
@@ -118,9 +118,9 @@
         <h1 style="bottom: 164px">Familiar</h1>
         <h1 style="bottom: 100px">Beginner</h1>
         <div class="fluid excellent" style="left: 148px"></div>
-        <div class="fluid excellent" style="left: 378px"></div>
-        <div class="fluid excellent" style="left: 608px"></div>
-        <div class="fluid skilled" style="left: 838px"></div>
+        <div class="fluid excellent" style="left: 378px; transition-delay: 0.25s;"></div>
+        <div class="fluid excellent" style="left: 608px; transition-delay: 0.5s;"></div>
+        <div class="fluid skilled" style="left: 838px; transition-delay: 0.75s;"></div>
         <div class="tank" style="left: 120px">
           <h1>Electronics</h1>
         </div>

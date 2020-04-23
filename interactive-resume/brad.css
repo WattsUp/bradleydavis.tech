@@ -11,6 +11,22 @@
   pointer-events: none;
 }
 
+#brad.jump-up {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+  -webkit-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+  -moz-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+  -ms-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+  -o-transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
+}
+
+#brad.jump-down {
+  transition: transform 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+  -webkit-transition: transform 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+  -moz-transition: transform 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+  -ms-transition: transform 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+  -o-transition: transform 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
+}
+
 #brad * {
   position: absolute;
   pointer-events: none;

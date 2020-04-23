@@ -20,17 +20,17 @@ var loading = {
    * Initialize listeners
    */
   init: function() {
-    window.addEventListener('load', loading.hide);
-    loading.context =
+    window.addEventListener('load', this.hide.bind(this));
+    this.context =
         document.getElementById('loading-screen').children[0].getContext('2d');
-    loading.height = loading.context.canvas.clientHeight;
-    loading.width = loading.context.canvas.clientWidth;
-    loading.startPoint = {x: loading.width / 2, y: loading.height / 2};
-    loading.context.strokeStyle = '#33FF33';
-    loading.context.fillStyle = '#282828';
-    loading.context.fillRect(0, 0, loading.width, loading.height);
-    loading.context.fillStyle = 'rgba(40, 40, 40, 0.07)';
-    loading.interval = setInterval(loading.update, 5);
+    this.height = this.context.canvas.clientHeight;
+    this.width = this.context.canvas.clientWidth;
+    this.startPoint = {x: this.width / 2, y: this.height / 2};
+    this.context.strokeStyle = '#33FF33';
+    this.context.fillStyle = '#282828';
+    this.context.fillRect(0, 0, this.width, this.height);
+    this.context.fillStyle = 'rgba(40, 40, 40, 0.07)';
+    this.interval = setInterval(this.update.bind(this), 5);
   },
   /**
    * Slide the screen up then stop rendering and delete it
@@ -40,9 +40,9 @@ var loading = {
         'translateY(-100%)';
     document.getElementById('scroll-container').hidden = false;
     setTimeout(function() {
-      clearInterval(loading.interval);
+      clearInterval(this.interval);
       document.body.removeChild(document.getElementById('loading-screen'));
-      document.getElementById('scroll-down').hidden = false;
+      window.addEventListener('scroll', scene.onFirstScroll);
       brad.teleport(true);
     }, 1000);
   },
@@ -51,21 +51,19 @@ var loading = {
    * color simulates persistance
    */
   update: function() {
-    loading.context.beginPath();
-    loading.context.moveTo(
-        loading.startPoint.x + loading.x, loading.startPoint.y - loading.y);
-    loading.index += loading.step;
-    loading.x = loading.height * Math.sin(loading.nodesX * loading.index) / 2;
-    loading.y = loading.width * Math.sin(loading.nodesY * loading.index) / 2;
-    loading.context.lineTo(
-        loading.startPoint.x + loading.x, loading.startPoint.y - loading.y);
-    loading.count--;
-    if (loading.count <= 0) {
-      loading.count = 20;
-      loading.context.fillRect(
-          0, 0, loading.context.canvas.width, loading.context.canvas.height);
+    this.context.beginPath();
+    this.context.moveTo(this.startPoint.x + this.x, this.startPoint.y - this.y);
+    this.index += this.step;
+    this.x = this.height * Math.sin(this.nodesX * this.index) / 2;
+    this.y = this.width * Math.sin(this.nodesY * this.index) / 2;
+    this.context.lineTo(this.startPoint.x + this.x, this.startPoint.y - this.y);
+    this.count--;
+    if (this.count <= 0) {
+      this.count = 20;
+      this.context.fillRect(
+          0, 0, this.context.canvas.width, this.context.canvas.height);
     }
-    loading.context.stroke();
+    this.context.stroke();
   }
 };
 

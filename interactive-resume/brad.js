@@ -1,9 +1,10 @@
-"use strict";
+'use strict';
 
 /**
  * The Brad sprite: movement, animation
  */
 var brad = {
+  container: null,
   sprite: null,
   eyeLids: [],
   teleporterScience: null,
@@ -11,55 +12,58 @@ var brad = {
   frameTime: 200,
   currentFrame: 0,
   moving: false,
+  standStill: false,
   /**
    * Initialize the sprite, add listeners
    */
   init: function() {
-    brad.sprite = document.getElementById('brad-sprite');
-    brad.eyeLids[0] = document.querySelector('#brad .eyes.right');
-    brad.eyeLids[1] = document.querySelector('#brad .eyes.left');
-    brad.teleporterScience = document.getElementById('teleporter-science');
+    this.container = document.getElementById('brad');
+    this.sprite = document.getElementById('brad-sprite');
+    this.eyeLids[0] = document.querySelector('#brad .eyes.right');
+    this.eyeLids[1] = document.querySelector('#brad .eyes.left');
+    this.teleporterScience = document.getElementById('teleporter-science');
 
-    brad.eyeLids[0].hidden = false;
-    brad.eyeLids[1].hidden = true;
+    this.eyeLids[0].hidden = false;
+    this.eyeLids[1].hidden = true;
   },
   /**
    * Enqueue frames to animate walking, set the walking direction
    * @param {bool} movingRight
    */
   enqueueWalk: function(movingRight) {
-    brad.movingRight = movingRight;
-    if (!brad.moving) {
-      brad.moving = true;
-      brad.walk();
-      setTimeout(brad.walk, brad.frameTime);
+    if (this.standStill) return;
+    this.movingRight = movingRight;
+    if (!this.moving) {
+      this.moving = true;
+      this.walk();
+      setTimeout(this.walk.bind(this), this.frameTime);
       setTimeout(function() {
-        brad.moving = false;
-      }, brad.frameTime * 2);
+        this.moving = false;
+      }.bind(this), this.frameTime * 2);
     }
   },
   /**
    * Animate the sprite by swapping frames
    */
   walk: function() {
-    brad.eyeLids[0].hidden = !brad.movingRight;
-    brad.eyeLids[1].hidden = brad.movingRight;
-    if (brad.movingRight)
-      brad.sprite.style.backgroundPositionY = 'top';
+    this.eyeLids[0].hidden = !this.movingRight;
+    this.eyeLids[1].hidden = this.movingRight;
+    if (this.movingRight)
+      this.sprite.style.backgroundPositionY = 'top';
     else
-      brad.sprite.style.backgroundPositionY = 'bottom';
+      this.sprite.style.backgroundPositionY = 'bottom';
 
-    brad.currentFrame = (brad.currentFrame + 1) % 4;
-    switch (brad.currentFrame) {
+    this.currentFrame = (this.currentFrame + 1) % 4;
+    switch (this.currentFrame) {
       case 0:
       case 2:
-        brad.sprite.style.backgroundPositionX = 'left';
+        this.sprite.style.backgroundPositionX = 'left';
         break;
       case 1:
-        brad.sprite.style.backgroundPositionX = 'center';
+        this.sprite.style.backgroundPositionX = 'center';
         break;
       case 3:
-        brad.sprite.style.backgroundPositionX = 'right';
+        this.sprite.style.backgroundPositionX = 'right';
         break;
     }
   },
@@ -68,15 +72,30 @@ var brad = {
    * @param {bool} materializing 'landing' when true, 'leaving' when false
    */
   teleport: function(materializing) {
-    brad.teleporterScience.style.opacity = 1.0;
+    this.teleporterScience.style.opacity = 1.0;
     if (materializing) {
-      brad.sprite.style.opacity = 1.0;
+      this.sprite.style.opacity = 1.0;
     } else {
-      brad.sprite.style.opacity = 0.0;
+      this.sprite.style.opacity = 0.0;
     }
     setTimeout(function() {
-      brad.teleporterScience.style.opacity = 0.0;
-    }, 1100);
+      this.teleporterScience.style.opacity = 0.0;
+    }.bind(this), 1100);
+  },
+  /**
+   * Perform jump animation
+   * @param {bool} jumpUp true to jump up onto something, false for down
+   * @param {int} height of object to jump onto
+   */
+  jump: function(jumpUp, height) {
+    if (jumpUp) {
+      this.container.classList.add('jump-up');
+      this.container.classList.remove('jump-down');
+    } else {
+      this.container.classList.remove('jump-up');
+      this.container.classList.add('jump-down');
+    }
+    this.container.style.transform = 'translate(-50%, -' + height + 'px)';
   }
 };
 

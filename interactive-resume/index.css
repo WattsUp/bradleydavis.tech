@@ -293,22 +293,6 @@ body {
 }
 
 /*
-.jump-up {
-  -webkit-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
-  -moz-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
-  -ms-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
-  -o-transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
-  transition: bottom 0.4s cubic-bezier(0.175, 0.885, 0.660, 1.650);
-}
-
-.jump-down {
-  -webkit-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
-  -moz-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
-  -ms-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
-  -o-transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
-  transition: bottom 0.4s cubic-bezier(0.600, -0.280, 0.735, 0.045);
-}
-
 .rocket>.foundation {
   background-image: url(images/ground-rocket-pipes.png);
 }
