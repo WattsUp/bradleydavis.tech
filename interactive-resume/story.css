@@ -301,6 +301,23 @@
 
 /****************************** Scene Launch Pad ******************************/
 
+#scene-launch-pad {
+  width: 1900px;
+  left: 6100px;
+}
+
+#elevator {
+  width: 300px;
+  height: 20px;
+  background-image: url(images/caution-tape.png);
+  top: 0px;
+  left: 500px;
+}
+
+#elevator>* {
+  top: 20px;
+}
+
 /******************************** Scene Rocket ********************************/
 
 /***************************** Scene Astroid Belt *****************************/

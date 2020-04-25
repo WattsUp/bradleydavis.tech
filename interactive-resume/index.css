@@ -98,7 +98,7 @@ body {
 }
 
 .ground.dirt {
-  background: url(images/ground-grass.png);
+  background: url(images/ground-dirt.png);
   height: 220px;
 }
 
@@ -107,23 +107,34 @@ body {
   height: 160px;
 }
 
-.ground.pipes:before {
+.ground.concrete:before, .ground.pipes:before {
   content: "";
   display: block;
   background: url(images/ground-flooring-concrete.png);
   height: 40px;
+  top: 0px;
+  width: 100%;
+  position: absolute;
+}
+
+.ground.pipes:before {
   top: -40px;
-  position: relative;
+}
+
+.ground.grass {
+  background: url(images/ground-grass.png);
+}
+
+.d3>*:not(.ground), .d4>*:not(.ground) {
+  bottom: -4px;
 }
 
 .d3>* {
-  bottom: -4px;
   filter: blur(1px);
   -webkit-filter: blur(1px);
 }
 
 .d4>* {
-  bottom: -4px;
   filter: blur(2px);
   -webkit-filter: blur(2px);
 }

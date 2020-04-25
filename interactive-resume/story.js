@@ -9,7 +9,7 @@ var story = {
   masks: [],
   distance: [],
   distanceSpace: null,
-  lastSceneX: 0,
+  lastX: 0,
   scrollEventEnqueued: false,
   /**
    * Initialize the story, add listeners
@@ -32,6 +32,7 @@ var story = {
     this.masks[1].hidden = true;
 
     this.lab.init();
+    this.launchPad.init();
 
     window.addEventListener('scroll', function() {
       story.scrollListener(false);
@@ -46,45 +47,72 @@ var story = {
    */
   scrollListener: function(force) {
     if (this.lastSceneX == 0) force = true;
-    let sceneX = window.scrollY;
-    this.setBackground(-sceneX, 0);
-    brad.enqueueWalk(sceneX > this.lastSceneX);
-    this.lastSceneX = sceneX;
+    let scrollX = window.scrollY;
+    let centerX = scrollX + document.documentElement.offsetWidth / 2;
+
     // every 500px of movement, check and hide offscreen scenes
-    if (Math.abs(sceneX - this.lastOffscreenSceneCheck) > 500) {
+    if (Math.abs(scrollX - this.lastOffscreenSceneCheck) > 500) {
       this.hideOffscreenScenes();
-      this.lastOffscreenSceneCheck = sceneX;
+      this.lastOffscreenSceneCheck = scrollX;
+      force = true;
     }
-    sceneX = sceneX + document.documentElement.offsetWidth / 2;
-    if ((sceneX > 1900 && sceneX < 6100) || force) this.lab.update(sceneX);
-    console.log(sceneX);
+
+    // Move the backgrounds
+    this.setBackground(scrollX, centerX);
+
+    // Enqueue walking frames
+    brad.standStill = (centerX < 6050 && centerX > 2710) || (centerX > 6740);
+    brad.enqueueWalk(centerX > this.lastX);
+    this.lastX = centerX;
+
+    // Update story elements of each scene
+    if ((centerX > 1900 && centerX < 6600) || force) this.lab.update(centerX);
+    if ((centerX > 6200 && centerX < 8100) || force)
+      this.launchPad.update(centerX);
+    console.log(scrollX + '\t' + centerX);
   },
   /**
    * Hide the children of scenes that are off screen to reduce layout processing
    */
   hideOffscreenScenes: function() {
-    var bottomThreshold = window.innerHeight + 500;
-    var leftThreshold = window.innerWidth + 500;
-    this.scenes.forEach(scene => {
-      var rect = scene.getBoundingClientRect();
-      var hidden = (rect.left > leftThreshold || rect.right < -500);
-      for (var i = 0; i < scene.children.length; i++) {
-        scene.children[i].hidden = hidden;
-      }
-    });
+    // var bottomThreshold = window.innerHeight + 500;
+    // var leftThreshold = window.innerWidth + 500;
+    // this.scenes.forEach(scene => {
+    //   var rect = scene.getBoundingClientRect();
+    //   var hidden =
+    //       (rect.left > leftThreshold || rect.right < -500 ||
+    //        rect.top > bottomThreshold || rect.bottom < -500);
+    //   if (hidden) console.log(scene);
+    //   for (var i = 0; i < scene.children.length; i++) {
+    //     scene.children[i].hidden = hidden;
+    //   }
+    // });
   },
   /**
    *
-   * @param {integer} x offset of close distance
-   * @param {integer} y offset of close distance
+   * @param {integer} scrollX of the scrollbar
+   * @param {integer} centerX of the screen
    */
-  setBackground: function(x, y) {
-    this.distance[0].style.transform = 'translateX(' + x + 'px)';
-    this.distance[1].style.transform = 'translateX(' + (x / 1.5) + 'px)';
-    this.distance[2].style.transform = 'translateX(' + (x / 2) + 'px)';
-    this.distance[3].style.transform = 'translateX(' + (x / 4) + 'px)';
-    this.distance[4].style.transform = 'translateX(' + (x / 8) + 'px)';
-    this.distanceSpace.style.transform = 'translateX(' + (x / 40) + 'px)';
+  setBackground: function(scrollX, centerX) {
+    let y = 0;
+    let x = -scrollX;  // Reverse direction for backgrounds
+
+    if (centerX > 6740) {  // Launch pad elevator
+      y = centerX - 6740;
+      x = -(6740 - (centerX - scrollX));
+    }
+
+    this.distance[0].style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    this.distance[1].style.transform =
+        'translate(' + (x / 1.5) + 'px,' + (y / 3) + 'px)';
+    this.distance[2].style.transform =
+        'translate(' + (x / 2) + 'px,' + (y / 4) + 'px)';
+    this.distance[3].style.transform =
+        'translate(' + (x / 4) + 'px,' + (y / 8) + 'px)';
+    this.distance[4].style.transform =
+        'translate(' + (x / 8) + 'px,' + (y / 16) + 'px)';
+    this.distanceSpace.style.transform =
+        'translate(' + (x / 40) + 'px,' + (y / 80) + 'px)';
   },
   /**
    * Perform a teleport animation to the location of the hash
@@ -118,7 +146,7 @@ var story = {
     battery: null,
     lcd: null,
     /**
-     * Initialize the lab scene elements
+     * Initialize the scene elements
      */
     init: function() {
       this.rover = document.getElementById('lab-rover');
@@ -129,27 +157,24 @@ var story = {
       this.lcd = document.querySelector('#lab-wsu>div');
     },
     /**
-     * Update the lab scene
+     * Update the scene
      * @param {int} x
      */
     update: function(x) {
       // Jump onto the rover
       if (x > 6050) {
-        brad.standStill = false;
         brad.jump(false, 0);
         this.rover.style.transform = 'translateX(3340px)';
         let rotation = 3340 / (Math.PI * 60) * 360;
         this.wheels[0].style.transform = 'rotateZ(' + rotation + 'deg)';
         this.wheels[1].style.transform = 'rotateZ(' + rotation + 'deg)';
       } else if (x > 2710) {
-        brad.standStill = true;
         brad.jump(true, 55);
         this.rover.style.transform = 'translateX(' + (x - 2710) + 'px)';
         let rotation = (x - 2710) / (Math.PI * 60) * 360;
         this.wheels[0].style.transform = 'rotateZ(' + rotation + 'deg)';
         this.wheels[1].style.transform = 'rotateZ(' + rotation + 'deg)';
       } else {
-        brad.standStill = false;
         brad.jump(false, 0);
         this.rover.style.transform = 'translateX(0)';
         this.wheels[0].style.transform = 'rotateZ(0)';
@@ -180,6 +205,36 @@ var story = {
         this.lcd.hidden = true;
         this.beam.hidden = true;
         this.battery.style.transform = 'translate(0,0)';
+      }
+    }
+  },
+  /**
+   * Launch pad scene
+   */
+  launchPad: {
+    elevator: null,
+    thrusters: [],
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.elevator = document.getElementById('elevator');
+      this.thrusters = document.querySelectorAll('#elevator>.thruster');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      // Use the elevator
+      if (x > 6740) {
+        this.thrusters[0].style.height = 'unset';
+        this.thrusters[1].style.height = 'unset';
+        this.elevator.style.transform = 'translateY(' + -(x - 6740) + 'px)';
+      } else {
+        this.thrusters[0].style.height = 0;
+        this.thrusters[1].style.height = 0;
+        this.elevator.style.transform = 'translateY(0)';
       }
     }
   }
