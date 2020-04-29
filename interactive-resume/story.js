@@ -33,6 +33,7 @@ var story = {
 
     this.lab.init();
     this.launchPad.init();
+    this.rocketEngineering.init();
 
     window.addEventListener('scroll', function() {
       story.scrollListener(false);
@@ -61,7 +62,8 @@ var story = {
     this.setBackground(scrollX, centerX);
 
     // Enqueue walking frames
-    brad.standStill = (centerX < 6050 && centerX > 2710) || (centerX > 6740);
+    brad.standStill = (centerX < 6050 && centerX > 2710) ||
+        (centerX < 7560 && centerX > 6740);
     brad.enqueueWalk(centerX > this.lastX);
     this.lastX = centerX;
 
@@ -69,6 +71,8 @@ var story = {
     if ((centerX > 1900 && centerX < 6600) || force) this.lab.update(centerX);
     if ((centerX > 6200 && centerX < 8100) || force)
       this.launchPad.update(centerX);
+    if ((centerX > 7000 && centerX < 9000) || force)
+      this.rocketEngineering.update(centerX);
     console.log(scrollX + '\t' + centerX);
   },
   /**
@@ -97,7 +101,10 @@ var story = {
     let y = 0;
     let x = -scrollX;  // Reverse direction for backgrounds
 
-    if (centerX > 6740) {  // Launch pad elevator
+    if (centerX > 7560) {  // End of launch pad elevator
+      y = 820;
+      x = -(scrollX - 820);
+    } else if (centerX > 6740) {  // Launch pad elevator
       y = centerX - 6740;
       x = -(6740 - (centerX - scrollX));
     }
@@ -230,11 +237,44 @@ var story = {
       if (x > 6740) {
         this.thrusters[0].style.height = 'unset';
         this.thrusters[1].style.height = 'unset';
-        this.elevator.style.transform = 'translateY(' + -(x - 6740) + 'px)';
       } else {
         this.thrusters[0].style.height = 0;
         this.thrusters[1].style.height = 0;
+      }
+
+      if (x > 7850) {
+        this.elevator.style.transform =
+            'translateY(' + -(7850 - x + 820) + 'px)';
+      } else if (x > 7560) {
+        this.elevator.style.transform = 'translateY(-820px)';
+      } else if (x > 6740) {
+        this.elevator.style.transform = 'translateY(' + -(x - 6740) + 'px)';
+      } else {
         this.elevator.style.transform = 'translateY(0)';
+      }
+    }
+  },
+  /**
+   * Launch pad scene
+   */
+  rocketEngineering: {
+    door: null,
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.door = document.getElementById('rocket-door-engineering');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      // Open and close the door
+      if (x < 8000 && x > 7400) {
+        this.door.classList.add('open');
+      } else {
+        this.door.classList.remove('open');
       }
     }
   }

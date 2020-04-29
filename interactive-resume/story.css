@@ -41,33 +41,33 @@
   width: 100%;
   height: 75px;
   bottom: 375px;
-  background-image: url(images/lab-ceiling.png);
+  background: url(images/lab-ceiling.png);
 }
 
 #scene-lab .door {
   width: 30px;
   height: 400px;
-  background-image: url(images/lab-door.png);
+  background: url(images/lab-door.png);
 }
 
 #scene-lab .wall {
   width: 100%;
   height: 400px;
-  background-image: url(images/lab-wall.png);
+  background: url(images/lab-wall.png);
 }
 
 #lab-teleporter {
   height: 400px;
   width: 261px;
   left: 50px;
-  background-image: url(images/teleporter.png);
+  background: url(images/teleporter.png);
 }
 
 #lab-console {
   height: 275px;
   width: 240px;
   left: 330px;
-  background-image: url(images/teleporter-console.png);
+  background: url(images/teleporter-console.png);
 }
 
 #lab-console * {
@@ -117,7 +117,7 @@
 #lab-tanks>hr {
   width: 100%;
   height: 6px;
-  background-image: url(images/caution-tape.png);
+  background: url(images/caution-tape.png);
   border: none;
 }
 
@@ -192,7 +192,7 @@
 #lab-tanks>.tank {
   width: 218px;
   height: 380px;
-  background-image: url(images/lab-tank.png);
+  background: url(images/lab-tank.png);
 }
 
 #lab-tanks>.tank>h1 {
@@ -226,7 +226,7 @@
   width: 500px;
   height: 100%;
   bottom: 0;
-  background-image: url(images/lab-particle.png);
+  background: url(images/lab-particle.png);
   animation: lab-particles infinite 3s linear;
   -webkit-animation: lab-particles infinite 3s linear;
   transition: height 1s;
@@ -264,26 +264,26 @@
   bottom: 50px;
   width: 450px;
   height: 275px;
-  background-image: url(images/lab-particle-lightning.png);
+  background: url(images/lab-particle-lightning.png);
 }
 
 #lab-particle-frame {
   width: 500px;
   height: 350px;
-  background-image: url(images/lab-particle-frame.png);
+  background: url(images/lab-particle-frame.png);
 }
 
 #lab-wsu {
   width: 350px;
   height: 350px;
   left: 3760px;
-  background-image: url(images/lab-wsu.png);
+  background: url(images/lab-wsu.png);
 }
 
 #lab-wsu>div {
   width: 350px;
   height: 350px;
-  background-image: url(images/lab-wsu-on.png);
+  background: url(images/lab-wsu-on.png);
   animation: flash 2s infinite;
   -webkit-animation: flash 2s infinite;
 }
@@ -291,12 +291,44 @@
 #lab-battery {
   width: 59px;
   height: 59px;
-  background-image: url(images/lab-battery.png);
+  background: url(images/lab-battery.png);
   left: 3200px;
 }
 
 #lab-rover {
   left: 700px;
+}
+
+#lab-rover>.chassis {
+  width: 225px;
+  height: 40px;
+  bottom: 15px;
+  background: url(images/rover-chassis.png);
+}
+
+#lab-rover>.mast {
+  width: 34px;
+  height: 100px;
+  left: 185px;
+  bottom: 55px;
+  background: url(images/rover-mast.png);
+}
+
+#lab-rover>.wheel {
+  width: 60px;
+  height: 60px;
+  bottom: 0;
+  background: url(images/rover-wheel.png);
+  image-rendering: auto;
+}
+
+#lab-rover>.beam {
+  width: 200px;
+  height: 75px;
+  bottom: 110px;
+  left: 215px;
+  transform-origin: 0% 50%;
+  background: url(images/rover-beam.png);
 }
 
 /****************************** Scene Launch Pad ******************************/
@@ -309,7 +341,7 @@
 #elevator {
   width: 300px;
   height: 20px;
-  background-image: url(images/caution-tape.png);
+  background: url(images/caution-tape.png);
   top: 0px;
   left: 500px;
 }
@@ -318,7 +350,71 @@
   top: 20px;
 }
 
-/******************************** Scene Rocket ********************************/
+/**************************** Scene Rocket Engine *****************************/
+
+#scene-rocket-engine {
+  left: 7000px;
+  width: 2400px;
+  height: 600px;
+  background: url(images/rocket-engine.png);
+  bottom: 20px;
+}
+
+/************************** Scene Rocket Engineering **************************/
+
+#scene-rocket-engineering {
+  left: 6900px;
+  width: 2400px;
+  bottom: 620px;
+  height: 900px;
+}
+
+#rocket-door-engineering {
+  width: 30px;
+  height: 300px;
+  background: url(images/rocket-door.png);
+  bottom: 200px;
+  left: 0;
+  transform: translateY(0);
+  transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -webkit-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -moz-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -o-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -ms-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+}
+
+#rocket-door-engineering.open {
+  transform: translateY(-330px);
+  left: -30px;
+  transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -webkit-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -moz-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -o-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -ms-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -webkit-transform: translateY(-330px);
+  -moz-transform: translateY(-330px);
+  -ms-transform: translateY(-330px);
+  -o-transform: translateY(-330px);
+}
+
+#scene-rocket-engineering .doorframe {
+  width: 30px;
+  height: 300px;
+  background: #BFBFBF;
+  bottom: 200px;
+}
+
+#scene-rocket-engineering .wall {
+  width: 100%;
+  height: 700px;
+  background: var(--color-dark);
+  background-image: url(images/rocket-wall-engineering.png);
+  bottom: 200px;
+}
 
 /***************************** Scene Astroid Belt *****************************/
 
