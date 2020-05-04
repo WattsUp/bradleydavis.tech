@@ -259,11 +259,19 @@ var story = {
    */
   rocketEngineering: {
     door: null,
+    skillSets: [],
+    currentSkillSet: -1,
+    skillSetInterval: null,
+    manualSkillSetTimeout: null,
     /**
      * Initialize the scene elements
      */
     init: function() {
       this.door = document.getElementById('rocket-door-engineering');
+      this.skillSets =
+          document.querySelectorAll('#scene-rocket-engineering .skill-set');
+      this.skillSetInterval = setInterval(this.selectSkillSet.bind(this), 5000);
+      this.selectSkillSet();
     },
     /**
      * Update the scene
@@ -276,6 +284,28 @@ var story = {
       } else {
         this.door.classList.remove('open');
       }
+    },
+    /**
+     *
+     * @param {int} index of skill set to display
+     * @param {boolean} manual true if skill set manually selected (delay before
+     *     resume cycling)
+     */
+    selectSkillSet: function(index = -1) {
+      if (index == -1)
+        index = (this.currentSkillSet + 1) % 4;
+      else {
+        clearInterval(this.skillSetInterval);
+        clearTimeout(this.manualSkillSetTimeout);
+        this.manualSkillSetTimeout = setTimeout(function() {
+          this.selectSkillSet();
+          this.skillSetInterval =
+              setInterval(this.selectSkillSet.bind(this), 5000);
+        }.bind(this), 10000);
+      }
+      this.currentSkillSet = index;
+      for (let i = 0; i < this.skillSets.length; i++)
+        this.skillSets[i].hidden = i != index;
     }
   }
 };

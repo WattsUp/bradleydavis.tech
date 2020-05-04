@@ -82,6 +82,26 @@ body {
   position: relative;
 }
 
+h1, h2, h3, h4, h5, button {
+  margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
 /********************************** Scenery ***********************************/
 
 .sky {
@@ -258,7 +278,13 @@ body {
   background-image: url(images/display-400.png);
 }
 
-.display>h1, .display>h2, .display>h3, .display>h4 {
+.display.w800 {
+  width: 800px;
+  height: 380px;
+  background-image: url(images/display-800.png);
+}
+
+.display * {
   position: unset;
 }
 
@@ -273,7 +299,6 @@ body {
 .hanging-sign>* {
   top: 100px;
   left: 12px;
-  margin: 0;
   width: 216px;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
@@ -282,22 +307,24 @@ body {
   -o-transform: translateY(-50%);
 }
 
-.hanging-sign>h1 {
-  font-size: 32px;
-}
-
-.hanging-sign>h2 {
-  font-size: 26px;
-}
-
-.hanging-sign>h3 {
-  font-size: 24px;
-}
+/************************** Rocket Shared Components **************************/
 
 .fuselage {
   width: 30px;
   height: 100%;
   background: url(images/rocket-fuselage.png);
+}
+
+.rocket-cables {
+  height: 250px;
+  width: 517px;
+  top: 0;
+  background: url(images/rocket-cables.png);
+}
+
+.rocket-cables.long {
+  width: 669px;
+  background: url(images/rocket-cables-long.png);
 }
 
 /*

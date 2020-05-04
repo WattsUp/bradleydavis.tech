@@ -77,11 +77,9 @@
 #lab-console>h1 {
   height: 55px;
   text-align: center;
-  font-size: 30px;
   line-height: 55px;
   color: var(--color-primary);
   font-family: tektrron;
-  margin: 0;
 }
 
 #lab-console>div {
@@ -121,8 +119,7 @@
   border: none;
 }
 
-#lab-tanks>h1 {
-  font-size: 24px;
+#lab-tanks>h3 {
   color: var(--color-dark);
 }
 
@@ -195,14 +192,12 @@
   background: url(images/lab-tank.png);
 }
 
-#lab-tanks>.tank>h1 {
+#lab-tanks>.tank>h3 {
   width: 200px;
   top: 340px;
   height: 40px;
   text-align: center;
-  font-size: 24px;
   color: var(--color-dark);
-  margin: 0;
 }
 
 #lab-particle-viewer {
@@ -414,6 +409,105 @@
   background: var(--color-dark);
   background-image: url(images/rocket-wall-engineering.png);
   bottom: 200px;
+}
+
+.skill-set {
+  width: 100%;
+  height: 100%;
+}
+
+.skill-set>.levels {
+  margin-top: 4px;
+  margin-left: 270px;
+  text-align: left;
+}
+
+.skill-set>.levels>span {
+  width: 120px;
+  display: inline-block;
+}
+
+.skill-set.battery>.skill::after {
+  background: url(images/rocket-skills-battery.png);
+}
+
+.skill-set.code>.skill::after {
+  background: url(images/rocket-skills-code.png);
+}
+
+.skill-set.pencil>.skill::after {
+  background: url(images/rocket-skills-pencil.png);
+}
+
+.skill-set.wrench>.skill::after {
+  background: url(images/rocket-skills-wrench.png);
+}
+
+.skill {
+  margin-top: 4px;
+  margin-left: 10px;
+  text-align: left;
+  position: relative;
+  border-bottom: dashed 1px var(--color-accent);
+}
+
+.skill::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 270px;
+  top: 0;
+  height: 24px;
+}
+
+.skill.excellent::after {
+  width: 480px;
+}
+
+.skill.skilled::after {
+  width: 360px;
+}
+
+.skill.familiar::after {
+  width: 240px;
+}
+
+.skill.beginner::after {
+  width: 120px;
+}
+
+#skills-console {
+  width: 150px;
+  height: 210px;
+  left: 1400px;
+  bottom: 400px;
+  background: url(images/rocket-skills-console.png);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+#skills-console>div {
+  width: 130px;
+  height: 140px;
+  top: 60px;
+  left: 10px;
+}
+
+#skills-console>div * {
+  position: unset;
+  width: 100%;
+  height: 25%;
+  font-size: 22px;
+  font-family: code-new-roman;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
 }
 
 /***************************** Scene Astroid Belt *****************************/
