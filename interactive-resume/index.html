@@ -64,8 +64,10 @@
       <div class="scene" style="width: 100%">
         <div class="center-wrapper" style="left: 50vw">
           <div class="display w400 floating">
-            <h1 class="text-title">Bradley L. Davis</h1>
-            <h4 class="text-title">Interactive Resume</h4>
+            <div class="unset-position">
+              <h1 class="text-title" style="font-size: 48px; margin-top: 20px">Bradley L. Davis</h1>
+              <h4 class="text-title">Interactive Resume</h4>
+            </div>
             <div class="thruster" style="left: 64px"></div>
             <div class="thruster" style="right: 64px"></div>
           </div>
@@ -179,17 +181,17 @@
         <div class="hanging-sign" style="top:250px; left: 162px;">
           <h1>Skills</h1>
         </div>
-        <div class="display w800" style="top: 160px; left:580px">
+        <div class="display w800 unset-position" style="top: 160px; left:580px">
           <div class="skill-set battery">
             <h2>Electronic Skills</h2>
             <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h3>
             <h3 class="skill excellent">Autodesk EAGLE</h3>
-            <h3 class="skill excellent">Digital Multimeter</h3>
-            <h3 class="skill excellent">Oscilloscope</h3>
-            <h3 class="skill skilled">Logic Analyzer</h3>
+            <h3 class="skill excellent">DMM/Oscilloscope</h3>
+            <h3 class="skill excellent">Digital Design</h3>
+            <h3 class="skill skilled">Analog Design</h3>
             <h3 class="skill skilled">SMD &#38; THT Soldering</h3>
-            <h3 class="skill skilled">Troubleshooting</h3>
             <h3 class="skill skilled">LTSpice</h3>
+            <h3 class="skill familiar">RF Design</h3>
             <h3 class="skill familiar">Verilog</h3>
           </div>
           <div class="skill-set code">
@@ -197,12 +199,12 @@
             <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h3>
             <h3 class="skill excellent">C/C++</h3>
             <h3 class="skill excellent">Java</h3>
-            <h3 class="skill skilled">CSS</h3>
+            <h3 class="skill skilled">HTML/CSS</h3>
             <h3 class="skill skilled">Git</h3>
-            <h3 class="skill skilled">HTML</h3>
             <h3 class="skill skilled">Javascript</h3>
             <h3 class="skill skilled">Python</h3>
-            <h3 class="skill beginner">C#</h3>
+            <h3 class="skill skilled">Regex</h3>
+            <h3 class="skill familiar">CMake</h3>
           </div>
           <div class="skill-set wrench">
             <h2>Hardware Skills</h2>
@@ -221,12 +223,12 @@
             <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h3>
             <h3 class="skill excellent">Autodesk 3ds Max</h3>
             <h3 class="skill excellent">Photography</h3>
-            <h3 class="skill excellent">Gimp</h3>
-            <h3 class="skill excellent">Graphic Design</h3>
+            <h3 class="skill excellent">GIMP</h3>
+            <h3 class="skill skilled">Graphic Design</h3>
             <h3 class="skill skilled">Music Performance</h3>
             <h3 class="skill familiar">Music Composition</h3>
-            <h3 class="skill familiar">Adobe Illustrator</h3>
             <h3 class="skill familiar">DaVinci Resolve</h3>
+            <h3 class="skill beginner">Adobe Illustrator</h3>
           </div>
         </div>
         <div id="skills-console">
@@ -238,15 +240,12 @@
             <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(3)">Fine Art</button>
           </div>
         </div>
+        <div id="rocket-power-jack"></div>
+        <div id="rocket-power-cable"></div>
+        <div class="hanging-sign" style="top:250px; left: 1793px;">
+          <h1 id="rocket-status">Rocket Ready</h1>
+        </div>
         <!--
-        <div class="hanging-sign absolute" style="left: 1813px; bottom: 1240px">
-          <h1 id="rocket-power-status" class="absolute color-accent fill-horz text-title transformYn50">Rocket Ready
-          </h1>
-        </div>
-        <div class="engine-room-jack absolute"></div>
-        <div class="engine-room-wire absolute">
-          <div class="absolute"></div>
-        </div>
         <div class="pneumatic-tube-station-rear absolute" style="bottom: 950px; left: 2200px">
           <div class="tube-station-background absolute"></div>
         </div>

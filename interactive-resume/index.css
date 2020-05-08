@@ -60,6 +60,14 @@ body {
   position: absolute;
 }
 
+.unset-position {
+  position: relative;
+}
+
+.unset-position * {
+  position: unset;
+}
+
 .scene {
   bottom: 0;
   left: 0;
@@ -282,10 +290,6 @@ h4 {
   width: 800px;
   height: 380px;
   background-image: url(images/display-800.png);
-}
-
-.display * {
-  position: unset;
 }
 
 .hanging-sign {

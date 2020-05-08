@@ -510,6 +510,32 @@
   -o-border-radius: 0;
 }
 
+#rocket-power-jack {
+  width: 39px;
+  height: 76px;
+  left: 1700px;
+  bottom: 200px;
+  background: url(images/rocket-power-jack.png);
+}
+
+#rocket-power-cable {
+  height: 20px;
+  left: 614px;
+  bottom: 249px;
+  background: url(images/rocket-power-cable.png) right;
+}
+
+#rocket-power-cable::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -4px;
+  right: -19px;
+  width: 19px;
+  height: 28px;
+  background: url(images/rocket-power-plug.png);
+}
+
 /***************************** Scene Astroid Belt *****************************/
 
 /********************************* Scene Mars *********************************/

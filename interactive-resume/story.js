@@ -71,7 +71,7 @@ var story = {
     if ((centerX > 1900 && centerX < 6600) || force) this.lab.update(centerX);
     if ((centerX > 6200 && centerX < 8100) || force)
       this.launchPad.update(centerX);
-    if ((centerX > 7000 && centerX < 9000) || force)
+    if ((centerX > 7000 && centerX < 10000) || force)
       this.rocketEngineering.update(centerX);
     console.log(scrollX + '\t' + centerX);
   },
@@ -263,6 +263,8 @@ var story = {
     currentSkillSet: -1,
     skillSetInterval: null,
     manualSkillSetTimeout: null,
+    powerCable: null,
+    status: null,
     /**
      * Initialize the scene elements
      */
@@ -271,6 +273,9 @@ var story = {
       this.skillSets =
           document.querySelectorAll('#scene-rocket-engineering .skill-set');
       this.skillSetInterval = setInterval(this.selectSkillSet.bind(this), 5000);
+      this.powerCable = document.getElementById('rocket-power-cable');
+      this.status = document.getElementById('rocket-status');
+
       this.selectSkillSet();
     },
     /**
@@ -283,6 +288,19 @@ var story = {
         this.door.classList.add('open');
       } else {
         this.door.classList.remove('open');
+      }
+
+      // Connect the cable
+      if (!brad.movingRight) x = x - 65;
+      if (x > 9387) {
+        this.powerCable.style.width = '1077px';
+        this.status.style.color = 'unset';
+      } else if (x > 8310) {
+        this.powerCable.style.width = (x - 8310) + 'px';
+        this.status.style.color = '#FF1C1C';
+      } else {
+        this.powerCable.style.width = 0;
+        this.status.style.color = '#FF1C1C';
       }
     },
     /**
