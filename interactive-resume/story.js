@@ -69,7 +69,8 @@ var story = {
     this.lastX = centerX;
 
     // Update story elements of each scene
-    if ((centerX > 1900 && centerX < 6600) || force) this.lab.update(centerX);
+    if ((centerX > 1900 && centerX < 6600) || force)
+      this.lab.update(centerX, force);
     if ((centerX > 6200 && centerX < 8100) || force)
       this.launchPad.update(centerX);
     if ((centerX > 7000 && centerX < 10000) || force)
@@ -104,10 +105,16 @@ var story = {
 
     if (centerX > 9970) {  // Experience tube
       y = 820 + centerX - 9970;
-      x = -(9970 - (centerX - scrollX) - 820);
+      x = -(9700 - (centerX - scrollX) - 820);
+      brad.setTransform(270, 0);
+    } else if (centerX > 9700) {
+      y = 820;
+      x = -(9700 - (centerX - scrollX) - 820);
+      brad.setTransform(centerX - 9700, 0);
     } else if (centerX > 7560) {  // End of launch pad elevator
       y = 820;
       x = -(scrollX - 820);
+      brad.setTransform(0, 0);
     } else if (centerX > 6740) {  // Launch pad elevator
       y = centerX - 6740;
       x = -(6740 - (centerX - scrollX));
@@ -146,6 +153,7 @@ var story = {
     }, 3000);
     setTimeout(function() {
       brad.teleport(true);
+      brad.jump(null, 0);
     }, 3500);
   },
   /**
@@ -172,11 +180,12 @@ var story = {
     /**
      * Update the scene
      * @param {int} x
+     * @param {bool} noBrad true will not update brad
      */
-    update: function(x) {
+    update: function(x, noBrad) {
       // Jump onto the rover
       if (x > 6050) {
-        brad.jump(false, 0);
+        if (!noBrad) brad.jump(false, 0);
         this.rover.style.transform = 'translateX(3340px)';
         let rotation = 3340 / (Math.PI * 60) * 360;
         this.wheels[0].style.transform = 'rotateZ(' + rotation + 'deg)';
@@ -193,6 +202,7 @@ var story = {
         this.wheels[0].style.transform = 'rotateZ(0)';
         this.wheels[1].style.transform = 'rotateZ(0)';
       }
+      if (x > 6500 && !noBrad) brad.jump(null, 0);
 
       // Fill tank
       if (x > 2800)

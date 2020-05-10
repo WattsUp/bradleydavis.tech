@@ -84,10 +84,17 @@ var brad = {
   },
   /**
    * Perform jump animation
-   * @param {bool} jumpUp true to jump up onto something, false for down
+   * @param {bool} jumpUp true to jump up onto something, false for down, null
+   *     to reset jump classes
    * @param {int} height of object to jump onto
    */
   jump: function(jumpUp, height) {
+    if (jumpUp == null) {
+      this.container.classList.remove('jump-up');
+      this.container.classList.remove('jump-down');
+      this.container.style.transform = 'translate(-50%, 0)';
+      return;
+    }
     if (jumpUp) {
       this.container.classList.add('jump-up');
       this.container.classList.remove('jump-down');
@@ -96,6 +103,15 @@ var brad = {
       this.container.classList.add('jump-down');
     }
     this.container.style.transform = 'translate(-50%, -' + height + 'px)';
+  },
+  /**
+   * Transform brad from the default center position
+   * @param {int} x pixels to transform brad from the center
+   * @param {int} y pixels to transform brad from the center
+   */
+  setTransform: function(x, y) {
+    this.container.style.transform =
+        'translate(-50%, 0) translate(' + x + 'px, ' + y + 'px)';
   }
 };
 

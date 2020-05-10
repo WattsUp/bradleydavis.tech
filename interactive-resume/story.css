@@ -358,10 +358,7 @@
 /************************** Scene Rocket Engineering **************************/
 
 #scene-rocket-engineering {
-  left: 6900px;
-  width: 2400px;
   bottom: 820px;
-  height: 700px;
 }
 
 #rocket-door-engineering {
@@ -399,13 +396,6 @@
   width: 30px;
   height: 300px;
   background: #BFBFBF;
-}
-
-#scene-rocket-engineering .wall {
-  width: 100%;
-  height: 700px;
-  background: var(--color-dark);
-  background-image: url(images/rocket-wall-engineering.png);
 }
 
 .skill-set {
@@ -530,6 +520,25 @@
   width: 19px;
   height: 28px;
   background: url(images/rocket-power-plug.png);
+}
+
+/************************** Rocket Experience Rooms ***************************/
+
+#scene-rocket-xp0 {
+  bottom: 1720px;
+}
+
+#scene-rocket-xp1 {
+  bottom: 2620px;
+}
+
+#scene-rocket-xp2 {
+  bottom: 3520px;
+}
+
+.scene.xp .display {
+  bottom: 160px;
+  right: 300px
 }
 
 /***************************** Scene Astroid Belt *****************************/
