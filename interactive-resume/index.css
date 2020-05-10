@@ -156,7 +156,7 @@ h4 {
 .ground.rocket {
   height: 140px;
   background: url(images/ground-rocket.png);
-  bottom: 30px;
+  bottom: -170px;
 }
 
 .ground.rocket::before, .ground.rocket:after {
@@ -329,6 +329,29 @@ h4 {
 .rocket-cables.long {
   width: 669px;
   background: url(images/rocket-cables-long.png);
+}
+
+.tube {
+  width: 150px;
+  background: url(images/tube.png);
+}
+
+.tube.station {
+  height: 250px;
+  background: none;
+}
+
+.tube.station.rear {
+  background: url(images/tube-station-rear.png);
+}
+
+.tube.station:not(.inside)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 150px;
+  height: 250px;
+  background: url(images/tube-station.png);
 }
 
 /*

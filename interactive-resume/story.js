@@ -18,7 +18,7 @@ var story = {
     this.masks[0] = document.querySelector('#brad .mask.right');
     this.masks[1] = document.querySelector('#brad .mask.left');
 
-    this.distance[0] = document.querySelector('.distance.d0');
+    this.distance[0] = document.querySelectorAll('.distance.d0');
     this.distance[1] = document.querySelector('.distance.d1');
     this.distance[2] = document.querySelector('.distance.d2');
     this.distance[3] = document.querySelector('.distance.d3');
@@ -63,7 +63,8 @@ var story = {
 
     // Enqueue walking frames
     brad.standStill = (centerX < 6050 && centerX > 2710) ||
-        (centerX < 7560 && centerX > 6740);
+        (centerX < 7560 && centerX > 6740) ||
+        (centerX < 19970 && centerX > 9970);
     brad.enqueueWalk(centerX > this.lastX);
     this.lastX = centerX;
 
@@ -101,7 +102,10 @@ var story = {
     let y = 0;
     let x = -scrollX;  // Reverse direction for backgrounds
 
-    if (centerX > 7560) {  // End of launch pad elevator
+    if (centerX > 9970) {  // Experience tube
+      y = 820 + centerX - 9970;
+      x = -(9970 - (centerX - scrollX) - 820);
+    } else if (centerX > 7560) {  // End of launch pad elevator
       y = 820;
       x = -(scrollX - 820);
     } else if (centerX > 6740) {  // Launch pad elevator
@@ -109,7 +113,9 @@ var story = {
       x = -(6740 - (centerX - scrollX));
     }
 
-    this.distance[0].style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    this.distance[0].forEach(distance => {
+      distance.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    });
     this.distance[1].style.transform =
         'translate(' + (x / 1.5) + 'px,' + (y / 3) + 'px)';
     this.distance[2].style.transform =
@@ -265,6 +271,7 @@ var story = {
     manualSkillSetTimeout: null,
     powerCable: null,
     status: null,
+    tube: [],
     /**
      * Initialize the scene elements
      */
@@ -275,6 +282,8 @@ var story = {
       this.skillSetInterval = setInterval(this.selectSkillSet.bind(this), 5000);
       this.powerCable = document.getElementById('rocket-power-cable');
       this.status = document.getElementById('rocket-status');
+      this.tube[0] = document.getElementById('tube-front-0');
+      this.tube[1] = document.getElementById('tube-rear-0');
 
       this.selectSkillSet();
     },
@@ -301,6 +310,15 @@ var story = {
       } else {
         this.powerCable.style.width = 0;
         this.status.style.color = '#FF1C1C';
+      }
+
+      // Switch the tube layering
+      if (x > 9970) {
+        this.tube[0].hidden = false;
+        this.tube[1].classList.add('inside');
+      } else {
+        this.tube[0].hidden = true;
+        this.tube[1].classList.remove('inside');
       }
     },
     /**
