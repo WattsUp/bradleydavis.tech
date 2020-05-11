@@ -249,8 +249,16 @@ h4 {
 .display {
   text-align: center;
   color: var(--color-accent);
-  padding: 15px;
-  box-sizing: border-box;
+}
+
+.display::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
 }
 
 .display.floating {
@@ -277,24 +285,33 @@ h4 {
 }
 
 .display.floating>.thruster {
-  bottom: -19px;
+  bottom: -34px;
 }
 
 .display.w400 {
-  width: 400px;
-  height: 250px;
+  width: 370px;
+  height: 220px;
+}
+
+.display.w400::before {
   background-image: url(images/display-400.png);
 }
 
 .display.w600 {
-  width: 600px;
-  height: 380px;
+  width: 570px;
+  height: 350px;
+}
+
+.display.w600::before {
   background-image: url(images/display-600.png);
 }
 
 .display.w800 {
-  width: 800px;
-  height: 380px;
+  width: 770px;
+  height: 350px;
+}
+
+.display.w800::before {
   background-image: url(images/display-800.png);
 }
 

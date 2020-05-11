@@ -536,9 +536,45 @@
   bottom: 3520px;
 }
 
-.scene.xp .display {
+.display-xp {
   bottom: 160px;
   right: 300px
+}
+
+.display-xp>div>h2 {
+  margin-top: 2px;
+  padding-bottom: 4px;
+  color: var(--color-dark);
+  background: var(--color-accent);
+}
+
+.display-xp>div>div {
+  margin: 20px 10px 10px 270px;
+  text-align: left;
+}
+
+.display-xp>div>div>p {
+  margin-left: 16px;
+  text-indent: -16px;
+}
+
+.display-xp>h4 {
+  bottom: 0;
+  right: 0;
+  margin: 2px;
+}
+
+.display-xp>canvas {
+  bottom: 10px;
+  left: 10px;
+  width: 250px;
+  height: 250px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 /***************************** Scene Astroid Belt *****************************/
