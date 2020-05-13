@@ -59,11 +59,7 @@ var story = {
     }
 
     // Move the backgrounds
-    this.setBackground(scrollX, centerX);
-
-    brad.enqueueWalk(centerX > this.lastX);
-    this.lastX = centerX;
-
+    this.setBackground(centerX);
     this.setBrad(centerX);
 
     // Update story elements of each scene
@@ -72,7 +68,7 @@ var story = {
       this.launchPad.update(centerX);
     if ((centerX > 7000 && centerX < 10000) || force)
       this.rocketEngineering.update(centerX);
-    console.log(scrollX + '\t' + centerX);
+    console.log(centerX);
   },
   /**
    * Set the brad sprite globally to reduce glitches. Standing and jumping
@@ -82,9 +78,13 @@ var story = {
     // Stand still while:
     brad.standStill = (x < 6050 && x > 2710) ||  // On the rover
         (x < 7560 && x > 6740) ||                // On the elevator
-        (x < 19970 && x > 9970);                 // In the tube
+        (x < 13570 && x > 9970);                 // In the tube
 
-    if (x > 9970) {
+    if (x > 13840) {
+      brad.setTransform(0, 0)
+    } else if (x > 13570) {
+      brad.setTransform(13570 - x + 270, 0)
+    } else if (x > 9970) {
       brad.setTransform(270, 0)
     } else if (x > 9700) {
       brad.setTransform(x - 9700, 0)
@@ -97,6 +97,13 @@ var story = {
     } else {
       brad.jump(false, 0)
     }
+
+    if (x > 13570) {  // Reverse walking
+      brad.enqueueWalk(x < this.lastX);
+    } else {
+      brad.enqueueWalk(x > this.lastX);
+    }
+    this.lastX = x;
   },
   /**
    * Hide the children of scenes that are off screen to reduce layout processing
@@ -116,26 +123,34 @@ var story = {
     // });
   },
   /**
-   *
-   * @param {integer} scrollX of the scrollbar
+   * Set the position of the backgrounds based on the scroll state
    * @param {integer} centerX of the screen
    */
-  setBackground: function(scrollX, centerX) {
-    let y = 0;
-    let x = -scrollX;  // Reverse direction for backgrounds
+  setBackground: function(centerX) {
+    let halfWidth = document.documentElement.offsetWidth / 2
 
-    if (centerX > 9970) {  // Experience tube
+    let y = 0;
+    let x = -(centerX - halfWidth);  // Reverse direction for backgrounds
+
+    if (centerX > 13840) {
+      y = 820 + 13570 - 9970;
+      x = (centerX - 13840) - (9700 - halfWidth - 820);
+      console.log(x)
+    } else if (centerX > 13570) {  // End of experience tube
+      y = 820 + 13570 - 9970;
+      x = -(9700 - halfWidth - 820);
+    } else if (centerX > 9970) {  // Experience tube
       y = 820 + centerX - 9970;
-      x = -(9700 - (centerX - scrollX) - 820);
+      x = -(9700 - halfWidth - 820);
     } else if (centerX > 9700) {
       y = 820;
-      x = -(9700 - (centerX - scrollX) - 820);
+      x = -(9700 - halfWidth - 820);
     } else if (centerX > 7560) {  // End of launch pad elevator
       y = 820;
-      x = -(scrollX - 820);
+      x = -(centerX - halfWidth - 820);
     } else if (centerX > 6740) {  // Launch pad elevator
       y = centerX - 6740;
-      x = -(6740 - (centerX - scrollX));
+      x = -(6740 - halfWidth);
     }
 
     this.distance[0].forEach(distance => {
@@ -171,8 +186,8 @@ var story = {
     }, 3000);
     setTimeout(function() {
       brad.teleport(true);
-      brad.jump(null, 0);
-    }, 3500);
+      this.scrollListener();
+    }.bind(this), 3500);
   },
   /**
    * Lab scene

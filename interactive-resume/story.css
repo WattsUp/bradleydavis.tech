@@ -621,6 +621,22 @@
   background: url(images/box-rect-100.png);
 }
 
+/******************************* Rocket Bridge ********************************/
+
+#scene-rocket-bridge {
+  bottom: 4420px;
+  height: 400px;
+}
+
+#scene-rocket-bridge .wall {
+  height: 400px;
+  background: url(images/rocket-bridge.png);
+}
+
+#scene-rocket-bridge .fuselage {
+  height: 600px;
+}
+
 /***************************** Scene Astroid Belt *****************************/
 
 /********************************* Scene Mars *********************************/
