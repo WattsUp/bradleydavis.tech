@@ -26,7 +26,7 @@ var scene = {
     this.font.onLoad('code-new-roman', function() {
       this.generateXPDisplay(
           displayXPs[0],
-          {'Bug Fixing': 0.2, 'Code': 0.35, 'Circuits': 0.15, 'Testing': 0.3});
+          {'Code': 0.35, 'Testing': 0.3, 'Bug Fixing': 0.2, 'Circuits': 0.15});
       this.generateXPDisplay(displayXPs[1], {
         'Animation': 0.35,
         'Code': 0.3,
@@ -99,19 +99,30 @@ var scene = {
     context.textAlign = 'center';
     context.textBaseline = 'middle';
     context.lineWidth = 4;
+    context.translate(radius, radius)
+
     let currentPercent = 0.0;
     context.beginPath();
     let skillKeys = Object.keys(skills);
     if (skillKeys.length == 1) {
-      context.fillText(skillKeys[0], radius, radius);
-      context.fillText('100%', radius, radius + 32);
+      context.fillText(skillKeys[0], 0, -15);
+      context.fillText('100%', 0, 15);
     } else {
       console.log(skillKeys)
       for (let skill in skills) {
-        context.moveTo(radius, radius);
+        context.moveTo(0, 0);
         context.lineTo(
-            radius + radius * Math.cos(2 * Math.PI * currentPercent),
-            radius - radius * Math.sin(2 * Math.PI * currentPercent));
+            radius * Math.cos(2 * Math.PI * currentPercent),
+            -radius * Math.sin(2 * Math.PI * currentPercent));
+
+        let textRadius = radius * 0.8 * (1 - skills[skill])
+        let x = textRadius *
+            Math.cos(2 * Math.PI * (currentPercent + skills[skill] / 2))
+        let y = -textRadius *
+            Math.sin(2 * Math.PI * (currentPercent + skills[skill] / 2))
+        context.fillText(skill, x, y - 15);
+        context.fillText(skills[skill] * 100 + '%', x, y + 15);
+
         currentPercent = currentPercent + skills[skill];
         // TODO fill text with label and percent
       }
