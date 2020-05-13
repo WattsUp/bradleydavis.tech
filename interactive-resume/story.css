@@ -577,6 +577,50 @@
   -o-border-radius: 50%;
 }
 
+.box {
+  font-size: 20px;
+  text-align: center;
+  font-family: tektrron;
+  color: var(--color-primary);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.box.s70 {
+  width: 70px;
+  height: 70px;
+  padding: 40px 10px 10px 10px;
+  background: url(images/box-square-70.png);
+}
+
+.box.s100 {
+  width: 100px;
+  height: 100px;
+  padding: 70px 10px 10px 10px;
+  background: url(images/box-square-100.png);
+}
+
+.box.e100 {
+  width: 100px;
+  height: 100px;
+  padding: 40px 10px 10px 10px;
+  background: url(images/box-end-square-100.png);
+}
+
+.box.r70 {
+  width: 180px;
+  height: 70px;
+  padding: 40px 15px 5px 120px;
+  background: url(images/box-rect-70.png);
+}
+
+.box.r100 {
+  width: 200px;
+  height: 100px;
+  padding: 55px 100px 20px 25px;
+  background: url(images/box-rect-100.png);
+}
+
 /***************************** Scene Astroid Belt *****************************/
 
 /********************************* Scene Mars *********************************/
