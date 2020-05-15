@@ -49,6 +49,19 @@ body {
   image-rendering: pixelated;
 }
 
+#universe {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+#world {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
 .distance {
   position: fixed;
   bottom: min(15vh, 200px);
@@ -112,11 +125,16 @@ h4 {
 
 /********************************** Scenery ***********************************/
 
-.sky {
+#sky {
   background: linear-gradient(rgba(40, 40, 40, 0), rgba(0, 0, 192, 1), rgb(106, 158, 226));
   width: 2000px;
   height: 6000px;
   bottom: -200px;
+  transition: transform 5s ease-out;
+  -webkit-transition: transform 5s ease-out;
+  -moz-transition: transform 5s ease-out;
+  -ms-transition: transform 5s ease-out;
+  -o-transition: transform 5s ease-out;
 }
 
 .ground {

@@ -39,308 +39,316 @@
     <div id="awards" style="top: 19000px"></div>
     <div id="contact" style="top: 25000px"></div>
   </div>
-  <div style="position: fixed">
-    <div class="distance space">
-      <div class="sky"></div>
-    </div>
-    <div class="distance d4">
-      <div class="ground grass" style="width: 6000px;"></div>
-      <div class="cloud small" style="bottom: 400px; left: 300px"></div>
-      <div class="cloud small" style="bottom: 600px; left: 1200px"></div>
-      <div class="tree small" style="left: 1000px"></div>
-    </div>
-    <div class="distance d3">
-      <div class="ground grass" style="width: 6000px"></div>
-      <div class="cloud large" style="bottom: 800px; left: 200px"></div>
-      <div class="cloud large" style="bottom: 700px; left: 1500px"></div>
-      <div class="tree small" style="left: 350px"></div>
-      <div class="tree medium" style="left: 900px"></div>
-      <div class="tree medium" style="left: 1700px"></div>
-    </div>
-    <div class="distance d2">
-      <div class="cloud large" style="bottom: 260px; left: 800px"></div>
-      <div class="cloud small" style="bottom: 400px; left: 2000px"></div>
-      <div class="tree large" style="left: 50px"></div>
-      <div class="scene" style="width: 100%">
-        <div class="center-wrapper" style="left: 50vw">
-          <div class="display w400 floating">
+  <div id="universe" style="position: fixed;">
+    <div id="world">
+      <div class="distance space">
+        <div id="sky"></div>
+      </div>
+      <div class="distance d4">
+        <div class="ground grass" style="width: 6000px;"></div>
+        <div class="cloud small" style="bottom: 400px; left: 300px"></div>
+        <div class="cloud small" style="bottom: 250px; left: 1200px"></div>
+        <div class="tree small" style="left: 1000px"></div>
+      </div>
+      <div class="distance d3">
+        <div class="ground grass" style="width: 6000px"></div>
+        <div class="cloud large" style="bottom: 800px; left: 200px"></div>
+        <div class="cloud large" style="bottom: 700px; left: 1500px"></div>
+        <div class="tree small" style="left: 350px"></div>
+        <div class="tree medium" style="left: 900px"></div>
+        <div class="tree medium" style="left: 1700px"></div>
+      </div>
+      <div class="distance d2">
+        <div class="cloud large" style="bottom: 260px; left: 800px"></div>
+        <div class="cloud small" style="bottom: 400px; left: 2000px"></div>
+        <div class="tree large" style="left: 50px"></div>
+        <div class="scene" style="width: 100%">
+          <div class="center-wrapper" style="left: 50vw">
+            <div class="display w400 floating">
+              <div class="unset-position">
+                <h1 class="text-title" style="font-size: 48px; margin-top: 20px">Bradley L. Davis</h1>
+                <h4 class="text-title">Interactive Resume</h4>
+              </div>
+              <div class="thruster" style="left: 64px"></div>
+              <div class="thruster" style="right: 64px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="distance d1">
+        <div class="tree medium" style="left: 20px"></div>
+        <div class="tree huge" style="left: 1000px"></div>
+        <div class="tree large" style="left: 1900px"></div>
+      </div>
+      <div class="distance d0">
+        <div class="scene" id="scene-intro">
+          <div class="ground dirt"></div>
+          <h3 id="scroll-down" hidden>Scroll Down</h3>
+        </div>
+        <div class="scene" id="scene-lab">
+          <div class="ground pipes"></div>
+          <div class="wall">
+            <div class="hanging-sign" style="left: 700px">
+              <h1>About Me</h1>
+            </div>
+            <div class="hanging-sign" style="left: 2280px">
+              <h1>Raised in Washington</h1>
+            </div>
+            <div class="hanging-sign" style="left: 3480px">
+              <h2>Electrical Engineering Student</h2>
+            </div>
+          </div>
+          <div id="lab-teleporter"></div>
+          <div id="lab-console">
+            <h1>Teleporter</h1>
+            <div>
+              <button type="button" class="button accent" onClick="story.teleport('skills')">Skills</button>
+              <button type="button" class="button accent" onClick="story.teleport('experience')">Experience</button>
+              <button type="button" class="button accent" onClick="story.teleport('portfolio')">Portfolio</button>
+              <button type="button" class="button accent" onClick="story.teleport('awards')">Awards</button>
+              <button type="button" class="button accent" onClick="story.teleport('contact')">Contact Me</button>
+              <a href="/" class="button accent">Return Home</a>
+            </div>
+          </div>
+          <div class="ceiling"></div>
+          <div class="door"></div>
+          <div class="door" style="right: 0"></div>
+          <div class="door" style="left: 585px"></div>
+          <div id="lab-tanks">
+            <hr style="bottom: 287px">
+            <hr style="bottom: 223px">
+            <hr style="bottom: 159px">
+            <hr style="bottom: 95px">
+            <h3 style="bottom: 292px">Excellent</h3>
+            <h3 style="bottom: 228px">Skilled</h3>
+            <h3 style="bottom: 164px">Familiar</h3>
+            <h3 style="bottom: 100px">Beginner</h3>
+            <div class="fluid excellent" style="left: 148px"></div>
+            <div class="fluid excellent" style="left: 378px; transition-delay: 0.25s;"></div>
+            <div class="fluid excellent" style="left: 608px; transition-delay: 0.5s;"></div>
+            <div class="fluid skilled" style="left: 838px; transition-delay: 0.75s;"></div>
+            <div class="tank" style="left: 120px">
+              <h3>Electronics</h3>
+            </div>
+            <div class="tank" style="left: 350px">
+              <h3>Software</h3>
+            </div>
+            <div class="tank" style="left: 580px">
+              <h3>Hardware</h3>
+            </div>
+            <div class="tank" style="left: 810px">
+              <h3>Fine Art</h3>
+            </div>
+          </div>
+          <div id="lab-particle-viewer">
+            <div id="lab-particle-image">
+              <div id="lab-particles"></div>
+              <div class="mask" style="background-image: url(images/lab-particle-mask-seattle.png)"></div>
+              <div class="mask" style="background-image: url(images/lab-particle-mask-apple.png)"></div>
+              <div class="mask" style="background-image: url(images/lab-particle-mask-cascades.png)"></div>
+            </div>
+            <div id="lab-particle-lightning"></div>
+            <div id="lab-particle-frame"></div>
+          </div>
+          <div id="lab-wsu">
+            <div></div>
+          </div>
+          <div id="lab-battery"></div>
+          <div id="lab-rover">
+            <div class="chassis"></div>
+            <div class="mast"></div>
+            <div class="wheel"></div>
+            <div class="wheel" style="left: 165px"></div>
+            <div class="beam"></div>
+          </div>
+        </div>
+        <div class="scene" id="scene-launch-pad">
+          <div class="ground dirt concrete" style="bottom:-220px"></div>
+          <div id="elevator">
+            <div class="thruster" style="left:30px"></div>
+            <div class="thruster" style="right:30px"></div>
+          </div>
+        </div>
+        <div class="scene" id="scene-rocket-engine"></div>
+        <div class="scene rocket-room" id="scene-rocket-engineering">
+          <div class="ground rocket"></div>
+          <div class="wall"></div>
+          <div class="fuselage"></div>
+          <div class="fuselage" style="right: 0"></div>
+          <div class="doorframe"></div>
+          <div class="door" id="rocket-door-engineering"></div>
+          <div class="rocket-cables" style="left: 70px"></div>
+          <div class="rocket-cables long" style="left: 1701px"></div>
+          <div class="hanging-sign" style="top:250px; left: 162px;">
+            <h1>Skills</h1>
+          </div>
+          <div class="display w800" style="top: 160px; left:580px">
+            <div class="skill-set battery unset-position">
+              <h2>Electronic Skills</h2>
+              <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+              </h3>
+              <h3 class="skill excellent">Autodesk EAGLE</h3>
+              <h3 class="skill excellent">DMM/Oscilloscope</h3>
+              <h3 class="skill excellent">Digital Design</h3>
+              <h3 class="skill skilled">Analog Design</h3>
+              <h3 class="skill skilled">SMD &#38; THT Soldering</h3>
+              <h3 class="skill skilled">LTSpice</h3>
+              <h3 class="skill familiar">RF Design</h3>
+              <h3 class="skill familiar">Verilog</h3>
+            </div>
+            <div class="skill-set code unset-position">
+              <h2>Software Skills</h2>
+              <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+              </h3>
+              <h3 class="skill excellent">C/C++</h3>
+              <h3 class="skill excellent">Java</h3>
+              <h3 class="skill skilled">HTML/CSS</h3>
+              <h3 class="skill skilled">Git</h3>
+              <h3 class="skill skilled">Javascript</h3>
+              <h3 class="skill skilled">Python</h3>
+              <h3 class="skill skilled">Regex</h3>
+              <h3 class="skill familiar">CMake</h3>
+            </div>
+            <div class="skill-set wrench unset-position">
+              <h2>Hardware Skills</h2>
+              <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+              </h3>
+              <h3 class="skill excellent">Autodesk Inventor</h3>
+              <h3 class="skill excellent">3D Design</h3>
+              <h3 class="skill excellent">Laser Cutters</h3>
+              <h3 class="skill excellent">3D Printers</h3>
+              <h3 class="skill skilled">Sheet Metal Design</h3>
+              <h3 class="skill skilled">CNC Mill</h3>
+              <h3 class="skill skilled">Metal Lathe</h3>
+              <h3 class="skill familiar">Autodesk HSM</h3>
+            </div>
+            <div class="skill-set pencil unset-position">
+              <h2>Fine Art Skills</h2>
+              <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
+              </h3>
+              <h3 class="skill excellent">Autodesk 3ds Max</h3>
+              <h3 class="skill excellent">Photography</h3>
+              <h3 class="skill excellent">GIMP</h3>
+              <h3 class="skill skilled">Graphic Design</h3>
+              <h3 class="skill skilled">Music Performance</h3>
+              <h3 class="skill familiar">Music Composition</h3>
+              <h3 class="skill beginner">DaVinci Resolve</h3>
+              <h3 class="skill beginner">Adobe Illustrator</h3>
+            </div>
+          </div>
+          <div id="skills-console">
+            <h3>Display Control</h3>
+            <div>
+              <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(0)">Electronic</button>
+              <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(1)">Software</button>
+              <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(2)">Hardware</button>
+              <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(3)">Fine Art</button>
+            </div>
+          </div>
+          <div id="rocket-power-jack"></div>
+          <div id="rocket-power-cable"></div>
+          <div class="hanging-sign" style="top:250px; left: 1793px;">
+            <h1 id="rocket-status">Rocket Ready</h1>
+          </div>
+          <div id="tube-rear-0" class="tube station rear" style="left: 2175px;"></div>
+        </div>
+        <div class="scene rocket-room xp" id="scene-rocket-xp0">
+          <div class="ground rocket" style="background-position: bottom;"></div>
+          <div class="wall"></div>
+          <div class="fuselage"></div>
+          <div class="fuselage" style="right: 0"></div>
+          <div class="display w600 display-xp">
             <div class="unset-position">
-              <h1 class="text-title" style="font-size: 48px; margin-top: 20px">Bradley L. Davis</h1>
-              <h4 class="text-title">Interactive Resume</h4>
+              <h4>Work Experience</h4>
+              <h2>Schweitzer Engineering Laboratory</h2>
+              <h3>Hardware Engineering Intern</h3>
+              <div>
+                <p>Developed a Gigabit Ethernet reliability and throughput testing software</p>
+                <p>Created a testing tool to detect manufacturing defects</p>
+                <p>Aided board bring-up of an Intel based computer</p>
+              </div>
             </div>
-            <div class="thruster" style="left: 64px"></div>
-            <div class="thruster" style="right: 64px"></div>
+            <h4>May 2018 - Present</h4>
+            <canvas></canvas>
           </div>
+          <div class="box r100" style="right: 800px">A-04</div>
+          <div class="box s70" style="right: 700px; bottom: 70px">D-08</div>
+          <div class="box r70" style="right: 600px">E-15</div>
+          <div class="box e100" style="right: 400px">B-16</div>
+          <div class="box r100" style="right: 100px">C-23</div>
+          <div class="box s70" style="right: 150px; bottom: 100px">B-42</div>
         </div>
-      </div>
-    </div>
-    <div class="distance d1">
-      <div class="tree medium" style="left: 20px"></div>
-      <div class="tree huge" style="left: 1000px"></div>
-      <div class="tree large" style="left: 1900px"></div>
-    </div>
-    <div class="distance d0">
-      <div class="scene" id="scene-intro">
-        <div class="ground dirt"></div>
-        <h3 id="scroll-down" hidden>Scroll Down</h3>
-      </div>
-      <div class="scene" id="scene-lab">
-        <div class="ground pipes"></div>
-        <div class="wall">
-          <div class="hanging-sign" style="left: 700px">
-            <h1>About Me</h1>
-          </div>
-          <div class="hanging-sign" style="left: 2280px">
-            <h1>Raised in Washington</h1>
-          </div>
-          <div class="hanging-sign" style="left: 3480px">
-            <h2>Electrical Engineering Student</h2>
-          </div>
-        </div>
-        <div id="lab-teleporter"></div>
-        <div id="lab-console">
-          <h1>Teleporter</h1>
-          <div>
-            <button type="button" class="button accent" onClick="story.teleport('skills')">Skills</button>
-            <button type="button" class="button accent" onClick="story.teleport('experience')">Experience</button>
-            <button type="button" class="button accent" onClick="story.teleport('portfolio')">Portfolio</button>
-            <button type="button" class="button accent" onClick="story.teleport('awards')">Awards</button>
-            <button type="button" class="button accent" onClick="story.teleport('contact')">Contact Me</button>
-            <a href="/" class="button accent">Return Home</a>
-          </div>
-        </div>
-        <div class="ceiling"></div>
-        <div class="door"></div>
-        <div class="door" style="right: 0"></div>
-        <div class="door" style="left: 585px"></div>
-        <div id="lab-tanks">
-          <hr style="bottom: 287px">
-          <hr style="bottom: 223px">
-          <hr style="bottom: 159px">
-          <hr style="bottom: 95px">
-          <h3 style="bottom: 292px">Excellent</h3>
-          <h3 style="bottom: 228px">Skilled</h3>
-          <h3 style="bottom: 164px">Familiar</h3>
-          <h3 style="bottom: 100px">Beginner</h3>
-          <div class="fluid excellent" style="left: 148px"></div>
-          <div class="fluid excellent" style="left: 378px; transition-delay: 0.25s;"></div>
-          <div class="fluid excellent" style="left: 608px; transition-delay: 0.5s;"></div>
-          <div class="fluid skilled" style="left: 838px; transition-delay: 0.75s;"></div>
-          <div class="tank" style="left: 120px">
-            <h3>Electronics</h3>
-          </div>
-          <div class="tank" style="left: 350px">
-            <h3>Software</h3>
-          </div>
-          <div class="tank" style="left: 580px">
-            <h3>Hardware</h3>
-          </div>
-          <div class="tank" style="left: 810px">
-            <h3>Fine Art</h3>
-          </div>
-        </div>
-        <div id="lab-particle-viewer">
-          <div id="lab-particle-image">
-            <div id="lab-particles"></div>
-            <div class="mask" style="background-image: url(images/lab-particle-mask-seattle.png)"></div>
-            <div class="mask" style="background-image: url(images/lab-particle-mask-apple.png)"></div>
-            <div class="mask" style="background-image: url(images/lab-particle-mask-cascades.png)"></div>
-          </div>
-          <div id="lab-particle-lightning"></div>
-          <div id="lab-particle-frame"></div>
-        </div>
-        <div id="lab-wsu">
-          <div></div>
-        </div>
-        <div id="lab-battery"></div>
-        <div id="lab-rover">
-          <div class="chassis"></div>
-          <div class="mast"></div>
-          <div class="wheel"></div>
-          <div class="wheel" style="left: 165px"></div>
-          <div class="beam"></div>
-        </div>
-      </div>
-      <div class="scene" id="scene-launch-pad">
-        <div class="ground dirt concrete" style="bottom:-220px"></div>
-        <div id="elevator">
-          <div class="thruster" style="left:30px"></div>
-          <div class="thruster" style="right:30px"></div>
-        </div>
-      </div>
-      <div class="scene" id="scene-rocket-engine"></div>
-      <div class="scene rocket-room" id="scene-rocket-engineering">
-        <div class="ground rocket"></div>
-        <div class="wall"></div>
-        <div class="fuselage"></div>
-        <div class="fuselage" style="right: 0"></div>
-        <div class="doorframe"></div>
-        <div class="door" id="rocket-door-engineering"></div>
-        <div class="rocket-cables" style="left: 70px"></div>
-        <div class="rocket-cables long" style="left: 1701px"></div>
-        <div class="hanging-sign" style="top:250px; left: 162px;">
-          <h1>Skills</h1>
-        </div>
-        <div class="display w800" style="top: 160px; left:580px">
-          <div class="skill-set battery unset-position">
-            <h2>Electronic Skills</h2>
-            <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h3>
-            <h3 class="skill excellent">Autodesk EAGLE</h3>
-            <h3 class="skill excellent">DMM/Oscilloscope</h3>
-            <h3 class="skill excellent">Digital Design</h3>
-            <h3 class="skill skilled">Analog Design</h3>
-            <h3 class="skill skilled">SMD &#38; THT Soldering</h3>
-            <h3 class="skill skilled">LTSpice</h3>
-            <h3 class="skill familiar">RF Design</h3>
-            <h3 class="skill familiar">Verilog</h3>
-          </div>
-          <div class="skill-set code unset-position">
-            <h2>Software Skills</h2>
-            <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h3>
-            <h3 class="skill excellent">C/C++</h3>
-            <h3 class="skill excellent">Java</h3>
-            <h3 class="skill skilled">HTML/CSS</h3>
-            <h3 class="skill skilled">Git</h3>
-            <h3 class="skill skilled">Javascript</h3>
-            <h3 class="skill skilled">Python</h3>
-            <h3 class="skill skilled">Regex</h3>
-            <h3 class="skill familiar">CMake</h3>
-          </div>
-          <div class="skill-set wrench unset-position">
-            <h2>Hardware Skills</h2>
-            <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h3>
-            <h3 class="skill excellent">Autodesk Inventor</h3>
-            <h3 class="skill excellent">3D Design</h3>
-            <h3 class="skill excellent">Laser Cutters</h3>
-            <h3 class="skill excellent">3D Printers</h3>
-            <h3 class="skill skilled">Sheet Metal Design</h3>
-            <h3 class="skill skilled">CNC Mill</h3>
-            <h3 class="skill skilled">Metal Lathe</h3>
-            <h3 class="skill familiar">Autodesk HSM</h3>
-          </div>
-          <div class="skill-set pencil unset-position">
-            <h2>Fine Art Skills</h2>
-            <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span></h3>
-            <h3 class="skill excellent">Autodesk 3ds Max</h3>
-            <h3 class="skill excellent">Photography</h3>
-            <h3 class="skill excellent">GIMP</h3>
-            <h3 class="skill skilled">Graphic Design</h3>
-            <h3 class="skill skilled">Music Performance</h3>
-            <h3 class="skill familiar">Music Composition</h3>
-            <h3 class="skill beginner">DaVinci Resolve</h3>
-            <h3 class="skill beginner">Adobe Illustrator</h3>
-          </div>
-        </div>
-        <div id="skills-console">
-          <h3>Display Control</h3>
-          <div>
-            <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(0)">Electronic</button>
-            <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(1)">Software</button>
-            <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(2)">Hardware</button>
-            <button class="button accent" onClick="story.rocketEngineering.selectSkillSet(3)">Fine Art</button>
-          </div>
-        </div>
-        <div id="rocket-power-jack"></div>
-        <div id="rocket-power-cable"></div>
-        <div class="hanging-sign" style="top:250px; left: 1793px;">
-          <h1 id="rocket-status">Rocket Ready</h1>
-        </div>
-        <div id="tube-rear-0" class="tube station rear" style="left: 2175px;"></div>
-      </div>
-      <div class="scene rocket-room xp" id="scene-rocket-xp0">
-        <div class="ground rocket" style="background-position: bottom;"></div>
-        <div class="wall"></div>
-        <div class="fuselage"></div>
-        <div class="fuselage" style="right: 0"></div>
-        <div class="display w600 display-xp">
-          <div class="unset-position">
-            <h4>Work Experience</h4>
-            <h2>Schweitzer Engineering Laboratory</h2>
-            <h3>Hardware Engineering Intern</h3>
-            <div>
-              <p>Developed a Gigabit Ethernet reliability and throughput testing software</p>
-              <p>Created a testing tool to detect manufacturing defects</p>
-              <p>Aided board bring-up of an Intel based computer</p>
+        <div class="scene rocket-room" id="scene-rocket-xp1">
+          <div class="ground rocket"></div>
+          <div class="wall"></div>
+          <div class="fuselage"></div>
+          <div class="fuselage" style="right: 0"></div>
+          <div class="display w600 display-xp">
+            <div class="unset-position">
+              <h4>Work Experience</h4>
+              <h2>Tahoma Robotics Camp</h2>
+              <h3>Lead Technical Counselor</h3>
+              <div>
+                <p>Aided campers with designing, building, wiring, and programming of VEX robots</p>
+                <p>Formulated unique games for each year including programming a real-time scoring software with
+                  integration into professional audio/visual live streaming equipment</p>
+              </div>
             </div>
+            <h4>June 2015 - June 2018</h4>
+            <canvas></canvas>
           </div>
-          <h4>May 2018 - Present</h4>
-          <canvas></canvas>
+          <div class="box r70" style="right: 800px">L-42</div>
+          <div class="box s100" style="right: 500px">I-42</div>
+          <div class="box e100" style="right: 400px">F-42</div>
+          <div class="box s70" style="right: 240px">E-42</div>
         </div>
-        <div class="box r100" style="right: 800px">A-04</div>
-        <div class="box s70" style="right: 700px; bottom: 70px">D-08</div>
-        <div class="box r70" style="right: 600px">E-15</div>
-        <div class="box e100" style="right: 400px">B-16</div>
-        <div class="box r100" style="right: 100px">C-23</div>
-        <div class="box s70" style="right: 150px; bottom: 100px">B-42</div>
-      </div>
-      <div class="scene rocket-room" id="scene-rocket-xp1">
-        <div class="ground rocket"></div>
-        <div class="wall"></div>
-        <div class="fuselage"></div>
-        <div class="fuselage" style="right: 0"></div>
-        <div class="display w600 display-xp">
-          <div class="unset-position">
-            <h4>Work Experience</h4>
-            <h2>Tahoma Robotics Camp</h2>
-            <h3>Lead Technical Counselor</h3>
-            <div>
-              <p>Aided campers with designing, building, wiring, and programming of VEX robots</p>
-              <p>Formulated unique games for each year including programming a real-time scoring software with
-                integration into professional audio/visual live streaming equipment</p>
+        <div class="scene rocket-room" id="scene-rocket-xp2">
+          <div class="ground rocket" style="background-position: center;"></div>
+          <div class="wall"></div>
+          <div class="fuselage"></div>
+          <div class="fuselage" style="right: 0"></div>
+          <div class="display w600 display-xp">
+            <div class="unset-position">
+              <h4>Work Experience</h4>
+              <h2>Smith Gardens</h2>
+              <h3>Retail Merchandiser</h3>
+              <div>
+                <p>Verified, sorted, and consolidated daily deliveries with existing inventory to maximize aesthetic
+                  appeal of merchandise to meet sales goals</p>
+                <p>Served as liaison between management on product requests, sales numbers, and problem solving</p>
+              </div>
             </div>
+            <h4>May 2017 - August 2017</h4>
+            <canvas></canvas>
           </div>
-          <h4>June 2015 - June 2018</h4>
-          <canvas></canvas>
+          <div class="box s70" style="right: 740px; bottom: 70px">P-22</div>
+          <div class="box r70" style="right: 700px">I-07</div>
+          <div class="box e100" style="right: 170px; bottom: 100px">E-19</div>
+          <div class="box s100" style="right: 170px">E-07</div>
         </div>
-        <div class="box r70" style="right: 800px">L-42</div>
-        <div class="box s100" style="right: 500px">I-42</div>
-        <div class="box e100" style="right: 400px">F-42</div>
-        <div class="box s70" style="right: 240px">E-42</div>
-      </div>
-      <div class="scene rocket-room" id="scene-rocket-xp2">
-        <div class="ground rocket" style="background-position: center;"></div>
-        <div class="wall"></div>
-        <div class="fuselage"></div>
-        <div class="fuselage" style="right: 0"></div>
-        <div class="display w600 display-xp">
-          <div class="unset-position">
-            <h4>Work Experience</h4>
-            <h2>Smith Gardens</h2>
-            <h3>Retail Merchandiser</h3>
-            <div>
-              <p>Verified, sorted, and consolidated daily deliveries with existing inventory to maximize aesthetic
-                appeal of merchandise to meet sales goals</p>
-              <p>Served as liaison between management on product requests, sales numbers, and problem solving</p>
-            </div>
-          </div>
-          <h4>May 2017 - August 2017</h4>
-          <canvas></canvas>
+        <div class="scene rocket-room" id="scene-rocket-bridge">
+          <div class="ground rocket"></div>
+          <div class="wall"></div>
+          <div class="fuselage"></div>
+          <div class="fuselage" style="right: 0"></div>
+          <div class="tube station rear" style="left: 2175px;"></div>
+          <canvas id="rocket-bridge-console" width="22" height="34"></canvas>
+          <h2 id="rocket-timer">T-03</h2>
         </div>
-        <div class="box s70" style="right: 740px; bottom: 70px">P-22</div>
-        <div class="box r70" style="right: 700px">I-07</div>
-        <div class="box e100" style="right: 170px; bottom: 100px">E-19</div>
-        <div class="box s100" style="right: 170px">E-07</div>
       </div>
-      <div class="scene rocket-room" id="scene-rocket-bridge">
-        <div class="ground rocket"></div>
-        <div class="wall"></div>
-        <div class="fuselage"></div>
-        <div class="fuselage" style="right: 0"></div>
-        <div class="tube station rear" style="left: 2175px;"></div>
+      <div id="brad" class="distance">
+        <div id="brad-sprite">
+          <div class="eyes right"></div>
+          <div class="eyes left"></div>
+          <div class="mask right"></div>
+          <div class="mask left"></div>
+        </div>
+        <div id="teleporter-science"></div>
       </div>
-    </div>
-    <div id="brad" class="distance">
-      <div id="brad-sprite">
-        <div class="eyes right"></div>
-        <div class="eyes left"></div>
-        <div class="mask right"></div>
-        <div class="mask left"></div>
+      <div class="distance d0">
+        <div class="tube" style="height: 3350px; left: 9075px; bottom: 1070px"></div>
+        <div id="tube-front-0" class="tube station" style="left: 9075px; bottom: 820px"></div>
       </div>
-      <div id="teleporter-science"></div>
-    </div>
-    <div class="distance d0">
-      <div class="tube" style="height: 3350px; left: 9075px; bottom: 1070px"></div>
-      <div id="tube-front-0" class="tube station" style="left: 9075px; bottom: 820px"></div>
     </div>
   </div>
   <!--  

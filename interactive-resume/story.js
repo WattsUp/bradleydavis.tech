@@ -34,6 +34,7 @@ var story = {
     this.lab.init();
     this.launchPad.init();
     this.rocketEngineering.init();
+    this.rocketBridge.init();
 
     window.addEventListener('scroll', function() {
       story.scrollListener(false);
@@ -68,6 +69,8 @@ var story = {
       this.launchPad.update(centerX);
     if ((centerX > 7000 && centerX < 10000) || force)
       this.rocketEngineering.update(centerX);
+    if ((centerX > 13000 && centerX < 15000) || force)
+      this.rocketBridge.update(centerX);
     console.log(centerX);
   },
   /**
@@ -130,12 +133,16 @@ var story = {
     let halfWidth = document.documentElement.offsetWidth / 2
 
     let y = 0;
+    let backgroundShiftY = 0;
     let x = -(centerX - halfWidth);  // Reverse direction for backgrounds
+
+    if (centerX > 14500) {
+      backgroundShiftY = 6000;
+    }
 
     if (centerX > 13840) {
       y = 820 + 13570 - 9970;
       x = (centerX - 13840) - (9700 - halfWidth - 820);
-      console.log(x)
     } else if (centerX > 13570) {  // End of experience tube
       y = 820 + 13570 - 9970;
       x = -(9700 - halfWidth - 820);
@@ -157,13 +164,13 @@ var story = {
       distance.style.transform = 'translate(' + x + 'px,' + y + 'px)';
     });
     this.distance[1].style.transform =
-        'translate(' + (x / 1.5) + 'px,' + (y / 3) + 'px)';
+        'translate(' + (x / 1.5) + 'px,' + (y / 3 + backgroundShiftY) + 'px)';
     this.distance[2].style.transform =
-        'translate(' + (x / 2) + 'px,' + (y / 4) + 'px)';
+        'translate(' + (x / 2) + 'px,' + (y / 4 + backgroundShiftY) + 'px)';
     this.distance[3].style.transform =
-        'translate(' + (x / 4) + 'px,' + (y / 8) + 'px)';
+        'translate(' + (x / 4) + 'px,' + (y / 8 + backgroundShiftY) + 'px)';
     this.distance[4].style.transform =
-        'translate(' + (x / 8) + 'px,' + (y / 16) + 'px)';
+        'translate(' + (x / 8) + 'px,' + (y / 16 + backgroundShiftY) + 'px)';
     this.distanceSpace.style.transform =
         'translate(' + (x / 40) + 'px,' + (y / 80) + 'px)';
   },
@@ -380,6 +387,57 @@ var story = {
       this.currentSkillSet = index;
       for (let i = 0; i < this.skillSets.length; i++)
         this.skillSets[i].hidden = i != index;
+    }
+  },
+  rocketBridge: {
+    time: -3,
+    timer: null,
+    timerInterval: null,
+    sky: null,
+    world: null,
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.timer = document.getElementById('rocket-timer');
+      this.sky = document.getElementById('sky');
+      this.world = document.getElementById('world');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      if (x > 14500 && this.timerInterval == null) {
+        this.incrementTimer();
+        this.timerInterval = setInterval(this.incrementTimer.bind(this), 1000);
+      } else if (x < 13500 && this.timerInterval) {
+        clearInterval(this.timerInterval);
+        this.timerInterval = null;
+        this.time = -4;
+        this.incrementTimer();
+        this.sky.style.transform = 'translateY(0)';
+      }
+    },
+    /**
+     * Increment the launch timer
+     */
+    incrementTimer: function() {
+      this.time++;
+      let string = Math.abs(this.time) > 9 ? Math.abs(this.time) :
+                                             '0' + Math.abs(this.time);
+      if (this.time < 0)
+        this.timer.innerHTML = 'T-' + string;
+      else
+        this.timer.innerHTML = 'T+' + string;
+
+      if (this.time == 0) {
+        this.sky.style.transform = 'translateY(6000px)';
+        this.world.style.animation = 'shake 300ms infinite linear';
+        setTimeout(function() {
+          this.world.style.animation = '';
+        }, 3000);
+      }
     }
   }
 };

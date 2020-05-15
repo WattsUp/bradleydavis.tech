@@ -8,6 +8,7 @@ var scene = {
   labParticleMasks: [],
   labParticleLightning: null,
   labParticleCurrent: 0,
+  rocketBridgeConsole: null,
   /**
    * Initialize the scene, add listeners
    */
@@ -18,11 +19,14 @@ var scene = {
     this.labParticleLightning =
         document.getElementById('lab-particle-lightning');
     let displayXPs = document.querySelectorAll('.display-xp>canvas');
+    this.rocketBridgeConsole =
+        document.getElementById('rocket-bridge-console').getContext('2d');
     this.font.init();
 
     setInterval(this.labChangeParticles.bind(this), 5000);
     this.labChangeParticles();
     this.labAddBubbles();
+
     this.font.onLoad('code-new-roman', function() {
       this.generateXPDisplay(
           displayXPs[0],
@@ -36,6 +40,9 @@ var scene = {
       });
       this.generateXPDisplay(displayXPs[2], {'Customer Service': 1.0});
     }.bind(this));
+
+    setInterval(this.rocketChangeLEDs.bind(this), 1000);
+    this.rocketChangeLEDs();
   },
   /**
    * Actions to perform once the page is first scrolled
@@ -108,7 +115,6 @@ var scene = {
       context.fillText(skillKeys[0], 0, -15);
       context.fillText('100%', 0, 15);
     } else {
-      console.log(skillKeys)
       for (let skill in skills) {
         context.moveTo(0, 0);
         context.lineTo(
@@ -129,6 +135,25 @@ var scene = {
     }
     context.stroke();
   },
+  rocketChangeLEDs: function() {
+    for (let x = 0; x < 4; x++) {
+      for (let y = 0; y < 6; y++) {
+        switch (Math.round(Math.random() * 10)) {
+          case 0:
+            this.rocketBridgeConsole.fillStyle = '#FF595E';
+            break;
+          case 1:
+          case 2:
+            this.rocketBridgeConsole.fillStyle = '#F2C200';
+            break;
+          default:
+            this.rocketBridgeConsole.fillStyle = '#30F230';
+            break;
+        }
+        this.rocketBridgeConsole.fillRect(x * 6, y * 6, 4, 4);
+      }
+    }
+  },
   /**
    * Font object to perform fontOnLoad callback
    */
@@ -143,7 +168,6 @@ var scene = {
       this.testContext = temp.getContext('2d');
       this.testContext.font = '20px Arial';
       this.initialWidth = this.testContext.measureText(this.testString).width;
-      console.log(this.initialWidth)
       // temp.parentNode.removeChild(temp);
     },
     /**
@@ -155,7 +179,6 @@ var scene = {
       this.testContext.font =
           '20px ' + fontFamily + ', Arial';  // Use fallback font of Arial
       let width = this.testContext.measureText(this.testString).width;
-      console.log(width)
       if (this.initialWidth == width) {
         this.attempts++;
         if (this.attempts > 50) {
@@ -164,8 +187,7 @@ var scene = {
         } else {
           setTimeout(this.onLoad.bind(this), 50, fontFamily, callback);
         }
-      }
-      else {
+      } else {
         callback();
       }
     },
