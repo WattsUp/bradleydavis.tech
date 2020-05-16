@@ -35,6 +35,7 @@ var story = {
     this.launchPad.init();
     this.rocketEngineering.init();
     this.rocketBridge.init();
+    this.rocketStorage.init();
 
     window.addEventListener('scroll', function() {
       story.scrollListener(false);
@@ -84,13 +85,13 @@ var story = {
         (x < 13570 && x > 9970) ||               // In the tube
         (x < 16270 && x > 15670);                // In the tube
 
-    if (x > 13840) {
+    if (x > 13840) {  // End of tube 0
       brad.setTransform(0, 0)
     } else if (x > 13570) {
       brad.setTransform(13570 - x + 270, 0)
     } else if (x > 9970) {
       brad.setTransform(270, 0)
-    } else if (x > 9700) {
+    } else if (x > 9700) {  // Start of tube 0
       brad.setTransform(x - 9700, 0)
     } else if (x > 6500) {
       brad.setTransform(0, 0)
@@ -457,6 +458,137 @@ var story = {
           this.world.style.animation = '';
         }, 3000);
       }
+    }
+  },
+  rocketStorage: {
+    projects: [],
+    projectBoxes: [],
+    currentProject: -1,
+    lightning: null,
+    busy: false,
+    stand: null,
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.projects = document.getElementsByClassName('project');
+      this.projectBoxes = document.getElementsByClassName('project-box');
+      this.lightning = document.getElementById('project-storage-lightning');
+      this.stand = document.getElementById('project-storage-stand');
+
+      for (let i = 0; i < this.projects.length; i++) {
+        this.projects[i].style.transform = 'translateX(-50%) scale(0.0)';
+        this.projects[i].style.opacity = 0.0;
+      }
+      this.lightning.hidden = true;
+
+      this.setProject(0);
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {},
+    /**
+     *
+     * @param {integer} index of project to switch to
+     */
+    setProject: function(index) {
+      if (this.busy) {
+        return;
+      }
+      this.busy = true;
+
+      let time = 0;
+      if (this.currentProject != -1) {
+        // Return current project to storage
+        let project = this.projects[this.currentProject];
+        let box = this.projectBoxes[this.currentProject];
+
+        // Deflate current project into its box
+        this.lightning.hidden = false;
+        project.style.transform = 'translateX(-50%) scale(0.0)';
+        project.style.opacity = 0.0;
+        box.style.opacity = 1.0;
+        this.stand.style.transform = 'translateX(-44px)';
+        this.stand.style.height = '3px';
+        time += 500;
+
+        let standHeight = 21 + 40 * this.currentProject;
+        let boxY = -(40 * this.currentProject);
+
+        // Move box onto conveyor
+        setTimeout(function() {
+          this.lightning.hidden = true;
+          box.style.transform = 'translate(-250px, 18px)';
+        }.bind(this), time);
+        time += 500;
+
+        // Move box and conveyor to box slot
+        setTimeout(function() {
+          this.stand.style.transform = 'translateX(93px)';
+          this.stand.style.height = standHeight + 'px';
+          box.style.transform = 'translate(-113px, ' + boxY + 'px)';
+        }.bind(this), time);
+        time += 500;
+
+        // Mox box into slot
+        setTimeout(function() {
+          box.style.transform = 'translate(0, ' + boxY + 'px)';
+        }.bind(this), time);
+        time += 500;
+      }
+
+      // Move conveyor to box slot
+      let standHeight = 21 + 40 * index;
+      setTimeout(function() {
+        this.stand.style.transform = 'translateX(93px)';
+        this.stand.style.height = standHeight + 'px';
+      }.bind(this), time);
+      time += 500;
+
+      // Move box onto conveyor
+      let box = this.projectBoxes[index];
+      let boxY = -(40 * index);
+      setTimeout(function() {
+        box.style.transform = 'translate(-113px, ' + boxY + 'px)';
+      }.bind(this), time);
+      time += 500;
+
+      // Move box and conveyor to the platform
+      setTimeout(function() {
+        this.stand.style.transform = 'translateX(-44px)';
+        this.stand.style.height = '3px';
+        box.style.transform = 'translate(-250px, 18px)';
+      }.bind(this), time);
+      time += 500;
+
+      // Move box onto platform
+      setTimeout(function() {
+        box.style.transform = 'translate(-430px, 18px)';
+      }.bind(this), time);
+      time += 500;
+
+      // Inflate the project
+      let project = this.projects[index];
+      setTimeout(function() {
+        this.lightning.hidden = false;
+        project.style.opacity = 1.0;
+        project.style.transform = 'translateX(-50%) scale(1.0)';
+        box.style.opacity = 0.0;
+        this.stand.style.transform = 'translateX(0)';
+        this.stand.style.height = '21px';
+      }.bind(this), time);
+      time += 500;
+
+      // Turn off lightning, allow changes
+      setTimeout(function() {
+        this.lightning.hidden = true;
+        this.busy = false;
+      }.bind(this), time);
+      time += 500;
+
+      this.currentProject = index;
     }
   }
 };

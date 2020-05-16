@@ -760,6 +760,11 @@
   left: 900px;
   bottom: 25px;
   background: url(images/project-storage-stand.png);
+  transition: transform 450ms, height 450ms;
+  -webkit-transition: transform 450ms, height 450ms;
+  -moz-transition: transform 450ms, height 450ms;
+  -ms-transition: transform 450ms, height 450ms;
+  -o-transition: transform 450ms, height 450ms;
 }
 
 #project-storage-conveyor {
@@ -806,6 +811,13 @@
   width: 110px;
   height: 30px;
   background: url(images/box-rect-30.png);
+  bottom: 65px;
+  left: 1053px;
+  transition: transform 450ms, opacity 250ms;
+  -webkit-transition: transform 450ms, opacity 250ms;
+  -moz-transition: transform 450ms, opacity 250ms;
+  -ms-transition: transform 450ms, opacity 250ms;
+  -o-transition: transform 450ms, opacity 250ms;
 }
 
 #project-storage>.project {
@@ -817,11 +829,12 @@
   text-align: center;
   transform-origin: 50% 100%;
   color: var(--color-accent);
-  transform: translate(-50%) scale(1.0);
-  -webkit-transform: translate(-50%) scale(1.0);
-  -moz-transform: translate(-50%) scale(1.0);
-  -ms-transform: translate(-50%) scale(1.0);
-  -o-transform: translate(-50%) scale(1.0);
+  opacity: 0;
+  transition: transform 450ms, opacity 250ms ease-in;
+  -webkit-transition: transform 450ms, opacity 250ms ease-in;
+  -moz-transition: transform 450ms, opacity 250ms ease-in;
+  -ms-transition: transform 450ms, opacity 250ms ease-in;
+  -o-transition: transform 450ms, opacity 250ms ease-in;
 }
 
 #project-storage>.project:hover {
