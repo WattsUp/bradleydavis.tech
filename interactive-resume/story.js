@@ -69,7 +69,7 @@ var story = {
       this.launchPad.update(centerX);
     if ((centerX > 7000 && centerX < 10000) || force)
       this.rocketEngineering.update(centerX);
-    if ((centerX > 13000 && centerX < 15000) || force)
+    if ((centerX > 13000 && centerX < 21000) || force)
       this.rocketBridge.update(centerX);
     console.log(centerX);
   },
@@ -81,7 +81,8 @@ var story = {
     // Stand still while:
     brad.standStill = (x < 6050 && x > 2710) ||  // On the rover
         (x < 7560 && x > 6740) ||                // On the elevator
-        (x < 13570 && x > 9970);                 // In the tube
+        (x < 13570 && x > 9970) ||               // In the tube
+        (x < 16270 && x > 15670);                // In the tube
 
     if (x > 13840) {
       brad.setTransform(0, 0)
@@ -101,7 +102,7 @@ var story = {
       brad.jump(false, 0)
     }
 
-    if (x > 13570) {  // Reverse walking
+    if (x > 13570 && x < 16270) {  // Reverse walking
       brad.enqueueWalk(x < this.lastX);
     } else {
       brad.enqueueWalk(x > this.lastX);
@@ -140,7 +141,13 @@ var story = {
       backgroundShiftY = 6000;
     }
 
-    if (centerX > 13840) {
+    if (centerX > 16270) {
+      y = 820 + 13570 - 9970 + 16270 - 15670;
+      x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
+    } else if (centerX > 15670) {
+      y = 820 + 13570 - 9970 + centerX - 15670;
+      x = -(9700 - halfWidth - 820 - 1830);
+    } else if (centerX > 13840) {
       y = 820 + 13570 - 9970;
       x = (centerX - 13840) - (9700 - halfWidth - 820);
     } else if (centerX > 13570) {  // End of experience tube
@@ -395,6 +402,7 @@ var story = {
     timerInterval: null,
     sky: null,
     world: null,
+    tube: [],
     /**
      * Initialize the scene elements
      */
@@ -402,6 +410,8 @@ var story = {
       this.timer = document.getElementById('rocket-timer');
       this.sky = document.getElementById('sky');
       this.world = document.getElementById('world');
+      this.tube[0] = document.getElementById('tube-front-1');
+      this.tube[1] = document.getElementById('tube-rear-1');
     },
     /**
      * Update the scene
@@ -417,6 +427,15 @@ var story = {
         this.time = -4;
         this.incrementTimer();
         this.sky.style.transform = 'translateY(0)';
+      }
+
+      // Switch the tube layering
+      if (x > 15670) {
+        this.tube[0].hidden = false;
+        this.tube[1].classList.add('inside');
+      } else {
+        this.tube[0].hidden = true;
+        this.tube[1].classList.remove('inside');
       }
     },
     /**
