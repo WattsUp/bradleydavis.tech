@@ -137,6 +137,12 @@ h4 {
   -o-transition: transform 5s ease-out;
 }
 
+#stars {
+  width: 2000px;
+  height: 6000px;
+  bottom: -200px;
+}
+
 .ground {
   width: 100%;
   height: 200px;

@@ -23,6 +23,8 @@ var scene = {
         document.getElementById('rocket-bridge-console').getContext('2d');
     this.font.init();
 
+    this.generateStars();
+
     setInterval(this.labChangeParticles.bind(this), 5000);
     this.labChangeParticles();
     this.labAddBubbles();
@@ -43,6 +45,21 @@ var scene = {
 
     setInterval(this.rocketChangeLEDs.bind(this), 1000);
     this.rocketChangeLEDs();
+  },
+  /**
+   * Draw stars randomly on the stars canvas
+   */
+  generateStars: function() {
+    let context = document.getElementById('stars').getContext('2d');
+    context.fillStyle = '#FFFFFF';
+    for (let i = 0; i < 3000; i++) {
+      let x = Math.random() * 2000;
+      let y = Math.random() * 6000;
+      let r = Math.random() * 2 + 0.5;
+      context.beginPath();
+      context.arc(x, y, r, 0, 2 * Math.PI);
+      context.fill();
+    }
   },
   /**
    * Actions to perform once the page is first scrolled
