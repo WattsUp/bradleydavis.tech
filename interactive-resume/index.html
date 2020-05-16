@@ -342,7 +342,52 @@
           <div class="wall"></div>
           <div class="fuselage"></div>
           <div class="fuselage" style="right: 0"></div>
-          <div class="tube station rear" style="left: 75px;"></div>>
+          <div class="tube station rear" style="left: 75px;"></div>
+          <div id="project-storage">
+            <h1>Portfolio</h1>
+            <div id="project-storage-stand">
+              <div id="project-storage-conveyor"></div>
+            </div>
+            <div id="project-box-0" class="project-box" style="bottom: 65px; left: 1053px"></div>
+            <div id="project-storage-lightning"></div>
+            <div id="project-storage-console">
+              <button class="button accent" onclick="story.rocketStorage.setProject(0);">CougSat-1</button>
+              <button class="button accent" onclick="story.rocketStorage.setProject(1);">Hindenbearg</button>
+              <button class="button accent" onclick="story.rocketStorage.setProject(2);">bradleydavis.tech</button>
+              <button class="button accent" onclick="story.rocketStorage.setProject(0);">Mallard Madness</button>
+              <a class="button accent" href="/portfolio/">More Projects...</a>
+            </div>
+            <a href="/portfolio/club-cougs-in-space/" class="project">
+              <h1>CougSat-1</h1>
+              <h3>WSU's Nanosatellite</h3>
+              <p>Cougs in Space is Washington State University’s satellite club. Its first nanosatellite
+                <i>CougSat-1</i> is launching in the Spring of 2020. It is paving a path for aerospace development at
+                WSU and is experimenting a biological payload.</p>
+              <img src="images/project-cougsat-1.png">
+            </a>
+            <a href="/portfolio/club-tahoma-robotics/" class="project">
+              <h1>Hindenbearg</h1>
+              <h3>World Class FRC Robot</h3>
+              <p>Tahoma High School’s robotics club, Bear Metal, participated in FIRST Robotics Challenge’s Steamworks
+                in 2017. The robot designed, fabricated, assembled, wired, and programmed in six weeks was named
+                <i>Hindenbearg</i>. The goal of the challenge was to shoot large wiffle balls to build steam pressure,
+                connect an airship’s propellers using gears, and climb a rope onto the airship.</p>
+              <img src="images/project-hindenbearg.png">
+            </a>
+            <a href="/lab/personal-website/" class="project">
+              <h1>bradleydavis.tech</h1>
+              <h3>Personal Website</h3>
+              <p>This interactive resume is a demonstration of my website and artistic skills.</p>
+              <img src="images/project-website.png">
+            </a>
+            <a href="/portfolio/work-tahoma-robotics-camp/" class="project">
+              <h1>Mallard Madness</h1>
+              <h3>Robotics Summer Camp</h3>
+              <p>For the annual summer camp hosted by Tahoma Robotics Club, I created the game the campers play. This
+                includes all rules, game mechanics, animation, and testing out gameplay using prototype robots.</p>
+              <img src="images/project-mallard-madness.png">
+            </a>
+          </div>
         </div>
         <div class="scene rocket-room" style="bottom: 5900px">
           <div class="ground rocket" style="background-position: bottom;"></div>
@@ -371,61 +416,7 @@
   </div>
   <!--  
         
-        <div class="project-viewer absolute transformXn50">
-          <h1 class="text-title color-primary">Portfolio</h1>
-          <div class="project-viewer-stand absolute transition-all-500ms">
-            <div class="project-viewer-conveyor absolute transformXn50"></div>
-          </div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 65px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 105px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 145px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 185px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 225px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 265px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 305px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 345px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 385px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 425px; left: 1053px"></div>
-          <div class="box rect-30 absolute transition-all-500ms" style="bottom: 465px; left: 1053px"></div>
-          <div class="project-viewer-buttons absolute"> <button
-              class="button-accent transition-all-300ms text-monospace" onclick="changeProject(0);">CougSat-1</button>
-            <button class="button-accent transition-all-300ms text-monospace"
-              onclick="changeProject(1);">Hindenbearg</button> <button
-              class="button-accent transition-all-300ms text-monospace"
-              onclick="changeProject(2);">bradleydavis.tech</button> <button
-              class="button-accent transition-all-300ms text-monospace" onclick="changeProject(3);">Mallard
-              Madness</button> <a class="button-accent transition-all-300ms" href="/portfolio">More Projects</a> </div>
-          <a href="/portfolio/club-cougs-in-space/" class="project absolute transition-all-500ms color-accent">
-            <h1 class="text-title fill-horz">CougSat-1</h1>
-            <h2 class="text-title fill-horz">WSU's Nanosatellite</h2>
-            <p>Cougs in Space is Washington State University’s satellite club. Its first nanosatellite <i>CougSat-1</i>
-              is launching in the Spring of 2020. It is paving a path for aerospace development at WSU and is
-              experimenting a biological payload.</p>
-            <div class="absolute" style="background-image: url(images/project-cougsat-1.png)"></div>
-          </a> <a href="/portfolio/club-tahoma-robotics/" class="project absolute transition-all-500ms color-accent">
-            <h1 class="text-title fill-horz">Hindenbearg</h1>
-            <h2 class="text-title fill-horz">World Class FRC Robot</h2>
-            <p>Tahoma High School’s robotics club, Bear Metal, participated in FIRST Robotics Challenge’s Steamworks in
-              2017. The robot designed, fabricated, assembled, wired, and programmed in six weeks was named
-              <i>Hindenbearg</i>. The goal of the challenge was to shoot large wiffle balls to build steam pressure,
-              connect an airship’s propellers using gears, and climb a rope onto the airship.</p>
-            <div class="absolute" style="background-image: url(images/project-hindenbearg.png)"></div>
-          </a> <a href="/lab/personal-website/" class="project absolute transition-all-500ms color-accent">
-            <h1 class="text-title fill-horz">bradleydavis.tech</h1>
-            <h2 class="text-title fill-horz">Personal Website</h2>
-            <p>This interactive resume is a demonstration of my website and artistic skills.</p>
-            <div class="absolute" style="background-image: url(images/project-website.png)"></div>
-          </a> <a href="/portfolio/work-tahoma-robotics-camp/"
-            class="project absolute transition-all-500ms color-accent">
-            <h1 class="text-title fill-horz">Mallard Madness</h1>
-            <h2 class="text-title fill-horz">Robotics Summer Camp</h2>
-            <p>For the annual summer camp hosted by Tahoma Robotics Club, I created the game the campers play. This
-              includes all rules, game mechanics, animation, and testing out gameplay using prototype robots.</p>
-            <div class="absolute" style="background-image: url(images/project-mallard-madness.png)"></div>
-          </a>
-          <div class="project-viewer-lightning absolute"></div>
-        </div>
-      </div>
+        
       <div class="scene space on-the-ground absolute">
         <div class="award-meteor absolute" style="left:2000px; bottom: 4900px">
           <div class="fill-horz fill-vert"
