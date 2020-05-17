@@ -1,0 +1,1109 @@
+/******************************** Scene Intro *********************************/
+
+#scene-intro {
+  width: 1900px;
+}
+
+#scroll-down {
+  width: 100vw;
+  text-align: center;
+  bottom: -60px;
+  animation: flash 1.5s infinite;
+  -webkit-animation: flash 1.5s infinite;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1.0;
+  }
+  50% {
+    opacity: 1.0;
+  }
+  60% {
+    opacity: 0.0;
+  }
+  99% {
+    opacity: 0.0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
+/********************************* Scene Lab **********************************/
+
+#scene-lab {
+  width: 4200px;
+  left: 1900px;
+}
+
+#scene-lab .ceiling {
+  width: 100%;
+  height: 75px;
+  bottom: 375px;
+  background: url(images/lab-ceiling.png);
+}
+
+#scene-lab .door {
+  width: 30px;
+  height: 400px;
+  background: url(images/lab-door.png);
+}
+
+#scene-lab .wall {
+  width: 100%;
+  height: 400px;
+  background: url(images/lab-wall.png);
+}
+
+#lab-teleporter {
+  height: 400px;
+  width: 261px;
+  left: 50px;
+  background: url(images/teleporter.png);
+}
+
+#lab-console {
+  height: 275px;
+  width: 240px;
+  left: 330px;
+  background: url(images/teleporter-console.png);
+}
+
+#lab-console * {
+  position: unset;
+}
+
+#lab-console>h1 {
+  height: 55px;
+  text-align: center;
+  line-height: 55px;
+  color: var(--color-primary);
+  font-family: tektrron;
+}
+
+#lab-console>div {
+  margin: 0 auto;
+  background: var(--color-dark);
+  width: 170px;
+  height: 200px;
+}
+
+#lab-console>div>* {
+  width: 100%;
+  height: 16.666%;
+  font-size: 22px;
+  font-family: code-new-roman;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+#lab-tanks {
+  left: 1000px;
+  width: 1036px;
+  height: 380px;
+  font-family: code-new-roman;
+}
+
+#lab-tanks>hr {
+  width: 100%;
+  height: 6px;
+  background: url(images/caution-tape.png);
+  border: none;
+}
+
+#lab-tanks>h3 {
+  color: var(--color-dark);
+}
+
+#lab-tanks>.fluid {
+  width: 146px;
+  bottom: 10px;
+  background-color: #FF08C2;
+  opacity: 0.7;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 1.5s ease-out;
+  -webkit-transition: transform 1.5s ease-out;
+  -moz-transition: transform 1.5s ease-out;
+  -ms-transition: transform 1.5s ease-out;
+  -o-transition: transform 1.5s ease-out;
+  -webkit-transform: scaleY(0);
+  -moz-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  -o-transform: scaleY(0);
+}
+
+#lab-tanks>.fluid.excellent {
+  height: 320px;
+}
+
+#lab-tanks>.fluid.skilled {
+  height: 256px;
+}
+
+#lab-tanks>.fluid>.bubble {
+  -webkit-animation: bubble-float infinite linear;
+  animation: bubble-float infinite linear;
+  bottom: 0;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  opacity: 0.4;
+}
+
+@keyframes bubble-float {
+  0% {
+    transform: translateY(0) scale(0.1);
+    -webkit-transform: translateY(0) scale(0.1);
+    -moz-transform: translateY(0) scale(0.1);
+    -ms-transform: translateY(0) scale(0.1);
+    -o-transform: translateY(0) scale(0.1);
+  }
+  70% {
+    transform: translateY(-245px) scale(0.8);
+    -webkit-transform: translateY(-245px) scale(0.8);
+    -moz-transform: translateY(-245px) scale(0.8);
+    -ms-transform: translateY(-245px) scale(0.8);
+    -o-transform: translateY(-245px) scale(0.8);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-350px) scale(1.0);
+    -webkit-transform: translateY(-350px) scale(1.0);
+    -moz-transform: translateY(-350px) scale(1.0);
+    -ms-transform: translateY(-350px) scale(1.0);
+    -o-transform: translateY(-350px) scale(1.0);
+    opacity: 0;
+  }
+}
+
+#lab-tanks>.tank {
+  width: 218px;
+  height: 380px;
+  background: url(images/lab-tank.png);
+}
+
+#lab-tanks>.tank>h3 {
+  width: 200px;
+  top: 340px;
+  height: 40px;
+  text-align: center;
+  color: var(--color-dark);
+}
+
+#lab-particle-viewer {
+  left: 2600px;
+}
+
+#lab-particle-viewer>* {
+  bottom: 0;
+}
+
+#lab-particle-image {
+  left: 25px;
+  bottom: 50px;
+  width: 450px;
+  height: 275px;
+  background: var(--color-dark);
+  overflow: hidden;
+}
+
+#lab-particles {
+  width: 500px;
+  height: 100%;
+  bottom: 0;
+  background: url(images/lab-particle.png);
+  animation: lab-particles infinite 3s linear;
+  -webkit-animation: lab-particles infinite 3s linear;
+  transition: height 1s;
+  -webkit-transition: height 1s;
+  -moz-transition: height 1s;
+  -ms-transition: height 1s;
+  -o-transition: height 1s;
+}
+
+@keyframes lab-particles {
+  0% {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50px);
+    -webkit-transform: translateX(-50px);
+    -moz-transform: translateX(-50px);
+    -ms-transform: translateX(-50px);
+    -o-transform: translateX(-50px);
+  }
+}
+
+#lab-particle-image>.mask {
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#lab-particle-lightning {
+  left: 25px;
+  bottom: 50px;
+  width: 450px;
+  height: 275px;
+  background: url(images/lab-particle-lightning.png);
+}
+
+#lab-particle-frame {
+  width: 500px;
+  height: 350px;
+  background: url(images/lab-particle-frame.png);
+}
+
+#lab-wsu {
+  width: 350px;
+  height: 350px;
+  left: 3760px;
+  background: url(images/lab-wsu.png);
+}
+
+#lab-wsu>div {
+  width: 350px;
+  height: 350px;
+  background: url(images/lab-wsu-on.png);
+  animation: flash 2s infinite;
+  -webkit-animation: flash 2s infinite;
+}
+
+#lab-battery {
+  width: 59px;
+  height: 59px;
+  background: url(images/lab-battery.png);
+  left: 3200px;
+}
+
+#lab-rover {
+  left: 700px;
+}
+
+#lab-rover>.chassis {
+  width: 225px;
+  height: 40px;
+  bottom: 15px;
+  background: url(images/rover-chassis.png);
+}
+
+#lab-rover>.mast {
+  width: 34px;
+  height: 100px;
+  left: 185px;
+  bottom: 55px;
+  background: url(images/rover-mast.png);
+}
+
+#lab-rover>.wheel {
+  width: 60px;
+  height: 60px;
+  bottom: 0;
+  background: url(images/rover-wheel.png);
+  image-rendering: auto;
+}
+
+#lab-rover>.beam {
+  width: 200px;
+  height: 75px;
+  bottom: 110px;
+  left: 215px;
+  transform-origin: 0% 50%;
+  background: url(images/rover-beam.png);
+}
+
+/****************************** Scene Launch Pad ******************************/
+
+#scene-launch-pad {
+  width: 1900px;
+  left: 6100px;
+}
+
+#elevator {
+  width: 300px;
+  height: 20px;
+  background: url(images/caution-tape.png);
+  top: 0;
+  left: 500px;
+}
+
+#elevator>* {
+  top: 20px;
+}
+
+/**************************** Scene Rocket Engine *****************************/
+
+#scene-rocket-engine {
+  left: 7000px;
+  width: 2400px;
+  height: 600px;
+  background: url(images/rocket-engine.png);
+  bottom: 20px;
+}
+
+/************************** Scene Rocket Engineering **************************/
+
+#scene-rocket-engineering {
+  bottom: 820px;
+}
+
+#rocket-door-engineering {
+  width: 30px;
+  height: 300px;
+  background: url(images/rocket-door.png);
+  left: 0;
+  transform: translateY(0);
+  transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -webkit-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -moz-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -o-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -ms-transition: left 0.7s ease 0.7s, transform 0.7s ease;
+  -webkit-transform: translateY(0);
+  -moz-transform: translateY(0);
+  -ms-transform: translateY(0);
+  -o-transform: translateY(0);
+}
+
+#rocket-door-engineering.open {
+  transform: translateY(-330px);
+  left: -30px;
+  transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -webkit-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -moz-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -o-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -ms-transition: left 0.7s ease, transform 0.7s ease 0.7s;
+  -webkit-transform: translateY(-330px);
+  -moz-transform: translateY(-330px);
+  -ms-transform: translateY(-330px);
+  -o-transform: translateY(-330px);
+}
+
+#scene-rocket-engineering .doorframe {
+  width: 30px;
+  height: 300px;
+  background: #BFBFBF;
+}
+
+.skill-set {
+  width: 100%;
+  height: 100%;
+}
+
+.skill-set>.levels {
+  margin-top: 4px;
+  margin-left: 270px;
+  text-align: left;
+}
+
+.skill-set>.levels>span {
+  width: 120px;
+  display: inline-block;
+}
+
+.skill-set.battery>.skill::after {
+  background: url(images/rocket-skills-battery.png);
+}
+
+.skill-set.code>.skill::after {
+  background: url(images/rocket-skills-code.png);
+}
+
+.skill-set.pencil>.skill::after {
+  background: url(images/rocket-skills-pencil.png);
+}
+
+.skill-set.wrench>.skill::after {
+  background: url(images/rocket-skills-wrench.png);
+}
+
+.skill {
+  margin-top: 4px;
+  margin-left: 10px;
+  text-align: left;
+  position: relative;
+  border-bottom: dashed 1px var(--color-accent);
+}
+
+.skill::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 270px;
+  top: 0;
+  height: 24px;
+}
+
+.skill.excellent::after {
+  width: 480px;
+}
+
+.skill.skilled::after {
+  width: 360px;
+}
+
+.skill.familiar::after {
+  width: 240px;
+}
+
+.skill.beginner::after {
+  width: 120px;
+}
+
+#skills-console {
+  width: 150px;
+  height: 210px;
+  left: 1400px;
+  bottom: 200px;
+  background: url(images/rocket-skills-console.png);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+#skills-console>div {
+  width: 130px;
+  height: 140px;
+  top: 60px;
+  left: 10px;
+}
+
+#skills-console>div * {
+  position: unset;
+  width: 100%;
+  height: 25%;
+  font-size: 22px;
+  font-family: code-new-roman;
+  box-sizing: border-box;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+#rocket-power-jack {
+  width: 39px;
+  height: 76px;
+  left: 1700px;
+  background: url(images/rocket-power-jack.png);
+}
+
+#rocket-power-cable {
+  height: 20px;
+  left: 614px;
+  bottom: 49px;
+  background: url(images/rocket-power-cable.png) right;
+}
+
+#rocket-power-cable::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -4px;
+  right: -19px;
+  width: 19px;
+  height: 28px;
+  background: url(images/rocket-power-plug.png);
+}
+
+/************************** Rocket Experience Rooms ***************************/
+
+#scene-rocket-xp0 {
+  bottom: 1720px;
+}
+
+#scene-rocket-xp1 {
+  bottom: 2620px;
+}
+
+#scene-rocket-xp2 {
+  bottom: 3520px;
+}
+
+.display-xp {
+  bottom: 160px;
+  right: 300px
+}
+
+.display-xp>div>h2 {
+  margin-top: 2px;
+  padding-bottom: 4px;
+  color: var(--color-dark);
+  background: var(--color-accent);
+}
+
+.display-xp>div>div {
+  margin: 20px 10px 10px 270px;
+  text-align: left;
+}
+
+.display-xp>div>div>p {
+  margin-left: 16px;
+  text-indent: -16px;
+}
+
+.display-xp>h4 {
+  bottom: 0;
+  right: 0;
+  margin: 2px;
+}
+
+.display-xp>canvas {
+  bottom: 10px;
+  left: 10px;
+  width: 250px;
+  height: 250px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+
+.box {
+  text-align: center;
+  font-family: tektrron;
+  color: var(--color-primary);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.box.s70 {
+  width: 70px;
+  height: 70px;
+  padding: 40px 10px 10px;
+  background: url(images/box-square-70.png);
+}
+
+.box.s100 {
+  width: 100px;
+  height: 100px;
+  padding: 70px 10px 10px;
+  background: url(images/box-square-100.png);
+}
+
+.box.e100 {
+  width: 100px;
+  height: 100px;
+  padding: 40px 10px 10px;
+  background: url(images/box-end-square-100.png);
+}
+
+.box.r70 {
+  width: 180px;
+  height: 70px;
+  padding: 40px 15px 5px 120px;
+  background: url(images/box-rect-70.png);
+}
+
+.box.r100 {
+  width: 200px;
+  height: 100px;
+  padding: 55px 100px 20px 25px;
+  background: url(images/box-rect-100.png);
+}
+
+/******************************* Rocket Bridge ********************************/
+
+#scene-rocket-bridge {
+  bottom: 4420px;
+  height: 400px;
+}
+
+#scene-rocket-bridge .wall {
+  height: 400px;
+  background: url(images/rocket-bridge.png);
+}
+
+#scene-rocket-bridge .fuselage {
+  height: 600px;
+}
+
+#rocket-bridge-console {
+  width: 22px;
+  height: 34px;
+  left: 1245px;
+  bottom: 60px;
+}
+
+#rocket-timer {
+  left: 1160px;
+  width: 80px;
+  bottom: 60px;
+  text-align: center;
+  font-family: code-new-roman;
+  color: var(--color-accent);
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0);
+    -webkit-transform: translate(1px, 1px) rotate(0);
+    -moz-transform: translate(1px, 1px) rotate(0);
+    -ms-transform: translate(1px, 1px) rotate(0);
+    -o-transform: translate(1px, 1px) rotate(0);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+    -moz-transform: translate(-1px, -2px) rotate(-1deg);
+    -ms-transform: translate(-1px, -2px) rotate(-1deg);
+    -o-transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0) rotate(1deg);
+    -webkit-transform: translate(-3px, 0) rotate(1deg);
+    -moz-transform: translate(-3px, 0) rotate(1deg);
+    -ms-transform: translate(-3px, 0) rotate(1deg);
+    -o-transform: translate(-3px, 0) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0);
+    -webkit-transform: translate(3px, 2px) rotate(0);
+    -moz-transform: translate(3px, 2px) rotate(0);
+    -ms-transform: translate(3px, 2px) rotate(0);
+    -o-transform: translate(3px, 2px) rotate(0);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+    -moz-transform: translate(1px, -1px) rotate(1deg);
+    -ms-transform: translate(1px, -1px) rotate(1deg);
+    -o-transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+    -moz-transform: translate(-1px, 2px) rotate(-1deg);
+    -ms-transform: translate(-1px, 2px) rotate(-1deg);
+    -o-transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0);
+    -webkit-transform: translate(-3px, 1px) rotate(0);
+    -moz-transform: translate(-3px, 1px) rotate(0);
+    -ms-transform: translate(-3px, 1px) rotate(0);
+    -o-transform: translate(-3px, 1px) rotate(0);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+    -webkit-transform: translate(3px, 1px) rotate(-1deg);
+    -moz-transform: translate(3px, 1px) rotate(-1deg);
+    -ms-transform: translate(3px, 1px) rotate(-1deg);
+    -o-transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+    -moz-transform: translate(-1px, -1px) rotate(1deg);
+    -ms-transform: translate(-1px, -1px) rotate(1deg);
+    -o-transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0);
+    -webkit-transform: translate(1px, 2px) rotate(0);
+    -moz-transform: translate(1px, 2px) rotate(0);
+    -ms-transform: translate(1px, 2px) rotate(0);
+    -o-transform: translate(1px, 2px) rotate(0);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+    -moz-transform: translate(1px, -2px) rotate(-1deg);
+    -ms-transform: translate(1px, -2px) rotate(-1deg);
+    -o-transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+/*************************** Rocket Project Storage ***************************/
+
+#scene-rocket-storage {
+  bottom: 5020px;
+}
+
+#project-storage {
+  width: 1200px;
+  height: 530px;
+  left: 600px;
+  background: url(images/project-storage.png);
+}
+
+#project-storage>h1 {
+  color: var(--color-primary);
+  font-family: tektrron;
+  margin: 30px;
+  width: 240px;
+  text-align: center;
+}
+
+#project-storage-stand {
+  width: 5px;
+  height: 10px;
+  left: 900px;
+  bottom: 25px;
+  background: url(images/project-storage-stand.png);
+  transition: transform 450ms, height 450ms;
+  -webkit-transition: transform 450ms, height 450ms;
+  -moz-transition: transform 450ms, height 450ms;
+  -ms-transition: transform 450ms, height 450ms;
+  -o-transition: transform 450ms, height 450ms;
+}
+
+#project-storage-conveyor {
+  width: 99px;
+  height: 19px;
+  left: -47px;
+  top: -19px;
+  background: url(images/project-storage-conveyor.png);
+}
+
+#project-storage-lightning {
+  width: 408px;
+  height: 180px;
+  left: 330px;
+  bottom: 20px;
+  background: url(images/project-storage-lightning.png);
+}
+
+#project-storage-console {
+  width: 220px;
+  height: 390px;
+  left: 40px;
+  top: 100px;
+}
+
+#project-storage-console * {
+  position: unset;
+  width: 100%;
+  height: 8.33333%;
+  font-size: 20px;
+  font-family: code-new-roman;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 2px;
+  text-align: center;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+}
+
+.project-box {
+  width: 110px;
+  height: 30px;
+  background: url(images/box-rect-30.png);
+  bottom: 65px;
+  left: 1053px;
+  transition: transform 450ms, opacity 250ms;
+  -webkit-transition: transform 450ms, opacity 250ms;
+  -moz-transition: transform 450ms, opacity 250ms;
+  -ms-transition: transform 450ms, opacity 250ms;
+  -o-transition: transform 450ms, opacity 250ms;
+}
+
+#project-storage>.project {
+  width: 750px;
+  height: 458px;
+  left: 675px;
+  bottom: 47px;
+  text-decoration: none;
+  text-align: center;
+  transform-origin: 50% 100%;
+  color: var(--color-accent);
+  opacity: 0;
+  transition: transform 450ms, opacity 250ms ease-in;
+  -webkit-transition: transform 450ms, opacity 250ms ease-in;
+  -moz-transition: transform 450ms, opacity 250ms ease-in;
+  -ms-transition: transform 450ms, opacity 250ms ease-in;
+  -o-transition: transform 450ms, opacity 250ms ease-in;
+}
+
+#project-storage>.project:hover {
+  text-decoration: none;
+}
+
+#project-storage>.project * {
+  position: unset;
+}
+
+#project-storage>.project>h1 {
+  font-family: tektrron;
+  padding: 3px 10px;
+}
+
+#project-storage>.project>h3 {
+  font-family: code-new-roman;
+  padding: 3px 10px;
+}
+
+#project-storage>.project>p {
+  font-size: 18px;
+  padding: 3px 10px;
+}
+
+#project-storage>.project>img {
+  width: 300px;
+  height: 300px;
+  bottom: 0;
+  left: 225px;
+  position: absolute;
+}
+
+/********************************** Shuttle ***********************************/
+
+#shuttle {
+  width: 198px;
+  height: 275px;
+  bottom: 5020px;
+  left: 8760px;
+  background: url(images/shuttle-left.png);
+}
+
+#shuttle-thrust {
+  width: 12px;
+  height: 45px;
+  bottom: 5px;
+  left: -12px;
+  background: url(images/shuttle-thrust.png);
+}
+
+#shuttle>.door-top {
+  width: 115px;
+  height: 140px;
+  top: 10px;
+  left: 83px;
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+  transition: transform 500ms ease-out;
+  -webkit-transition: transform 500ms ease-out;
+  -moz-transition: transform 500ms ease-out;
+  -ms-transition: transform 500ms ease-out;
+  -o-transition: transform 500ms ease-out;
+}
+
+#shuttle>.door-top.exterior {
+  background: url(images/shuttle-door-top-exterior.png);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#shuttle>.door-top.interior {
+  background: url(images/shuttle-door-top-interior.png);
+}
+
+#shuttle>.door-bottom {
+  width: 115px;
+  height: 60px;
+  bottom: 65px;
+  left: 83px;
+  transform-origin: 50% 100%;
+  transition: transform 500ms ease-out;
+  -webkit-transition: transform 500ms ease-out;
+  -moz-transition: transform 500ms ease-out;
+  -ms-transition: transform 500ms ease-out;
+  -o-transition: transform 500ms ease-out;
+}
+
+#shuttle>.door-bottom.exterior {
+  background: url(images/shuttle-door-bottom-exterior.png);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#shuttle>.door-bottom.interior {
+  background: url(images/shuttle-door-bottom-interior.png);
+}
+
+#shuttle-foreground {
+  width: 283px;
+  height: 275px;
+  bottom: 5020px;
+  left: 8958px;
+  background: url(images/shuttle-right.png);
+}
+
+/***************************** Scene Astroid Belt *****************************/
+
+#scene-asteroid-belt {
+  left: 11000px;
+  bottom: 5000px;
+}
+
+#scene-asteroid-belt>div {
+  width: 400px;
+  height: 400px;
+}
+
+#scene-asteroid-belt .background {
+  width: 400px;
+  height: 400px;
+  background: url(images/asteroid.png);
+  animation: rock 5s infinite ease-in-out;
+  -webkit-animation: rock 5s infinite ease-in-out;
+}
+
+@keyframes rock {
+  0% {
+    transform: rotateZ(0);
+    -webkit-transform: rotateZ(0);
+    -moz-transform: rotateZ(0);
+    -ms-transform: rotateZ(0);
+    -o-transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(15deg);
+    -webkit-transform: rotateZ(15deg);
+    -moz-transform: rotateZ(15deg);
+    -ms-transform: rotateZ(15deg);
+    -o-transform: rotateZ(15deg);
+  }
+}
+
+#scene-asteroid-belt .overlay {
+  width: 300px;
+  text-align: center;
+  text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
+  left: 50px;
+  top: 200px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+#scene-asteroid-belt .overlay * {
+  position: unset;
+}
+
+/********************************* Scene Mars *********************************/
+
+#scene-mars {
+  left: 11000px;
+  bottom: 4770px;
+}
+
+#mars-mountains {
+  width: 5200px;
+  height: 100px;
+  background: url(images/mars-mountains.png);
+}
+
+#mars-ground {
+  width: 5200px;
+  height: 300px;
+  bottom: -260px;
+  background: url(images/mars.png);
+}
+
+#lander {
+  width: 300px;
+  height: 141px;
+  left: 1300px;
+  background: url(images/mars-lander.png);
+}
+
+#lander-mast {
+  width: 24px;
+  height: 300px;
+  bottom: 105px;
+  left: 230px;
+  background: url(images/mars-lander-mast.png);
+  transform-origin: 0% 100%;
+  transform: scale(1.41, 0);
+  -webkit-transform: scale(1.41, 0);
+  -moz-transform: scale(1.41, 0);
+  -ms-transform: scale(1.41, 0);
+  -o-transform: scale(1.41, 0);
+  transition: transform 1s ease-in;
+  -webkit-transition: transform 1s ease-in;
+  -moz-transition: transform 1s ease-in;
+  -ms-transition: transform 1s ease-in;
+  -o-transition: transform 1s ease-in;
+}
+
+#lander-mast>* {
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transition: transform 1s ease-in;
+  -webkit-transition: transform 1s ease-in;
+  -moz-transition: transform 1s ease-in;
+  -ms-transition: transform 1s ease-in;
+  -o-transition: transform 1s ease-in;
+}
+
+#lander-flag {
+  height: 120px;
+  width: 160px;
+  top: 0;
+  left: 24px;
+  background: url(images/mars-lander-flag.png);
+  background-size: 100% 100%;
+  image-rendering: auto;
+  transform-origin: 0% 0%;
+}
+
+#lander-form {
+  right: 24px;
+  width: 300px;
+  height: 240px;
+  border: 5px solid #737373;
+  background: var(--color-dark);
+  transform-origin: 100% 0%;
+}
+
+#lander-form>* {
+  position: unset;
+  margin: 2px 4px;
+  padding: 2px;
+  width: 292px;
+  box-sizing: border-box;
+}
+
+#lander-form>h4 {
+  text-align: center;
+}
+
+#lander-form>input, #lander-form>textarea {
+  font-size: 14px;
+  border: none;
+  font-family: quicksand;
+}
+
+#lander-form>textarea {
+  height: 120px;
+  resize: none;
+}
+
+#lander-form>.button {
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  font-family: code-new-roman;
+}
