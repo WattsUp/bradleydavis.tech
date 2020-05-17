@@ -28,6 +28,8 @@ var brad = {
 
     this.eyeLids[0].hidden = false;
     this.eyeLids[1].hidden = true;
+
+    this.setMask(false);
   },
   /**
    * Enqueue frames to animate walking, set the walking direction
