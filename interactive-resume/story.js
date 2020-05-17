@@ -30,6 +30,7 @@ var story = {
     this.rocketBridge.init();
     this.rocketStorage.init();
     this.shuttle.init();
+    this.mars.init();
 
     window.addEventListener('scroll', function() {
       story.scrollListener(false);
@@ -67,6 +68,7 @@ var story = {
     if ((centerX > 13000 && centerX < 17000) || force)
       this.rocketBridge.update(centerX);
     if ((centerX > 17000) || force) this.shuttle.update(centerX);
+    if ((centerX > 23000) || force) this.mars.update(centerX);
     console.log(centerX);
   },
   /**
@@ -621,7 +623,7 @@ var story = {
   shuttle: {
     shuttle: null,
     thrust: null,
-    shuttleForground: null,
+    shuttleForeground: null,
     doorTop: [],
     doorBottom: [],
     /**
@@ -630,7 +632,7 @@ var story = {
     init: function() {
       this.shuttle = document.getElementById('shuttle');
       this.thrust = document.getElementById('shuttle-thrust');
-      this.shuttleForground = document.getElementById('shuttle-foreground');
+      this.shuttleForeground = document.getElementById('shuttle-foreground');
       this.doorTop = document.querySelectorAll('#shuttle>.door-top');
       this.doorBottom = document.querySelectorAll('#shuttle>.door-bottom');
     },
@@ -685,8 +687,39 @@ var story = {
       }
       this.shuttle.style.transform =
           'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
-      this.shuttleForground.style.transform =
+      this.shuttleForeground.style.transform =
           'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
+    }
+  },
+  mars: {
+    mountains: null,
+    mast: null,
+    flag: null,
+    form: null,
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.mountains = document.getElementById('mars-mountains');
+      this.mast = document.getElementById('lander-mast');
+      this.flag = document.getElementById('lander-flag');
+      this.form = document.getElementById('lander-form');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      this.mountains.style.transform =
+          'translateX(' + (-(x - 23000) / 2) + 'px)';
+
+      if (x > 23500) {
+        this.mast.style.transform = 'scale(1.0)';
+        setTimeout(function() {
+          this.flag.style.transform = 'scaleX(1.0)';
+          this.form.style.transform = 'scaleX(1.0)';
+        }.bind(this), 1500);
+      }
     }
   }
 };

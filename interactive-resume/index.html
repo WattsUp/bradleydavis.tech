@@ -31,13 +31,13 @@
     <canvas height="800" width="800"></canvas>
     <span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
   </div>
-  <div id="scroll-container" style="height: 24000px" hidden>
+  <div id="scroll-container" style="height: 24300px" hidden>
     <div id="about" style="top: 1000px"></div>
     <div id="skills" style="top: 6800px"></div>
     <div id="experience" style="top: 10000px"></div>
     <div id="portfolio" style="top: 16000px"></div>
     <div id="awards" style="top: 19500px"></div>
-    <div id="contact" style="top: 25000px"></div>
+    <div id="contact" style="top: 26000px"></div>
   </div>
   <div id="universe" style="position: fixed;">
     <div id="world">
@@ -398,13 +398,6 @@
           <div class="fuselage"></div>
           <div class="fuselage" style="right: 0"></div>
         </div>
-        <div class="scene" id="shuttle">
-          <div class="door-top interior"> </div>
-          <div class="door-top exterior"></div>
-          <div class="door-bottom interior"></div>
-          <div class="door-bottom exterior"></div>
-          <div id="shuttle-thrust"></div>
-        </div>
         <div class="scene" id="scene-asteroid-belt">
           <div>
             <div class="background"></div>
@@ -420,6 +413,29 @@
               <h2 class="color-primary">2016</h2>
             </div>
           </div>
+        </div>
+        <div class="scene" id="scene-mars">
+          <div id="mars-mountains"></div>
+          <div id="mars-ground"></div>
+          <div id="lander">
+            <div id="lander-mast">
+              <form id="lander-form" method="POST" action="https://formspree.io/me@bradleydavis.tech">
+                <h4>Contact Me</h4>
+                <input type="email" name="email" placeholder="Your email">
+                <textarea name="message" placeholder="Your message"></textarea>
+                <button class="button accent" type="submit">Transmit to Earth</button>
+                <a class="button accent" href="/">Return Home</a>
+              </form>
+              <div id="lander-flag"></div>
+            </div>
+          </div>
+        </div>
+        <div class="scene" id="shuttle">
+          <div class="door-top interior"> </div>
+          <div class="door-top exterior"></div>
+          <div class="door-bottom interior"></div>
+          <div class="door-bottom exterior"></div>
+          <div id="shuttle-thrust"></div>
         </div>
       </div>
       <div id="brad" class="distance">
@@ -441,71 +457,6 @@
       </div>
     </div>
   </div>
-  <!--  
-        
-        
-      <div class="scene space on-the-ground absolute">
-        <div class="award-meteor absolute" style="left:2000px; bottom: 4900px">
-          <div class="fill-horz fill-vert"
-            style="animation-duration: 25s; animation-direction: reverse; -webkit-animation-duration: 25s; -webkit-animation-direction: reverse">
-          </div> <span class="transform-center absolute">
-            <h1 class="color-primary text-title">WSU President's Honor Roll</h1>
-            <h2 class="color-primary">Fall 2018 - Fall 2019</h2>
-          </span>
-        </div>
-        <div class="award-meteor absolute" style="left:2900px; bottom: 5600px">
-          <div class="fill-horz fill-vert"></div> <span class="transform-center absolute">
-            <h1 class="color-primary text-title">AP Scholar With Distinction</h1>
-            <h2 class="color-primary">2016</h2>
-          </span>
-        </div>
-        <div class="mars absolute">
-          <div class="mars-lander absolute">
-            <div class="mars-lander-mast absolute transition-all-1s">
-              <form method="POST" class="absolute background-dark transition-all-1s"
-                action="https://formspree.io/me@bradleydavis.tech">
-                <h1 class="absolute color-primary">Contact Me</h1> <input class="absolute" type="email" name="email"
-                  placeholder="Your email"> <textarea class="absolute" name="message"
-                  placeholder="Your message"></textarea> <button
-                  class="absolute button-accent transition-all-300ms text-monospace" type="submit">Transmit to
-                  Earth</button> <a class="absolute button-accent transition-all-300ms text-monospace" href="/">Return
-                  Home</a>
-              </form>
-              <div class="mars-lander-flag absolute transition-all-500ms"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="scene rocket on-the-ground absolute" style="width: 0px; height: 0px">
-        <div class="shuttle absolute">
-          <div class="shuttle-door-top interior absolute transition-all-500ms"> </div>
-          <div class="shuttle-door-top exterior absolute transition-all-500ms"></div>
-          <div class="shuttle-door-bottom interior absolute transition-all-500ms"></div>
-          <div class="shuttle-door-bottom exterior absolute transition-all-500ms"></div>
-          <div class="shuttle-thrust absolute"></div>
-        </div>
-      </div>
-    </div>
-    <div class="brad-container on-the-ground absolute">
-      <div class="absolute fill-horz fill-vert">
-        <div class="brad absolute"></div>
-        <div class="absolute brad-eyes right"></div>
-        <div class="absolute brad-eyes left"></div>
-        <div class="absolute brad-mask">
-          <div class="right absolute fill-horz fill-vert"></div>
-          <div class="left absolute fill-horz fill-vert"></div>
-        </div>
-      </div>
-    </div>
-    <div class="scene-foreground absolute on-the-ground">
-      <div class="pneumatic-tube-station tube-station-foreground absolute" style="bottom: 950px; left: 8763px"></div>
-      <div class="pneumatic-tube absolute"></div>
-      <div class="pneumatic-tube-station tube-station-foreground absolute" style="bottom: 4360px; left: 6713px"></div>
-      <div class="pneumatic-tube absolute"></div>
-      <div class="shuttle-foreground absolute"></div>
-      <div class="on-the-ground absolute"> </div>
-    </div>
-  </div> -->
 </body>
 
 </html>

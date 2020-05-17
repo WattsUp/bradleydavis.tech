@@ -996,3 +996,115 @@
 }
 
 /********************************* Scene Mars *********************************/
+
+#scene-mars {
+  left: 11000px;
+  bottom: 4770px;
+}
+
+#mars-mountains {
+  width: 5200px;
+  height: 100px;
+  background: url(images/mars-mountains.png);
+}
+
+#mars-ground {
+  width: 5200px;
+  height: 300px;
+  bottom: -260px;
+  background: url(images/mars.png);
+}
+
+#lander {
+  width: 300px;
+  height: 141px;
+  left: 1300px;
+  background: url(images/mars-lander.png);
+}
+
+#lander-mast {
+  width: 24px;
+  height: 300px;
+  bottom: 105px;
+  left: 230px;
+  background: url(images/mars-lander-mast.png);
+  transform-origin: 0% 100%;
+  transform: scale(1.41, 0);
+  -webkit-transform: scale(1.41, 0);
+  -moz-transform: scale(1.41, 0);
+  -ms-transform: scale(1.41, 0);
+  -o-transform: scale(1.41, 0);
+  transition: transform 1s ease-in;
+  -webkit-transition: transform 1s ease-in;
+  -moz-transition: transform 1s ease-in;
+  -ms-transition: transform 1s ease-in;
+  -o-transition: transform 1s ease-in;
+}
+
+#lander-mast>* {
+  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  -o-transform: scaleX(0);
+  transition: transform 1s ease-in;
+  -webkit-transition: transform 1s ease-in;
+  -moz-transition: transform 1s ease-in;
+  -ms-transition: transform 1s ease-in;
+  -o-transition: transform 1s ease-in;
+}
+
+#lander-flag {
+  height: 120px;
+  width: 160px;
+  top: 0;
+  left: 24px;
+  background: url(images/mars-lander-flag.png);
+  background-size: 100% 100%;
+  image-rendering: auto;
+  transform-origin: 0% 0%;
+}
+
+#lander-form {
+  right: 24px;
+  width: 300px;
+  height: 240px;
+  border: 5px solid #737373;
+  background: var(--color-dark);
+  transform-origin: 100% 0%;
+}
+
+#lander-form>* {
+  position: unset;
+  margin: 2px 4px;
+  padding: 2px;
+  width: 292px;
+  box-sizing: border-box;
+}
+
+#lander-form>h4 {
+  text-align: center;
+}
+
+#lander-form>input, #lander-form>textarea {
+  font-size: 14px;
+  border: none;
+  font-family: quicksand;
+}
+
+#lander-form>textarea {
+  height: 120px;
+  resize: none;
+}
+
+#lander-form>.button {
+  font-size: 18px;
+  text-align: center;
+  display: block;
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  font-family: code-new-roman;
+}
