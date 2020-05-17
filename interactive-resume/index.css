@@ -417,66 +417,6 @@ h4 {
 
 /*
 
-.shuttle {
-  width: 198px;
-  height: 275px;
-  bottom: 5010px;
-  left: 1899px;
-  background-image: url('images/shuttle-left.png');
-}
-
-.shuttle-thrust {
-  width: 12px;
-  height: 45px;
-  bottom: 5px;
-  left: -12px;
-  background-image: url('images/shuttle-thrust.png');
-}
-
-.shuttle-foreground {
-  width: 283px;
-  height: 275px;
-  bottom: 5010px;
-  left: 8660px;
-  background-image: url('images/shuttle-right.png');
-}
-
-.shuttle-door-top {
-  width: 115px;
-  height: 140px;
-  top: 10px;
-  left: 83px;
-  transform-origin: 50% 0%;
-}
-
-.shuttle-door-top.exterior {
-  background-image: url('images/shuttle-door-top-exterior.png');
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.shuttle-door-top.interior {
-  background-image: url('images/shuttle-door-top-interior.png');
-}
-
-.shuttle-door-bottom {
-  width: 115px;
-  height: 60px;
-  bottom: 65px;
-  left: 83px;
-  transform-origin: 50% 100%;
-}
-
-.shuttle-door-bottom.exterior {
-  background-image: url('images/shuttle-door-bottom-exterior.png');
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
-
-.shuttle-door-bottom.interior {
-  background-image: url('images/shuttle-door-bottom-interior.png');
-}
-
 .award-meteor {
   width: 400px;
   height: 400px;

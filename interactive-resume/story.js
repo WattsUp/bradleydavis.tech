@@ -36,6 +36,7 @@ var story = {
     this.rocketEngineering.init();
     this.rocketBridge.init();
     this.rocketStorage.init();
+    this.shuttle.init();
 
     window.addEventListener('scroll', function() {
       story.scrollListener(false);
@@ -70,8 +71,10 @@ var story = {
       this.launchPad.update(centerX);
     if ((centerX > 7000 && centerX < 10000) || force)
       this.rocketEngineering.update(centerX);
-    if ((centerX > 13000 && centerX < 21000) || force)
+    if ((centerX > 13000 && centerX < 17000) || force)
       this.rocketBridge.update(centerX);
+    if ((centerX > 17000 && centerX < 21000) || force)
+      this.shuttle.update(centerX);
     console.log(centerX);
   },
   /**
@@ -83,9 +86,14 @@ var story = {
     brad.standStill = (x < 6050 && x > 2710) ||  // On the rover
         (x < 7560 && x > 6740) ||                // On the elevator
         (x < 13570 && x > 9970) ||               // In the tube
-        (x < 16270 && x > 15670);                // In the tube
+        (x < 16270 && x > 15670) ||              // In the tube
+        (x < 19000 && x > 18330);                // In the shuttle
 
-    if (x > 13840) {  // End of tube 0
+    if (x > 18100) {
+      brad.jump(true, 66);
+    } else if (x > 17000) {
+      brad.jump(false, 0);
+    } else if (x > 13840) {  // End of tube 0
       brad.setTransform(0, 0)
     } else if (x > 13570) {
       brad.setTransform(13570 - x + 270, 0)
@@ -485,11 +493,6 @@ var story = {
       this.setProject(0);
     },
     /**
-     * Update the scene
-     * @param {int} x
-     */
-    update: function(x) {},
-    /**
      *
      * @param {integer} index of project to switch to
      */
@@ -589,6 +592,58 @@ var story = {
       time += 500;
 
       this.currentProject = index;
+    }
+  },
+  shuttle: {
+    shuttle: null,
+    thrust: null,
+    shuttleForground: null,
+    doorTop: [],
+    doorBottom: [],
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.shuttle = document.getElementById('shuttle');
+      this.thrust = document.getElementById('shuttle-thrust');
+      this.shuttleForground = document.getElementById('shuttle-foreground');
+      this.doorTop = document.querySelectorAll('#shuttle>.door-top');
+      this.doorBottom = document.querySelectorAll('#shuttle>.door-bottom');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      if (x > 18250) {
+        // Close door
+        this.doorTop[0].style.transform = 'perspective(600px) rotateX(0)';
+        this.doorTop[1].style.transform = 'perspective(600px) rotateX(0)';
+        this.doorBottom[0].style.transform = 'perspective(600px) rotateX(0)';
+        this.doorBottom[1].style.transform = 'perspective(600px) rotateX(0)';
+      } else {
+        // Open door
+        this.doorTop[0].style.transform = 'perspective(600px) rotateX(180deg)';
+        this.doorTop[1].style.transform = 'perspective(600px) rotateX(180deg)';
+        this.doorBottom[0].style.transform =
+            'perspective(600px) rotateX(-180deg)';
+        this.doorBottom[1].style.transform =
+            'perspective(600px) rotateX(-180deg)';
+      }
+
+      if (x > 18340) {
+        let shuttleX = x - 18340;
+        let shuttleY = 0;
+        this.shuttle.style.transform =
+            'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
+        this.shuttleForground.style.transform =
+            'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
+        this.thrust.hidden = false;
+      } else {
+        this.shuttle.style.transform = 'translate(0, 0)';
+        this.shuttleForground.style.transform = 'translate(0, 0)';
+        this.thrust.hidden = true;
+      }
     }
   }
 };

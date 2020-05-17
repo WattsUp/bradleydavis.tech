@@ -868,6 +868,79 @@
   position: absolute;
 }
 
+/********************************** Shuttle ***********************************/
+
+#shuttle {
+  width: 198px;
+  height: 275px;
+  bottom: 5020px;
+  left: 8760px;
+  background: url(images/shuttle-left.png);
+}
+
+#shuttle-thrust {
+  width: 12px;
+  height: 45px;
+  bottom: 5px;
+  left: -12px;
+  background: url(images/shuttle-thrust.png);
+}
+
+#shuttle>.door-top {
+  width: 115px;
+  height: 140px;
+  top: 10px;
+  left: 83px;
+  transform-origin: 50% 0%;
+  transform-style: preserve-3d;
+  transition: transform 500ms ease-out;
+  -webkit-transition: transform 500ms ease-out;
+  -moz-transition: transform 500ms ease-out;
+  -ms-transition: transform 500ms ease-out;
+  -o-transition: transform 500ms ease-out;
+}
+
+#shuttle>.door-top.exterior {
+  background: url(images/shuttle-door-top-exterior.png);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#shuttle>.door-top.interior {
+  background: url(images/shuttle-door-top-interior.png);
+}
+
+#shuttle>.door-bottom {
+  width: 115px;
+  height: 60px;
+  bottom: 65px;
+  left: 83px;
+  transform-origin: 50% 100%;
+  transition: transform 500ms ease-out;
+  -webkit-transition: transform 500ms ease-out;
+  -moz-transition: transform 500ms ease-out;
+  -ms-transition: transform 500ms ease-out;
+  -o-transition: transform 500ms ease-out;
+}
+
+#shuttle>.door-bottom.exterior {
+  background: url(images/shuttle-door-bottom-exterior.png);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+#shuttle>.door-bottom.interior {
+  background: url(images/shuttle-door-bottom-interior.png);
+}
+
+#shuttle-foreground {
+  width: 283px;
+  height: 275px;
+  bottom: 5020px;
+  left: 8958px;
+  background: url(images/shuttle-right.png);
+}
+
 /***************************** Scene Astroid Belt *****************************/
 
 /********************************* Scene Mars *********************************/
