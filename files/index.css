@@ -5,7 +5,7 @@
   box-sizing: border-box;
   background: var(--color-light);
   color: var(--color-dark);
-  margin: 0 auto 0.25in auto;
+  margin: 0 auto 0.25in;
   font-size: 13px;
 }
 

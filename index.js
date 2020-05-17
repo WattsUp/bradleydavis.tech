@@ -1,20 +1,23 @@
-"use strict";
+'use strict';
 
 /**
  * Changes the message about the current food day
  * Reruns at midnight
  */
 function updateFoodMessage() {
-  var menu = [
+  let menu = [
     'Sundae Sunday', 'Meatloaf Monday', 'Thai Tuesday', 'Waffle Wednesday',
     'Turnip Thursday', 'Fried Food Friday', 'Salmon Saturday'
   ];
-  document.getElementById('food-message').innerHTML =
-      menu[(new Date()).getDay()];
-  var today = new Date();
-  var tomorrow =
+  let location =
+      ['freezer', 'fridge', 'fridge', 'fridge', 'pantry', 'fridge', 'grill'];
+  let today = new Date();
+  let i = today.getDay();
+  document.getElementById('food-message').innerHTML = menu[i];
+  document.getElementById('food-location').innerHTML = location[i];
+  let tomorrow =
       new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
-  var timeToMidnight = tomorrow - today;
+  let timeToMidnight = tomorrow - today;
   setTimeout(updateFoodMessage, timeToMidnight);
 }
 
