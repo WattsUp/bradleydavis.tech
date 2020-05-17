@@ -164,7 +164,7 @@ h4 {
   display: block;
   background: url(images/ground-flooring-concrete.png);
   height: 40px;
-  top: 0px;
+  top: 0;
   width: 100%;
   position: absolute;
 }

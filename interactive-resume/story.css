@@ -337,7 +337,7 @@
   width: 300px;
   height: 20px;
   background: url(images/caution-tape.png);
-  top: 0px;
+  top: 0;
   left: 500px;
 }
 
@@ -578,7 +578,6 @@
 }
 
 .box {
-  font-size: 20px;
   text-align: center;
   font-family: tektrron;
   color: var(--color-primary);
@@ -589,21 +588,21 @@
 .box.s70 {
   width: 70px;
   height: 70px;
-  padding: 40px 10px 10px 10px;
+  padding: 40px 10px 10px;
   background: url(images/box-square-70.png);
 }
 
 .box.s100 {
   width: 100px;
   height: 100px;
-  padding: 70px 10px 10px 10px;
+  padding: 70px 10px 10px;
   background: url(images/box-square-100.png);
 }
 
 .box.e100 {
   width: 100px;
   height: 100px;
-  padding: 40px 10px 10px 10px;
+  padding: 40px 10px 10px;
   background: url(images/box-end-square-100.png);
 }
 

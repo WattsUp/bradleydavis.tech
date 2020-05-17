@@ -48,11 +48,11 @@ var story = {
     let scrollX = window.scrollY;
     let centerX = scrollX + document.documentElement.offsetWidth / 2;
 
-    // every 500px of movement, check and hide offscreen scenes
-    if (Math.abs(scrollX - this.lastOffscreenSceneCheck) > 500) {
-      this.hideOffscreenScenes();
+    // every 200px of movement, check and hide offscreen scenes
+    if (Math.abs(scrollX - this.lastOffscreenSceneCheck) > 200) {
+      this.hideOffscreenScenes(centerX);
       this.lastOffscreenSceneCheck = scrollX;
-      force = true;
+      // force = true;
     }
 
     // Move the backgrounds
@@ -129,25 +129,27 @@ var story = {
 
     brad.setMask(x > 23132);
 
-
     this.lastX = x;
   },
   /**
    * Hide the children of scenes that are off screen to reduce layout processing
+   * @param {int} x
    */
-  hideOffscreenScenes: function() {
-    // var bottomThreshold = window.innerHeight + 500;
-    // var leftThreshold = window.innerWidth + 500;
-    // this.scenes.forEach(scene => {
-    //   var rect = scene.getBoundingClientRect();
-    //   var hidden =
-    //       (rect.left > leftThreshold || rect.right < -500 ||
-    //        rect.top > bottomThreshold || rect.bottom < -500);
-    //   if (hidden) console.log(scene);
-    //   for (var i = 0; i < scene.children.length; i++) {
-    //     scene.children[i].hidden = hidden;
-    //   }
-    // });
+  hideOffscreenScenes: function(x) {
+    this.scenes[0].hidden = (x > 2900);                 // Intro sign
+    this.scenes[1].hidden = (x > 2900);                 // Intro scene
+    this.scenes[2].hidden = (x > 7600 || x < 1000);     // Lab
+    this.scenes[3].hidden = (x > 8300 || x < 5200);     // Launch pad
+    this.scenes[4].hidden = (x > 7800 || x < 6000);     // Engines
+    this.scenes[5].hidden = (x > 11100 || x < 6000);    // Engineering
+    this.scenes[6].hidden = (x > 11900 || x < 7100);    // XP 0
+    this.scenes[7].hidden = (x > 12900 || x < 10400);   // XP 1
+    this.scenes[8].hidden = (x > 13800 || x < 11300);   // XP 2
+    this.scenes[9].hidden = (x > 16500 || x < 12200);   // Bridge
+    this.scenes[10].hidden = (x > 19400 || x < 12800);  // Storage
+    this.scenes[11].hidden = (x > 19400 || x < 15800);  // Above storage
+    this.scenes[12].hidden = (x > 22300 || x < 19300);  // Astroid belt
+    this.scenes[13].hidden = (x < 22500);               // Mars
   },
   /**
    * Set the position of the backgrounds based on the scroll state
