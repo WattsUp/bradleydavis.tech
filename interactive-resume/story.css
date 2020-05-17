@@ -943,4 +943,56 @@
 
 /***************************** Scene Astroid Belt *****************************/
 
+#scene-asteroid-belt {
+  left: 11000px;
+  bottom: 5000px;
+}
+
+#scene-asteroid-belt>div {
+  width: 400px;
+  height: 400px;
+}
+
+#scene-asteroid-belt .background {
+  width: 400px;
+  height: 400px;
+  background: url(images/asteroid.png);
+  animation: rock 5s infinite ease-in-out;
+  -webkit-animation: rock 5s infinite ease-in-out;
+}
+
+@keyframes rock {
+  0% {
+    transform: rotateZ(0);
+    -webkit-transform: rotateZ(0);
+    -moz-transform: rotateZ(0);
+    -ms-transform: rotateZ(0);
+    -o-transform: rotateZ(0);
+  }
+  50% {
+    transform: rotateZ(15deg);
+    -webkit-transform: rotateZ(15deg);
+    -moz-transform: rotateZ(15deg);
+    -ms-transform: rotateZ(15deg);
+    -o-transform: rotateZ(15deg);
+  }
+}
+
+#scene-asteroid-belt .overlay {
+  width: 300px;
+  text-align: center;
+  text-shadow: 0 0 5px #737373, 0 0 10px #737373, 0 0 15px #737373, 0 0 20px #737373;
+  left: 50px;
+  top: 200px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+#scene-asteroid-belt .overlay * {
+  position: unset;
+}
+
 /********************************* Scene Mars *********************************/

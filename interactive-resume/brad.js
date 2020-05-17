@@ -13,6 +13,7 @@ var brad = {
   currentFrame: 0,
   moving: false,
   standStill: false,
+  masks: [],
   /**
    * Initialize the sprite, add listeners
    */
@@ -22,6 +23,8 @@ var brad = {
     this.eyeLids[0] = document.querySelector('#brad .eyes.right');
     this.eyeLids[1] = document.querySelector('#brad .eyes.left');
     this.teleporterScience = document.getElementById('teleporter-science');
+    this.masks[0] = document.querySelector('#brad .mask.right');
+    this.masks[1] = document.querySelector('#brad .mask.left');
 
     this.eyeLids[0].hidden = false;
     this.eyeLids[1].hidden = true;
@@ -48,6 +51,8 @@ var brad = {
   walk: function() {
     this.eyeLids[0].hidden = !this.movingRight;
     this.eyeLids[1].hidden = this.movingRight;
+    this.masks[0].hidden = !this.movingRight;
+    this.masks[1].hidden = this.movingRight;
     if (this.movingRight)
       this.sprite.style.backgroundPositionY = 'top';
     else
@@ -107,6 +112,14 @@ var brad = {
     this.container.classList.remove('jump-down');
     this.container.style.transform =
         'translate(-50%, 0) translate(' + x + 'px, ' + y + 'px)';
+  },
+  /**
+   * Put on or take off the oxygen mask
+   * @param {boolean} on true puts mask on, false otherwise
+   */
+  setMask: function(on) {
+    this.masks[0].style.opacity = on ? 1 : 0;
+    this.masks[1].style.opacity = on ? 1 : 0;
   }
 };
 

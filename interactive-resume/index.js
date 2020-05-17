@@ -45,6 +45,8 @@ var scene = {
 
     setInterval(this.rocketChangeLEDs.bind(this), 1000);
     this.rocketChangeLEDs();
+
+    this.setAsteroidAnimations();
   },
   /**
    * Draw stars randomly on the stars canvas
@@ -170,6 +172,15 @@ var scene = {
         this.rocketBridgeConsole.fillRect(x * 6, y * 6, 4, 4);
       }
     }
+  },
+  setAsteroidAnimations: function() {
+    document.querySelectorAll('#scene-asteroid-belt .background')
+        .forEach(asteroid => {
+          asteroid.style.animationDuration =
+              (Math.random() * 10 + 10).toFixed(1) + 's';
+          asteroid.style.animationDelay =
+              -(Math.random() * 10).toFixed(1) + 's';
+        });
   },
   /**
    * Font object to perform fontOnLoad callback

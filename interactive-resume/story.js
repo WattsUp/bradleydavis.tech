@@ -6,7 +6,6 @@
 var story = {
   scenes: [],
   lastOffscreenSceneCheck: 0,
-  masks: [],
   distance: [],
   distanceSpace: null,
   lastX: 0,
@@ -15,9 +14,6 @@ var story = {
    * Initialize the story, add listeners
    */
   init: function() {
-    this.masks[0] = document.querySelector('#brad .mask.right');
-    this.masks[1] = document.querySelector('#brad .mask.left');
-
     this.distance[0] = document.querySelectorAll('.distance.d0');
     this.distance[1] = document.querySelector('.distance.d1');
     this.distance[2] = document.querySelector('.distance.d2');
@@ -27,9 +23,6 @@ var story = {
 
     this.scenes = document.querySelectorAll('.scene');
     this.hideOffscreenScenes();
-
-    this.masks[0].hidden = true;
-    this.masks[1].hidden = true;
 
     this.lab.init();
     this.launchPad.init();
@@ -73,8 +66,7 @@ var story = {
       this.rocketEngineering.update(centerX);
     if ((centerX > 13000 && centerX < 17000) || force)
       this.rocketBridge.update(centerX);
-    if ((centerX > 17000 && centerX < 21000) || force)
-      this.shuttle.update(centerX);
+    if ((centerX > 17000) || force) this.shuttle.update(centerX);
     console.log(centerX);
   },
   /**
@@ -87,9 +79,25 @@ var story = {
         (x < 7560 && x > 6740) ||                // On the elevator
         (x < 13570 && x > 9970) ||               // In the tube
         (x < 16270 && x > 15670) ||              // In the tube
-        (x < 19000 && x > 18330);                // In the shuttle
+        (x < 23000 && x > 18330);                // In the shuttle
 
-    if (x > 18100) {
+    if (x > 23220) {
+      brad.jump(false, 0);
+    } else if (x > 23000) {
+      brad.jump(true, 66);
+    } else if (x > 21050) {
+      brad.setTransform(0, -66);
+    } else if (x > 20900) {
+      brad.setTransform(0, -(66 + (20200 - 19800) - 100 - 2 * (x - 20900)));
+    } else if (x > 20800) {
+      brad.setTransform(0, -(66 + (20200 - 19800) - (x - 20800)));
+    } else if (x > 20200) {
+      brad.setTransform(0, -(66 + (20200 - 19800)));
+    } else if (x > 19800) {
+      brad.setTransform(0, -(66 + (x - 19800)));
+    } else if (x > 19000) {
+      brad.setTransform(0, -66);
+    } else if (x > 18100) {
       brad.jump(true, 66);
     } else if (x > 17000) {
       brad.jump(false, 0);
@@ -111,11 +119,15 @@ var story = {
       brad.jump(false, 0)
     }
 
-    if (x > 13570 && x < 16270) {  // Reverse walking
+    if ((x > 13570 && x < 16270) || x > 22500) {  // Reverse walking
       brad.enqueueWalk(x < this.lastX);
     } else {
       brad.enqueueWalk(x > this.lastX);
     }
+
+    brad.setMask(x > 23132);
+
+
     this.lastX = x;
   },
   /**
@@ -150,7 +162,19 @@ var story = {
       backgroundShiftY = 6000;
     }
 
-    if (centerX > 16270) {
+    if (centerX > 23000) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - 500;
+      x = -(9700 - halfWidth - 820 - 1830 + 22500 - 16270 - (centerX - 23000));
+    } else if (centerX > 22500) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - (centerX - 22500);
+      x = -(9700 - halfWidth - 820 - 1830 + 22500 - 16270);
+    } else if (centerX > 21050) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250;
+      x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
+    } else if (centerX > 20800) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + (centerX - 20800);
+      x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
+    } else if (centerX > 16270) {
       y = 820 + 13570 - 9970 + 16270 - 15670;
       x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
     } else if (centerX > 15670) {
@@ -615,7 +639,7 @@ var story = {
      * @param {int} x
      */
     update: function(x) {
-      if (x > 18250) {
+      if (x > 18250 && x < 23108) {
         // Close door
         this.doorTop[0].style.transform = 'perspective(600px) rotateX(0)';
         this.doorTop[1].style.transform = 'perspective(600px) rotateX(0)';
@@ -631,19 +655,38 @@ var story = {
             'perspective(600px) rotateX(-180deg)';
       }
 
-      if (x > 18340) {
-        let shuttleX = x - 18340;
-        let shuttleY = 0;
-        this.shuttle.style.transform =
-            'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
-        this.shuttleForground.style.transform =
-            'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
+      let shuttleX = 0;
+      let shuttleY = 0;
+      if (x > 23000) {
+        shuttleX = 22500 - 18340;
+        shuttleY = -(400 - 150 - 500);
+        this.thrust.hidden = true;
+      } else if (x > 22500) {
+        shuttleX = 22500 - 18340;
+        shuttleY = -(400 - 150 - (x - 22500));
+      } else if (x > 21050) {
+        shuttleX = x - 18340;
+        shuttleY = -(400 - 150);
+      } else if (x > 20900) {
+        shuttleX = x - 18340;
+        shuttleY = -(400 - (x - 20900));
+      } else if (x > 20200) {
+        shuttleX = x - 18340;
+        shuttleY = -(400);
+      } else if (x > 19800) {
+        shuttleX = x - 18340;
+        shuttleY = -(x - 19800);
+      } else if (x > 18340) {
+        shuttleX = x - 18340;
+        shuttleY = 0;
         this.thrust.hidden = false;
       } else {
-        this.shuttle.style.transform = 'translate(0, 0)';
-        this.shuttleForground.style.transform = 'translate(0, 0)';
         this.thrust.hidden = true;
       }
+      this.shuttle.style.transform =
+          'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
+      this.shuttleForground.style.transform =
+          'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
     }
   }
 };
