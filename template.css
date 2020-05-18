@@ -88,9 +88,15 @@ code {
 
 main {
   display: block;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 11rem;
+}
+
+@media (min-width: 770px) {
+  main {
+    width: 80%;
+  }
 }
 
 main::after {
