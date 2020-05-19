@@ -493,6 +493,10 @@ ul.dark li li li {
   background-image: url('/images/bullet-3-dark.png');
 }
 
+ol {
+  padding-inline-start: 2rem;
+}
+
 /********************************** Spoilers **********************************/
 
 .spoiler {
