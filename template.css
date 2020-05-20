@@ -450,7 +450,7 @@ footer>span>a {
 /*************************** Unordered list bullets ***************************/
 
 ul {
-  padding-left: 1.0;
+  padding-left: 1.0rem;
   list-style-type: none;
 }
 
