@@ -1,33 +1,33 @@
 'use strict';
 
-var lazy = {
+let lazy = {
   timeout: null,
   /**
    * Initialize listeners
    */
   init: function() {
-    lazy.load();
-    window.addEventListener('scroll', lazy.load);
-    window.addEventListener('resize', lazy.load);
-    window.addEventListener('orientationChange', lazy.load);
+    this.load();
+    window.addEventListener('scroll', this.load.bind(this));
+    window.addEventListener('resize', this.load.bind(this));
+    window.addEventListener('orientationChange', this.load.bind(this));
   },
   /**
    * Defer loading until a bit after event stop firing, prevents call spamming
    */
   load: function() {
-    if (lazy.timeout) clearTimeout(lazy.timeout);
-    lazy.timeout = setTimeout(lazy.loadImages, 50);
+    if (this.timeout) clearTimeout(this.timeout);
+    this.timeout = setTimeout(this.loadImages.bind(this), 50);
   },
   /**
    * Load images that are not yet loaded and are at least partially visible
    */
   loadImages: function() {
-    var visbibleTop = window.pageYOffset;
-    var visibleBottom = visbibleTop + window.innerHeight;
+    let visibleTop = window.pageYOffset;
+    let visibleBottom = visibleTop + window.innerHeight;
     document.querySelectorAll('.lazy').forEach(image => {
-      var imageTop = image.offsetTop;
-      var imageBottom = imageTop + image.offsetHeight;
-      if (imageTop < visibleBottom && imageBottom > visbibleTop) {
+      let imageTop = image.offsetTop;
+      let imageBottom = imageTop + image.offsetHeight;
+      if (imageTop < visibleBottom && imageBottom > visibleTop) {
         let src = ''
         if (image.classList.contains('full')) src =
             image.getAttribute('src').replace('_lazy', '');

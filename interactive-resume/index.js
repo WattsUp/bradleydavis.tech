@@ -3,7 +3,7 @@
 /**
  * Creation of dynamic scene elements, movement of the scene
  */
-var scene = {
+let scene = {
   labParticles: null,
   labParticleMasks: [],
   labParticleLightning: null,
@@ -67,8 +67,9 @@ var scene = {
    * Actions to perform once the page is first scrolled
    */
   onFirstScroll: function() {
+    // Needs to be scene. bind messes up references
     window.removeEventListener('scroll', scene.onFirstScroll);
-    var scrollDown = document.getElementById('scroll-down');
+    let scrollDown = document.getElementById('scroll-down');
     scrollDown.parentNode.removeChild(scrollDown);
   },
   /**
@@ -79,7 +80,7 @@ var scene = {
     this.labParticles.style.height = '0';
 
     setTimeout(function() {
-      for (var i = 0; i < this.labParticleMasks.length; i++)
+      for (let i = 0; i < this.labParticleMasks.length; i++)
         this.labParticleMasks[i].hidden = (i != this.labParticleCurrent);
       this.labParticleCurrent =
           (this.labParticleCurrent + 1) % this.labParticleMasks.length;
@@ -94,10 +95,10 @@ var scene = {
    */
   labAddBubbles: function() {
     document.querySelectorAll('.fluid').forEach(fluid => {
-      var bubbleSpaceWidth =
+      let bubbleSpaceWidth =
           parseInt(window.getComputedStyle(fluid).width) - 10 - 20;
-      for (var i = 0; i < 5; i++) {
-        var bubble = document.createElement('div');
+      for (let i = 0; i < 5; i++) {
+        let bubble = document.createElement('div');
         bubble.classList.add('bubble');
         bubble.style.animationDuration =
             (Math.random() * 3 + 3).toFixed(1) + 's';
