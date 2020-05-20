@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 var lazy = {
   timeout: null,
@@ -28,7 +28,10 @@ var lazy = {
       var imageTop = image.offsetTop;
       var imageBottom = imageTop + image.offsetHeight;
       if (imageTop < visibleBottom && imageBottom > visbibleTop) {
-        var src = image.getAttribute('src').replace('_lazy', '_preview');
+        let src = ''
+        if (image.classList.contains('full')) src =
+            image.getAttribute('src').replace('_lazy', '');
+        else src = image.getAttribute('src').replace('_lazy', '_preview');
         image.setAttribute('src', src);
         image.classList.remove('lazy');
       }

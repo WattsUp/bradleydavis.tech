@@ -563,11 +563,37 @@ ol {
 /*********************************** Banner ***********************************/
 
 banner {
-  height: 30rem;
+  height: 15rem;
   width: 100%;
   background-size: cover;
   background-position: center;
   display: inline-block;
+  position: relative;
+}
+
+@media (min-width: 770px) {
+  banner {
+    height: 30rem;
+  }
+}
+
+banner>a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  overflow: hidden;
+}
+
+banner>a>img {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
 }
 
 banner>div {
@@ -579,16 +605,14 @@ banner>div {
 }
 
 banner>div>h1 {
-  text-shadow: 0.1rem 0.1rem 0.5rem #282828;
-  text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark);
+  text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark), 0.1rem 0.1rem 1rem var(--color-dark), 0rem 0rem 0.1rem var(--color-dark);
 }
 
 banner>div>p {
   padding: 0.5rem 0;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: bold;
-  text-shadow: 0.1rem 0.1rem 1rem #282828;
-  text-shadow: 0.1rem 0.1rem 1rem var(--color-dark);
+  text-shadow: 0.1rem 0.1rem 0.25rem var(--color-dark), 0.1rem 0.1rem 0.5rem var(--color-dark);
 }
 
 banner>div>a {
