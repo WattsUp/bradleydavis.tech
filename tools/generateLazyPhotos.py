@@ -59,7 +59,7 @@ def addFile(files, file, excludeFiles, force):
         return
   if file in files:
     return
-  matches = re.match(r"(.*)(?<!_lazy)(?<!_preview)\.(jpg|png)$",file, re.I)
+  matches = re.match(r"(.*)(?<!_lazy)(?<!_preview)\.(jpg|png|jpeg)$",file, re.I)
   if matches:
     if not force and os.path.exists(matches.expand(r"\1_lazy.\2")):
       return
@@ -97,7 +97,7 @@ def processFile(file):
          file]
   subprocess.check_call(cmd)
 
-  matches = re.match(r"(.*)\.(jpg|png)$", file, re.I)
+  matches = re.match(r"(.*)\.(jpg|png|jpeg)$", file, re.I)
   name = matches.expand(r"\1_preview.\2")
   resize(file, size, 800, name, False)
   name = matches.expand(r"\1_lazy.\2")
