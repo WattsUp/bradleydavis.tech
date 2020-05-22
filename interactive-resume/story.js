@@ -3,7 +3,7 @@
 /**
  * Story elements including scroll position initiated element changes
  */
-var story = {
+let story = {
   scenes: [],
   lastOffscreenSceneCheck: 0,
   distance: [],
@@ -33,10 +33,10 @@ var story = {
     this.mars.init();
 
     window.addEventListener('scroll', function() {
-      story.scrollListener(false);
+      this.scrollListener(false);
     }.bind(this));
     window.addEventListener('resize', function() {
-      story.scrollListener(true);
+      this.scrollListener(true);
     }.bind(this));
   },
   /**

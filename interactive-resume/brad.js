@@ -3,7 +3,7 @@
 /**
  * The Brad sprite: movement, animation
  */
-var brad = {
+let brad = {
   container: null,
   sprite: null,
   eyeLids: [],
