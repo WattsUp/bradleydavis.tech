@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-var footer = {
+let footer = {
   brad: null,
   sprite: null,
   interval: null,
@@ -18,65 +18,65 @@ var footer = {
     this.sprite = this.brad.children[0];
     this.footer = document.getElementsByTagName('footer')[0];
 
-    this.brad.addEventListener('click', this.moveManual, false);
+    this.brad.addEventListener('click', this.moveManual.bind(this), false);
     this.moveManual();
   },
   /**
    * Reset interval to now and execute a walk
    */
   moveManual: function() {
-    clearInterval(footer.interval);
-    footer.interval = setInterval(footer.move, 4000);
-    footer.move();
+    clearInterval(this.interval);
+    this.interval = setInterval(this.move.bind(this), 4000);
+    this.move();
   },
   /**
    * Random walk within the bottom area, enqueue frames
    */
   move: function() {
-    var width = footer.brad.offsetWidth;
-    var change = Math.floor((Math.random() * 1.5 + 0.5) * width);
-    var position = footer.brad.offsetLeft;
+    let width = this.brad.offsetWidth;
+    let change = Math.floor((Math.random() * 1.5 + 0.5) * width);
+    let position = this.brad.offsetLeft;
     if (position - change < 0) {
       position = position + change;
-    } else if (position + change > (footer.footer.offsetWidth - width)) {
+    } else if (position + change > (this.footer.offsetWidth - width)) {
       position = position - change;
     } else if (Math.random() > 0.5) {
       position = position + change;
     } else {
       position = position - change;
     }
-    footer.brad.style.left = position + 'px';
-    if (!footer.moving) {
-      footer.movingRight = footer.lastPosition < position;
-      footer.moving = true;
-      setTimeout(footer.walk, footer.frameTime);
-      setTimeout(footer.walk, footer.frameTime * 2);
-      setTimeout(footer.walk, footer.frameTime * 3);
-      setTimeout(footer.walk, footer.frameTime * 4);
-      setTimeout(footer.walk, footer.frameTime * 5);
-      setTimeout(footer.walk, footer.frameTime * 6);
-      setTimeout(footer.walk, footer.frameTime * 7);
-      setTimeout(footer.walk, footer.frameTime * 8);
+    this.brad.style.left = position + 'px';
+    if (!this.moving) {
+      this.movingRight = this.lastPosition < position;
+      this.moving = true;
+      setTimeout(this.walk.bind(this), this.frameTime);
+      setTimeout(this.walk.bind(this), this.frameTime * 2);
+      setTimeout(this.walk.bind(this), this.frameTime * 3);
+      setTimeout(this.walk.bind(this), this.frameTime * 4);
+      setTimeout(this.walk.bind(this), this.frameTime * 5);
+      setTimeout(this.walk.bind(this), this.frameTime * 6);
+      setTimeout(this.walk.bind(this), this.frameTime * 7);
+      setTimeout(this.walk.bind(this), this.frameTime * 8);
     }
-    footer.lastPosition = position;
+    this.lastPosition = position;
   },
   /**
    * Animate the sprite by swapping frames
    */
   walk: function() {
-    footer.sprite.style.bottom = (footer.movingRight * -7) + 'rem';
-    footer.currentFrame = (footer.currentFrame + 1) % 4;
-    switch (footer.currentFrame) {
+    this.sprite.style.bottom = (this.movingRight * -7) + 'rem';
+    this.currentFrame = (this.currentFrame + 1) % 4;
+    switch (this.currentFrame) {
       case 0:
       case 2:
-        footer.sprite.style.left = '0rem';
-        footer.moving = false;
+        this.sprite.style.left = '0rem';
+        this.moving = false;
         break;
       case 1:
-        footer.sprite.style.left = '-7rem';
+        this.sprite.style.left = '-7rem';
         break;
       case 3:
-        footer.sprite.style.left = '-14rem';
+        this.sprite.style.left = '-14rem';
         break;
     }
   }

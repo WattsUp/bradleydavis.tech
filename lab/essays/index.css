@@ -1,0 +1,90 @@
+.essay-intro {
+  text-indent: -60px;
+  margin-left: 60px;
+}
+
+.essay-intro>a {
+  font-weight: bold;
+}
+
+.page {
+  background: var(--color-light);
+  color: var(--color-dark);
+  max-width: 8.5in;
+  margin: 0.25in auto;
+  padding: 0.25in 0.375in;
+  font-family: 'chiq';
+}
+
+@media (min-width: 770px) {
+  .page {
+    padding: 0.5in 0.75in;
+  }
+}
+
+.page p {
+  text-indent: 3rem;
+  text-align: justify;
+  line-height: 1.5rem;
+}
+
+.page h4, .page h5 {
+  text-align: center;
+}
+
+.page h5 {
+  color: var(--color-dark-b50)
+}
+
+.page sup {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.3rem;
+}
+
+#tooltip {
+  position: absolute;
+  transform: translate(-50%, 26px);
+  -webkit-transform: translate(-50%, 26px);
+  -moz-transform: translate(-50%, 26px);
+  -ms-transform: translate(-50%, 26px);
+  -o-transform: translate(-50%, 26px);
+  background: var(--color-light);
+  color: var(--color-dark);
+  font-size: 1rem;
+  border: 2px solid var(--color-primary);
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  max-width: 20rem;
+  padding: 8px;
+}
+
+#tooltip:hover {
+  display: block;
+}
+
+#tooltip::before {
+  content: "";
+  border: solid;
+  border-color: var(--color-primary) transparent;
+  border-width: 12px;
+  border-top-width: 0;
+  top: -14px;
+  left: 50%;
+  position: absolute;
+  z-index: 98;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+@media (max-width: 769px) {
+  #tooltip {
+    display: none;
+  }
+}

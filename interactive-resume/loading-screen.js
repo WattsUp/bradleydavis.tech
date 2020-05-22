@@ -3,7 +3,7 @@
 /**
  * Temporary shield protecting against FOUC
  */
-var loading = {
+let loading = {
   context: null,
   startPoint: null,
   interval: null,

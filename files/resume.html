@@ -2,16 +2,11 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
-  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
   <meta charset="UTF-8">
-  <title>Resume | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
-  <link rel="stylesheet" href="/standardstyle.css">
+  <link rel="stylesheet" href="/template.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
-  <link rel="stylesheet" href="style.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -20,19 +15,24 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="theme-color" content="#52ADE1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Resume | Bradley L. Davis | me@bradleydavis.tech</title>
+  <link rel="stylesheet" href="index.css">
 </head>
 
-<body class="absolute fill-horz">
-  <div class="center-margin size-letter text-body background-light color-dark">
+<body>
+  <div class="paper" id="resume">
     <h1>Bradley L. Davis</h1>
     <h2>Electrical Engineering Student</h2>
-    <h3><span><a id="link-email" href="mailto:me@bradleydavis.tech">me@bradleydavis.tech</a></span> <span><a
-          id="link-cell" href="tel:+12064847570">206-484-7570</a></span> <span><a id="link-web" href="http://bradleydavis.tech"
-          class="icon web">bradleydavis.tech</a></span> <span><a id="link-github" href="https://github.com/WattsUp/"
-          class="icon github">github.com/WattsUp</a></span></h3>
+    <h3>
+      <a id="link-email" href="mailto:me@bradleydavis.tech">me@bradleydavis.tech</a>
+      <a id="link-cell" href="tel:+12064847570">206-484-7570</a>
+      <a id="link-web" href="http://bradleydavis.tech" class="icon web">bradleydavis.tech</a>
+      <a id="link-github" href="https://github.com/WattsUp/" class="icon github">github.com/WattsUp</a>
+    </h3>
     <hr>
-    <div class="flex-row" style="justify-content: space-between">
-      <div class="panel left">
+    <div id="panels">
+      <div id="xp">
         <h1>Relevant Experience</h1>
         <div class="section">
           <h2>Engineer <span>@ Schweitzer Engineering Laboratories</span></h2>
@@ -41,7 +41,7 @@
             <li>Developed a Gigabit ethernet reliability and throughput testing software</li>
             <li>Fabricated a testing tool that identifies manufacturing defects saving money and life</li>
             <li>Aid board bring up for a Intel based rugged computer</li>
-            <li>Utilise oscilloscopes, digital multimeters, and ethernet sniffers to functionally test hardware</li>
+            <li>Utilise oscilloscopes, digital multimeters, and Ethernet sniffers to functionally test hardware</li>
             <li>Participate in a group with an agile methodology using JIRA</li>
           </ul>
         </div>
@@ -54,7 +54,7 @@
               surface-mount technology</li>
             <li>Construct a Low Earth Orbit communication system with software defined radios</li>
             <li>Write software for embedded microcontrollers</li>
-            <li>Prototype mechanical solutions for predominantly communication systems</li>
+            <li>Prototype mechanical solutions predominantly for communication systems</li>
           </ul>
         </div>
         <div class="section">
@@ -94,48 +94,79 @@
           </ul>
         </div>
       </div>
-      <div class="panel right">
+      <div id="info">
         <h1>Skills</h1>
-        <div class="section">
+        <div class="section" id="skills">
           <h2>Excellent</h2>
-          <div class="column-root"> Autodesk EAGLE<br> Autodesk Inventor<br> Autodesk 3ds Max<br> Microsoft Excel<br>
-            Microsoft Word<br> C/C++<br> Java<br> GIMP<br> </div>
-        </div>
-        <div class="section">
+          <div class="column-root">
+            <p>Autodesk EAGLE</p>
+            <p>Digital Design</p>
+            <p>Autodesk Inventor</p>
+            <p>3D Design</p>
+            <p>Autodesk 3ds Max</p>
+            <p>Microsoft Excel</p>
+            <p>Microsoft Word</p>
+            <p>C/C++</p>
+            <p>Java</p>
+            <p>GIMP</p>
+          </div>
           <h2>Skilled</h2>
-          <div class="column-root"> HTML<br> CSS<br> Javascript<br> Git<br> CNC Machines<br> Troubleshooting<br> SMT
-            Soldering<br> LTSpice<br> Python<br> </div>
-        </div>
-        <div class="section">
+          <div class="column-root">
+            <p>Analog Design</p>
+            <p>LTSpice</p>
+            <p>HTML/CSS</p>
+            <p>Javascript</p>
+            <p>Git</p>
+            <p>Python</p>
+            <p>Regex</p>
+            <p>Sheet Metal Design</p>
+            <p>CNC Machines</p>
+            <p>Graphic Design</p>
+          </div>
           <h2>Familiar</h2>
-          <div class="column-root"> Verilog<br> Unity/C#<br> Autodesk HSM<br> Adobe Illustrator<br> DaVinci Resolve<br>
-            JIRA<br> </div>
+          <div class="column-root">
+            <p>RF Design</p>
+            <p>Verilog</p>
+            <p>CMake</p>
+            <p>Autodesk HSM</p>
+            <p>JIRA</p>
+          </div>
         </div>
-        <h1>Education</h1>
         <div class="section">
+          <h1>Education</h1>
           <h2>Washington State University</h2>
-          <h3>Fall 2017 - Spring 2021</h3>
+          <h3>Fall 2017 - Fall 2021</h3>
           <p>Voiland College of Engineering and Architecture, Honors College</p>
           <p>Bachelors of Science in Electrical Engineering</p>
           <p>Minors in Math and Physics</p>
-          <p>GPA: 3.84</p>
-          <p>President's Honor Roll Fall 2017 - Fall 2018</p>
-        </div>
-        <div class="section">
+          <p>GPA: 3.81</p>
+          <p>President's Honor Roll Fall 2017 - Spring 2020</p>
           <h2>Tahoma Senior High School</h2>
           <h3>Fall 2014 - Spring 2017</h3>
           <p>Graduated with Honors</p>
         </div>
-        <h1>Projects</h1>
         <div class="section">
+          <h1>Projects</h1>
           <h2>Personal and Professional Website</h2>
-          <h3>Spring 2018 - Spring 2019</h3>
+          <h3>Spring 2019</h3>
           <p>First published website serving my resume, portfolio, and life experiences</p>
           <p>Built with HTML, CSS, and JS</p>
+          <h2>C++ Project Template</h2>
+          <h3>Spring 2020</h3>
+          <p>Template git repository for medium to large projects utilizing CMake</p>
         </div>
         <h1>Interests</h1>
-        <div class="column-root"> Learning<br> Space<br> Astrophotography<br> Movies<br> Table top games<br> Cooking &
-          baking<br> Amateur radio<br> Traveling<br> </div>
+        <div class="column-root">
+          <p>Learning</p>
+          <p>Space</p>
+          <p>Astrophotography</p>
+          <p>Movies</p>
+          <p>Table top games</p>
+          <p>Cooking & baking</p>
+          <p>Amateur radio</p>
+          <p>Traveling</p>
+          <p>
+        </div>
       </div>
     </div>
   </div>
