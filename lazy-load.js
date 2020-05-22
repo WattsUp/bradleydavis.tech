@@ -1,43 +1,42 @@
-/**
- * Function once page is fully loaded
- */
-$(window).bind('load', function() {
-  lazyLoad();
-  $(window).bind('scroll', lazyLoad);
-  $(window).bind('resize', lazyLoad);
-  $(window).bind('orientationChange', lazyLoad);
-});
+"use strict";
 
-var images = $('.lazy');
-var lazyLoadTimeout;
-
-/**
- * Function to regulate calls to loadImages
- * Waits 50ms after scrolling stops
- */
-function lazyLoad() {
-  if (lazyLoadTimeout) {
-    clearTimeout(lazyLoadTimeout);
+var lazy = {
+  timeout: null,
+  /**
+   * Initialize listeners
+   */
+  init: function() {
+    lazy.load();
+    window.addEventListener('scroll', lazy.load);
+    window.addEventListener('resize', lazy.load);
+    window.addEventListener('orientationChange', lazy.load);
+  },
+  /**
+   * Defer loading until a bit after event stop firing, prevents call spamming
+   */
+  load: function() {
+    if (lazy.timeout) clearTimeout(lazy.timeout);
+    lazy.timeout = setTimeout(lazy.loadImages, 50);
+  },
+  /**
+   * Load images that are not yet loaded and are at least partially visible
+   */
+  loadImages: function() {
+    var visbibleTop = window.pageYOffset;
+    var visibleBottom = visbibleTop + window.innerHeight;
+    document.querySelectorAll('.lazy').forEach(image => {
+      var imageTop = image.offsetTop;
+      var imageBottom = imageTop + image.offsetHeight;
+      if (imageTop < visibleBottom && imageBottom > visbibleTop) {
+        var src = image.getAttribute('src').replace('_lazy', '_preview');
+        image.setAttribute('src', src);
+        image.classList.remove('lazy');
+      }
+    });
   }
-  lazyLoadTimeout = setTimeout(loadImages, 50);
-}
+};
 
-/**
- * Replaces lazy images with preview if they are visible in the viewport
- */
-function loadImages() {
-  var pageTop = $(window).scrollTop();
-  var pageBottom = pageTop + $(window).height();
-  for (var i = 0; i < images.length; i++) {
-    var img = images.eq(i);
-    var top = img.offset().top;
-    var bottom = top + img.height();
-    if (bottom > pageTop && top < pageBottom) {
-      var src = img.attr('src');
-      src = src.replace('_lazy', '_preview');
-      img.attr('src', src);
-      img.removeClass('lazy');
-    }
-  }
-  images = $('.lazy');
-}
+if (document.readyState == 'Loading')
+  window.addEventListener('DOMContentLoaded', lazy.init);
+else
+  lazy.init();

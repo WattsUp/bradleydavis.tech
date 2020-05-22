@@ -2,14 +2,11 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
-  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
   <meta charset="UTF-8">
-  <title>Tahoma Robotics Club | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
-  <link rel="stylesheet" href="/standardstyle.css">
+  <script async src="/template.js"></script>
+  <link rel="stylesheet" href="/template.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -19,150 +16,194 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="theme-color" content="#52ADE1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Tahoma Robotics Club | Bradley L. Davis | me@bradleydavis.tech</title>
+  <script src="/lazy-load.js"></script>
 </head>
 
-<body class="relative">
-  <header class="background-primary"> <a class="text-title color-dark" href="/">Bradley L. Davis</a>
-    <div class="header-right"> <a class="menu-wheel" href="/about" tabindex="-1">
-        <div class="menu-wheel-icon b-rad"></div>
-        <h1 class="text-body color-dark">About Me</h1>
-      </a> <a class="menu-wheel" href="/portfolio" tabindex="-1">
-        <div class="menu-wheel-icon portfolio"></div>
-        <h1 class="text-body color-dark">Portfolio</h1>
-      </a> <a class="menu-wheel" href="/lab" tabindex="-1">
-        <div class="menu-wheel-icon labs"></div>
-        <h1 class="text-body color-dark">Laboratories</h1>
-      </a> <a class="menu-wheel" href="/life" tabindex="-1">
-        <div class="menu-wheel-icon life"></div>
-        <h1 class="text-body color-dark">Life & Travel</h1>
-      </a> <a class="menu-wheel" href="/contact" tabindex="-1">
-        <div class="menu-wheel-icon contact"></div>
-        <h1 class="text-body color-dark">Contact Me</h1>
-      </a> </div>
+<body>
+  <header>
+    <a href="/">Bradley L. Davis</a>
+    <div>
+      <a href="/about">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="back">
+            <h5>About</h5>
+          </div>
+        </div>
+        <h5>About</h5>
+      </a>
+      <a href="/portfolio">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="back">
+            <h5>Work</h5>
+          </div>
+        </div>
+        <h5>Work</h5>
+      </a>
+      <a href="/lab">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="back">
+            <h5>Labs</h5>
+          </div>
+        </div>
+        <h5>Labs</h5>
+      </a>
+      <a href="/life">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="back">
+            <h5>Life</h5>
+          </div>
+        </div>
+        <h5>Life</h5>
+      </a>
+      <a href="/contact">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="back">
+            <h5>Email</h5>
+          </div>
+        </div>
+        <h5>Email</h5>
+      </a>
+    </div>
   </header>
   <main>
-    <div class="main-text text-body">
-      <h1 class="text-title">Tahoma Robotics Club</h1>
-      <h2 class="text-title"><i>Bear Metal, FRC Team 2046</i></h2>
-      <h2>Design Lead</h2>
-      <h5>September 2012 - June 2017 // Maple Valley, WA</h5>
-      <p><a class="icon-link external" href="https://tahomarobotics.org/"></a></p>
-      <p>Since 2007, Bear Metal has participated in <a href="https://www.firstinspires.org/robotics/frc">FIRST Robotics
-          Competition</a>. FRC is an engineering sport where teams from around the world are given six weeks to
-        strategize, design, fabricate, assemble, wire, program, and practice a human-sized robot. These robots are then
-        pitted against each other by playing a game that changes every year. My brother joined Bear Metal for their 2009
-        season. Every chance I got, I would visit their shop and learn how to build robots. In 2012, I was finally old
-        enough, despite being in middle school, to help the high school team.</p>
-      <div class="clearfix"> <img class="main-text-image float-right lazy"
-          alt="Robot hanging from rope with a its bear head logo visible on its underbelly"
-          title="A successful climb showing off our logo" src="2017-climbing_lazy.jpg">
-        <p><b>2017, Hindenbearg:</b> Senior year for me meant this had to be the best robot I’ve designed. <i>Spoiler:
-            it was</i>. <a href="https://en.wikipedia.org/wiki/FIRST_Steamworks">Steamworks</a>, a steampunk theme,
-          meant the robot had to collect fuel, <i>wiffle balls</i>, to put them in a boiler then climb onto an airship
-          once the propellers had enough gears to spin up. Our robot's chassis was fast by having the maximum number of
-          high-power motors attached. Both the fuel collector and the gear collector were incredibly effective. The
-          double wide shooter, guided by camera, could propel 10 fuel every second into the 8 feet tall boiler. The
-          climber’s spinning hook side Velcro drum fastened to fibrous rope and lifted the entire robot to reveal my
-          Easter egg: the bottom of the robot was the team’s logo which could only revealed with a successful climb.</p>
-        <p class="text-align-center"><img class="main-text-image lazy"
-            alt="Robot driving with blurred background carrying bright green wiffle balls" title="Hindenbearg"
-            src="2017_lazy.jpg"></p>
-      </div>
-      <p class="clearfix">At least 2000 parts, from frame members to motors to bolts to electronics to zip ties, were
-        CADed in <a href="https://www.autodesk.com/products/inventor/">Autodesk Inventor</a>. 90% of that work was my
-        doing over the first 18 days of build season. Once the design started being fabricated by our in-house CNC
-        mills, I moved to rendering a preview. I spent countless hours adjusting materials, lighting, and settings to
-        achieve the photorealistic render. Except as my worst critic, I see areas for improvement now two years later.
+    <h1 class="text-title">Tahoma Robotics Club</h1>
+    <h2 class="text-title"><i>Bear Metal, FRC Team 2046</i></h2>
+    <h2>Design Lead</h2>
+    <h5>September 2012 - June 2017 // Maple Valley, WA</h5>
+    <p><a class="icon-link external" href="https://tahomarobotics.org/"></a></p>
+    <p>Since 2007, Bear Metal has participated in <a href="https://www.firstinspires.org/robotics/frc">FIRST Robotics
+        Competition</a>. FRC is an engineering sport where teams from around the world are given six weeks to
+      strategize, design, fabricate, assemble, wire, program, and practice a human-sized robot. These robots are then
+      pitted against each other by playing a game that changes every year. My brother joined Bear Metal for their 2009
+      season. Every chance I got, I would visit their shop and learn how to build robots. In 2012, I was finally old
+      enough, despite being in middle school, to help the high school team.</p>
+    <div class="clearfix">
+      <img class="right lazy" alt="Robot hanging from rope with a its bear head logo visible on its underbelly"
+        title="A successful climb showing off our logo" src="2017-climbing_lazy.jpg">
+      <p><b>2017, Hindenbearg:</b> Senior year for me meant this had to be the best robot I’ve designed. <i>Spoiler:
+          it was</i>. <a href="https://en.wikipedia.org/wiki/FIRST_Steamworks">Steamworks</a>, a steampunk theme,
+        meant the robot had to collect fuel, <i>wiffle balls</i>, to put them in a boiler then climb onto an airship
+        once the propellers had enough gears to spin up. Our robot's chassis was fast by having the maximum number of
+        high-power motors attached. Both the fuel collector and the gear collector were incredibly effective. The
+        double wide shooter, guided by camera, could propel 10 fuel every second into the 8 feet tall boiler. The
+        climber’s spinning hook side Velcro drum fastened to fibrous rope and lifted the entire robot to reveal my
+        Easter egg: the bottom of the robot was the team’s logo which could only revealed with a successful climb.</p>
+      <p style="text-align: center;">
+        <img class="lazy" alt="Robot driving with blurred background carrying bright green wiffle balls"
+          title="Hindenbearg" src="2017_lazy.jpg">
       </p>
-      <p class="text-align-center"><img class="main-text-image lazy" alt="Computer render of the robot's CAD"
-          title="Computer rendering" src="2017-render_lazy.png"></p>
-      <hr>
-      <div class="clearfix"> <img class="main-text-image float-right lazy"
-          alt="Robot shooting a ball into a castle with its boxy shooter" title="Xcalibear was a boulder master"
-          src="2016_lazy.jpg">
-        <p><b>2016, Xcalibear:</b> FIRST decided to make every game themed. 2016 was the first and they picked <a
-            href="https://en.wikipedia.org/wiki/FIRST_Stronghold">medieval times</a>. The robots had to scramble over
-          moats, across rubble, and through a portcullis to reach a castle then throw boulders to destroy the tower. Our
-          response had a fitting name: a pun of Excalibur whilst dropping the <i>E</i> to accent that it was our tenth
-          robot. I had initial trouble designing the chassis, but the final version was excellent at traversing any
-          obstacles with its 8 inch pneumatic wheels and dual speed gearboxes.</p>
-        <p class="text-align-center"><img class="main-text-image lazy" alt="Robot flying over a rubble field"
-            title="Robots can fly" src="2016-flying_lazy.jpg"></p>
-      </div>
-      <p class="clearfix"><img class="main-text-image float-left lazy"
-          alt="Computer render of the robot's CAD and descriptions of its mechanisms" title="Computer rendering"
-          src="2016-poster_lazy.jpg">The collector was
-        fun to design. It articulated up, down, and middle with its triple position pneumatic cylinders. It had a
-        separately articulated set of wheels and conveyor belts which swiftly grabbed any boulder in the vicinity. At
-        the world competition, we figured out how to climb using a telescopic arm and a hook. This was another time
-        where we could always climb in practice but rarely could during the matches. This was my first year spending
-        significant time on photorealistic rendering. Albeit my first time, the resulting image turned out better than
-        expected.</p>
-      <hr>
-      <div class="clearfix">
-        <div class="float-right"> <img class="main-text-image lazy"
-            alt="Robot collecting a tote and a recycling container" title="I feel the need - the need for speed"
-            src="2015_lazy.jpg"> <span class="img-caption">Photo by Jacque
-            Grimm</span> </div>
-        <p><b>2015, Maverick:</b> My first robot as the design lead, also our first powdered coated robot.
-          <i>Coincidence? I think not.</i> This attractive robot played an interesting <a
-            href="https://en.wikipedia.org/wiki/Recycle_Rush">game</a> that involved stacking totes and filling
-          recycling containers with pool noodles. <i>I did say interesting</i>. I had fun with the chassis, it was our
-          first robot that could drive sideways! By utilizing an H drive, it could precisely position to align with the
-          totes quickly. The lift made Maverick the one of the tallest robots we have made. Plus, with a pneumatic
-          actuated rake that slammed down on the recycling containers, it was our longest robot. In my opinion, the rake
-          (not pictured) made this robot the most dangerous and intimidating machine in our collection.</p>
-      </div>
-      <hr>
-      <p><b>2014, Bearium:</b> Sort of like volleyball but with exercise balls: <a
-          href="https://en.wikipedia.org/wiki/Aerial_Assist">Aerial Assist</a>. Our approach resulted in one of our
-        scariest robots, but also so cool. The catapult was my task as the assistant design lead. It had massive
-        springs, winched back by a gearbox with a pneumatic clutch, and adjustable range control using over-centered
-        cams. Its performance was excellent, but the overall robot suffered from its poor collector and intermittent
-        electrical faults. This robot taught me that the electronics need to be designed robustly and have easy access
-        for fault troubleshooting, which I have followed ever since.</p>
-      <p class="text-align-center"><img class="main-text-image lazy" alt="Robot carrying a red exercise ball"
-          title="Ready to catapult the ball" src="2014_lazy.jpg"><span class="img-caption">Photo by Darren
-          Collins</span></p>
-      <hr>
-      <div class="clearfix">
-        <div class="float-right"> <img class="main-text-image lazy" alt="Robot climbing a pyramid using its claws"
-            title="It can climb" src="2013_lazy.jpg"> <span class="img-caption">Photo by Jonathan Grimm</span> </div>
-        <p><b>2013, Bearodactyl:</b> This was an exciting <a
-            href="https://en.wikipedia.org/wiki/Ultimate_Ascent">game</a> with an enlightening robot. The goal was to
-          throw frisbees into boxes on the wall and to climb a 10 feet tall pyramid. Our robot’s strategy was to do
-          every task possible in the game. My main contribution was on the climber which gave the robot its name by
-          climbing with claws. I designed various components and after many hours of troubleshooting, it climbed. Check
-          out a <a href="https://www.youtube.com/watch?v=_20W7T2AU9I">video</a> of it working in practice. Somehow
-          successful practice did not result in successful matches. Poor performance in competition taught the team
-          about how the “do all” strategy isn’t always the best.</p>
-      </div>
-      <hr>
-      <p><b>2012, Bearmageddon:</b> <a href="https://en.wikipedia.org/wiki/Rebound_Rumble">Rebound Rumble</a>, a
-        basketball game with tilting bridges. As this was my first official year, I did the usual first year duties:
-        deburring, sanding, cutting stock, etc. It was a while ago, so I don’t remember exactly what I did; though, I do
-        remember designing part of the robot’s turret and machining out some parts on the CNC mill.</p>
-      <p class="text-align-center"><img class="main-text-image lazy"
-          alt="Robot sitting in its pit waiting to play in a match" title="Ready to win" src="2012_lazy.jpg"><span
-          class="img-caption">Photo by Tahoma Robotics
-          Club</span></p>
-      <p>tags: <a href="/search/?q=cad">CAD</a>, <a href="/search/?q=manufacturing">manufacturing</a>, <a
-          href="/search/?q=mechanical">mechanical</a>, <a href="/search/?q=rendering">rendering</a>, <a
-          href="/search/?q=robotics">robotics</a>, <a href="/search/?q=technical%20drawings">technical drawings</a></p>
     </div>
+    <p class="clearfix">At least 2000 parts, from frame members to motors to bolts to electronics to zip ties, were
+      CADed in <a href="https://www.autodesk.com/products/inventor/">Autodesk Inventor</a>. 90% of that work was my
+      doing over the first 18 days of build season. Once the design started being fabricated by our in-house CNC
+      mills, I moved to rendering a preview. I spent countless hours adjusting materials, lighting, and settings to
+      achieve the photorealistic render. Except as my worst critic, I see areas for improvement now two years later.
+    </p>
+    <p style="text-align: center;">
+      <img class="lazy" alt="Computer render of the robot's CAD" title="Computer rendering" src="2017-render_lazy.png">
+    </p>
+    <hr>
+    <div class="clearfix">
+      <img class="right lazy" alt="Robot shooting a ball into a castle with its boxy shooter"
+        title="Xcalibear was a boulder master" src="2016_lazy.jpg">
+      <p><b>2016, Xcalibear:</b> FIRST decided to make every game themed. 2016 was the first and they picked <a
+          href="https://en.wikipedia.org/wiki/FIRST_Stronghold">medieval times</a>. The robots had to scramble over
+        moats, across rubble, and through a portcullis to reach a castle then throw boulders to destroy the tower. Our
+        response had a fitting name: a pun of Excalibur whilst dropping the <i>E</i> to accent that it was our tenth
+        robot. I had initial trouble designing the chassis, but the final version was excellent at traversing any
+        obstacles with its 8 inch pneumatic wheels and dual speed gearboxes.</p>
+      <p style="text-align: center;">
+        <img class="lazy" alt="Robot flying over a rubble field" title="Robots can fly" src="2016-flying_lazy.jpg">
+      </p>
+    </div>
+    <p class="clearfix"><img class="left lazy"
+        alt="Computer render of the robot's CAD and descriptions of its mechanisms" title="Computer rendering"
+        src="2016-poster_lazy.jpg">The collector was
+      fun to design. It articulated up, down, and middle with its triple position pneumatic cylinders. It had a
+      separately articulated set of wheels and conveyor belts which swiftly grabbed any boulder in the vicinity. At
+      the world competition, we figured out how to climb using a telescopic arm and a hook. This was another time
+      where we could always climb in practice but rarely could during the matches. This was my first year spending
+      significant time on photorealistic rendering. Albeit my first time, the resulting image turned out better than
+      expected.
+    </p>
+    <hr>
+    <div class="clearfix">
+      <div style="float: right;">
+        <img class="lazy" alt="Robot collecting a tote and a recycling container"
+          title="I feel the need - the need for speed" src="2015_lazy.jpg">
+        <span class="caption">Photo by Jacque Grimm</span>
+      </div>
+      <p><b>2015, Maverick:</b> My first robot as the design lead, also our first powdered coated robot.
+        <i>Coincidence? I think not.</i> This attractive robot played an interesting <a
+          href="https://en.wikipedia.org/wiki/Recycle_Rush">game</a> that involved stacking totes and filling
+        recycling containers with pool noodles. <i>I did say interesting</i>. I had fun with the chassis, it was our
+        first robot that could drive sideways! By utilizing an H drive, it could precisely position to align with the
+        totes quickly. The lift made Maverick the one of the tallest robots we have made. Plus, with a pneumatic
+        actuated rake that slammed down on the recycling containers, it was our longest robot. In my opinion, the rake
+        (not pictured) made this robot the most dangerous and intimidating machine in our collection.
+      </p>
+    </div>
+    <hr>
+    <p><b>2014, Bearium:</b> Sort of like volleyball but with exercise balls: <a
+        href="https://en.wikipedia.org/wiki/Aerial_Assist">Aerial Assist</a>. Our approach resulted in one of our
+      scariest robots, but also so cool. The catapult was my task as the assistant design lead. It had massive
+      springs, winched back by a gearbox with a pneumatic clutch, and adjustable range control using over-centered
+      cams. Its performance was excellent, but the overall robot suffered from its poor collector and intermittent
+      electrical faults. This robot taught me that the electronics need to be designed robustly and have easy access
+      for fault troubleshooting, which I have followed ever since.</p>
+    <p style="text-align: center;">
+      <img class="lazy" alt="Robot carrying a red exercise ball" title="Ready to catapult the ball" src="2014_lazy.jpg">
+      <span class="caption">Photo by Darren Collins</span>
+    </p>
+    <hr>
+    <div class="clearfix">
+      <div style="float: right;">
+        <img class="main-text-image lazy" alt="Robot climbing a pyramid using its claws" title="It can climb"
+          src="2013_lazy.jpg">
+        <span class="caption">Photo by Jonathan Grimm</span>
+      </div>
+      <p><b>2013, Bearodactyl:</b> This was an exciting <a href="https://en.wikipedia.org/wiki/Ultimate_Ascent">game</a>
+        with an enlightening robot. The goal was to
+        throw frisbees into boxes on the wall and to climb a 10 feet tall pyramid. Our robot’s strategy was to do
+        every task possible in the game. My main contribution was on the climber which gave the robot its name by
+        climbing with claws. I designed various components and after many hours of troubleshooting, it climbed. Check
+        out a <a href="https://www.youtube.com/watch?v=_20W7T2AU9I">video</a> of it working in practice. Somehow
+        successful practice did not result in successful matches. Poor performance in competition taught the team
+        about how the “do all” strategy isn’t always the best.</p>
+    </div>
+    <hr>
+    <p><b>2012, Bearmageddon:</b> <a href="https://en.wikipedia.org/wiki/Rebound_Rumble">Rebound Rumble</a>, a
+      basketball game with tilting bridges. As this was my first official year, I did the usual first year duties:
+      deburring, sanding, cutting stock, etc. It was a while ago, so I don’t remember exactly what I did; though, I do
+      remember designing part of the robot’s turret and machining out some parts on the CNC mill.</p>
+    <p style="text-align: center;">
+      <img class="lazy" alt="Robot sitting in its pit waiting to play in a match" title="Ready to win"
+        src="2012_lazy.jpg">
+      <span class="caption">Photo by Tahoma Robotics Club</span>
+    </p>
+    <p>tags: <a href="/search/?q=cad">CAD</a>, <a href="/search/?q=manufacturing">manufacturing</a>, <a
+        href="/search/?q=mechanical">mechanical</a>, <a href="/search/?q=rendering">rendering</a>, <a
+        href="/search/?q=robotics">robotics</a>, <a href="/search/?q=technical%20drawings">technical drawings</a></p>
   </main>
-  <footer class="fill-horz absolute">
-    <hr class="background-primary fill-horz">
-    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
-    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
-    <div> <a class="icon-link github" href="http://github.com/WattsUp"></a> <a class="icon-link contact"
-        href="mailto:me@bradleydavis.tech"></a> <a class="icon-link search" href="/search/"></a> </div>
-    <div class="footer-brad absolute transition-all-2s">
-      <div class="footer-brad-sprite absolute"></div>
+  <footer>
+    <hr>
+    <h1>&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="icon-link github" href="http://github.com/WattsUp"></a>
+      <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
+      <a class="icon-link search" href="/search/"></a> </div>
+    <div id="footer-brad">
+      <div></div>
     </div>
   </footer>
-  <script src="/standardscript.js"></script>
-  <script src="/lazy-load.js"></script>
 </body>
 
 </html>

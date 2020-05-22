@@ -1,0 +1,5 @@
+.hidden-link, .hidden-link:hover, .hidden-link:active, .hidden-link:visited {
+  color: inherit;
+  text-decoration: none;
+  cursor: text;
+}

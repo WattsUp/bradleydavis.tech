@@ -1,0 +1,416 @@
+/******************************* Loading Screen *******************************/
+
+#loading-screen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  font-size: 50px;
+  z-index: 1000;
+  overflow: hidden;
+  transition: transform 1s;
+  -webkit-transition: transform 1s;
+  -moz-transition: transform 1s;
+  -ms-transition: transform 1s;
+  -o-transition: transform 1s;
+}
+
+#loading-screen>* {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+#loading-screen>canvas {
+  width: 800px;
+  height: 800px;
+}
+
+#loading-screen>span {
+  width: 100%;
+  text-align: center;
+}
+
+/************************************ Main ************************************/
+
+#scroll-container>* {
+  position: absolute;
+  width: 100%;
+}
+
+body {
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+#universe {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+#world {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.distance {
+  position: fixed;
+  bottom: min(15vh, 200px);
+  left: 0;
+  width: 100%;
+}
+
+.distance * {
+  position: absolute;
+}
+
+.unset-position {
+  position: relative;
+}
+
+.unset-position * {
+  position: unset;
+}
+
+.scene {
+  bottom: 0;
+  left: 0;
+}
+
+.scene>* {
+  bottom: 0
+}
+
+.center-wrapper {
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+}
+
+.center-wrapper>* {
+  position: relative;
+}
+
+h1, h2, h3, h4, h5, button {
+  margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+/********************************** Scenery ***********************************/
+
+#sky {
+  background: linear-gradient(rgba(40, 40, 40, 0), rgba(0, 0, 192, 1), rgb(106, 158, 226));
+  width: 2000px;
+  height: 6000px;
+  bottom: -200px;
+  transition: transform 5s ease-out;
+  -webkit-transition: transform 5s ease-out;
+  -moz-transition: transform 5s ease-out;
+  -ms-transition: transform 5s ease-out;
+  -o-transition: transform 5s ease-out;
+}
+
+#stars {
+  width: 2000px;
+  height: 6000px;
+  bottom: -200px;
+}
+
+.ground {
+  width: 100%;
+  height: 200px;
+  bottom: -200px;
+}
+
+.ground.dirt {
+  background: url(images/ground-dirt.png);
+  height: 220px;
+}
+
+.ground.pipes {
+  background: url(images/ground-pipes.png);
+  height: 160px;
+}
+
+.ground.concrete::before, .ground.pipes::before {
+  content: "";
+  display: block;
+  background: url(images/ground-flooring-concrete.png);
+  height: 40px;
+  top: 0;
+  width: 100%;
+  position: absolute;
+}
+
+.ground.pipes::before {
+  top: -40px;
+}
+
+.ground.grass {
+  background: url(images/ground-grass.png);
+}
+
+.ground.rocket {
+  height: 140px;
+  background: url(images/ground-rocket.png);
+  bottom: -170px;
+}
+
+.ground.rocket::before, .ground.rocket:after {
+  content: "";
+  display: block;
+  background: url(images/ground-flooring-tile.png);
+  height: 30px;
+  width: 100%;
+  position: absolute;
+}
+
+.ground.rocket::before {
+  top: -30px;
+}
+
+.ground.rocket::after {
+  bottom: -30px;
+}
+
+.d3>*:not(.ground), .d4>*:not(.ground) {
+  bottom: -4px;
+}
+
+.d3>* {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+.d4>* {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.tree {
+  bottom: 0;
+}
+
+.tree.small {
+  width: 150px;
+  height: 300px;
+  background-image: url(images/tree-1.png);
+}
+
+.tree.medium {
+  width: 200px;
+  height: 400px;
+  background-image: url(images/tree-2.png);
+}
+
+.tree.large {
+  width: 300px;
+  height: 600px;
+  background-image: url(images/tree-3.png);
+}
+
+.tree.huge {
+  width: 400px;
+  height: 800px;
+  background-image: url(images/tree-4.png);
+}
+
+.cloud.small {
+  width: 300px;
+  height: 100px;
+  background-image: url(images/cloud-1.png);
+}
+
+.cloud.large {
+  width: 400px;
+  height: 150px;
+  background-image: url(images/cloud-2.png);
+}
+
+/***************************** Shared Components ******************************/
+
+.thruster {
+  width: 31px;
+  height: 19px;
+  background-image: url(images/thruster-on.png);
+}
+
+.thruster::before {
+  content: '';
+  display: block;
+  width: 31px;
+  height: 19px;
+  background-image: url(images/thruster.png);
+}
+
+.display {
+  text-align: center;
+  color: var(--color-accent);
+}
+
+.display::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  width: calc(100% + 30px);
+  height: calc(100% + 30px);
+}
+
+.display.floating {
+  bottom: 250px;
+  animation: float 5s infinite ease-in-out;
+  -webkit-animation: float 5s infinite ease-in-out;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+    -webkit-transform: translateY(-10px);
+    -moz-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    -o-transform: translateY(-10px);
+  }
+}
+
+.display.floating>.thruster {
+  bottom: -34px;
+}
+
+.display.w400 {
+  width: 370px;
+  height: 220px;
+}
+
+.display.w400::before {
+  background-image: url(images/display-400.png);
+}
+
+.display.w600 {
+  width: 570px;
+  height: 350px;
+}
+
+.display.w600::before {
+  background-image: url(images/display-600.png);
+}
+
+.display.w800 {
+  width: 770px;
+  height: 350px;
+}
+
+.display.w800::before {
+  background-image: url(images/display-800.png);
+}
+
+.hanging-sign {
+  width: 240px;
+  height: 160px;
+  text-align: center;
+  background-image: url(images/hanging-sign.png);
+  color: var(--color-accent);
+}
+
+.hanging-sign>* {
+  top: 100px;
+  left: 12px;
+  width: 216px;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+/************************** Rocket Shared Components **************************/
+
+.rocket-room {
+  left: 6900px;
+  width: 2400px;
+  height: 700px;
+}
+
+.rocket-room .wall {
+  width: 100%;
+  height: 700px;
+  background: var(--color-dark);
+  background-image: url(images/rocket-wall-engineering.png);
+}
+
+.fuselage {
+  bottom: -200px;
+  width: 30px;
+  height: 900px;
+  background: url(images/rocket-fuselage.png);
+}
+
+.rocket-cables {
+  height: 250px;
+  width: 517px;
+  top: 0;
+  background: url(images/rocket-cables.png);
+}
+
+.rocket-cables.long {
+  width: 669px;
+  background: url(images/rocket-cables-long.png);
+}
+
+.tube {
+  width: 150px;
+  background: url(images/tube.png);
+}
+
+.tube.station {
+  height: 250px;
+  background: none;
+}
+
+.tube.station.rear {
+  background: url(images/tube-station-rear.png);
+}
+
+.tube.station:not(.inside)::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 150px;
+  height: 250px;
+  background: url(images/tube-station.png);
+}

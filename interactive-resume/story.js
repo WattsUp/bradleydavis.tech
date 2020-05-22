@@ -1,0 +1,732 @@
+'use strict';
+
+/**
+ * Story elements including scroll position initiated element changes
+ */
+var story = {
+  scenes: [],
+  lastOffscreenSceneCheck: 0,
+  distance: [],
+  distanceSpace: null,
+  lastX: 0,
+  scrollEventEnqueued: false,
+  /**
+   * Initialize the story, add listeners
+   */
+  init: function() {
+    this.distance[0] = document.querySelectorAll('.distance.d0');
+    this.distance[1] = document.querySelector('.distance.d1');
+    this.distance[2] = document.querySelector('.distance.d2');
+    this.distance[3] = document.querySelector('.distance.d3');
+    this.distance[4] = document.querySelector('.distance.d4');
+    this.distanceSpace = document.querySelector('.distance.space');
+
+    this.scenes = document.querySelectorAll('.scene');
+    this.hideOffscreenScenes();
+
+    this.lab.init();
+    this.launchPad.init();
+    this.rocketEngineering.init();
+    this.rocketBridge.init();
+    this.rocketStorage.init();
+    this.shuttle.init();
+    this.mars.init();
+
+    window.addEventListener('scroll', function() {
+      story.scrollListener(false);
+    }.bind(this));
+    window.addEventListener('resize', function() {
+      story.scrollListener(true);
+    }.bind(this));
+  },
+  /**
+   * Process a scroll event
+   * @param {bool} force a recalculate of all scenes
+   */
+  scrollListener: function(force) {
+    if (this.lastSceneX == 0) force = true;
+    let scrollX = window.scrollY;
+    let centerX = scrollX + document.documentElement.offsetWidth / 2;
+
+    // every 200px of movement, check and hide offscreen scenes
+    if (Math.abs(scrollX - this.lastOffscreenSceneCheck) > 200) {
+      this.hideOffscreenScenes(centerX);
+      this.lastOffscreenSceneCheck = scrollX;
+      // force = true;
+    }
+
+    // Move the backgrounds
+    this.setBackground(centerX);
+    this.setBrad(centerX);
+
+    // Update story elements of each scene
+    if ((centerX > 1900 && centerX < 6600) || force) this.lab.update(centerX);
+    if ((centerX > 6200 && centerX < 8100) || force)
+      this.launchPad.update(centerX);
+    if ((centerX > 7000 && centerX < 10000) || force)
+      this.rocketEngineering.update(centerX);
+    if ((centerX > 13000 && centerX < 17000) || force)
+      this.rocketBridge.update(centerX);
+    if ((centerX > 17000) || force) this.shuttle.update(centerX);
+    if ((centerX > 23000) || force) this.mars.update(centerX);
+    console.log(centerX);
+  },
+  /**
+   * Set the brad sprite globally to reduce glitches. Standing and jumping
+   * @param {integer} x
+   */
+  setBrad: function(x) {
+    // Stand still while:
+    brad.standStill = (x < 6050 && x > 2710) ||  // On the rover
+        (x < 7560 && x > 6740) ||                // On the elevator
+        (x < 13570 && x > 9970) ||               // In the tube
+        (x < 16270 && x > 15670) ||              // In the tube
+        (x < 23000 && x > 18330);                // In the shuttle
+
+    if (x > 23220) {
+      brad.jump(false, 0);
+    } else if (x > 23000) {
+      brad.jump(true, 66);
+    } else if (x > 21050) {
+      brad.setTransform(0, -66);
+    } else if (x > 20900) {
+      brad.setTransform(0, -(66 + (20200 - 19800) - 100 - 2 * (x - 20900)));
+    } else if (x > 20800) {
+      brad.setTransform(0, -(66 + (20200 - 19800) - (x - 20800)));
+    } else if (x > 20200) {
+      brad.setTransform(0, -(66 + (20200 - 19800)));
+    } else if (x > 19800) {
+      brad.setTransform(0, -(66 + (x - 19800)));
+    } else if (x > 19000) {
+      brad.setTransform(0, -66);
+    } else if (x > 18100) {
+      brad.jump(true, 66);
+    } else if (x > 17000) {
+      brad.jump(false, 0);
+    } else if (x > 13840) {  // End of tube 0
+      brad.setTransform(0, 0)
+    } else if (x > 13570) {
+      brad.setTransform(13570 - x + 270, 0)
+    } else if (x > 9970) {
+      brad.setTransform(270, 0)
+    } else if (x > 9700) {  // Start of tube 0
+      brad.setTransform(x - 9700, 0)
+    } else if (x > 6500) {
+      brad.setTransform(0, 0)
+    } else if (x > 6050) {  // Rover end
+      brad.jump(false, 0)
+    } else if (x > 2710) {  // Rover start
+      brad.jump(true, 55)
+    } else {
+      brad.jump(false, 0)
+    }
+
+    if ((x > 13570 && x < 16270) || x > 22500) {  // Reverse walking
+      brad.enqueueWalk(x < this.lastX);
+    } else {
+      brad.enqueueWalk(x > this.lastX);
+    }
+
+    brad.setMask(x > 23132);
+
+    this.lastX = x;
+  },
+  /**
+   * Hide the children of scenes that are off screen to reduce layout processing
+   * @param {int} x
+   */
+  hideOffscreenScenes: function(x) {
+    this.scenes[0].hidden = (x > 2900);                 // Intro sign
+    this.scenes[1].hidden = (x > 2900);                 // Intro scene
+    this.scenes[2].hidden = (x > 7600 || x < 1000);     // Lab
+    this.scenes[3].hidden = (x > 8300 || x < 5200);     // Launch pad
+    this.scenes[4].hidden = (x > 7800 || x < 6000);     // Engines
+    this.scenes[5].hidden = (x > 11100 || x < 6000);    // Engineering
+    this.scenes[6].hidden = (x > 11900 || x < 7100);    // XP 0
+    this.scenes[7].hidden = (x > 12900 || x < 10400);   // XP 1
+    this.scenes[8].hidden = (x > 13800 || x < 11300);   // XP 2
+    this.scenes[9].hidden = (x > 16500 || x < 12200);   // Bridge
+    this.scenes[10].hidden = (x > 19400 || x < 12800);  // Storage
+    this.scenes[11].hidden = (x > 19400 || x < 15800);  // Above storage
+    this.scenes[12].hidden = (x > 22300 || x < 19300);  // Astroid belt
+    this.scenes[13].hidden = (x < 22500);               // Mars
+  },
+  /**
+   * Set the position of the backgrounds based on the scroll state
+   * @param {integer} centerX of the screen
+   */
+  setBackground: function(centerX) {
+    let halfWidth = document.documentElement.offsetWidth / 2
+
+    let y = 0;
+    let backgroundShiftY = 0;
+    let x = -(centerX - halfWidth);  // Reverse direction for backgrounds
+
+    if (centerX > 14500) {
+      backgroundShiftY = 6000;
+    }
+
+    if (centerX > 23000) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - 500;
+      x = -(9700 - halfWidth - 820 - 1830 + 22500 - 16270 - (centerX - 23000));
+    } else if (centerX > 22500) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - (centerX - 22500);
+      x = -(9700 - halfWidth - 820 - 1830 + 22500 - 16270);
+    } else if (centerX > 21050) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250;
+      x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
+    } else if (centerX > 20800) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + (centerX - 20800);
+      x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
+    } else if (centerX > 16270) {
+      y = 820 + 13570 - 9970 + 16270 - 15670;
+      x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
+    } else if (centerX > 15670) {
+      y = 820 + 13570 - 9970 + centerX - 15670;
+      x = -(9700 - halfWidth - 820 - 1830);
+    } else if (centerX > 13840) {
+      y = 820 + 13570 - 9970;
+      x = (centerX - 13840) - (9700 - halfWidth - 820);
+    } else if (centerX > 13570) {  // End of experience tube
+      y = 820 + 13570 - 9970;
+      x = -(9700 - halfWidth - 820);
+    } else if (centerX > 9970) {  // Experience tube
+      y = 820 + centerX - 9970;
+      x = -(9700 - halfWidth - 820);
+    } else if (centerX > 9700) {
+      y = 820;
+      x = -(9700 - halfWidth - 820);
+    } else if (centerX > 7560) {  // End of launch pad elevator
+      y = 820;
+      x = -(centerX - halfWidth - 820);
+    } else if (centerX > 6740) {  // Launch pad elevator
+      y = centerX - 6740;
+      x = -(6740 - halfWidth);
+    }
+
+    this.distance[0].forEach(distance => {
+      distance.style.transform = 'translate(' + x + 'px,' + y + 'px)';
+    });
+    this.distance[1].style.transform =
+        'translate(' + (x / 1.5) + 'px,' + (y / 3 + backgroundShiftY) + 'px)';
+    this.distance[2].style.transform =
+        'translate(' + (x / 2) + 'px,' + (y / 4 + backgroundShiftY) + 'px)';
+    this.distance[3].style.transform =
+        'translate(' + (x / 4) + 'px,' + (y / 8 + backgroundShiftY) + 'px)';
+    this.distance[4].style.transform =
+        'translate(' + (x / 8) + 'px,' + (y / 16 + backgroundShiftY) + 'px)';
+    this.distanceSpace.style.transform =
+        'translate(' + (x / 40) + 'px,' + (y / 80) + 'px)';
+  },
+  /**
+   * Perform a teleport animation to the location of the hash
+   * @param {String} hash
+   */
+  teleport: function(hash) {
+    window.scroll(
+        {top: 2095 - window.innerWidth / 2, left: 0, behavior: 'smooth'});
+    setTimeout(function() {
+      brad.jump(true, 35);
+    }, 1000);
+    setTimeout(function() {
+      brad.teleport(false);
+    }, 1500);
+    setTimeout(function() {
+      location.hash = hash;
+      brad.jump(false, 0);
+    }, 3000);
+    setTimeout(function() {
+      brad.teleport(true);
+      this.scrollListener();
+    }.bind(this), 3500);
+  },
+  /**
+   * Lab scene
+   */
+  lab: {
+    rover: null,
+    wheels: [],
+    beam: null,
+    tanks: [],
+    battery: null,
+    lcd: null,
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.rover = document.getElementById('lab-rover');
+      this.wheels = document.querySelectorAll('#lab-rover>.wheel');
+      this.beam = document.querySelector('#lab-rover>.beam');
+      this.tanks = document.querySelectorAll('#lab-tanks>.fluid');
+      this.battery = document.getElementById('lab-battery');
+      this.lcd = document.querySelector('#lab-wsu>div');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      // Jump onto the rover
+      if (x > 6050) {
+        this.rover.style.transform = 'translateX(3340px)';
+        let rotation = 3340 / (Math.PI * 60) * 360;
+        this.wheels[0].style.transform = 'rotateZ(' + rotation + 'deg)';
+        this.wheels[1].style.transform = 'rotateZ(' + rotation + 'deg)';
+      } else if (x > 2710) {
+        this.rover.style.transform = 'translateX(' + (x - 2710) + 'px)';
+        let rotation = (x - 2710) / (Math.PI * 60) * 360;
+        this.wheels[0].style.transform = 'rotateZ(' + rotation + 'deg)';
+        this.wheels[1].style.transform = 'rotateZ(' + rotation + 'deg)';
+      } else {
+        this.rover.style.transform = 'translateX(0)';
+        this.wheels[0].style.transform = 'rotateZ(0)';
+        this.wheels[1].style.transform = 'rotateZ(0)';
+      }
+
+      // Fill tank
+      if (x > 2800)
+        this.tanks.forEach(tank => {tank.style.transform = 'scaleY(1)'});
+      else
+        this.tanks.forEach(tank => {tank.style.transform = 'scaleY(0.01)'});
+
+      // Grab battery
+      if (x > 5590) {
+        this.battery.style.transform = 'translate(733px,-88px)';
+        this.beam.hidden = true;
+        this.lcd.hidden = false;
+      } else if (x > 4857) {
+        let batteryX = x - 4857;
+        this.lcd.hidden = true;
+        this.beam.hidden = false;
+        let batteryY = -Math.min(88, batteryX);
+        this.battery.style.transform =
+            'translate(' + batteryX + 'px,' + batteryY + 'px)';
+        let beamAngle = Math.atan((147 + batteryY - 30) / 170);
+        this.beam.style.transform = 'rotateZ(' + beamAngle + 'rad)';
+      } else {
+        this.lcd.hidden = true;
+        this.beam.hidden = true;
+        this.battery.style.transform = 'translate(0,0)';
+      }
+    }
+  },
+  /**
+   * Launch pad scene
+   */
+  launchPad: {
+    elevator: null,
+    thrusters: [],
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.elevator = document.getElementById('elevator');
+      this.thrusters = document.querySelectorAll('#elevator>.thruster');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      // Use the elevator
+      if (x > 6740) {
+        this.thrusters[0].style.height = 'unset';
+        this.thrusters[1].style.height = 'unset';
+      } else {
+        this.thrusters[0].style.height = 0;
+        this.thrusters[1].style.height = 0;
+      }
+
+      if (x > 7850) {
+        this.elevator.style.transform =
+            'translateY(' + -(7850 - x + 820) + 'px)';
+      } else if (x > 7560) {
+        this.elevator.style.transform = 'translateY(-820px)';
+      } else if (x > 6740) {
+        this.elevator.style.transform = 'translateY(' + -(x - 6740) + 'px)';
+      } else {
+        this.elevator.style.transform = 'translateY(0)';
+      }
+    }
+  },
+  /**
+   * Launch pad scene
+   */
+  rocketEngineering: {
+    door: null,
+    skillSets: [],
+    currentSkillSet: -1,
+    skillSetInterval: null,
+    manualSkillSetTimeout: null,
+    powerCable: null,
+    status: null,
+    tube: [],
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.door = document.getElementById('rocket-door-engineering');
+      this.skillSets =
+          document.querySelectorAll('#scene-rocket-engineering .skill-set');
+      this.skillSetInterval = setInterval(this.selectSkillSet.bind(this), 5000);
+      this.powerCable = document.getElementById('rocket-power-cable');
+      this.status = document.getElementById('rocket-status');
+      this.tube[0] = document.getElementById('tube-front-0');
+      this.tube[1] = document.getElementById('tube-rear-0');
+
+      this.selectSkillSet();
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      // Open and close the door
+      if (x < 8000 && x > 7400) {
+        this.door.classList.add('open');
+      } else {
+        this.door.classList.remove('open');
+      }
+
+      // Connect the cable
+      if (!brad.movingRight) x = x - 65;
+      if (x > 9387) {
+        this.powerCable.style.width = '1077px';
+        this.status.style.color = 'unset';
+      } else if (x > 8310) {
+        this.powerCable.style.width = (x - 8310) + 'px';
+        this.status.style.color = '#FF1C1C';
+      } else {
+        this.powerCable.style.width = 0;
+        this.status.style.color = '#FF1C1C';
+      }
+
+      // Switch the tube layering
+      if (x > 9970) {
+        this.tube[0].hidden = false;
+        this.tube[1].classList.add('inside');
+      } else {
+        this.tube[0].hidden = true;
+        this.tube[1].classList.remove('inside');
+      }
+    },
+    /**
+     *
+     * @param {int} index of skill set to display
+     * @param {boolean} manual true if skill set manually selected (delay before
+     *     resume cycling)
+     */
+    selectSkillSet: function(index = -1) {
+      if (index == -1)
+        index = (this.currentSkillSet + 1) % 4;
+      else {
+        clearInterval(this.skillSetInterval);
+        clearTimeout(this.manualSkillSetTimeout);
+        this.manualSkillSetTimeout = setTimeout(function() {
+          this.selectSkillSet();
+          this.skillSetInterval =
+              setInterval(this.selectSkillSet.bind(this), 5000);
+        }.bind(this), 10000);
+      }
+      this.currentSkillSet = index;
+      for (let i = 0; i < this.skillSets.length; i++)
+        this.skillSets[i].hidden = i != index;
+    }
+  },
+  rocketBridge: {
+    time: -3,
+    timer: null,
+    timerInterval: null,
+    sky: null,
+    world: null,
+    tube: [],
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.timer = document.getElementById('rocket-timer');
+      this.sky = document.getElementById('sky');
+      this.world = document.getElementById('world');
+      this.tube[0] = document.getElementById('tube-front-1');
+      this.tube[1] = document.getElementById('tube-rear-1');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      if (x > 14500 && this.timerInterval == null) {
+        this.incrementTimer();
+        this.timerInterval = setInterval(this.incrementTimer.bind(this), 1000);
+      } else if (x < 13500 && this.timerInterval) {
+        clearInterval(this.timerInterval);
+        this.timerInterval = null;
+        this.time = -4;
+        this.incrementTimer();
+        this.sky.style.transform = 'translateY(0)';
+      }
+
+      // Switch the tube layering
+      if (x > 15670) {
+        this.tube[0].hidden = false;
+        this.tube[1].classList.add('inside');
+      } else {
+        this.tube[0].hidden = true;
+        this.tube[1].classList.remove('inside');
+      }
+    },
+    /**
+     * Increment the launch timer
+     */
+    incrementTimer: function() {
+      this.time++;
+      let string = Math.abs(this.time) > 9 ? Math.abs(this.time) :
+                                             '0' + Math.abs(this.time);
+      if (this.time < 0)
+        this.timer.innerHTML = 'T-' + string;
+      else
+        this.timer.innerHTML = 'T+' + string;
+
+      if (this.time == 0) {
+        this.sky.style.transform = 'translateY(6000px)';
+        this.world.style.animation = 'shake 300ms infinite linear';
+        setTimeout(function() {
+          this.world.style.animation = '';
+        }, 3000);
+      }
+    }
+  },
+  rocketStorage: {
+    projects: [],
+    projectBoxes: [],
+    currentProject: -1,
+    lightning: null,
+    busy: false,
+    stand: null,
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.projects = document.getElementsByClassName('project');
+      this.projectBoxes = document.getElementsByClassName('project-box');
+      this.lightning = document.getElementById('project-storage-lightning');
+      this.stand = document.getElementById('project-storage-stand');
+
+      for (let i = 0; i < this.projects.length; i++) {
+        this.projects[i].style.transform = 'translateX(-50%) scale(0.0)';
+        this.projects[i].style.opacity = 0.0;
+      }
+      this.lightning.hidden = true;
+
+      this.setProject(0);
+    },
+    /**
+     *
+     * @param {integer} index of project to switch to
+     */
+    setProject: function(index) {
+      if (this.busy) {
+        return;
+      }
+      this.busy = true;
+
+      let time = 0;
+      if (this.currentProject != -1) {
+        // Return current project to storage
+        let project = this.projects[this.currentProject];
+        let box = this.projectBoxes[this.currentProject];
+
+        // Deflate current project into its box
+        this.lightning.hidden = false;
+        project.style.transform = 'translateX(-50%) scale(0.0)';
+        project.style.opacity = 0.0;
+        box.style.opacity = 1.0;
+        this.stand.style.transform = 'translateX(-44px)';
+        this.stand.style.height = '3px';
+        time += 500;
+
+        let standHeight = 21 + 40 * this.currentProject;
+        let boxY = -(40 * this.currentProject);
+
+        // Move box onto conveyor
+        setTimeout(function() {
+          this.lightning.hidden = true;
+          box.style.transform = 'translate(-250px, 18px)';
+        }.bind(this), time);
+        time += 500;
+
+        // Move box and conveyor to box slot
+        setTimeout(function() {
+          this.stand.style.transform = 'translateX(93px)';
+          this.stand.style.height = standHeight + 'px';
+          box.style.transform = 'translate(-113px, ' + boxY + 'px)';
+        }.bind(this), time);
+        time += 500;
+
+        // Mox box into slot
+        setTimeout(function() {
+          box.style.transform = 'translate(0, ' + boxY + 'px)';
+        }.bind(this), time);
+        time += 500;
+      }
+
+      // Move conveyor to box slot
+      let standHeight = 21 + 40 * index;
+      setTimeout(function() {
+        this.stand.style.transform = 'translateX(93px)';
+        this.stand.style.height = standHeight + 'px';
+      }.bind(this), time);
+      time += 500;
+
+      // Move box onto conveyor
+      let box = this.projectBoxes[index];
+      let boxY = -(40 * index);
+      setTimeout(function() {
+        box.style.transform = 'translate(-113px, ' + boxY + 'px)';
+      }.bind(this), time);
+      time += 500;
+
+      // Move box and conveyor to the platform
+      setTimeout(function() {
+        this.stand.style.transform = 'translateX(-44px)';
+        this.stand.style.height = '3px';
+        box.style.transform = 'translate(-250px, 18px)';
+      }.bind(this), time);
+      time += 500;
+
+      // Move box onto platform
+      setTimeout(function() {
+        box.style.transform = 'translate(-430px, 18px)';
+      }.bind(this), time);
+      time += 500;
+
+      // Inflate the project
+      let project = this.projects[index];
+      setTimeout(function() {
+        this.lightning.hidden = false;
+        project.style.opacity = 1.0;
+        project.style.transform = 'translateX(-50%) scale(1.0)';
+        box.style.opacity = 0.0;
+        this.stand.style.transform = 'translateX(0)';
+        this.stand.style.height = '21px';
+      }.bind(this), time);
+      time += 500;
+
+      // Turn off lightning, allow changes
+      setTimeout(function() {
+        this.lightning.hidden = true;
+        this.busy = false;
+      }.bind(this), time);
+      time += 500;
+
+      this.currentProject = index;
+    }
+  },
+  shuttle: {
+    shuttle: null,
+    thrust: null,
+    shuttleForeground: null,
+    doorTop: [],
+    doorBottom: [],
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.shuttle = document.getElementById('shuttle');
+      this.thrust = document.getElementById('shuttle-thrust');
+      this.shuttleForeground = document.getElementById('shuttle-foreground');
+      this.doorTop = document.querySelectorAll('#shuttle>.door-top');
+      this.doorBottom = document.querySelectorAll('#shuttle>.door-bottom');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      if (x > 18250 && x < 23108) {
+        // Close door
+        this.doorTop[0].style.transform = 'perspective(600px) rotateX(0)';
+        this.doorTop[1].style.transform = 'perspective(600px) rotateX(0)';
+        this.doorBottom[0].style.transform = 'perspective(600px) rotateX(0)';
+        this.doorBottom[1].style.transform = 'perspective(600px) rotateX(0)';
+      } else {
+        // Open door
+        this.doorTop[0].style.transform = 'perspective(600px) rotateX(180deg)';
+        this.doorTop[1].style.transform = 'perspective(600px) rotateX(180deg)';
+        this.doorBottom[0].style.transform =
+            'perspective(600px) rotateX(-180deg)';
+        this.doorBottom[1].style.transform =
+            'perspective(600px) rotateX(-180deg)';
+      }
+
+      let shuttleX = 0;
+      let shuttleY = 0;
+      if (x > 23000) {
+        shuttleX = 22500 - 18340;
+        shuttleY = -(400 - 150 - 500);
+        this.thrust.hidden = true;
+      } else if (x > 22500) {
+        shuttleX = 22500 - 18340;
+        shuttleY = -(400 - 150 - (x - 22500));
+      } else if (x > 21050) {
+        shuttleX = x - 18340;
+        shuttleY = -(400 - 150);
+      } else if (x > 20900) {
+        shuttleX = x - 18340;
+        shuttleY = -(400 - (x - 20900));
+      } else if (x > 20200) {
+        shuttleX = x - 18340;
+        shuttleY = -(400);
+      } else if (x > 19800) {
+        shuttleX = x - 18340;
+        shuttleY = -(x - 19800);
+      } else if (x > 18340) {
+        shuttleX = x - 18340;
+        shuttleY = 0;
+        this.thrust.hidden = false;
+      } else {
+        this.thrust.hidden = true;
+      }
+      this.shuttle.style.transform =
+          'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
+      this.shuttleForeground.style.transform =
+          'translate(' + shuttleX + 'px, ' + shuttleY + 'px)';
+    }
+  },
+  mars: {
+    mountains: null,
+    mast: null,
+    flag: null,
+    form: null,
+    /**
+     * Initialize the scene elements
+     */
+    init: function() {
+      this.mountains = document.getElementById('mars-mountains');
+      this.mast = document.getElementById('lander-mast');
+      this.flag = document.getElementById('lander-flag');
+      this.form = document.getElementById('lander-form');
+    },
+    /**
+     * Update the scene
+     * @param {int} x
+     */
+    update: function(x) {
+      this.mountains.style.transform =
+          'translateX(' + (-(x - 23000) / 2) + 'px)';
+
+      if (x > 23500) {
+        this.mast.style.transform = 'scale(1.0)';
+        setTimeout(function() {
+          this.flag.style.transform = 'scaleX(1.0)';
+          this.form.style.transform = 'scaleX(1.0)';
+        }.bind(this), 1500);
+      }
+    }
+  }
+};
+
+if (document.readyState == 'Loading')
+  window.addEventListener('DOMContentLoaded', story.init);
+else
+  story.init();

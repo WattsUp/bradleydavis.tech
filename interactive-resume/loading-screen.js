@@ -1,59 +1,73 @@
-/**
- * Function once page is fully loaded
- */
-$(window).bind('load', function() {
-  $('.loading-screen').css('transform', 'translateY(-100%)');
-  setTimeout(function() {
-    clearInterval(interval);
-    $('.loading-screen').hide();
-  }, 1000);
-});
-
-/****************************** Global Variables ******************************/
-var context;
-var nodesX = 3.2;
-var nodesY = 5.1;
-var height = 0;
-var width = 0;
-var startPoint = {x: width / 2, y: height / 2};
-var index = 0;
-var cycleCount = 200;
-var step = 2 * Math.PI / cycleCount;
-var startCount = 20;
-var count = startCount;
-var interval;
-var x = 0;
-var y = 0;
+'use strict';
 
 /**
- * Function run when page is ready
+ * Temporary shield protecting against FOUC
  */
-$(function setupLissajous() {
-  context = $('.loading-canvas')[0].getContext('2d');
-  height = context.canvas.clientHeight;
-  width = context.canvas.clientWidth;
-  startPoint = {x: width / 2, y: height / 2};
-  context.strokeStyle = '#33FF33';
-  context.fillStyle = '#282828';
-  context.fillRect(0, 0, width, height);
-  context.fillStyle = 'rgba(40, 40, 40, 0.07)';
-  interval = setInterval(updateLissajous, 10);
-});
-
-/**
- * Draws the next point of the lissajous
- */
-function updateLissajous() {
-  context.beginPath();
-  context.moveTo(startPoint.x + x, startPoint.y - y);
-  index += step;
-  x = height * Math.sin(nodesX * index) / 2;
-  y = width * Math.sin(nodesY * index) / 2;
-  context.lineTo(startPoint.x + x, startPoint.y - y);
-  count--;
-  if (count <= 0) {
-    count = startCount;
-    context.fillRect(0, 0, width, height);
+var loading = {
+  context: null,
+  startPoint: null,
+  interval: null,
+  x: 0,
+  y: 0,
+  height: 0,
+  width: 0,
+  nodesX: 3.2,
+  nodesY: 5.1,
+  index: 0,
+  count: 40,
+  step: 2 * Math.PI / 400,
+  /**
+   * Initialize listeners
+   */
+  init: function() {
+    window.addEventListener('load', this.hide.bind(this));
+    this.context =
+        document.getElementById('loading-screen').children[0].getContext('2d');
+    this.height = this.context.canvas.clientHeight;
+    this.width = this.context.canvas.clientWidth;
+    this.startPoint = {x: this.width / 2, y: this.height / 2};
+    this.context.strokeStyle = '#33FF33';
+    this.context.fillStyle = '#282828';
+    this.context.fillRect(0, 0, this.width, this.height);
+    this.context.fillStyle = 'rgba(40, 40, 40, 0.07)';
+    this.interval = setInterval(this.update.bind(this), 5);
+  },
+  /**
+   * Slide the screen up then stop rendering and delete it
+   */
+  hide: function() {
+    document.getElementById('loading-screen').style.transform =
+        'translateY(-100%)';
+    document.getElementById('scroll-container').hidden = false;
+    setTimeout(function() {
+      clearInterval(this.interval);
+      document.body.removeChild(document.getElementById('loading-screen'));
+      window.addEventListener('scroll', scene.onFirstScroll);
+      brad.teleport(true);
+    }, 1000);
+  },
+  /**
+   * Redraw the lissajous adding the next point. Painting a slightly opaque
+   * color simulates persistance
+   */
+  update: function() {
+    this.context.beginPath();
+    this.context.moveTo(this.startPoint.x + this.x, this.startPoint.y - this.y);
+    this.index += this.step;
+    this.x = this.height * Math.sin(this.nodesX * this.index) / 2;
+    this.y = this.width * Math.sin(this.nodesY * this.index) / 2;
+    this.context.lineTo(this.startPoint.x + this.x, this.startPoint.y - this.y);
+    this.count--;
+    if (this.count <= 0) {
+      this.count = 20;
+      this.context.fillRect(
+          0, 0, this.context.canvas.width, this.context.canvas.height);
+    }
+    this.context.stroke();
   }
-  context.stroke();
-}
+};
+
+if (document.readyState == 'Loading')
+  window.addEventListener('DOMContentLoaded', loading.init);
+else
+  loading.init();

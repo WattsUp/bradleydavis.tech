@@ -2,14 +2,11 @@
 <html>
 
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
-  <script>     window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');   </script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
   <meta charset="UTF-8">
-  <title>Personal Website | Bradley L. Davis | me@bradleydavis.tech</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="/utils.js"></script>
-  <link rel="stylesheet" href="/standardstyle.css">
+  <script async src="/template.js"></script>
+  <link rel="stylesheet" href="/template.css">
   <link rel="stylesheet" href="/fonts/fonts.css">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -19,64 +16,100 @@
   <meta name="msapplication-TileColor" content="#2d89ef">
   <meta name="theme-color" content="#52ADE1">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Personal Website | Bradley L. Davis | me@bradleydavis.tech</title>
+  <link rel="stylesheet" href="index.css">
+  <script async src="/lazy-load.js"></script>
 </head>
 
-<body class="relative">
-  <header class="background-primary"> <a class="text-title color-dark" href="/">Bradley L. Davis</a>
-    <div class="header-right"> <a class="menu-wheel" href="/about" tabindex="-1">
-        <div class="menu-wheel-icon b-rad"></div>
-        <h1 class="text-body color-dark">About Me</h1>
-      </a> <a class="menu-wheel" href="/portfolio" tabindex="-1">
-        <div class="menu-wheel-icon portfolio"></div>
-        <h1 class="text-body color-dark">Portfolio</h1>
-      </a> <a class="menu-wheel" href="/lab" tabindex="-1">
-        <div class="menu-wheel-icon labs"></div>
-        <h1 class="text-body color-dark">Laboratories</h1>
-      </a> <a class="menu-wheel" href="/life" tabindex="-1">
-        <div class="menu-wheel-icon life"></div>
-        <h1 class="text-body color-dark">Life & Travel</h1>
-      </a> <a class="menu-wheel" href="/contact" tabindex="-1">
-        <div class="menu-wheel-icon contact"></div>
-        <h1 class="text-body color-dark">Contact Me</h1>
-      </a> </div>
+<body>
+  <header>
+    <a href="/">Bradley L. Davis</a>
+    <div>
+      <a href="/about">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="back">
+            <h5>About</h5>
+          </div>
+        </div>
+        <h5>About</h5>
+      </a>
+      <a href="/portfolio">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="back">
+            <h5>Work</h5>
+          </div>
+        </div>
+        <h5>Work</h5>
+      </a>
+      <a href="/lab">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="back">
+            <h5>Labs</h5>
+          </div>
+        </div>
+        <h5>Labs</h5>
+      </a>
+      <a href="/life">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="back">
+            <h5>Life</h5>
+          </div>
+        </div>
+        <h5>Life</h5>
+      </a>
+      <a href="/contact">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="back">
+            <h5>Email</h5>
+          </div>
+        </div>
+        <h5>Email</h5>
+      </a>
+    </div>
   </header>
   <main>
-    <div class="main-text text-body">
-      <h1 class="text-title">Personal Website</h1>
-      <p><a class="icon-link github" href="https://github.com/WattsUp/bradleydavis.tech"></a><a
-          class="icon-link external" href="/"></a></p>
-      <a href="/interactive-resume/"><img class="main-text-image float-right lazy" alt="Screenshot of my interactive resume"
-          title="Interactive resume" src="cover_lazy.png"></a>
-      <p>My personal and professional website started in my first year of college, February 2018. I began with an online
-        version of my resume that feels like a game. A character of myself strolls through a laboratory, rides a rover,
-        launches a rocket, and lands on Mars. All the while walking by my experience, portfolio, and skills. How many
-        Easter eggs can you <a href="eggs.html" class="hidden-link" tabindex="-1">find?</a></p>
-      <p class="text-align-center"><a class="button-accent transition-all-300ms" href="/interactive-resume/">Check out
-          the experience</a></p>
-      <p>The rest of the website began development in February 2019 and was mostly finished a month later. But like all
-        projects, I am continuously improving it and adding content. I have learned much about HTML, CSS, and JavaScript
-        while building it. Furthermore, all artwork, except company logos or explicitly captioned, has been drawn or
-        photographed by me which has improved my fine art skills.</p>
-      <p><i>Thanks Github</i> for hosting it on Github Pages.</p>
-      <p>Pages that <i>might</i> be interesting to you but are probably boring: <a href="/template.html">template</a>,
-        <a href="/404.html">404 page</a>, <a href="/files/resume.html">plain resume</a></p>
-      <p>tags: <a href="/search/?q=art">art</a>, <a href="/search/?q=css">CSS</a>, <a
-          href="/search/?q=github%20pages">Github Pages</a>, <a href="/search/?q=html">HTML</a>, <a
-          href="/search/?q=javascript">JS</a>, <a href="/search/?q=software">software</a></p>
-    </div>
+    <h1 class="text-title">Personal Website</h1>
+    <p>
+      <a class="icon-link github" href="https://github.com/WattsUp/bradleydavis.tech"></a>
+      <a class="icon-link external" href="/"></a>
+    </p>
+    <a href="/interactive-resume/">
+      <img class="right lazy" alt="Screenshot of my interactive resume" title="Interactive resume" src="cover_lazy.png">
+    </a>
+    <p>My personal and professional website started in my first year of college, February 2018. I began with an online
+      version of my resume that feels like a game. A character of myself strolls through a laboratory, rides a rover,
+      launches a rocket, and lands on Mars. All the while walking by my experience, portfolio, and skills. How many
+      Easter eggs can you <a href="eggs.html" class="hidden-link" tabindex="-1">find?</a></p>
+    <p style="text-align: center;"><a class="button accent" href="/interactive-resume/">Check out the experience</a></p>
+    <p>The rest of the website began development in February 2019, and I finished most of it a month later. But like all
+      projects, I am continuously improving it and adding content. I have learned much about HTML, CSS, and JavaScript
+      whilst building it. Furthermore, I have drawn or photographed all artwork, except company logos or explicitly
+      captioned, which has improved my fine art skills.</p>
+    <p><i>Thanks Github</i> for hosting it on Github Pages.</p>
+    <p>Pages that <i>might</i> be interesting to you but are probably boring: <a href="/template.html">template</a>,
+      <a href="/404.html">404 page</a>, <a href="/files/resume.html">plain resume</a></p>
+    <p>tags: <a href="/search/?q=art">art</a>, <a href="/search/?q=css">CSS</a>, <a
+        href="/search/?q=github%20pages">Github Pages</a>, <a href="/search/?q=html">HTML</a>, <a
+        href="/search/?q=js">JS</a>, <a href="/search/?q=software">software</a></p>
   </main>
-  <footer class="fill-horz absolute">
-    <hr class="background-primary fill-horz">
-    <h1 class="text-body">&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
-    <span><a class="text-body" href="/legal-info">Legal Information</a></span>
-    <div> <a class="icon-link github" href="http://github.com/WattsUp"></a> <a class="icon-link contact"
-        href="mailto:me@bradleydavis.tech"></a> <a class="icon-link search" href="/search/"></a> </div>
-    <div class="footer-brad absolute transition-all-2s">
-      <div class="footer-brad-sprite absolute"></div>
+  <footer>
+    <hr>
+    <h1>&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="icon-link github" href="http://github.com/WattsUp"></a>
+      <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
+      <a class="icon-link search" href="/search/"></a> </div>
+    <div id="footer-brad">
+      <div></div>
     </div>
   </footer>
-  <script src="/standardscript.js"></script>
-  <script src="/lazy-load.js"></script>
 </body>
 
 </html>

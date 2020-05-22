@@ -1,0 +1,32 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 40rem;
+  border-width: 0.25rem;
+  margin: 0 auto;
+}
+
+.search-form>input {
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+  font-size: 1.5rem;
+}
+
+.search-form>button {
+  margin: 0.5rem auto;
+}
+
+.hidden-text {
+  opacity: 0.0;
+  transition: 5s opacity;
+  -webkit-transition: 5s opacity;
+  -moz-transition: 5s opacity;
+  -ms-transition: 5s opacity;
+  -o-transition: 5s opacity;
+}
+
+.hidden-text:hover, .hidden-text:active {
+  opacity: 1.0;
+}
