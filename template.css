@@ -605,7 +605,7 @@ banner>div {
 }
 
 banner>div>h1 {
-  text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark), 0.1rem 0.1rem 1rem var(--color-dark), 0rem 0rem 0.1rem var(--color-dark);
+  text-shadow: 0.1rem 0.1rem 0.5rem var(--color-dark), 0.1rem 0.1rem 1rem var(--color-dark), 0 0 0.1rem var(--color-dark);
 }
 
 banner>div>p {
