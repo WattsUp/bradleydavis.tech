@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117703589-1"></script>
+  <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-117703589-1');</script>
+  <meta charset="UTF-8">
+  <script async src="/template.js"></script>
+  <link rel="stylesheet" href="/template.css">
+  <link rel="stylesheet" href="/fonts/fonts.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#52ADE1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>Stonks | Bradley L. Davis | me@bradleydavis.tech</title>
+  <script async src="/lazy-load.js"></script>
+</head>
+
+<body>
+  <header>
+    <a href="/">Bradley L. Davis</a>
+    <div>
+      <a href="/about">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="back">
+            <h5>About</h5>
+          </div>
+        </div>
+        <h5>About</h5>
+      </a>
+      <a href="/portfolio">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="back">
+            <h5>Work</h5>
+          </div>
+        </div>
+        <h5>Work</h5>
+      </a>
+      <a href="/lab">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="back">
+            <h5>Labs</h5>
+          </div>
+        </div>
+        <h5>Labs</h5>
+      </a>
+      <a href="/life">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="back">
+            <h5>Life</h5>
+          </div>
+        </div>
+        <h5>Life</h5>
+      </a>
+      <a href="/contact">
+        <div>
+          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="back">
+            <h5>Email</h5>
+          </div>
+        </div>
+        <h5>Email</h5>
+      </a>
+    </div>
+  </header>
+  <main>
+    <h1 class="text-title">Stonks: Algorithmic Trading Bots</h1>
+    <h2 class="color-accent" style="text-align: center;">Work in Progress</h2>
+    <p>
+      <a class="icon-link github" href="https://github.com/WattsUp/PyStonks"></a>
+    </p>
+    <img class="right lazy" alt="Graph of portfolio return" title="Simulation output of a bot" src="cover_lazy.png">
+    <p>Algorithmic trading is the process of having an automated software executing orders based on historical and
+      present data. This project, currently developed in Python, is a system to design, backtest, and optimize trading
+      bots. Integrated with <a href="https://alpaca.markets/">Alpaca</a> broker specifically designed for
+      algorithmic trading. The simulation fetches historical data from <a href="https://polygon.io/">Polygon.io</a> for
+      backtesting every minute over years. I have also included a walk-forward routine that optimize the algorithm at
+      the start of each trading week for the previous couple of weeks in order to adjust for variations in the market.
+      This is not designed for high frequency trading as there is no chance me in my <span
+        style="text-decoration: line-through;">bedroom</span> business headquarters can compete with the massive
+      infrastructure with special high speed connections to the market exchanges. </p>
+    <p>In addition to the testing framework, I have programmed several bots. It is difficult to compare portfolios as
+      the success may be the result of luck so often the <a href="https://en.wikipedia.org/wiki/Sharpe_ratio">Sharpe
+        ratio</a> is compared. It is a measure of risk to reward; a larger value represents either a higher reward and/or
+      more consistent reward. My real-world results with complete bot control from 2020-06-01 to 2020-07-17 was about
+      20% P/L and a Sharpe ratio of 6.24 (Anything over 3 is excellent). The plot is the result of one bot's simulation
+      over the wild market of 2020 so far. That bot had 290% P/L and a Sharpe ratio of 6.84. The same bot when
+      simulated over 2017-2019 had more reasonable results of 130% (33%/yr) P/L and Sharpe ratio of 1.15. These bots
+      are value trading strategies that place one buy and one sell order a day. I am working on developing bots
+      that use day trading strategies that buy and sell multiple securities multiple times a day. This requires further
+      development of the testing framework to proper simulate order execution price as these strategies rely on making
+      small profits with large volume which a few cents change on price can mean success or failure.</p>
+    <p>The current to do list on this project is use historical quotes to execute orders at the NBBO (National Best Bid
+      and Offer) price, consider changing to C++ to allow lower level access to improve data fetching speed, and develop
+      day trading strategies.</p>
+    <p>tags: <a href="/search/?q=automation">automation</a>, <a href="/search/?q=finance">finance</a>, <a
+        href="/search/?q=python">Python</a>, <a href="/search/?q=software">software</a></p>
+  </main>
+  <footer>
+    <hr>
+    <h1>&copy; <span id="copyright-date">2019</span> Designed and Built by Bradley L. Davis</h1>
+    <span><a href="/legal-info">Legal Information</a></span>
+    <div>
+      <a class="icon-link github" href="http://github.com/WattsUp"></a>
+      <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
+      <a class="icon-link search" href="/search/"></a> </div>
+    <div id="footer-brad">
+      <div></div>
+    </div>
+  </footer>
+</body>
+
+</html>

@@ -787,6 +787,7 @@
   height: 390px;
   left: 40px;
   top: 100px;
+  background: var(--color-dark);
 }
 
 #project-storage-console * {
