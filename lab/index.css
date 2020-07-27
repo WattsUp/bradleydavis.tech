@@ -1,0 +1,16 @@
+.wip::before {
+  content: "Work in Progress";
+  color: var(--color-accent);
+  display: block;
+  position: absolute;
+  font-weight: bold;
+  font-size: 3rem;
+  width: 100%;
+  top: 1rem;
+  text-align: center;
+  text-shadow: 0 0 0.5rem var(--color-dark), 0 0 0.25rem var(--color-dark), 0 0 0.1rem var(--color-dark);
+}
+
+.wip {
+  position: relative;
+}
