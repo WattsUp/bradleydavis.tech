@@ -623,7 +623,7 @@ banner>div>a {
 
 .button {
   display: inline-block;
-  border: 0.1rem solid transparent;
+  border: 2px solid transparent;
   cursor: pointer;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
@@ -639,6 +639,7 @@ banner>div>a {
   -moz-transition: background 0.3s, color 0.3s, border 0.3s;
   -ms-transition: background 0.3s, color 0.3s, border 0.3s;
   -o-transition: background 0.3s, color 0.3s, border 0.3s;
+  outline: none;
 }
 
 .button.accent {
@@ -657,12 +658,12 @@ banner>div>a {
 }
 
 .button.accent:hover {
-  border: 0.1rem solid var(--color-accent);
+  border: 2px solid var(--color-accent);
   text-decoration: none;
 }
 
 .button.accent:active {
-  border: 0.1rem solid var(--color-accent);
+  border: 2px solid var(--color-accent);
   color: var(--color-dark);
   background-color: var(--color-accent);
 }

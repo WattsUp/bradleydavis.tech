@@ -32,7 +32,7 @@ let scene = {
     this.font.onLoad('code-new-roman', function() {
       this.generateXPDisplay(
           displayXPs[0],
-          {'Code': 0.35, 'Testing': 0.3, 'Bug Fixing': 0.2, 'Circuits': 0.15});
+          {'Code': 0.25, 'Testing': 0.35, 'Bug Fixing': 0.2, 'Circuits': 0.2});
       this.generateXPDisplay(displayXPs[1], {
         'Animation': 0.35,
         'Code': 0.3,
@@ -55,7 +55,7 @@ let scene = {
     let context = document.getElementById('stars').getContext('2d');
     context.fillStyle = '#FFFFFF';
     for (let i = 0; i < 3000; i++) {
-      let x = Math.random() * 2000;
+      let x = Math.random() * 6000;
       let y = Math.random() * 6000;
       let r = Math.random() * 2 + 0.5;
       context.beginPath();

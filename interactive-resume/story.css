@@ -448,19 +448,19 @@
 }
 
 .skill.excellent::after {
-  width: 480px;
+  width: 470px;
 }
 
 .skill.skilled::after {
-  width: 360px;
+  width: 350px;
 }
 
 .skill.familiar::after {
-  width: 240px;
+  width: 230px;
 }
 
 .skill.beginner::after {
-  width: 120px;
+  width: 110px;
 }
 
 #skills-console {
@@ -999,17 +999,17 @@
 
 #scene-mars {
   left: 11000px;
-  bottom: 4770px;
+  bottom: 4570px;
 }
 
 #mars-mountains {
-  width: 5200px;
+  width: 6000px;
   height: 100px;
   background: url(images/mars-mountains.png);
 }
 
 #mars-ground {
-  width: 5200px;
+  width: 6000px;
   height: 300px;
   bottom: -260px;
   background: url(images/mars.png);
@@ -1018,7 +1018,7 @@
 #lander {
   width: 300px;
   height: 141px;
-  left: 1300px;
+  left: 2300px;
   background: url(images/mars-lander.png);
 }
 
