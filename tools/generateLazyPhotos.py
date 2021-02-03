@@ -103,19 +103,23 @@ def processFile(file):
   name = matches.expand(r"\1_lazy.\2")
   resize(file, size, 100, name, True)
 
-def resize(file, size, approximate, output, blur):
+def resize(file, size, approximate, output, blur, blurRadius=10):
   factor = math.floor(size[0] / approximate)
   if factor == 0:
     factor = 1
   width = math.floor(size[0] / factor)
   height = math.floor(size[1] / factor)
-  size = '{}x{}'.format(width, height)
-  cmd = ['gm', 'convert', file, '-scale', size]
+  cmd = ['gm', 'convert', file, '-scale', f"{width}x{height}"]
   if blur:
     cmd.append('-gaussian')
-    cmd.append('10')
+    cmd.append(f"{blurRadius}")
   cmd.append(output)
-  subprocess.check_call(cmd)
+  # print(' '.join(cmd))
+  try:
+    subprocess.check_call(cmd)
+  except:
+    print("Trying smaller blur")
+    resize(file, size, approximate, output, blur, blurRadius - 1)
 
 def main():
   args = getArguments()

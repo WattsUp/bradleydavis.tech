@@ -15,7 +15,7 @@
 
 @media (min-width: 700px) {
   .masonry>div>div {
-    min-height: 20rem;
+    min-height: 21rem;
   }
   .masonry>div>div>a>h3 {
     min-height: 7rem;
