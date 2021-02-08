@@ -117,7 +117,7 @@ def resize(file, size, approximate, output, blur, blurRadius=10):
   # print(' '.join(cmd))
   try:
     subprocess.check_call(cmd)
-  except:
+  except Exception:
     print("Trying smaller blur")
     resize(file, size, approximate, output, blur, blurRadius - 1)
 

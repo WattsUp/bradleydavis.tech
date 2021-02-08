@@ -77,7 +77,7 @@ let story = {
       this.rocketBridge.update(centerX);
     if ((centerX > 17000) || force) this.shuttle.update(centerX);
     if ((centerX > 23000) || force) this.mars.update(centerX);
-    console.log(centerX);
+    // console.log(centerX);
   },
   /**
    * Set the brad sprite globally to reduce glitches. Standing and jumping
@@ -148,7 +148,7 @@ let story = {
   hideOffscreenScenes: function(storyX, x, y) {
     // Crosshairs
     x = -x + window.innerWidth / 2;
-    y = y;
+    // y = y;
 
     let margin = 200;
     let bottomMargin = Math.min(window.innerHeight * 0.15, 200) + margin;
@@ -199,7 +199,7 @@ let story = {
     let backgroundShiftY = 0;
     let x = -(centerX - halfWidth);  // Reverse direction for backgrounds
 
-    if (centerX > 12000) {
+    if (centerX > 12500) {
       backgroundShiftY = 6000;
     }
 
@@ -495,7 +495,7 @@ let story = {
     update: function(x) {
       if (x > 17500) {
         this.sky.style.transform = 'translateY(6000px)';
-        this.sky.style.transition = 'none';
+        // this.sky.style.transition = 'none';
         this.time = 1;
       }
       if (x > 14500 && this.timerInterval == null) {
@@ -506,7 +506,7 @@ let story = {
         this.timerInterval = null;
         this.time = -4;
         this.incrementTimer();
-        this.sky.style.transition = 'transform 5s ease-out';
+        // this.sky.style.transition = 'transform 5s ease-out';
         this.sky.style.transform = 'translateY(0)';
       }
 
@@ -534,7 +534,7 @@ let story = {
       if (this.time == 0) {
         this.sky.style.transition = 'transform 5s ease-out';
         this.sky.style.transform = 'translateY(6000px)';
-        this.world.style.animation = 'shake 300ms infinite linear';
+        this.world.style.animation = 'shake 1000ms infinite linear';
         setTimeout(function() {
           this.world.style.animation = '';
         }, 3000);

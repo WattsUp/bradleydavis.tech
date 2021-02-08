@@ -55,8 +55,8 @@ let scene = {
     let context = document.getElementById('stars').getContext('2d');
     context.fillStyle = '#FFFFFF';
     for (let i = 0; i < 3000; i++) {
-      let x = Math.random() * 6000;
-      let y = Math.random() * 6000;
+      let x = Math.random() * 5000;
+      let y = Math.random() * 2500;
       let r = Math.random() * 2 + 0.5;
       context.beginPath();
       context.arc(x, y, r, 0, 2 * Math.PI);
