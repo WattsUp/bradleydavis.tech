@@ -83,9 +83,9 @@ let footer = {
 };
 
 /**
- * Function once page is fully loaded
+ * Function once page is DOM loaded
  */
-function onLoad() {
+function onDOMLoad() {
   document.getElementById('copyright-date').innerHTML =
       (new Date()).getFullYear();
   // When a spoiler is clicked, reduce its background to 10% opacity
@@ -100,7 +100,19 @@ function onLoad() {
   footer.init();
 }
 
-if (document.readyState == 'Loading')
-  window.addEventListener('DOMContentLoaded', onLoad);
+/**
+ * Function once page is fully loaded
+ */
+function onLoad() {
+  document.body.classList.remove("preload");
+}
+
+if (document.readyState == 'loading')
+  window.addEventListener('DOMContentLoaded', onDOMLoad);
+else
+onDOMLoad();
+
+if (document.readyState == 'complete')
+  window.addEventListener('load', onLoad);
 else
   onLoad();
