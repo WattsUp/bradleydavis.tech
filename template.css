@@ -204,6 +204,10 @@ blockquote {
   font-style: italic;
 }
 
+time {
+  white-space: nowrap;
+}
+
 /*********************************** Fonts ************************************/
 
 .text-body {
