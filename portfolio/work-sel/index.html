@@ -18,15 +18,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title>Schweitzer Engineering Laboratories | Bradley L. Davis | me@bradleydavis.tech</title>
+  <script async src="/lazy-load.js"></script>
 </head>
 
-<body>
+<body class="preload">
   <header>
     <a href="/">Bradley L. Davis</a>
     <div>
       <a href="/about">
         <div>
-          <div class="front"><img src="/images/menu-wheel-b-rad.png"></div>
+          <div class="front"><img src="/images/menu-wheel-b-rad.svg"></div>
           <div class="back">
             <h5>About</h5>
           </div>
@@ -35,7 +36,7 @@
       </a>
       <a href="/portfolio">
         <div>
-          <div class="front"><img src="/images/menu-wheel-portfolio.png"></div>
+          <div class="front"><img src="/images/menu-wheel-portfolio.svg"></div>
           <div class="back">
             <h5>Work</h5>
           </div>
@@ -44,7 +45,7 @@
       </a>
       <a href="/lab">
         <div>
-          <div class="front"><img src="/images/menu-wheel-labs.png"></div>
+          <div class="front"><img src="/images/menu-wheel-labs.svg"></div>
           <div class="back">
             <h5>Labs</h5>
           </div>
@@ -53,7 +54,7 @@
       </a>
       <a href="/life">
         <div>
-          <div class="front"><img src="/images/menu-wheel-life.png"></div>
+          <div class="front"><img src="/images/menu-wheel-life.svg"></div>
           <div class="back">
             <h5>Life</h5>
           </div>
@@ -62,7 +63,7 @@
       </a>
       <a href="/contact">
         <div>
-          <div class="front"><img src="/images/menu-wheel-contact.png"></div>
+          <div class="front"><img src="/images/menu-wheel-contact.svg"></div>
           <div class="back">
             <h5>Email</h5>
           </div>
@@ -76,31 +77,54 @@
     <h2>Hardware Engineering Intern</h2>
     <h5>May 2018 - Present // Pullman, WA</h5>
     <p><a class="icon-link external" href="https://selinc.com/solutions/rugged-computers/"></a></p>
-    <p>I joined SEL's <i>Computing Systems</i> team at the end of my freshman year of college. Quickly after catching
-      my bearings, I was assigned the task of redesigning software used to test ethernet ports on the computers we
-      create. With a loose set of requirements, I refined the goal and began developing the software. The final
-      product, written in C++, tests up to ten ports each running at gigabit speeds and can interface in either
+    <p>I joined SEL's <i>Automation Platforms</i> group at the end of my freshman year of college. My team’s primary
+      product in development is an Intel computer designed for rugged environments, the <a
+        href="http://selinc.com/products/3350/">SEL-3350</a> pictured below. It is a 100% passively cooled computer that
+      runs software to communicate to relays, automation controllers, and any other smart grid equipment. Quickly after
+      catching my bearings, I was assigned the task of redesigning software used to test Ethernet ports on these
+      computers we create. With a loose set of requirements, I refined the goal and began developing the software. The
+      final product, written in C++, tests up to ten ports each running at gigabit speeds and can interface in either
       loopback mode or with an auxiliary unit. It is being used extensively in functional and type testing and has
       received positive feedback from the technicians.</p>
-    <p>The next project I ran with addressed an issue in manufacturing that resulted in damage to the assembled unit
-      and a hazardous condition to the assemblers. I spent time exploring the root cause of the issue and presenting
-      to manufacturing some possible fixes. Deciding on a testing tool, I developed a PCB using <a
+    <p style="text-align: center;">
+      <img class="large lazy" alt="Render of SEL-3350 Automation Controller" title="SEL-3350 Automation Controller"
+        src="3350_lazy.jpg">
+      <span class="caption">Photo by SEL</span>
+    </p>
+    <p>Following the Ethernet software, my contributions towards this product include debugging and presenting fixes to
+      electrical bugs. Beyond the initial board bring-up, I regularly execute functional tests to validate the operation
+      of the various circuits. With that comes writing testing plans, using testing tools such as oscilloscopes and
+      Ethernet packet sniffers, documenting and defending results of the tests, and developing solutions to failed test
+      cases. I have also executed and supported various compliance type tests including surge, EFTB, radiated immunity,
+      thermal cycling, & dielectric strength. These tight regulatory specifications often require extensive
+      troubleshooting to identify root cause of the failing test.</p>
+    <p>A hardware project I lead from conception to release was an experiment of a high surge withstanding Gigabit
+      Ethernet interface. The IEEE 802.3 Ethernet standard specifies an isolation requirement of 1500V between a device
+      and a copper Ethernet cable. For most cables runs that need higher requirements (encountered from lightning
+      strikes) fiber optic cables are used. Some applications prefer copper cables for various reasons which is where
+      this project comes in. This project included reading regulations to determine proper surge levels, developing a
+      circuit to survive such a violent impulse, validating Ethernet timing, and executing destructive surge testing to
+      determine limits. To complete this endeavor, I wrote a whitepaper about the project and I presented my results to
+      managers to discuss the commercial adoption of this circuit.</p>
+    <p>Another project I ran with addressed an issue in manufacturing that resulted in damage to the assembled unit and
+      a hazardous condition to the assemblers. I spent time exploring the root cause of the issue and presenting some
+      possible fixes to manufacturing. Deciding on a testing tool, I developed a PCB using <a
         href="http://www.autodesk.com/products/eagle/">Autodesk EAGLE</a> and a CNC router with tight restrictions on
-      size, ease of use, and reliability. The tester has been in use for years and has caught many defects saving
-      money and life.</p>
-    <p>My current task is aiding in the development of an Intel computer designed for rugged environments, see the <a
-        href="http://selinc.com/products/3355/">SEL-3355</a>. I debug and present fixes to electrical bugs encountered
-      with the product. Beyond the initial board bring-up, I regularly execute functional tests to validate the
-      operation of the various circuits. With that comes writing testing plans, using testing tools such as
-      oscilloscopes and ethernet packet sniffers, documenting and defending results of the tests, and developing
-      solutions to failed test cases.</p>
-    <p>In my group, we utilize an agile methodology. I have become accustomed to using <a
-        href="http://www.atlassian.com/software/jira">JIRA</a> to track my tasks and analyze future work. I am also
-      well familiarized with the rituals of agile: sprint planning, stand-ups, and retrospectives.</p>
-    <p>tags: <a href="/search/?q=agile">Agile</a>, <a href="/search/?q=c%2B%2B">C++</a>, <a
-        href="/search/?q=cad">CAD</a>, <a href="/search/?q=computers">computers</a>, <a
-        href="/search/?q=debugging">debugging</a>, <a href="/search/?q=electronics">electronics</a>, <a
-        href="/search/?q=pcbs">PCBs</a>, <a href="/search/?q=software">software</a></p>
+      size, ease of use, and reliability. The tester has been in use for years and has caught many defects saving money
+      and life.</p>
+    <p>Due to ordinary end-of-life notices or extraordinary circumstances (COVID impacted supply chain) alternate parts
+      need to be identified and qualified to maintain uninterrupted product manufacturing. I have handled many of these
+      alternates, most of which is writing documentation comparing the alternate to the original and coordinating with
+      all groups impacted by the change. Some work is done by obtaining samples and testing performance in every product
+      that uses it.</p>
+    <p>In my group, and specifically a team of four engineers, we utilize an agile methodology. I have become accustomed
+      to using <a href="http://www.atlassian.com/software/jira">JIRA</a> to track my tasks and analyze future work. I am
+      also well familiarized with the rituals of agile: sprint planning, stand-ups, and retrospectives.</p>
+    <p>tags: <a href="/search/?q=agile">agile</a>, <a href="/search/?q=c%2B%2B">C++</a>, <a
+        href="/search/?q=cad">CAD</a>, <a href="/search/?q=compliance%20testing">compliance testing</a>, <a
+        href="/search/?q=computers">computers</a>, <a href="/search/?q=debugging">debugging</a>, <a
+        href="/search/?q=electronics">electronics</a>, <a href="/search/?q=pcbs">PCBs</a>, <a
+        href="/search/?q=software">software</a></p>
   </main>
   <footer>
     <hr>
@@ -109,7 +133,8 @@
     <div>
       <a class="icon-link github" href="http://github.com/WattsUp"></a>
       <a class="icon-link contact" href="mailto:me@bradleydavis.tech"></a>
-      <a class="icon-link search" href="/search/"></a> </div>
+      <a class="icon-link search" href="/search/"></a>
+    </div>
     <div id="footer-brad">
       <div></div>
     </div>

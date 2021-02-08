@@ -9,7 +9,7 @@
 .masonry>* {
   grid-column-end: span 1;
   grid-row-end: span 40;
-  border: 0.1rem solid var(--color-light);
+  border: 0.125rem solid var(--color-light);
   border-radius: 1rem;
   -webkit-border-radius: 1rem;
   -moz-border-radius: 1rem;
