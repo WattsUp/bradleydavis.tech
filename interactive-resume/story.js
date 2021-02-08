@@ -10,6 +10,7 @@ let story = {
   distanceSpace: null,
   lastX: 0,
   scrollEventEnqueued: false,
+  scrollContainer: null,
   /**
    * Initialize the story, add listeners
    */
@@ -20,6 +21,7 @@ let story = {
     this.distance[3] = document.querySelector('.distance.d3');
     this.distance[4] = document.querySelector('.distance.d4');
     this.distanceSpace = document.querySelector('.distance.space');
+    this.scrollContainer = document.querySelector('#scroll-container');
 
     this.scenes = document.querySelectorAll('.scene');
     this.hideOffscreenScenes();
@@ -44,20 +46,26 @@ let story = {
    * @param {bool} force a recalculate of all scenes
    */
   scrollListener: function(force) {
-    if (this.lastSceneX == 0) force = true;
+    if (this.lastSceneX == 0 || this.lastSceneX == null) force = true;
     let scrollX = window.scrollY;
-    let centerX = scrollX + document.documentElement.offsetWidth / 2;
+    let centerX =
+        Math.floor(scrollX + document.documentElement.offsetWidth / 2);
 
-    // every 200px of movement, check and hide offscreen scenes
-    if (Math.abs(scrollX - this.lastOffscreenSceneCheck) > 200) {
-      this.hideOffscreenScenes(centerX);
+    // Move the backgrounds
+    let backgroundOffset = this.setBackground(centerX);
+    this.setBrad(centerX);
+
+    this.scrollContainer.style.height =
+        Math.floor(25000 - window.innerWidth / 2 + window.innerHeight) + 'px'
+
+    // every 100px of movement, check and hide offscreen scenes
+    if (Math.abs(scrollX - this.lastOffscreenSceneCheck) > 100) {
+      this.hideOffscreenScenes(
+          centerX, backgroundOffset[0], backgroundOffset[1]);
       this.lastOffscreenSceneCheck = scrollX;
       // force = true;
     }
 
-    // Move the backgrounds
-    this.setBackground(centerX);
-    this.setBrad(centerX);
 
     // Update story elements of each scene
     if ((centerX > 1900 && centerX < 6600) || force) this.lab.update(centerX);
@@ -69,7 +77,7 @@ let story = {
       this.rocketBridge.update(centerX);
     if ((centerX > 17000) || force) this.shuttle.update(centerX);
     if ((centerX > 23000) || force) this.mars.update(centerX);
-    console.log(centerX);
+    // console.log(centerX);
   },
   /**
    * Set the brad sprite globally to reduce glitches. Standing and jumping
@@ -81,11 +89,11 @@ let story = {
         (x < 7560 && x > 6740) ||                // On the elevator
         (x < 13570 && x > 9970) ||               // In the tube
         (x < 16270 && x > 15670) ||              // In the tube
-        (x < 23000 && x > 18330);                // In the shuttle
+        (x < 24200 && x > 18330);                // In the shuttle
 
-    if (x > 23220) {
+    if (x > 24420) {
       brad.jump(false, 0);
-    } else if (x > 23000) {
+    } else if (x > 24200) {
       brad.jump(true, 66);
     } else if (x > 21050) {
       brad.setTransform(0, -66);
@@ -127,33 +135,62 @@ let story = {
       brad.enqueueWalk(x > this.lastX);
     }
 
-    brad.setMask(x > 23132);
+    brad.setMask(x > 24332);
 
     this.lastX = x;
   },
   /**
    * Hide the children of scenes that are off screen to reduce layout processing
+   * @param {int} storyX
    * @param {int} x
+   * @param {int} y
    */
-  hideOffscreenScenes: function(x) {
-    this.scenes[0].hidden = (x > 2900);                 // Intro sign
-    this.scenes[1].hidden = (x > 2900);                 // Intro scene
-    this.scenes[2].hidden = (x > 7600 || x < 1000);     // Lab
-    this.scenes[3].hidden = (x > 8300 || x < 5200);     // Launch pad
-    this.scenes[4].hidden = (x > 7800 || x < 6000);     // Engines
-    this.scenes[5].hidden = (x > 11100 || x < 6000);    // Engineering
-    this.scenes[6].hidden = (x > 11900 || x < 7100);    // XP 0
-    this.scenes[7].hidden = (x > 12900 || x < 10400);   // XP 1
-    this.scenes[8].hidden = (x > 13800 || x < 11300);   // XP 2
-    this.scenes[9].hidden = (x > 16500 || x < 12200);   // Bridge
-    this.scenes[10].hidden = (x > 19400 || x < 12800);  // Storage
-    this.scenes[11].hidden = (x > 19400 || x < 15800);  // Above storage
-    this.scenes[12].hidden = (x > 22300 || x < 19300);  // Astroid belt
-    this.scenes[13].hidden = (x < 22500);               // Mars
+  hideOffscreenScenes: function(storyX, x, y) {
+    // Crosshairs
+    x = -x + window.innerWidth / 2;
+    // y = y;
+
+    let margin = 200;
+    let bottomMargin = Math.min(window.innerHeight * 0.15, 200) + margin;
+    let topMargin = window.innerHeight - bottomMargin + margin;
+    let horzMargin = window.innerWidth / 2 + margin;
+
+    // Intro sign
+    this.scenes[0].hidden = (x > 1910 + horzMargin);
+    // Intro scene
+    this.scenes[1].hidden = (x > 1910 + horzMargin);
+    // Lab
+    this.scenes[2].hidden = (x > 6170 + horzMargin || x < 1910 - horzMargin);
+    // Launch pad
+    this.scenes[3].hidden = (x > 6910 + horzMargin || x < 6110 - horzMargin);
+    // Engines
+    this.scenes[4].hidden = (y > 620 + bottomMargin || x < 6910 - horzMargin);
+    // Engineering
+    this.scenes[5].hidden = (y > 1520 + bottomMargin || x < 6880 - horzMargin);
+    // XP 0
+    this.scenes[6].hidden = (y > 2420 + bottomMargin || y < 1510 - topMargin);
+    // XP 1
+    this.scenes[7].hidden = (y > 3320 + bottomMargin || y < 2410 - topMargin);
+    // XP 2
+    this.scenes[8].hidden = (y > 4220 + bottomMargin || y < 3310 - topMargin);
+    // Bridge
+    this.scenes[9].hidden = (y > 4820 + bottomMargin || y < 4210 - topMargin);
+    // Storage
+    this.scenes[10].hidden = (x > 9300 + horzMargin || y < 4810 - topMargin);
+    // Above storage
+    this.scenes[11].hidden = (x > 9300 + horzMargin || y < 5720 - topMargin);
+    // Above storage 2
+    this.scenes[12].hidden = (x > 9300 + horzMargin || y < 6600 - topMargin);
+    // Astroid belt
+    this.scenes[13].hidden =
+        (x > 12200 + horzMargin || x < 11000 - horzMargin || storyX > 24000);
+    // Mars
+    this.scenes[14].hidden = y > 4970 + bottomMargin;
   },
   /**
    * Set the position of the backgrounds based on the scroll state
    * @param {integer} centerX of the screen
+   * @return {integer, integer} x and y offset of the backgrounds
    */
   setBackground: function(centerX) {
     let halfWidth = document.documentElement.offsetWidth / 2
@@ -162,16 +199,16 @@ let story = {
     let backgroundShiftY = 0;
     let x = -(centerX - halfWidth);  // Reverse direction for backgrounds
 
-    if (centerX > 14500) {
+    if (centerX > 12500) {
       backgroundShiftY = 6000;
     }
 
-    if (centerX > 23000) {
-      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - 500;
-      x = -(9700 - halfWidth - 820 - 1830 + 22500 - 16270 - (centerX - 23000));
-    } else if (centerX > 22500) {
-      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - (centerX - 22500);
-      x = -(9700 - halfWidth - 820 - 1830 + 22500 - 16270);
+    if (centerX > 24200) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - 700;
+      x = -(9700 - halfWidth - 820 - 1830 + 23500 - 16270 - (centerX - 24200));
+    } else if (centerX > 23500) {
+      y = 820 + 13570 - 9970 + 16270 - 15670 + 250 - (centerX - 23500);
+      x = -(9700 - halfWidth - 820 - 1830 + 23500 - 16270);
     } else if (centerX > 21050) {
       y = 820 + 13570 - 9970 + 16270 - 15670 + 250;
       x = -(9700 - halfWidth - 820 - 1830 + centerX - 16270);
@@ -217,6 +254,7 @@ let story = {
         'translate(' + (x / 8) + 'px,' + (y / 16 + backgroundShiftY) + 'px)';
     this.distanceSpace.style.transform =
         'translate(' + (x / 40) + 'px,' + (y / 80) + 'px)';
+    return [x, y];
   },
   /**
    * Perform a teleport animation to the location of the hash
@@ -455,6 +493,11 @@ let story = {
      * @param {int} x
      */
     update: function(x) {
+      if (x > 17500) {
+        this.sky.style.transform = 'translateY(6000px)';
+        // this.sky.style.transition = 'none';
+        this.time = 1;
+      }
       if (x > 14500 && this.timerInterval == null) {
         this.incrementTimer();
         this.timerInterval = setInterval(this.incrementTimer.bind(this), 1000);
@@ -463,6 +506,7 @@ let story = {
         this.timerInterval = null;
         this.time = -4;
         this.incrementTimer();
+        // this.sky.style.transition = 'transform 5s ease-out';
         this.sky.style.transform = 'translateY(0)';
       }
 
@@ -488,8 +532,9 @@ let story = {
         this.timer.innerHTML = 'T+' + string;
 
       if (this.time == 0) {
+        this.sky.style.transition = 'transform 5s ease-out';
         this.sky.style.transform = 'translateY(6000px)';
-        this.world.style.animation = 'shake 300ms infinite linear';
+        this.world.style.animation = 'shake 1000ms infinite linear';
         setTimeout(function() {
           this.world.style.animation = '';
         }, 3000);
@@ -643,7 +688,7 @@ let story = {
      * @param {int} x
      */
     update: function(x) {
-      if (x > 18250 && x < 23108) {
+      if (x > 18250 && x < 24208) {
         // Close door
         this.doorTop[0].style.transform = 'perspective(600px) rotateX(0)';
         this.doorTop[1].style.transform = 'perspective(600px) rotateX(0)';
@@ -661,13 +706,13 @@ let story = {
 
       let shuttleX = 0;
       let shuttleY = 0;
-      if (x > 23000) {
-        shuttleX = 22500 - 18340;
-        shuttleY = -(400 - 150 - 500);
+      if (x > 24200) {
+        shuttleX = 23500 - 18340;
+        shuttleY = -(400 - 150 - 700);
         this.thrust.hidden = true;
-      } else if (x > 22500) {
-        shuttleX = 22500 - 18340;
-        shuttleY = -(400 - 150 - (x - 22500));
+      } else if (x > 23500) {
+        shuttleX = 23500 - 18340;
+        shuttleY = -(400 - 150 - (x - 23500));
       } else if (x > 21050) {
         shuttleX = x - 18340;
         shuttleY = -(400 - 150);
@@ -713,9 +758,9 @@ let story = {
      */
     update: function(x) {
       this.mountains.style.transform =
-          'translateX(' + (-(x - 23000) / 2) + 'px)';
+          'translateX(' + Math.min(0, -(x - 24200) / 2) + 'px)';
 
-      if (x > 23500) {
+      if (x > 24700) {
         this.mast.style.transform = 'scale(1.0)';
         setTimeout(function() {
           this.flag.style.transform = 'scaleX(1.0)';

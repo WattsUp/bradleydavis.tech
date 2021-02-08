@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN"
+              "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="0.48in" height="0.48in"
+     viewBox="0 0 48 48">
+  <path id="Unnamed copy #1"
+        fill="#164693" stroke="none"
+        d="M 24 0
+           A 24 24 0 0 1 24 48
+           A 24 24 0 0 1 24 0" />
+  <path id="Selection"
+        fill="none" stroke="#FFFFFF" stroke-width="1.5"
+        d="M 8.67,13.06
+           C 8.67,13.06 24.17,24.00 24.17,24.00
+             24.17,24.00 39.72,13.00 39.72,13.00M 8.61,34.98
+           C 8.61,34.98 18.02,19.67 18.02,19.67M 39.72,35.00
+           C 39.72,35.00 30.32,19.66 30.32,19.66M 8.61,13.00
+           C 8.61,13.00 8.61,35.00 8.61,35.00
+             8.61,35.00 39.72,35.00 39.72,35.00
+             39.72,35.00 39.72,13.00 39.72,13.00
+             39.72,13.00 8.61,13.00 8.61,13.00 Z" />
+</svg>

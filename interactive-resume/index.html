@@ -31,7 +31,7 @@
     <canvas height="800" width="800"></canvas>
     <span>Bradley L. Davis<br>Interactive Resume<br>Loading...</span>
   </div>
-  <div id="scroll-container" style="height: 24300px" hidden>
+  <div id="scroll-container" style="height: 25000px" hidden>
     <div id="about" style="top: 1000px"></div>
     <div id="skills" style="top: 6800px"></div>
     <div id="experience" style="top: 10000px"></div>
@@ -42,7 +42,7 @@
   <div id="universe" style="position: fixed;">
     <div id="world">
       <div class="distance space">
-        <canvas id="stars" height="6000px" width="2000px"></canvas>
+        <canvas id="stars" height="2500px" width="5000px"></canvas>
         <div id="sky"></div>
       </div>
       <div class="distance d4">
@@ -50,6 +50,8 @@
         <div class="cloud small" style="bottom: 400px; left: 300px"></div>
         <div class="cloud small" style="bottom: 250px; left: 1200px"></div>
         <div class="tree small" style="left: 1000px"></div>
+        <div class="cloud large" style="bottom: 275px; left: 3800px"></div>
+        <div class="tree medium" style="left: 3500px"></div>
       </div>
       <div class="distance d3">
         <div class="ground grass" style="width: 6000px"></div>
@@ -58,13 +60,14 @@
         <div class="tree small" style="left: 350px"></div>
         <div class="tree medium" style="left: 900px"></div>
         <div class="tree medium" style="left: 1700px"></div>
+        <div class="tree large" style="left: 3500px"></div>
       </div>
       <div class="distance d2">
         <div class="cloud large" style="bottom: 260px; left: 800px"></div>
         <div class="cloud small" style="bottom: 400px; left: 2000px"></div>
         <div class="tree large" style="left: 50px"></div>
         <div class="scene" style="width: 100%">
-          <div class="center-wrapper" style="left: 50vw">
+          <div class="center-wrapper" style="left: min(50vw, 1600px)">
             <div class="display w400 floating">
               <div class="unset-position">
                 <h1 class="text-title" style="font-size: 48px; margin-top: 20px">Bradley L. Davis</h1>
@@ -189,12 +192,12 @@
               <h3 class="levels"><span>Beginner</span><span>Familiar</span><span>Skilled</span><span>Excellent</span>
               </h3>
               <h3 class="skill excellent">Autodesk EAGLE</h3>
-              <h3 class="skill excellent">DMM/Oscilloscope</h3>
+              <h3 class="skill excellent">Laboratory Skills</h3>
               <h3 class="skill excellent">Digital Design</h3>
               <h3 class="skill skilled">Analog Design</h3>
-              <h3 class="skill skilled">SMD &#38; THT Soldering</h3>
               <h3 class="skill skilled">LTSpice</h3>
               <h3 class="skill familiar">RF Design</h3>
+              <h3 class="skill familiar">Simulink</h3>
               <h3 class="skill familiar">Verilog</h3>
             </div>
             <div class="skill-set code unset-position">
@@ -203,11 +206,11 @@
               </h3>
               <h3 class="skill excellent">C/C++</h3>
               <h3 class="skill excellent">Java</h3>
-              <h3 class="skill skilled">HTML/CSS</h3>
+              <h3 class="skill skilled">HTML/CSS/JS</h3>
               <h3 class="skill skilled">Git</h3>
-              <h3 class="skill skilled">Javascript</h3>
               <h3 class="skill skilled">Python</h3>
               <h3 class="skill skilled">Regex</h3>
+              <h3 class="skill skilled">MATLAB</h3>
               <h3 class="skill familiar">CMake</h3>
             </div>
             <div class="skill-set wrench unset-position">
@@ -220,7 +223,7 @@
               <h3 class="skill excellent">3D Printers</h3>
               <h3 class="skill skilled">Sheet Metal Design</h3>
               <h3 class="skill skilled">CNC Mill</h3>
-              <h3 class="skill skilled">Metal Lathe</h3>
+              <h3 class="skill skilled">GD&T Drafting</h3>
               <h3 class="skill familiar">Autodesk HSM</h3>
             </div>
             <div class="skill-set pencil unset-position">
@@ -231,8 +234,8 @@
               <h3 class="skill excellent">Photography</h3>
               <h3 class="skill excellent">GIMP</h3>
               <h3 class="skill skilled">Graphic Design</h3>
-              <h3 class="skill skilled">Music Performance</h3>
-              <h3 class="skill familiar">Music Composition</h3>
+              <h3 class="skill familiar">Adobe Photoshop</h3>
+              <h3 class="skill familiar">Adobe Lightroom</h3>
               <h3 class="skill beginner">DaVinci Resolve</h3>
               <h3 class="skill beginner">Adobe Illustrator</h3>
             </div>
@@ -264,9 +267,10 @@
               <h2>Schweitzer Engineering Laboratory</h2>
               <h3>Hardware Engineering Intern</h3>
               <div>
+                <p>Led experimental project of high surge withstanding Gigabit Ethernet interface</p>
+                <p>Aid development for an Intel based rugged industrial computer</p>
+                <p>Perform UL, IEC, & IEEE regulatory type testing</p>
                 <p>Developed a Gigabit Ethernet reliability and throughput testing software</p>
-                <p>Created a testing tool to detect manufacturing defects</p>
-                <p>Aided board bring-up of an Intel based computer</p>
               </div>
             </div>
             <h4>May 2018 - Present</h4>
@@ -366,8 +370,9 @@
               <h1>CougSat-1</h1>
               <h3>WSU's Nanosatellite</h3>
               <p>Cougs in Space is Washington State University’s satellite club. Its first nanosatellite
-                <i>CougSat-1</i> is launching in the Spring of 2020. It is paving a path for aerospace development at
-                WSU and is experimenting a biological payload.</p>
+                <i>CougSat-1</i> is launching in the Fall of 2021. It is paving a path for aerospace development at
+                WSU and is experimenting a biological payload.
+              </p>
               <img src="images/project-cougsat-1.png">
             </a>
             <a href="/lab/cpp-template/" class="project">
@@ -383,7 +388,8 @@
               <p>Tahoma High School’s robotics club, Bear Metal, participated in FIRST Robotics Challenge’s Steamworks
                 in 2017. The robot designed, fabricated, assembled, wired, and programmed in six weeks was named
                 <i>Hindenbearg</i>. The goal of the challenge was to shoot large wiffle balls to build steam pressure,
-                connect an airship’s propellers using gears, and climb a rope onto the airship.</p>
+                connect an airship’s propellers using gears, and climb a rope onto the airship.
+              </p>
               <img src="images/project-hindenbearg.png">
             </a>
             <a href="/lab/personal-website/" class="project">
@@ -402,7 +408,13 @@
           </div>
         </div>
         <div class="scene rocket-room" style="bottom: 5900px">
-          <div class="ground rocket" style="background-position: bottom;"></div>
+          <div class="ground rocket" style="background-position: top;"></div>
+          <div class="wall"></div>
+          <div class="fuselage"></div>
+          <div class="fuselage" style="right: 0"></div>
+        </div>
+        <div class="scene rocket-room" style="bottom: 6800px">
+          <div class="ground rocket" style="background-position: center;"></div>
           <div class="wall"></div>
           <div class="fuselage"></div>
           <div class="fuselage" style="right: 0"></div>
@@ -412,7 +424,7 @@
             <div class="background"></div>
             <div class="overlay">
               <h1 class="color-primary text-title">WSU President's Honor Roll</h1>
-              <h2 class="color-primary">Fall 2018 - Spring 2020</h2>
+              <h2 class="color-primary">Fall 2018 - Fall 2020</h2>
             </div>
           </div>
           <div style="left: 770px; bottom: 600px">
@@ -465,6 +477,10 @@
         <div id="shuttle-foreground"></div>
       </div>
     </div>
+    <!-- <div id="crosshair-window">
+      <div></div>
+      <div></div>
+    </div> -->
   </div>
 </body>
 

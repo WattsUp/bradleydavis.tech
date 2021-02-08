@@ -1,0 +1,2 @@
+# bradleydavis.tech #
+[bradleydavis.tech](https://bradleydavis.tech) is my personal and professional website. Not much to say here, read my [lab entry](https://bradleydavis.tech/lab/personal-website/) on the website for more information.

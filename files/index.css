@@ -47,19 +47,19 @@
 }
 
 #link-cell {
-  background-image: url(/images/cell.png);
+  background-image: url(/images/cell.svg);
 }
 
 #link-email {
-  background-image: url(/images/contact.png);
+  background-image: url(/images/contact.svg);
 }
 
 #link-github {
-  background-image: url(/images/github-dark.png);
+  background-image: url(/images/github-dark.svg);
 }
 
 #link-web {
-  background-image: url(/images/web.png);
+  background-image: url(/images/web.svg);
 }
 
 hr {

@@ -30,6 +30,14 @@ body {
   font-family: quicksand;
 }
 
+body.preload * {
+  transition: none !important;
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
 .background-accent {
   background: var(--color-accent);
 }
@@ -90,7 +98,8 @@ main {
   display: block;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 11rem;
+  padding: 0 1rem 11rem;
+  box-sizing: border-box;
 }
 
 @media (min-width: 770px) {
@@ -128,7 +137,6 @@ main img {
 }
 
 main img.large {
-  width: 50rem;
   max-width: 50rem;
 }
 
@@ -154,28 +162,28 @@ p {
 }
 
 h1 {
-  font-size: 1.6rem;
-  margin-top: 0.6rem;
+  font-size: 1.625rem;
+  margin-top: 0.625rem;
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.375rem;
   margin-top: 0.5rem;
 }
 
 h3 {
-  font-size: 1.3rem;
-  margin-top: 0.4rem;
+  font-size: 1.3125rem;
+  margin-top: 0.375rem;
 }
 
 h4 {
-  font-size: 1.2rem;
-  margin-top: 0.3rem;
+  font-size: 1.1875rem;
+  margin-top: 0.25rem;
 }
 
 h5 {
-  font-size: 1.1rem;
-  margin-top: 0.2rem;
+  font-size: 1.125rem;
+  margin-top: 0.1875rem;
 }
 
 @media (min-width: 770px) {
@@ -202,6 +210,10 @@ blockquote {
   margin-inline-start: 2rem;
   margin-inline-end: 2rem;
   font-style: italic;
+}
+
+time {
+  white-space: nowrap;
 }
 
 /*********************************** Fonts ************************************/
@@ -240,7 +252,7 @@ a:hover, a:active {
 
 a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
   padding-right: 1rem;
-  background: url('/images/external-link.png');
+  background: url('/images/external-link.svg');
   background-repeat: no-repeat;
   background-position: center right;
   background-size: 1rem 1rem;
@@ -260,19 +272,19 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 }
 
 .icon-link.contact {
-  background-image: url('/images/menu-wheel-contact-light.png');
+  background-image: url('/images/menu-wheel-contact-light.svg');
 }
 
 .icon-link.external {
-  background-image: url('/images/menu-wheel-external-light.png');
+  background-image: url('/images/menu-wheel-external-light.svg');
 }
 
 .icon-link.github {
-  background-image: url('/images/github.png');
+  background-image: url('/images/github.svg');
 }
 
 .icon-link.search {
-  background-image: url('/images/menu-wheel-search-light.png');
+  background-image: url('/images/menu-wheel-search-light.svg');
 }
 
 /*********************************** Header ***********************************/
@@ -460,12 +472,12 @@ ul.small, ul.small ul {
 
 ul li {
   background-size: 16px;
-  background-position: 0 1px;
+  background-position: 0 0;
   background-repeat: no-repeat;
   list-style-type: none;
   padding-left: 22px;
   margin: 1px 0;
-  background-image: url('/images/bullet-1.png');
+  background-image: url('/images/bullet-1.svg');
 }
 
 ul.small li {
@@ -474,23 +486,23 @@ ul.small li {
 }
 
 ul li li {
-  background-image: url('/images/bullet-2.png');
+  background-image: url('/images/bullet-2.svg');
 }
 
 ul li li li {
-  background-image: url('/images/bullet-3.png');
+  background-image: url('/images/bullet-3.svg');
 }
 
 ul.dark li {
-  background-image: url('/images/bullet-1-dark.png');
+  background-image: url('/images/bullet-1-dark.svg');
 }
 
 ul.dark li li {
-  background-image: url('/images/bullet-2-dark.png');
+  background-image: url('/images/bullet-2-dark.svg');
 }
 
 ul.dark li li li {
-  background-image: url('/images/bullet-3-dark.png');
+  background-image: url('/images/bullet-3-dark.svg');
 }
 
 ol {
@@ -605,7 +617,7 @@ banner>div {
 }
 
 banner>div>h1 {
-  text-shadow: 0 0 0.5rem var(--color-dark), 0 0 1rem var(--color-dark), 0 0 0.1rem var(--color-dark);
+  text-shadow: 0 0 0.5rem var(--color-dark), 0 0 1rem var(--color-dark), 0 0 0.125rem var(--color-dark);
 }
 
 banner>div>p {
@@ -623,7 +635,7 @@ banner>div>a {
 
 .button {
   display: inline-block;
-  border: 0.1rem solid transparent;
+  border: 2px solid transparent;
   cursor: pointer;
   padding: 0.5rem 1rem;
   font-size: 1.5rem;
@@ -639,6 +651,7 @@ banner>div>a {
   -moz-transition: background 0.3s, color 0.3s, border 0.3s;
   -ms-transition: background 0.3s, color 0.3s, border 0.3s;
   -o-transition: background 0.3s, color 0.3s, border 0.3s;
+  outline: none;
 }
 
 .button.accent {
@@ -657,12 +670,12 @@ banner>div>a {
 }
 
 .button.accent:hover {
-  border: 0.1rem solid var(--color-accent);
+  border: 2px solid var(--color-accent);
   text-decoration: none;
 }
 
 .button.accent:active {
-  border: 0.1rem solid var(--color-accent);
+  border: 2px solid var(--color-accent);
   color: var(--color-dark);
   background-color: var(--color-accent);
 }
@@ -680,11 +693,11 @@ figure img {
   margin: 0;
   max-width: unset;
   max-height: unset;
-  border-radius: 0.9rem;
-  -webkit-border-radius: 0.9rem;
-  -moz-border-radius: 0.9rem;
-  -ms-border-radius: 0.9rem;
-  -o-border-radius: 0.9rem;
+  border-radius: 0.875rem;
+  -webkit-border-radius: 0.875rem;
+  -moz-border-radius: 0.875rem;
+  -ms-border-radius: 0.875rem;
+  -o-border-radius: 0.875rem;
 }
 
 figure figcaption {
