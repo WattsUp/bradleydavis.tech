@@ -90,7 +90,8 @@ main {
   display: block;
   width: 100%;
   margin: 0 auto;
-  padding-bottom: 11rem;
+  padding: 0 1rem 11rem 1rem;
+  box-sizing: border-box;
 }
 
 @media (min-width: 770px) {
@@ -239,7 +240,7 @@ a:hover, a:active {
 
 a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
   padding-right: 1rem;
-  background: url('/images/external-link.png');
+  background: url('/images/external-link.svg');
   background-repeat: no-repeat;
   background-position: center right;
   background-size: 1rem 1rem;
@@ -259,19 +260,19 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 }
 
 .icon-link.contact {
-  background-image: url('/images/menu-wheel-contact-light.png');
+  background-image: url('/images/menu-wheel-contact-light.svg');
 }
 
 .icon-link.external {
-  background-image: url('/images/menu-wheel-external-light.png');
+  background-image: url('/images/menu-wheel-external-light.svg');
 }
 
 .icon-link.github {
-  background-image: url('/images/github.png');
+  background-image: url('/images/github.svg');
 }
 
 .icon-link.search {
-  background-image: url('/images/menu-wheel-search-light.png');
+  background-image: url('/images/menu-wheel-search-light.svg');
 }
 
 /*********************************** Header ***********************************/
@@ -459,12 +460,12 @@ ul.small, ul.small ul {
 
 ul li {
   background-size: 16px;
-  background-position: 0 1px;
+  background-position: 0 0;
   background-repeat: no-repeat;
   list-style-type: none;
   padding-left: 22px;
   margin: 1px 0;
-  background-image: url('/images/bullet-1.png');
+  background-image: url('/images/bullet-1.svg');
 }
 
 ul.small li {
@@ -473,23 +474,23 @@ ul.small li {
 }
 
 ul li li {
-  background-image: url('/images/bullet-2.png');
+  background-image: url('/images/bullet-2.svg');
 }
 
 ul li li li {
-  background-image: url('/images/bullet-3.png');
+  background-image: url('/images/bullet-3.svg');
 }
 
 ul.dark li {
-  background-image: url('/images/bullet-1-dark.png');
+  background-image: url('/images/bullet-1-dark.svg');
 }
 
 ul.dark li li {
-  background-image: url('/images/bullet-2-dark.png');
+  background-image: url('/images/bullet-2-dark.svg');
 }
 
 ul.dark li li li {
-  background-image: url('/images/bullet-3-dark.png');
+  background-image: url('/images/bullet-3-dark.svg');
 }
 
 ol {
