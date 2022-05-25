@@ -7,6 +7,7 @@
   color: var(--color-dark);
   margin: 0 auto 0.25in;
   font-size: 13px;
+  line-height: 14.5px;
 }
 
 .paper.margins {
@@ -20,6 +21,7 @@
 #resume>h1 {
   margin: -14px 0 0 -6px;
   font-size: 56px;
+  line-height: 63.5px;
   color: #4A9CCB;
   color: var(--color-primary-d10);
 }
@@ -27,11 +29,13 @@
 #resume>h2 {
   margin: -6px 0 0 -3px;
   font-size: 30px;
+  line-height: 34px;
 }
 
 #resume>h3 {
   margin: 0 0 2px;
   font-size: 16px;
+  line-height: 18px;
   display: flex;
   justify-content: space-between;
   font-weight: normal;
@@ -78,6 +82,7 @@ hr {
 #panels h1 {
   margin: 0;
   font-size: 22px;
+  line-height: 25px;
   color: #4A9CCB;
   color: var(--color-primary-d10);
 }
@@ -85,11 +90,13 @@ hr {
 #panels h2 {
   margin: 0;
   font-size: 16px;
+  line-height: 18px;
 }
 
 #panels h3 {
   margin: 0;
   font-size: 14px;
+  line-height: 16px;
   color: #949494;
   color: var(--color-dark-b50);
 }
