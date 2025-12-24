@@ -1,15 +1,15 @@
 /****************************** Colors and sizes ******************************/
 
 :root {
-  --color-primary: #52ADE1;
+  --color-primary: #52ade1;
   --color-secondary: #164693;
-  --color-accent: #33FF33;
-  --color-light: #FFFFFF;
+  --color-accent: #33ff33;
+  --color-light: #ffffff;
   --color-dark: #282828;
-  --color-primary-d10: #4A9CCB;
+  --color-primary-d10: #4a9ccb;
   --color-primary-d50: #295771;
-  --color-primary-d80: #10232D;
-  --color-dark-b10: #3D3D3D;
+  --color-primary-d80: #10232d;
+  --color-dark-b10: #3d3d3d;
   --color-dark-b20: #535353;
   --color-dark-b50: #949494;
 }
@@ -245,14 +245,16 @@ a {
   text-decoration: none;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
   text-decoration: underline;
   color: var(--color-accent);
 }
 
-a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
+a[href^="https://"]:not(.icon-link),
+a[href^="http://"]:not(.icon-link) {
   padding-right: 1rem;
-  background: url('/images/external-link.svg');
+  background: url("/images/external-link.svg");
   background-repeat: no-repeat;
   background-position: center right;
   background-size: 1rem 1rem;
@@ -268,23 +270,23 @@ a[href ^="https://"]:not(.icon-link), a[href ^="http://"]:not(.icon-link) {
 }
 
 .icon-link:hover {
-  opacity: 1.0;
+  opacity: 1;
 }
 
 .icon-link.contact {
-  background-image: url('/images/menu-wheel-contact-light.svg');
+  background-image: url("/images/menu-wheel-contact-light.svg");
 }
 
 .icon-link.external {
-  background-image: url('/images/menu-wheel-external-light.svg');
+  background-image: url("/images/menu-wheel-external-light.svg");
 }
 
 .icon-link.github {
-  background-image: url('/images/github.svg');
+  background-image: url("/images/github.svg");
 }
 
 .icon-link.search {
-  background-image: url('/images/menu-wheel-search-light.svg');
+  background-image: url("/images/menu-wheel-search-light.svg");
 }
 
 /*********************************** Header ***********************************/
@@ -296,32 +298,34 @@ header {
   background: var(--color-primary);
 }
 
-header>a {
+header > a {
   font-size: 1.5rem;
   margin: auto 0.75rem;
   font-family: tektrron;
   color: var(--color-dark);
 }
 
-header>a:hover, header>a:active {
+header > a:hover,
+header > a:active {
   color: var(--color-dark);
   text-decoration: none;
 }
 
-header>div {
+header > div {
   display: flex;
 }
 
-header>div>a {
+header > div > a {
   margin: 0.25rem;
   text-align: center;
 }
 
-header>div>a:hover, header>div>a:active {
+header > div > a:hover,
+header > div > a:active {
   text-decoration: none;
 }
 
-header>div>a>div {
+header > div > a > div {
   position: relative;
   width: 3rem;
   height: 3rem;
@@ -333,27 +337,27 @@ header>div>a>div {
   -o-transition: transform 0.5s;
 }
 
-header>div>a>h5 {
+header > div > a > h5 {
   font-size: 0.875rem;
   width: 100%;
   color: var(--color-dark);
 }
 
-@media(hover) {
+@media (hover) {
   /* Hover compatible devices: desktops */
-  header>div>a:hover>div {
+  header > div > a:hover > div {
     transform: rotateY(-180deg);
     -webkit-transform: rotateY(-180deg);
     -moz-transform: rotateY(-180deg);
     -ms-transform: rotateY(-180deg);
     -o-transform: rotateY(-180deg);
   }
-  header>div>a>h5 {
+  header > div > a > h5 {
     display: none;
   }
 }
 
-header>div>a>div>* {
+header > div > a > div > * {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -361,13 +365,13 @@ header>div>a>div>* {
   backface-visibility: hidden;
 }
 
-header>div>a .back>h5 {
+header > div > a .back > h5 {
   font-size: 0.875rem;
   margin: 0;
   width: 100%;
 }
 
-header>div>a>div>.back {
+header > div > a > div > .back {
   transform: rotateY(180deg);
   border-radius: 50%;
   display: flex;
@@ -381,19 +385,19 @@ header>div>a>div>.back {
 }
 
 @media (min-width: 770px) {
-  header>a {
+  header > a {
     font-size: 2rem;
   }
-  header>div>a>div {
+  header > div > a > div {
     width: 3.5rem;
     height: 3.5rem;
   }
-  header>div>a .back>h5 {
+  header > div > a .back > h5 {
     font-size: 1rem;
   }
 }
 
-header>div>a .front>img {
+header > div > a .front > img {
   width: 100%;
   height: 100%;
 }
@@ -411,29 +415,29 @@ footer {
   text-align: center;
 }
 
-footer>div {
+footer > div {
   margin: 0 auto;
   display: flex;
   justify-content: center;
 }
 
-footer>hr {
+footer > hr {
   background: var(--color-primary);
   height: 1rem;
   border: none;
 }
 
-footer>h1 {
+footer > h1 {
   text-align: center;
   font-size: 1rem;
   margin: 0.25rem;
 }
 
-footer>span {
+footer > span {
   margin: 0 auto;
 }
 
-footer>span>a {
+footer > span > a {
   text-align: center;
   font-size: 0.75rem;
   margin: 0.25rem;
@@ -449,10 +453,10 @@ footer>span>a {
   transition: left 2s;
 }
 
-#footer-brad>div {
+#footer-brad > div {
   height: 14rem;
   width: 21rem;
-  background-image: url('/images/brad-sprite.png');
+  background-image: url("/images/brad-sprite.png");
   background-size: contain;
   bottom: 0;
   left: 0;
@@ -462,11 +466,12 @@ footer>span>a {
 /*************************** Unordered list bullets ***************************/
 
 ul {
-  padding-left: 1.0rem;
+  padding-left: 1rem;
   list-style-type: none;
 }
 
-ul.small, ul.small ul {
+ul.small,
+ul.small ul {
   padding-left: 0.5rem;
 }
 
@@ -476,33 +481,33 @@ ul li {
   background-repeat: no-repeat;
   list-style-type: none;
   padding-left: 22px;
-  margin: 1px 0;
-  background-image: url('/images/bullet-1.svg');
+  margin: 2px 0;
+  background-image: url("/images/bullet-1.svg");
 }
 
 ul.small li {
-  background-size: 12px;
+  background-size: 14px;
   padding-left: 16px;
 }
 
 ul li li {
-  background-image: url('/images/bullet-2.svg');
+  background-image: url("/images/bullet-2.svg");
 }
 
 ul li li li {
-  background-image: url('/images/bullet-3.svg');
+  background-image: url("/images/bullet-3.svg");
 }
 
 ul.dark li {
-  background-image: url('/images/bullet-1-dark.svg');
+  background-image: url("/images/bullet-1-dark.svg");
 }
 
 ul.dark li li {
-  background-image: url('/images/bullet-2-dark.svg');
+  background-image: url("/images/bullet-2-dark.svg");
 }
 
 ul.dark li li li {
-  background-image: url('/images/bullet-3-dark.svg');
+  background-image: url("/images/bullet-3-dark.svg");
 }
 
 ol {
@@ -513,11 +518,21 @@ ol {
 
 .spoiler {
   border-radius: 4px;
-  transition: background 1s ease-out, color 1s ease-out;
-  -webkit-transition: background 1s ease-out, color 1s ease-out;
-  -moz-transition: background 1s ease-out, color 1s ease-out;
-  -ms-transition: background 1s ease-out, color 1s ease-out;
-  -o-transition: background 1s ease-out, color 1s ease-out;
+  transition:
+    background 1s ease-out,
+    color 1s ease-out;
+  -webkit-transition:
+    background 1s ease-out,
+    color 1s ease-out;
+  -moz-transition:
+    background 1s ease-out,
+    color 1s ease-out;
+  -ms-transition:
+    background 1s ease-out,
+    color 1s ease-out;
+  -o-transition:
+    background 1s ease-out,
+    color 1s ease-out;
   position: relative;
   padding: 0 0.25rem;
 }
@@ -589,7 +604,7 @@ banner {
   }
 }
 
-banner>a {
+banner > a {
   width: 100%;
   height: 100%;
   display: block;
@@ -597,7 +612,7 @@ banner>a {
   overflow: hidden;
 }
 
-banner>a>img {
+banner > a > img {
   position: absolute;
   width: 100%;
   top: 50%;
@@ -608,7 +623,7 @@ banner>a>img {
   -o-transform: translateY(-50%);
 }
 
-banner>div {
+banner > div {
   position: relative;
   top: 5%;
   left: 5%;
@@ -616,18 +631,23 @@ banner>div {
   min-width: 20rem;
 }
 
-banner>div>h1 {
-  text-shadow: 0 0 0.5rem var(--color-dark), 0 0 1rem var(--color-dark), 0 0 0.125rem var(--color-dark);
+banner > div > h1 {
+  text-shadow:
+    0 0 0.5rem var(--color-dark),
+    0 0 1rem var(--color-dark),
+    0 0 0.125rem var(--color-dark);
 }
 
-banner>div>p {
+banner > div > p {
   padding: 0.5rem 0;
   font-size: 1.25rem;
   font-weight: bold;
-  text-shadow: 0 0 0.25rem var(--color-dark), 0 0 0.5rem var(--color-dark);
+  text-shadow:
+    0 0 0.25rem var(--color-dark),
+    0 0 0.5rem var(--color-dark);
 }
 
-banner>div>a {
+banner > div > a {
   display: inline-block;
 }
 
@@ -646,11 +666,26 @@ banner>div>a {
   -o-border-radius: 0.5rem;
   text-decoration: none;
   margin: 0.25rem;
-  transition: background 0.3s, color 0.3s, border 0.3s;
-  -webkit-transition: background 0.3s, color 0.3s, border 0.3s;
-  -moz-transition: background 0.3s, color 0.3s, border 0.3s;
-  -ms-transition: background 0.3s, color 0.3s, border 0.3s;
-  -o-transition: background 0.3s, color 0.3s, border 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s,
+    border 0.3s;
+  -webkit-transition:
+    background 0.3s,
+    color 0.3s,
+    border 0.3s;
+  -moz-transition:
+    background 0.3s,
+    color 0.3s,
+    border 0.3s;
+  -ms-transition:
+    background 0.3s,
+    color 0.3s,
+    border 0.3s;
+  -o-transition:
+    background 0.3s,
+    color 0.3s,
+    border 0.3s;
   outline: none;
 }
 
@@ -704,7 +739,8 @@ figure figcaption {
   padding: 0.5rem;
 }
 
-figure figcaption>* {
+figure figcaption > * {
   margin: 0;
   padding: 0;
 }
+

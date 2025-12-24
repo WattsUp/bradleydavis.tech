@@ -6,7 +6,8 @@
   background: var(--color-light);
   color: var(--color-dark);
   margin: 0 auto 0.25in;
-  font-size: 13px;
+  font-size: 16px;
+  line-height: 18px;
 }
 
 .paper.margins {
@@ -17,27 +18,33 @@
   margin-bottom: 0;
 }
 
-#resume>h1 {
+#resume > h1 {
   margin: -14px 0 0 -6px;
   font-size: 56px;
-  color: #4A9CCB;
+  line-height: 56px;
+  color: #4a9ccb;
   color: var(--color-primary-d10);
 }
 
-#resume>h2 {
-  margin: -6px 0 0 -3px;
+#resume > h2 {
+  margin: 0 0 0 -3px;
   font-size: 30px;
+  line-height: 30px;
 }
 
-#resume>h3 {
+#resume > h3 {
   margin: 0 0 2px;
   font-size: 16px;
+  line-height: 18px;
   display: flex;
   justify-content: space-between;
   font-weight: normal;
 }
 
-#link-cell, #link-email, #link-github, #link-web {
+#link-cell,
+#link-email,
+#link-github,
+#link-web {
   padding: 0 0 0 24px;
   color: #282828;
   color: var(--color-dark);
@@ -69,37 +76,32 @@ hr {
   border-bottom: none;
 }
 
-#panels {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
 #panels h1 {
   margin: 0;
   font-size: 22px;
-  color: #4A9CCB;
+  line-height: 22px;
+  color: #4a9ccb;
   color: var(--color-primary-d10);
 }
 
 #panels h2 {
   margin: 0;
   font-size: 16px;
+  line-height: 16px;
 }
 
 #panels h3 {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
+  line-height: 16px;
   color: #949494;
   color: var(--color-dark-b50);
 }
 
-#xp {
-  width: 60%;
-}
-
 #info {
-  width: 38%;
+  display: flex;
+  justify-content: space-between;
+  gap: 2%;
 }
 
 p {
@@ -117,12 +119,12 @@ p {
   border: none;
 }
 
-.section>h2>span {
+.section > h2 > span {
   color: #949494;
   color: var(--color-dark-b50);
 }
 
-.section>ul {
+.section > ul {
   margin-bottom: 4px;
 }
 
