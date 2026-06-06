@@ -7,7 +7,7 @@
   color: var(--color-dark);
   margin: 0 auto 0.25in;
   font-size: 16px;
-  line-height: 18px;
+  line-height: 17.5px;
 }
 
 .paper.margins {
@@ -19,7 +19,7 @@
 }
 
 #resume > h1 {
-  margin: -14px 0 0 -6px;
+  margin: -5px 0 0 -6px;
   font-size: 56px;
   line-height: 56px;
   color: #4a9ccb;
@@ -122,6 +122,10 @@ p {
 .section > h2 > span {
   color: #949494;
   color: var(--color-dark-b50);
+}
+
+#info .section h2:not(:first-of-type) {
+  margin-top: 4px;
 }
 
 .section > ul {
